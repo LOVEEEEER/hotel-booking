@@ -5,7 +5,7 @@ import Rooms from "./layouts/Rooms";
 function App() {
   return (
     <>
-      <Route path="/rooms" component={Rooms} />
+      <Route path="/rooms/:roomId?" component={Rooms} />
       <Route path="/" exact component={Main} />
     </>
   );
