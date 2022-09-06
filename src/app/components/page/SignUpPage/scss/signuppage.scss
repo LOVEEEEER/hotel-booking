@@ -1,0 +1,10 @@
+.signup {
+    &__page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 92vh;
+      background-image: url("../../../../assets/images/mainbackground.jpg");
+      background-size: cover;
+    }
+}
