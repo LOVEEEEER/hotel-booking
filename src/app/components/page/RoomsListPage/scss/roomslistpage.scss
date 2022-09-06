@@ -1,0 +1,18 @@
+$content-margin: 15px;
+
+.rooms {
+  &__page {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}

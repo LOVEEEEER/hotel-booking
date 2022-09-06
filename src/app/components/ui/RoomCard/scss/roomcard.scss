@@ -1,0 +1,92 @@
+.room {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
+  transition: 0.2s box-shadow linear;
+  &:hover {
+    box-shadow: 4px 4px 8px 5px rgba(34, 60, 80, 0.2);
+  }
+  &__main-content_wrapper {
+    display: flex;
+  }
+  &__main-content_text-wrapper {
+    padding-top: $content-margin;
+  }
+  &__description {
+    width: 400px;
+  }
+  &__image {
+    margin-right: 30px;
+    width: 400px;
+    height: 250px;
+  }
+  &__more-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: $content-margin;
+    margin-right: 20px;
+  }
+  &__name {
+    margin-bottom: 15px;
+    color: #666666;
+  }
+  &__description {
+    color: #666666;
+  }
+  &__price {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #666666;
+    span {
+      font-size: 30px;
+      font-weight: 600;
+      color: rgb(134, 118, 226);
+  
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .room {
+    &__image {
+      width: 300px;
+    }
+    &__name {
+      font-size: 20px;
+    }
+    &__description {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .room {
+    &__description {
+      width: 250px;
+    }
+    &__name {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 880px) {
+  .room {
+    flex-direction: column;
+    &__description {
+      display: none;
+    }
+    &__name {
+      font-size: 15px;
+    }
+    &__image {
+      width: 100%;
+    }
+
+  }
+}
