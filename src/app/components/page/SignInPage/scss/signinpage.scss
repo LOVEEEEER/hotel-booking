@@ -1,0 +1,24 @@
+.signin__page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+  background-image: url("../../../../assets/images/mainbackground.jpg");
+  background-size: cover;
+}
+
+.form {
+  &-card {
+    padding: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+  &-title {
+    margin-bottom: 30px;
+    font-size: 22px;
+  }
+  &-offer {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+}
