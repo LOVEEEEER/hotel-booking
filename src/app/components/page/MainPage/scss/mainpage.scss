@@ -1,0 +1,40 @@
+.main {
+  &__container {
+    padding-top: 25vh;
+  }
+  &__page {  
+    background-size: cover;
+    background-image: url("../../../../assets/images/mainbackground.jpg");
+    height: 92vh;
+  }
+  &__title {  
+    margin-bottom: 30px;
+    width: 600px;
+    font-size: 50px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  &__description {
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+  &__buy-button {
+    margin-bottom: auto;
+    padding: 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+    background: radial-gradient(132.6% 1892.39% at 29.66% 0%, #CA03FC 0%, rgba(158, 0, 172, 0) 100%);
+    border: 0;
+    border-radius: 15px;
+    transition: opacity 0.5s linear;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+  &__description {
+    font-size: 25px;
+    margin-bottom: 30px;
+    width: 500px;
+  }
+}
