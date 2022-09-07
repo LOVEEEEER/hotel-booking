@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const MainPage = () => {
   const history = useHistory();
   const handleToggleHotelsPage = () => {
-    history.push("/hotels");
+    history.push("/rooms");
   };
   return (
     <>

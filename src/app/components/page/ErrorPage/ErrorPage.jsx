@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 const ErrorPage = () => {
   const history = useHistory();
   const handleTogglePage = () => {
-    history.replace("/hotels");
+    history.replace("/rooms");
   };
   return (
     <main className="error">
