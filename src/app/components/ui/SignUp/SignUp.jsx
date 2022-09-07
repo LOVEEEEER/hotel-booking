@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "../../common/TextField";
 import { validator } from "../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
+import CheckboxField from "../../common/CheckboxField";
 import Button from "../../common/Button";
 
 const SignUp = () => {
@@ -11,6 +12,7 @@ const SignUp = () => {
     email: "",
     password: "",
     twicePassword: "",
+    license: false,
   });
   const handleChange = ({ target }) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }));
@@ -73,9 +75,19 @@ const SignUp = () => {
         onChange={handleChange}
         name="twicePassword"
         value={data.twicePassword}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "15px", minWidth: "400px" }}
         helperText={errors.twicePassword}
       />
+      <br />
+      <CheckboxField
+        label="Подтвердить пользовательское соглашение"
+        onChange={handleChange}
+        value={data.license}
+        name="license"
+        sx={{ marginBottom: "15px" }}
+      >
+        Подтвердить пользовательское <a>соглашение</a>
+      </CheckboxField>
       <br />
       <Button
         type="submit"

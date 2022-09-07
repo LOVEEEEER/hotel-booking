@@ -27,4 +27,9 @@ export const validatorConfig = {
       params: 8,
     },
   },
+  license: {
+    isRequired: {
+      message: "Необходимо подтвердить пользовательское соглашение",
+    },
+  },
 };
