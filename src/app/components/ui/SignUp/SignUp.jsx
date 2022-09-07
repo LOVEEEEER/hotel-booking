@@ -85,7 +85,9 @@ const SignUp = () => {
         value={data.license}
         name="license"
         sx={{ marginBottom: "15px" }}
-      />
+      >
+        Подтвердить пользовательское <a>соглашение</a>
+      </CheckboxField>
       <br />
       <Button
         type="submit"

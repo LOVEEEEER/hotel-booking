@@ -1,8 +1,8 @@
 import React from "react";
-import { Checkbox } from "@mui/material";
+import { Checkbox, FormGroup } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-const CheckboxField = ({ label, value, name, onChange, sx }) => {
+const CheckboxField = ({ children, value, name, onChange, sx }) => {
   const handleChange = ({ target: { name } }) => {
     const fakeEvent = {
       target: {
@@ -10,7 +10,6 @@ const CheckboxField = ({ label, value, name, onChange, sx }) => {
         value: !value,
       },
     };
-    console.log(value);
     onChange(fakeEvent);
   };
   return (
@@ -18,7 +17,7 @@ const CheckboxField = ({ label, value, name, onChange, sx }) => {
       <FormControlLabel
         sx={sx}
         control={<Checkbox value={value} onChange={handleChange} name={name} />}
-        label={label}
+        label={children}
       />
     </>
   );
