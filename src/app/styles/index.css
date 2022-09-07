@@ -25,3 +25,9 @@ html {
   margin-right: auto;
   max-width: 1300px;
 }
+
+.swiper-image {
+  height: 600px;
+  width: 100%;
+  transition: box-shadow 0.5s linear;
+}

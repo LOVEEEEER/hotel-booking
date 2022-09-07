@@ -1,0 +1,100 @@
+.room {
+  &__page {
+    padding-bottom: 60px;
+  }
+  &-cover__head-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  &-cover__title {
+    margin-right: 11px;
+    font-size: 35px;
+    font-weight: 600;
+  }
+  &-cover__type {
+    color: rgb(134, 118, 226);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  &-cover__type-text {
+    color: #000000;
+  }
+  &-cover__rate-name {
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  &-cover__rate {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 40px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #32ba43;
+    border-radius: 6px;
+  }
+  &-cover__rate-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &-cover__rate-text {
+    color: #090;
+  }
+  &-cover__title-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &-info__properties {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    font-weight: 700;
+  }
+  &-info__properties-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  &-info__properties-title {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  &-info__properties-name {
+    margin-left: 7px;
+    font-size: 22px;
+    font-weight: 400;
+    border-bottom: 1px dotted #b686c5;
+  }
+  &-info__container { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-info__properties-list {
+    padding: 20px;
+    width: 600px;
+    -webkit-column-count: 2;
+    column-count: 2;
+    border: 4px solid #b686c5;
+    border-radius: 10px;
+  }
+  &-info__booking {
+    padding: 20px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+  &-info__booking-name {
+    margin-bottom: 20px;
+  }
+}
+.love-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}

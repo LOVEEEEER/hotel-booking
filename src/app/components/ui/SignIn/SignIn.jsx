@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TextField from "../../common/TextField";
-import { Button } from "@mui/material";
+import Button from "../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { validator } from "../../../utils/validator";
 
@@ -55,9 +55,8 @@ const SignIn = () => {
         type="submit"
         sx={{ width: "100%", padding: "9px" }}
         variant="outlined"
-      >
-        Войти
-      </Button>
+        label="Войти"
+      />
     </form>
   );
 };
