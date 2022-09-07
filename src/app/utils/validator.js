@@ -3,7 +3,7 @@ export const validator = (data, config) => {
   function validate(validateMethod, data, config) {
     switch (validateMethod) {
       case "isRequired":
-        if (data === "") return config.message;
+        if (!Boolean(data)) return config.message;
         break;
       case "isEmail":
         if (!/^\S+@\S+\.\S+$/g.test(data)) return config.message;

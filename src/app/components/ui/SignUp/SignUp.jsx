@@ -3,6 +3,7 @@ import TextField from "../../common/TextField";
 import { Button } from "@mui/material";
 import { validator } from "../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
+import CheckboxField from "../../common/CheckboxField";
 
 const SignUp = () => {
   const [errors, setErrors] = useState({});
@@ -11,6 +12,7 @@ const SignUp = () => {
     email: "",
     password: "",
     twicePassword: "",
+    license: false,
   });
   const handleChange = ({ target }) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }));
@@ -73,8 +75,16 @@ const SignUp = () => {
         onChange={handleChange}
         name="twicePassword"
         value={data.twicePassword}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "15px", minWidth: "400px" }}
         helperText={errors.twicePassword}
+      />
+      <br />
+      <CheckboxField
+        label="Подтвердить пользовательское соглашение"
+        onChange={handleChange}
+        value={data.license}
+        name="license"
+        sx={{ marginBottom: "15px" }}
       />
       <br />
       <Button
