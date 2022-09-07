@@ -10,6 +10,14 @@ const hotels = [
       "https://sun9-51.userapi.com/impg/c5kt3rtfHDQ4STffEHwsYAZt9gpmiPWQlzdQcQ/viPboFO4Cxg.jpg?size=582x436&quality=96&sign=c37327f02919974715940ced0367701a&type=album",
       "https://sun9-7.userapi.com/impg/dKoaKSIeqnIYnIbTjkfCcPfkMDeuAW9o-SK4wA/6Ry8wVu030A.jpg?size=582x436&quality=96&sign=ee3a186efe9e07e56986e25a5f65750f&type=album",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "c00bf6ea-6871-4ba1-91b7-8c7096ed0133",
@@ -21,6 +29,14 @@ const hotels = [
       "https://sun9-30.userapi.com/impg/QVSsCjdSJFOwvkYgzev7Evhx22sILhEMHoBL3Q/df_RoPlenBM.jpg?size=582x437&quality=96&sign=86538a64a3fab48d69be1c11b75002c8&type=album",
       "https://sun9-16.userapi.com/impg/11giQ23OlYkOOQgsTWKQ4Czh3Dnf5qkZPrdg4w/GQMb-ofqjdQ.jpg?size=582x436&quality=96&sign=6a62371e06e9050a66f3ddafa141b660&type=album",
       "https://sun9-9.userapi.com/impg/dHdpSxsn-4y70Q6bbtcnnDQAmE7PKke7XdnXyQ/ldGzRhi8zlQ.jpg?size=582x437&quality=96&sign=ef5ebee59bc9e7d9a2d4f1443aa790de&type=album",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -34,6 +50,14 @@ const hotels = [
       "https://sun9-19.userapi.com/impg/HORFhDF1RG3Uy4jysPqr7rzw_AU8KAOXvhLKcw/mbZv05C-5WI.jpg?size=582x436&quality=96&sign=509dfc54a263985a1b263d02fb33002b&type=album",
       "https://sun9-13.userapi.com/impg/wo-IsEQ6o4kBGbxg8YPwl45UZwCoG5fqTENCwA/85vquHXyAe4.jpg?size=582x436&quality=96&sign=983cf68648b853315489295499b39f6f&type=album",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "88dded2c-a9bf-42fe-be67-ddcc8ab3d561",
@@ -45,6 +69,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1631048730670-ff5cd0d08f15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1631048730670-ff5cd0d08f15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1631049421450-348ccd7f8949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -58,6 +90,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1572891086295-6c1c7c476549?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "20af8b10-ecc1-4b1b-9c36-f7fb74f58378",
@@ -69,6 +109,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -82,6 +130,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "1000d646-07fe-4450-819c-f1c3106d785c",
@@ -93,6 +149,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1505692433770-36f19f51681d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1501876725168-00c445821c9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -106,6 +170,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       "https://images.unsplash.com/photo-1612152605347-f93296cb657d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "48438004-0139-4af7-a642-f7a444f1d144",
@@ -117,6 +189,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80",
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -130,6 +210,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "79e86bb0-a991-4c76-b646-f4fff3fac8d4",
@@ -141,6 +229,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1590490359854-dfba19688d70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       "https://images.unsplash.com/photo-1590490359683-658d3d23f972?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -154,6 +250,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1625244695851-1fc873f942bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1631049035113-4a68ecf80b1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "daa13b59-9703-4420-83d2-83564d727aeb",
@@ -165,6 +269,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       "https://images.unsplash.com/photo-1592229505678-cf99a9908e03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       "https://images.unsplash.com/photo-1601565415267-724db0e9fbdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
   {
@@ -178,6 +290,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
       "https://images.unsplash.com/photo-1582582588373-db70762e81cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
     ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
+    ],
   },
   {
     id: "d65c1e45-6135-4c3a-90d3-a9ff48cd6ab2",
@@ -189,6 +309,14 @@ const hotels = [
       "https://images.unsplash.com/photo-1611892441796-ae6af0ec2cc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1584132923901-cd27c0cdd88e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    ],
+    comfort: [
+      "wifi",
+      "swimmingPool",
+      "parking",
+      "bankCard",
+      "gym",
+      "conditioner",
     ],
   },
 ];

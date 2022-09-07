@@ -20,6 +20,7 @@ export const validator = (data, config) => {
       case "isEnd":
         if (!/[A-Z]+/g.test(data)) return config.message;
         break;
+
       default:
     }
   }

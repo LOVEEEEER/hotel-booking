@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
-import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom";
+import Button from "../../common/Button";
 
 const RoomCard = ({ images, type, title, rate, price, id }) => {
   const history = useHistory();
@@ -28,9 +28,11 @@ const RoomCard = ({ images, type, title, rate, price, id }) => {
         <p className="room__price">
           Цена от <br /> <span>{price} руб</span> <br /> за ночь
         </p>
-        <Button variant="outlined" onClick={handleToggleHotelPage}>
-          Подробнее об отеле
-        </Button>
+        <Button
+          variant="outlined"
+          onClick={handleToggleHotelPage}
+          label="Подробнее об отеле"
+        />
       </div>
     </div>
   );
