@@ -18,6 +18,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
   },
   {
     id: "c00bf6ea-6871-4ba1-91b7-8c7096ed0133",
@@ -38,6 +39,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "5b8c1a24-34d6-46f2-ac61-fdc8d912ca8c",
@@ -58,6 +60,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "88dded2c-a9bf-42fe-be67-ddcc8ab3d561",
@@ -78,6 +81,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "54cadbbc-149b-469f-b603-489086ac8c84",
@@ -98,6 +102,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "20af8b10-ecc1-4b1b-9c36-f7fb74f58378",
@@ -118,6 +123,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "89afd507-046e-49bf-a6d3-211abec7d804",
@@ -138,6 +144,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "1000d646-07fe-4450-819c-f1c3106d785c",
@@ -158,6 +165,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "d49e6a20-9a8f-4807-80fe-ccde2282b733",
@@ -178,6 +186,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "48438004-0139-4af7-a642-f7a444f1d144",
@@ -198,6 +207,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "baf1f1e7-d468-4d66-a8dd-80ecafb0c338",
@@ -218,6 +228,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "79e86bb0-a991-4c76-b646-f4fff3fac8d4",
@@ -238,6 +249,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "fde2a427-387e-4252-a430-485c243b687a",
@@ -258,6 +270,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "daa13b59-9703-4420-83d2-83564d727aeb",
@@ -278,6 +291,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "ded2a1f5-6173-4860-aa44-4ab9b13a87ce",
@@ -298,6 +312,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
   {
     id: "d65c1e45-6135-4c3a-90d3-a9ff48cd6ab2",
@@ -318,6 +333,7 @@ const hotels = [
       "gym",
       "conditioner",
     ],
+    breakfast: ["итальянский", "вегетарианский", "халяльный", "swedish"],
   },
 ];
 

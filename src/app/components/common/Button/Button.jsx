@@ -3,7 +3,7 @@ import { Button as ButtonMui } from "@mui/material";
 
 const Button = ({ type, label, ...rest }) => {
   return (
-    <ButtonMui type={type} {...rest}>
+    <ButtonMui type={type} variant="contained" {...rest}>
       {label}
     </ButtonMui>
   );

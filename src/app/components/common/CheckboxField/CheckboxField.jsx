@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox, FormGroup } from "@mui/material";
+import { Checkbox } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 const CheckboxField = ({ children, value, name, onChange, sx }) => {

@@ -6,7 +6,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 
-const RoomPropertiesList = ({ comfort }) => {
+const RoomComfortList = ({ comfort }) => {
   return (
     <ul className="room-info__properties-list">
       {comfort.includes("wifi") && (
@@ -55,4 +55,4 @@ const RoomPropertiesList = ({ comfort }) => {
   );
 };
 
-export default RoomPropertiesList;
+export default RoomComfortList;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import TextField from "../../common/TextField";
+import { Button } from "@mui/material";
 import { validator } from "../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
 import CheckboxField from "../../common/CheckboxField";
-import Button from "../../common/Button";
 
 const SignUp = () => {
   const [errors, setErrors] = useState({});
@@ -86,15 +86,16 @@ const SignUp = () => {
         name="license"
         sx={{ marginBottom: "15px" }}
       >
-        Подтвердить пользовательское <a>соглашение</a>
+        Подтвердить пользовательское соглашение
       </CheckboxField>
       <br />
       <Button
         type="submit"
         sx={{ width: "100%", padding: "9px" }}
         variant="outlined"
-        label="Зарегистрироваться"
-      />
+      >
+        Зарегистрироваться
+      </Button>
     </form>
   );
 };

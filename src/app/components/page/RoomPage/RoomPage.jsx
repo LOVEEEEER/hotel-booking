@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from "../../../api";
 import RoomImageSlider from "../../ui/RoomImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import RoomPropertiesList from "../../ui/RoomPropertiesList";
+import RoomProperties from "../../ui/RoomProperties";
 import Booking from "../../ui/Booking/Booking";
 
 const RoomPage = ({ roomId }) => {
@@ -43,13 +43,18 @@ const RoomPage = ({ roomId }) => {
           <section className="room-info">
             <div className="container room-info__container">
               <div className="room-info__properties">
-                <h2 className="room-info__properties-title">Про отель</h2>
-                <RoomPropertiesList comfort={room.comfort} />
+                <div className="room-info__properties-block">
+                  <RoomProperties
+                    rate={room.rate}
+                    comfort={room.comfort}
+                    breakfast={room.breakfast}
+                  />
+                </div>
               </div>
 
               <div className="room-info__booking">
                 <h3 className="room-info__booking-name">Бронирование</h3>
-                <Booking />
+                <Booking roomPrice={room.price} />
               </div>
             </div>
           </section>

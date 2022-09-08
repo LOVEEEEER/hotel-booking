@@ -9,7 +9,7 @@ const RoomImageSlider = ({ items }) => {
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         {items.map((item) => (
-          <SwiperSlide key={item.id} className="swiper-image">
+          <SwiperSlide key={item} className="swiper-image">
             <img src={item} alt="" className="swiper-image" />
           </SwiperSlide>
         ))}

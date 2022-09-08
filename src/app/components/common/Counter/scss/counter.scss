@@ -1,0 +1,11 @@
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-label {
+    width: 150px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

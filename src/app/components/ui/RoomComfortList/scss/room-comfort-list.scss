@@ -1,0 +1,7 @@
+.room {
+  &-info__properties-list {
+    width: 600px;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}

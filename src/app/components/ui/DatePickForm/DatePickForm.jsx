@@ -18,7 +18,7 @@ const DatePickForm = ({ data, onChange, errors }) => {
         onChange={onChange}
         label="Выезд"
         name="departure"
-        placeholder={"ЧИСЛО.МЕСЯЦ.ГОД"}
+        placeholder={"XX.XX.XXXX"}
         error={Boolean(errors.departure)}
         sx={{ width: "170px" }}
       />
