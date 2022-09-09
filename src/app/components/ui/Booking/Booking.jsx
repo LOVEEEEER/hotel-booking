@@ -47,7 +47,6 @@ const Booking = ({ roomPrice }) => {
   }, [bookingFields]);
 
   const handleToggleCounter = (name, value) => {
-    console.log(name, value);
     setCounters((prevState) => ({ ...prevState, [name]: value }));
   };
 
