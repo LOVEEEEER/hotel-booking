@@ -1,0 +1,23 @@
+.room-info__breakfast {
+  &-list {
+    margin-top: 25px;
+  }
+  &-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &-text {
+    margin-left: 15px;
+    font-weight: 400;
+    font-size: 22px;
+    text-transform: capitalize;
+    list-style: square;
+    border-bottom: 1px dotted #b686c5;
+  }
+  &-flag {
+    width: 30px
+  }
+}
