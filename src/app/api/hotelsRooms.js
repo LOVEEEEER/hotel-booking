@@ -23,11 +23,13 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -55,15 +57,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -91,15 +96,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -127,15 +135,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -163,15 +174,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -199,15 +213,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -235,15 +252,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -271,15 +291,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -307,15 +330,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -343,15 +369,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -379,15 +408,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
       },
       {
         image: "https://svgsilh.com/svg/1299703.svg",
         name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -415,11 +447,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
+      },
+      {
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -447,11 +486,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
+      },
+      {
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -479,11 +525,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
+      },
+      {
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -511,11 +564,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
+      },
+      {
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
@@ -543,11 +603,18 @@ const hotels = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
         name: "итальянский",
+        id: "sajkd34sadj",
+      },
+      {
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+        id: "askd32nsdaf",
       },
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
         name: "шведский",
+        id: "4sjhdjahsd2",
       },
     ],
   },
