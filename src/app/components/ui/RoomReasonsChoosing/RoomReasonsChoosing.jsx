@@ -30,7 +30,7 @@ const RoomReasonsChoosing = () => {
   return (
     <ul className="room-reasons__list">
       {reasons.map((item) => (
-        <li className="room-reasons__item">
+        <li className="room-reasons__item" key={item.id}>
           <div className="room-reasons__card">
             <div className="room-reasons__card-header">
               <img
