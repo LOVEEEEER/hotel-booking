@@ -11,38 +11,37 @@ const RoomReasonsChoosing = () => {
       name: "Доступные цены",
       id: 1,
       image: wallet,
+      description: "Отель имеет цены по соотношению цена/качество",
     },
     {
       name: "Безопасность",
       id: 2,
       image: lock,
+      description: "Служба охраны всегда следит за вашей безопасностью",
     },
     {
-      name: "Онлайн бронирование",
+      name: "Онлайн",
       id: 3,
       image: online,
-    },
-    {
-      name: "Русский язык",
-      id: 4,
-      image: chat,
-    },
-    {
-      name: "Удобства",
-      id: 5,
-      image: people,
+      description:
+        "Управлять бронированием отеля вы можете прямо на нашем сайте!",
     },
   ];
   return (
-    <ul className="room-info__reasons-list">
+    <ul className="room-reasons__list">
       {reasons.map((item) => (
-        <li className="room-info__reasons-item">
-          <img
-            src={item.image}
-            alt="reason-icon"
-            className="room-info__reasons-image"
-          />
-          <span className="room-info__reasons-text">{item.name}</span>
+        <li className="room-reasons__item">
+          <div className="room-reasons__card">
+            <div className="room-reasons__card-header">
+              <img
+                src={item.image}
+                alt=""
+                className="room-reasons__card-image"
+              />
+              <h3 className="room-reasons__card-title">{item.name}</h3>
+            </div>
+            <p className="room-reasons__card-description">{item.description}</p>
+          </div>
         </li>
       ))}
     </ul>

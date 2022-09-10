@@ -1,22 +1,26 @@
-.room-info__reasons {
-  &-item {
+.room-reasons {
+  &__list {
     display: flex;
-    align-items: center;
-    &:not(:last-child) {
-      margin-bottom: 15px;
-    }
+    justify-content: space-between;
   }
-  &-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__card-image {
+    margin-right: 15px;
     padding: 7px;
-    width: 55px;
-    background-color: #b686c5;
-    border-radius: 10px;
+    width: 40px;
+    background-color: rgb(134, 118, 226);
+    border-radius: 5px;
   }
-  &-text {
-    margin-left: 18px;
-    font-size: 22px;    
+  &__card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+  }
+  &__card-title{
+    font-size: 20px;
   }
 }
