@@ -4,6 +4,8 @@ import RoomImageSlider from "../../ui/RoomImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import RoomProperties from "../../ui/RoomProperties";
 import Booking from "../../ui/Booking/Booking";
+import RoomReasonsChoosing from "../../ui/RoomReasonsChoosing/RoomReasonsChoosing";
+import Rating from "../../common/Rating";
 
 const RoomPage = ({ roomId }) => {
   const [room, setRoom] = useState();
@@ -31,10 +33,12 @@ const RoomPage = ({ roomId }) => {
                   </p>
                 </div>
                 <div className="room-cover__rate-block">
-                  <div className="room-cover__rate">{room.rate}</div>
-                  <p className="room-cover__rate-text">
-                    89% гостей понравилось расположение
-                  </p>
+                  <Rating
+                    value={room.rate}
+                    label="Общий рейтинг"
+                    readOnly
+                    sx={{ color: "rgb(234, 166, 255)" }}
+                  />
                 </div>
               </div>
               <RoomImageSlider items={room.images} />
@@ -51,11 +55,16 @@ const RoomPage = ({ roomId }) => {
                   />
                 </div>
               </div>
-
-              <div className="room-info__booking">
+              <div className="room-info__reasons">
+                <h2 className="room-info__reasons-name">
+                  5 причин выбрать данный отель
+                </h2>
+                <RoomReasonsChoosing />
+              </div>
+              {/* <div className="room-info__booking">
                 <h3 className="room-info__booking-name">Бронирование</h3>
                 <Booking roomPrice={room.price} />
-              </div>
+              </div> */}
             </div>
           </section>
         </main>

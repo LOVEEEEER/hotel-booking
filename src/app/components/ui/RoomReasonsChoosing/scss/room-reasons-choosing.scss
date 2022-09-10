@@ -1,0 +1,22 @@
+.room-info__reasons {
+  &-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  &-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    width: 55px;
+    background-color: #b686c5;
+    border-radius: 10px;
+  }
+  &-text {
+    margin-left: 18px;
+    font-size: 22px;    
+  }
+}
