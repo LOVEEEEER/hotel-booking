@@ -1,0 +1,26 @@
+.room-reasons {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card-image {
+    margin-right: 15px;
+    padding: 7px;
+    width: 40px;
+    background-color: rgb(134, 118, 226);
+    border-radius: 5px;
+  }
+  &__card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+  }
+  &__card-title{
+    font-size: 20px;
+  }
+}

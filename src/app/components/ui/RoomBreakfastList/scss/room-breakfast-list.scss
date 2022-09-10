@@ -1,6 +1,7 @@
 .room-info__breakfast {
   &-list {
     margin-top: 25px;
+    margin-right: 25px;
   }
   &-item {
     display: flex;
@@ -19,5 +20,8 @@
   }
   &-flag {
     width: 30px
+  }
+  &-properties__rules-description {
+    width: 300px;
   }
 }

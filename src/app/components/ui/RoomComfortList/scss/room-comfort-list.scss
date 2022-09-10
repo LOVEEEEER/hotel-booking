@@ -1,8 +1,21 @@
-.room {
-  &-info__properties-list {
+.room-info__properties{
+  &-list {
     margin-bottom: 25px;
-    width: 600px;
+    width: 490px;
     -webkit-column-count: 2;
     column-count: 2;
+  }
+  &-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  &-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &-icon {
+    margin-right: 15px;
+    width: 40px;
   }
 }

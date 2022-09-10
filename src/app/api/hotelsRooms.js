@@ -18,15 +18,19 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "c00bf6ea-6871-4ba1-91b7-8c7096ed0133",
     title: "2",
@@ -46,19 +50,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "5b8c1a24-34d6-46f2-ac61-fdc8d912ca8c",
     title: "3",
@@ -78,19 +86,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "88dded2c-a9bf-42fe-be67-ddcc8ab3d561",
     title: "4",
@@ -110,19 +122,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "54cadbbc-149b-469f-b603-489086ac8c84",
     title: "5",
@@ -142,19 +158,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "20af8b10-ecc1-4b1b-9c36-f7fb74f58378",
     title: "6",
@@ -174,19 +194,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "89afd507-046e-49bf-a6d3-211abec7d804",
     title: "7",
@@ -206,19 +230,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "1000d646-07fe-4450-819c-f1c3106d785c",
     title: "8",
@@ -238,19 +266,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "d49e6a20-9a8f-4807-80fe-ccde2282b733",
     title: "9",
@@ -270,19 +302,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "48438004-0139-4af7-a642-f7a444f1d144",
     title: "10",
@@ -302,19 +338,23 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
-    ],  },
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
+  },
   {
     id: "baf1f1e7-d468-4d66-a8dd-80ecafb0c338",
     title: "11",
@@ -334,18 +374,21 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: [{
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
-      name: "итальянский"
-    },
+    breakfast: [
       {
-        image: "https://svgsilh.com/svg/1299703.svg",
-        name: "вегетарианский"
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
       },
       {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
-        name: "шведский"
-      }
+        image: "https://svgsilh.com/svg/1299703.svg",
+        name: "вегетарианский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
     ],
   },
   {
@@ -367,7 +410,18 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
+    breakfast: [
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
   },
   {
     id: "fde2a427-387e-4252-a430-485c243b687a",
@@ -388,7 +442,18 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
+    breakfast: [
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
   },
   {
     id: "daa13b59-9703-4420-83d2-83564d727aeb",
@@ -409,7 +474,18 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
+    breakfast: [
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
   },
   {
     id: "ded2a1f5-6173-4860-aa44-4ab9b13a87ce",
@@ -430,7 +506,18 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
+    breakfast: [
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
   },
   {
     id: "d65c1e45-6135-4c3a-90d3-a9ff48cd6ab2",
@@ -451,7 +538,18 @@ const hotels = [
       "gym",
       "conditioner",
     ],
-    breakfast: ["итальянский", "вегетарианский", "халяльный", "шведский"],
+    breakfast: [
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+        name: "итальянский",
+      },
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png",
+        name: "шведский",
+      },
+    ],
   },
 ];
 
