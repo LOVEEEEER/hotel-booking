@@ -59,6 +59,9 @@
     text-align: center;
     font-size: 40px;
   }
+  &-properties {
+    padding-bottom: 80px;
+  }
   &-properties__title {
     margin-bottom: 30px;
   }
@@ -82,6 +85,14 @@
   }
   &-properties__rules-description {
     margin-top: 50px;
+  }
+  &-booking__title {
+    margin-bottom: 30px;
+  }
+  &-booking__booking-block {
+    padding: 50px;
+    border: 4px solid rgb(134, 118, 226);
+    border-radius: 15px;
   }
 }
 .love-icon {

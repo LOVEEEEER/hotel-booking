@@ -1,9 +1,11 @@
-.booking-counter-wrapper {
-  margin-bottom: 40px;
-}
-
-
-.room-info__full-price {
-  margin-top: 30px;
-  margin-bottom: 20px;
+.room-booking {
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__price {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
 }

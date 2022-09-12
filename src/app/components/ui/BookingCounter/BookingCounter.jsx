@@ -4,8 +4,22 @@ import Counter from "../../common/Counter/Counter";
 const BookingCounter = ({ value, ...rest }) => {
   return (
     <>
-      <Counter label="Взрослых" name="adults" value={value.adults} {...rest} />
-      <Counter label="Детей" name="kids" value={value.kids} {...rest} />
+      <Counter
+        minValue={1}
+        maxValue={5}
+        label="Взрослых"
+        name="adults"
+        value={value.adults}
+        {...rest}
+      />
+      <Counter
+        minValue={0}
+        maxValue={5}
+        label="Детей"
+        name="kids"
+        value={value.kids}
+        {...rest}
+      />
     </>
   );
 };

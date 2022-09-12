@@ -61,8 +61,21 @@ const Booking = ({ roomPrice }) => {
     return fullRoomPrice;
   };
 
-  const handleChange = ({ target: { name, value } }) => {
-    setBookingFields((prevState) => ({ ...prevState, [name]: value }));
+  const handleChange = (e) => {
+    const {
+      nativeEvent: { data: lastOne },
+      target: { name, value },
+    } = e;
+    if (!Number.isNaN(Number(lastOne))) {
+      setBookingFields((prevState) => ({
+        ...prevState,
+        [name]:
+          (value.length === 2 || value.length === 5) &&
+          value.length > prevState[name].length
+            ? `${value}.`
+            : value,
+      }));
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,26 +83,29 @@ const Booking = ({ roomPrice }) => {
     console.log(bookingFields);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="room-booking__form" onSubmit={handleSubmit}>
       <DatePickForm
         onChange={handleChange}
         data={bookingFields}
         errors={errors}
       />
-      <div className="booking-counter-wrapper">
+      <div className="room-booking__counters">
         <BookingCounter
-          onToggleCounter={handleToggleCounter}
           value={counters}
+          onToggleCounter={handleToggleCounter}
+          // color="secondary"
         />
       </div>
-      <hr />
-      <h3 className="room-info__full-price">Итого: {getFullRoomPrice()}₽</h3>
-      <Button
-        type="submit"
-        label="Забронировать"
-        variant="outlined"
-        sx={{ width: "100%" }}
-      />
+      <div className="room-booking__submit-block">
+        <h3 className="room-booking__price">Итого: {getFullRoomPrice()}₽</h3>
+        <Button
+          type="submit"
+          label="Забронировать"
+          color="secondary"
+          variant="outlined"
+          sx={{ width: "250px" }}
+        />
+      </div>
     </form>
   );
 };
