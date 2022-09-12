@@ -7,6 +7,7 @@ import Rating from "../../common/Rating";
 import { fromStorage, toStorage } from "../../../utils/localStorageService";
 import RoomComfortList from "../../ui/RoomComfortList/RoomComfortList";
 import RoomBreakFastList from "../../ui/RoomBreakfastList";
+import Booking from "../../ui/Booking";
 
 const RoomPage = ({ roomId }) => {
   const [room, setRoom] = useState();
@@ -85,6 +86,14 @@ const RoomPage = ({ roomId }) => {
                   </p>
                 </li>
               </ul>
+            </div>
+          </section>
+          <section className="room-booking">
+            <div className="container room-booking__container">
+              <h2 className="room-booking__title">Бронирование</h2>
+              <div className="room-booking__booking-block">
+                <Booking roomPrice={room.price} />
+              </div>
             </div>
           </section>
         </main>

@@ -8,4 +8,12 @@
   &:not(:last-child) {
     margin-bottom: 15px;
   }
+  &-value {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &-minus {
+    width: 14px;
+    fill: #ffffff;
+  }
 }
