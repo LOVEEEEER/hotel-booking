@@ -1,0 +1,29 @@
+.room-reviews {
+  &__reviews-bar_item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  &__reviews-bar_list {
+    width: 450px;
+  }
+  &__reviews-bar_item {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+  }
+  &__rate {
+    display: block;
+    padding: 13px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: rgb(134, 118, 226);
+    border-radius: 10px;
+  }
+}
+
+.linear-progress {
+  width: 400px;
+}

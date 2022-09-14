@@ -100,11 +100,12 @@ const Booking = ({ roomPrice }) => {
         <h3 className="room-booking__price">Итого: {getFullRoomPrice()}₽</h3>
         <Button
           type="submit"
-          label="Забронировать"
           color="secondary"
           variant="outlined"
           sx={{ width: "250px" }}
-        />
+        >
+          Забронировать
+        </Button>
       </div>
     </form>
   );

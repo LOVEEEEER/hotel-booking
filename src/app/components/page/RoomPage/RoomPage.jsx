@@ -8,6 +8,8 @@ import { fromStorage, toStorage } from "../../../utils/localStorageService";
 import RoomComfortList from "../../ui/RoomComfortList/RoomComfortList";
 import RoomBreakFastList from "../../ui/RoomBreakfastList";
 import Booking from "../../ui/Booking";
+import ReviewsStaticsBar from "../../ui/ReviewsStatisticsBar";
+import ReviewsForm from "../../ui/ReviewsForm";
 
 const RoomPage = ({ roomId }) => {
   const [room, setRoom] = useState();
@@ -101,6 +103,15 @@ const RoomPage = ({ roomId }) => {
               <h2 className="room-section-title">
                 Отзывы посетителей данного отеля
               </h2>
+              <div className="room-reviews__form">
+                <ReviewsForm />
+                <div className="room-reviews__statistics">
+                  <h2 className="room-reviews__statistics-title">
+                    Статистика по отзывам
+                  </h2>
+                  <ReviewsStaticsBar />
+                </div>
+              </div>
             </div>
           </section>
         </main>

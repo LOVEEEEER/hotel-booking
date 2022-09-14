@@ -28,11 +28,9 @@ const RoomCard = ({ images, type, title, rate, price, id }) => {
         <p className="room__price">
           Цена от <br /> <span>{price} руб</span> <br /> за ночь
         </p>
-        <Button
-          variant="outlined"
-          onClick={handleToggleHotelPage}
-          label="Подробнее об отеле"
-        />
+        <Button variant="outlined" onClick={handleToggleHotelPage}>
+          Подробнее об отеле
+        </Button>
       </div>
     </div>
   );
