@@ -59,7 +59,7 @@ const RoomPage = ({ roomId }) => {
           </section>
           <section className="room-reasons">
             <div className="container room-reasons__container">
-              <h2 className="room-reasons__title">
+              <h2 className="room-section-title">
                 Причины выбрать данный отель
               </h2>
               <RoomReasonsChoosing />
@@ -94,6 +94,13 @@ const RoomPage = ({ roomId }) => {
               <div className="room-booking__booking-block">
                 <Booking roomPrice={room.price} />
               </div>
+            </div>
+          </section>
+          <section className="room-reviews">
+            <div className="container room-reviews__container">
+              <h2 className="room-section-title">
+                Отзывы посетителей данного отеля
+              </h2>
             </div>
           </section>
         </main>
