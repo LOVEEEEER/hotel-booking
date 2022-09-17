@@ -16,11 +16,11 @@ const Counter = ({
     width: "32px",
     minWidth: "32px",
     height: "32px",
-    backgroundColor: "rgb(134, 118, 226)",
+    backgroundColor: "rgb(99, 140, 253)",
     borderRadius: "50%",
     padding: "20px",
     "&:hover": {
-      backgroundColor: "rgb(100, 73, 255)",
+      backgroundColor: "rgb(40, 96, 250)",
     },
   };
   return (

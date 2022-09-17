@@ -4,9 +4,9 @@ import { Button as ButtonMui } from "@mui/material";
 
 const ColorButton = styled(ButtonMui)(({ theme }) => ({
   color: "#FFFFFF",
-  backgroundColor: "rgb(134, 118, 226)",
+  backgroundColor: "rgb(99, 140, 253)",
   "&:hover": {
-    backgroundColor: "rgb(100, 73, 255)",
+    backgroundColor: "rgb(40, 96, 250)",
   },
 }));
 
@@ -17,12 +17,12 @@ const Button = ({ type, label, variant, children, ...rest }) => {
           paddingLeft: "14px",
           paddingRight: "14px",
           backgroundColor: "transparent",
-          border: "1px solid rgb(134, 118, 226)",
-          color: "rgb(134, 118, 226)",
+          border: "1px solid rgb(99, 140, 253)",
+          color: "rgb(99, 140, 253)",
           transition: "0.5s",
           "&:hover": {
-            backgroundColor: "rgb(241, 239, 255)",
-            border: "1px solid rgb(91, 65, 238)",
+            backgroundColor: "rgb(236, 240, 252)",
+            border: "1px solid rgb(40, 96, 250)",
           },
         }
       : "";

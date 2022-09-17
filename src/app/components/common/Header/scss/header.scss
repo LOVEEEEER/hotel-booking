@@ -25,11 +25,11 @@
     font-weight: 600;
     transition: color 0.25s ease-in-out;
       &:hover {
-        color: rgb(134, 118, 226);
+        color: rgb(99, 140, 253);
       }
   }
   &__nav-link.active {
-    color: rgb(134, 118, 226);
+    color: rgb(99, 140, 253);
   }
   &__auth-list {
     display: flex;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../api";
-import RoomImageSlider from "../../ui/RoomImageSlider";
+import RoomImageSlider from "../../common/RoomImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import RoomReasonsChoosing from "../../ui/RoomReasonsChoosing/RoomReasonsChoosing";
 import Rating from "../../common/Rating";
@@ -56,7 +56,16 @@ const RoomPage = ({ roomId }) => {
                   />
                 </div>
               </div>
-              <RoomImageSlider items={room.images} autoplay={true} />
+              <div className="room-cover__swiper-slider">
+                <RoomImageSlider
+                  items={room.images}
+                  className="room-cover__swiper-image"
+                  autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false,
+                  }}
+                />
+              </div>
             </div>
           </section>
           <section className="room-reasons">
