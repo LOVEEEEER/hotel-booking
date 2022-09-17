@@ -38,6 +38,7 @@ const RoomsListPage = () => {
     const sortedHotels = _.orderBy(searchedItems, ["price"], [sortBy]);
     const roomsCrop = paginate(sortedHotels, currentPage, pageSize);
     const count = searchedItems.length;
+    console.log(searchedItems);
     return (
       <main className="rooms__page">
         <section className="rooms">

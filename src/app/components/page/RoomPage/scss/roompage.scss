@@ -54,7 +54,7 @@
   &-reasons {
     padding-bottom: 80px;
   }
-  &-reasons__title {
+  &-section-title {
     margin-bottom: 50px;
     text-align: center;
     font-size: 40px;
@@ -86,6 +86,9 @@
   &-properties__rules-description {
     margin-top: 50px;
   }
+  &-booking__container  {
+    padding-bottom: 70px;
+  }
   &-booking__title {
     margin-bottom: 30px;
   }
@@ -93,6 +96,14 @@
     padding: 50px;
     border: 4px solid rgb(134, 118, 226);
     border-radius: 15px;
+  }
+  &-reviews__form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &-reviews__statistics-title {
+    margin-bottom: 20px;
   }
 }
 .love-icon {

@@ -8,6 +8,8 @@ import { fromStorage, toStorage } from "../../../utils/localStorageService";
 import RoomComfortList from "../../ui/RoomComfortList/RoomComfortList";
 import RoomBreakFastList from "../../ui/RoomBreakfastList";
 import Booking from "../../ui/Booking";
+import ReviewsStaticsBar from "../../ui/ReviewsStatisticsBar";
+import ReviewsForm from "../../ui/ReviewsForm";
 
 const RoomPage = ({ roomId }) => {
   const [room, setRoom] = useState();
@@ -59,7 +61,7 @@ const RoomPage = ({ roomId }) => {
           </section>
           <section className="room-reasons">
             <div className="container room-reasons__container">
-              <h2 className="room-reasons__title">
+              <h2 className="room-section-title">
                 Причины выбрать данный отель
               </h2>
               <RoomReasonsChoosing />
@@ -93,6 +95,22 @@ const RoomPage = ({ roomId }) => {
               <h2 className="room-booking__title">Бронирование</h2>
               <div className="room-booking__booking-block">
                 <Booking roomPrice={room.price} />
+              </div>
+            </div>
+          </section>
+          <section className="room-reviews">
+            <div className="container room-reviews__container">
+              <h2 className="room-section-title">
+                Отзывы посетителей данного отеля
+              </h2>
+              <div className="room-reviews__form">
+                <ReviewsForm />
+                <div className="room-reviews__statistics">
+                  <h2 className="room-reviews__statistics-title">
+                    Статистика по отзывам
+                  </h2>
+                  <ReviewsStaticsBar />
+                </div>
               </div>
             </div>
           </section>
