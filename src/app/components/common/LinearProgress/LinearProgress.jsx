@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { circularProgressClasses } from "@mui/material/CircularProgress";
 import LinearProgressMUI, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";

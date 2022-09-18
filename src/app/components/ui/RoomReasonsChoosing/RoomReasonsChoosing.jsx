@@ -2,8 +2,6 @@ import React from "react";
 import wallet from "../../../assets/svg/reasons/wallet.svg";
 import lock from "../../../assets/svg/reasons/lock.svg";
 import online from "../../../assets/svg/reasons/online.svg";
-import chat from "../../../assets/svg/reasons/chat.svg";
-import people from "../../../assets/svg/reasons/people.svg";
 
 const RoomReasonsChoosing = () => {
   const reasons = [

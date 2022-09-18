@@ -15,7 +15,6 @@ const Booking = ({ roomPrice }) => {
     entry: "",
     departure: "",
   });
-  const isValid = Object.keys(errors).length === 0;
 
   useEffect(() => {
     const entryNewDate = new Date();
@@ -93,7 +92,6 @@ const Booking = ({ roomPrice }) => {
         <BookingCounter
           value={counters}
           onToggleCounter={handleToggleCounter}
-          // color="secondary"
         />
       </div>
       <div className="room-booking__submit-block">

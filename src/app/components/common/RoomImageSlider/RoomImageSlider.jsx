@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 const RoomImageSlider = ({ items, className, pagination, ...rest }) => {
   console.log(items);
