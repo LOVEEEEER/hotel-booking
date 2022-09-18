@@ -3,7 +3,7 @@ import React from "react";
 const RoomBreakFastList = ({ breakfast }) => {
   return (
     <>
-      <h2 className="room-properties__title">Питание</h2>
+      <h2 className="room-comfort__title">Питание</h2>
       <ul className="room-info__breakfast-list">
         {Object.keys(breakfast).map((item) => (
           <li key={breakfast[item].id} className="room-info__breakfast-item">

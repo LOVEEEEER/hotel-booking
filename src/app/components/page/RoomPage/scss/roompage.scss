@@ -63,17 +63,17 @@
     text-align: center;
     font-size: 40px;
   }
-  &-properties {
+  &-comfort {
     padding-bottom: 80px;
   }
-  &-properties__title {
+  &-comfort__title {
     margin-bottom: 30px;
   }
-  &-properties__list {
+  &-comfort__list {
     display: flex;
     justify-content: space-between;
   } 
-  &-properties__item {
+  &-comfort__item {
     max-width: 40%;
     padding-right: 40px;
     &:not(:last-child) {
@@ -83,12 +83,9 @@
       padding-left: 20px;
     }
   }
-  &-properties__description {
+  &-comfort__description {
     width: 300px;
     font-size: 16px;
-  }
-  &-properties__rules-description {
-    margin-top: 50px;
   }
   &-booking__container  {
     padding-bottom: 70px;

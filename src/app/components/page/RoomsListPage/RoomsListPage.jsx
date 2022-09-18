@@ -100,7 +100,6 @@ const RoomsListPage = () => {
                 value={searchQuery}
                 onChange={handleSearchQuery}
                 name="searchQuery"
-                label="Search..."
                 sx={{ minWidth: "68%" }}
               />
               <SelectField

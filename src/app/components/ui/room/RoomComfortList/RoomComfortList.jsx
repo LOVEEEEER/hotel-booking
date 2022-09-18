@@ -9,77 +9,66 @@ import conditionerIcon from "../../../../assets/svg/comfort/conditioner.svg";
 const RoomComfortList = ({ comfort }) => {
   return (
     <>
-      <h2 className="room-properties__title">Преимущества этого варианта</h2>
-      <ul className="room-info__properties-list">
+      <h2 className="room-comfort__title">Преимущества этого варианта</h2>
+      <ul className="room-info__comfort-list">
         {comfort.includes("wifi") && (
-          <li className="room-info__properties-item">
+          <li className="room-info__comfort-item">
             <img
               src={wifiIcon}
               alt="wifi icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Wi-Fi</span>
+            <span className="room-info__comfort-name">Wi-Fi</span>
           </li>
         )}
         {comfort.includes("swimmingPool") && (
-          <li className="room-info__properties-item">
-            {/* <PoolIcon sx={{ fontSize: "40px", color: "rgb(134, 118, 226)" }} /> */}
+          <li className="room-info__comfort-item">
             <img
               src={swimmingPoolIcon}
               alt="swipmming pool icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Бассейн</span>
+            <span className="room-info__comfort-name">Бассейн</span>
           </li>
         )}
         {comfort.includes("parking") && (
-          <li className="room-info__properties-item">
-            {/* <LocalParkingIcon
-            sx={{ fontSize: "40px", color: "rgb(134, 118, 226)" }}
-          /> */}
+          <li className="room-info__comfort-item">
             <img
               src={parkingIcon}
               alt="parking icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Парковка</span>
+            <span className="room-info__comfort-name">Парковка</span>
           </li>
         )}
         {comfort.includes("bankCard") && (
-          <li className="room-info__properties-item">
-            {/* <AccountBalanceIcon
-            sx={{ fontSize: "40px", color: "rgb(134, 118, 226)" }}
-          /> */}
+          <li className="room-info__comfort-item">
             <img
               src={bankIcon}
               alt="bank icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Банк</span>
+            <span className="room-info__comfort-name">Банк</span>
           </li>
         )}
         {comfort.includes("gym") && (
-          <li className="room-info__properties-item">
-            {/* <FitnessCenterIcon
-            sx={{ fontSize: "40px", color: "rgb(134, 118, 226)" }}
-          /> */}
+          <li className="room-info__comfort-item">
             <img
               src={gymIcon}
               alt="gym icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Тренажерный зал</span>
+            <span className="room-info__comfort-name">Тренажерный зал</span>
           </li>
         )}
         {comfort.includes("conditioner") && (
-          <li className="room-info__properties-item">
-            {/* <AcUnitIcon sx={{ fontSize: "40px", color: "rgb(134, 118, 226)" }} /> */}
+          <li className="room-info__comfort-item">
             <img
               src={conditionerIcon}
               alt="conditioner icon"
-              className="room-info__properties-icon"
+              className="room-info__comfort-icon"
             />
-            <span className="room-info__properties-name">Кондинционер</span>
+            <span className="room-info__comfort-name">Кондинционер</span>
           </li>
         )}
       </ul>
