@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TextField from "../../common/TextField";
-import { Button } from "@mui/material";
+import Button from "../../common/Button";
 import { validator } from "../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
 import CheckboxField from "../../common/CheckboxField";
@@ -26,10 +26,8 @@ const SignUp = () => {
     if (!isValid) return;
   };
   useEffect(() => {
-    if (Object.keys(errors).length) {
-      validate();
-    }
-  }, [data, errors]);
+    validate();
+  }, [validate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     validate();
@@ -45,6 +43,7 @@ const SignUp = () => {
         value={data.name}
         sx={{ marginBottom: "30px", minWidth: "400px" }}
         helperText={errors.name}
+        placeholder="Иван Иванов"
       />
       <br />
       <TextField
@@ -55,6 +54,7 @@ const SignUp = () => {
         value={data.email}
         sx={{ marginBottom: "30px", minWidth: "400px" }}
         helperText={errors.email}
+        placeholder="example@mail.com"
       />
       <br />
       <TextField
@@ -89,11 +89,7 @@ const SignUp = () => {
         Подтвердить пользовательское соглашение
       </CheckboxField>
       <br />
-      <Button
-        type="submit"
-        sx={{ width: "100%", padding: "9px" }}
-        variant="outlined"
-      >
+      <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
         Зарегистрироваться
       </Button>
     </form>

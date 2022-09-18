@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button } from "@mui/material";
+import Button from "../../common/Button";
 
 const ErrorPage = () => {
   const history = useHistory();
@@ -12,21 +12,19 @@ const ErrorPage = () => {
       <div className="container error__container">
         <div className="error__text-wrapper">
           <h1 className="error__title" data-tilt-scale="1.1">
-            page not found
+            страница не найдена
           </h1>
           <ul className="error__errors-list">
             <li className="error__errors-item">
-              We looked everywhere for this page
+              Мы искали эту страницу по всему сайту
             </li>
             <li className="error__errors-item">
-              Are you sure the website URL is correct?
+              Вы уверены что вы ввели корректную ссылку?
             </li>
-            <li className="error__errors-item">
-              Get in touch with the site owner
-            </li>
+            <li className="error__errors-item">Свяжитесь с владельцом сайта</li>
           </ul>
           <Button variant="outlined" onClick={handleTogglePage}>
-            Вернуться к выбору отеля
+            Вернуться к подбору номера
           </Button>
         </div>
         <img

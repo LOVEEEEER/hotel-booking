@@ -10,6 +10,11 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  useEffect(() => {
+    if (Object.keys(errors).length) {
+      validate();
+    }
+  }, [errors]);
   const handleChange = ({ target }) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }));
   };
@@ -18,11 +23,6 @@ const SignIn = () => {
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
-  useEffect(() => {
-    if (Object.keys(errors).length) {
-      validate();
-    }
-  }, [data]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validate();
@@ -51,12 +51,9 @@ const SignIn = () => {
         helperText={errors.password ? errors.password : null}
       />
       <br />
-      <Button
-        type="submit"
-        sx={{ width: "100%", padding: "9px" }}
-        variant="outlined"
-        label="Войти"
-      />
+      <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
+        Войти
+      </Button>
     </form>
   );
 };
