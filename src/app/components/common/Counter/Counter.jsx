@@ -16,20 +16,26 @@ const Counter = ({
     width: "32px",
     minWidth: "32px",
     height: "32px",
-    backgroundColor: "rgb(134, 118, 226)",
+    backgroundColor: "rgb(99, 140, 253)",
     borderRadius: "50%",
     padding: "20px",
     "&:hover": {
-      backgroundColor: "rgb(100, 73, 255)",
+      backgroundColor: "rgb(40, 96, 250)",
     },
+    "&:disabled": {
+      opacity: 0.7,
+    },
+  };
+  const getCounterValue = (status) => {
+    if (status === "min") return value > minValue ? value - 1 : value;
+    if (status === "max") return value < maxValue ? value + 1 : value;
   };
   return (
     <div className="counter">
       <p className="counter-label">{label}</p>
       <Button
-        onClick={() =>
-          onToggleCounter(name, value > minValue ? value - 1 : value)
-        }
+        disabled={value === minValue && true}
+        onClick={() => onToggleCounter(name, getCounterValue("min"))}
         sx={counterButtonStyles}
         {...rest}
       >
@@ -37,9 +43,8 @@ const Counter = ({
       </Button>
       <span className="counter-value">{value}</span>
       <Button
-        onClick={() =>
-          onToggleCounter(name, value < maxValue ? value + 1 : value)
-        }
+        disabled={value === maxValue && true}
+        onClick={() => onToggleCounter(name, getCounterValue("max"))}
         sx={counterButtonStyles}
         {...rest}
       >

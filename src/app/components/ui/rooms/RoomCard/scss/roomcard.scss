@@ -18,11 +18,6 @@
   &__description {
     width: 400px;
   }
-  &__image {
-    margin-right: 30px;
-    width: 400px;
-    height: 250px;
-  }
   &__more-wrapper {
     display: flex;
     flex-direction: column;
@@ -48,6 +43,14 @@
   
     }
   }
+  &__image {
+    width: 100%;
+    height: 250px;
+  }
+  &__swiper-slider {
+    margin-right: 30px;
+    width: 400px;
+  } 
 }
 
 @media (max-width: 1150px) {

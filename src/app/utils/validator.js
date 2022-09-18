@@ -27,8 +27,10 @@ export const validator = (data, config) => {
           )
         )
           return config.message;
+        break;
 
       default:
+        return config.message;
     }
   }
   for (const fieldName in data) {

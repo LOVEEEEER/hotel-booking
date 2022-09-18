@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "../../common/Button";
-import TextAreaField from "../../common/TextAreaField";
+import Button from "../../../common/Button";
+import TextAreaField from "../../../common/TextAreaField";
 
 const ReviewsForm = () => {
   const [data, setData] = useState({ review: "" });
@@ -19,7 +19,7 @@ const ReviewsForm = () => {
         sx={{ width: "600px", marginBottom: "15px" }}
       />
       <br />
-      <Button variant="outlined">Опубликовать</Button>
+      <Button>Опубликовать</Button>
     </form>
   );
 };

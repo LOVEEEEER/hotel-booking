@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../api";
-import RoomsList from "../../ui/RoomsList";
+import RoomsList from "../../ui/rooms/RoomsList";
 import { paginate } from "../../../utils/paginate";
 import Pagination from "../../common/Pagination";
 import Search from "../../common/Search";
 import _ from "lodash";
 import SelectField from "../../common/SelectField";
-import RoomsListLoading from "../../ui/RoomsList/RoomsListLoading";
+import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 
 const RoomsListPage = () => {
   const [hotels, setHotels] = useState();
@@ -38,7 +38,6 @@ const RoomsListPage = () => {
     const sortedHotels = _.orderBy(searchedItems, ["price"], [sortBy]);
     const roomsCrop = paginate(sortedHotels, currentPage, pageSize);
     const count = searchedItems.length;
-    console.log(searchedItems);
     return (
       <main className="rooms__page">
         <section className="rooms">
@@ -47,8 +46,6 @@ const RoomsListPage = () => {
               <Search
                 value={searchQuery}
                 onChange={handleSearchQuery}
-                name="searchQuery"
-                label="Search..."
                 sx={{ minWidth: "68%" }}
               />
               <SelectField

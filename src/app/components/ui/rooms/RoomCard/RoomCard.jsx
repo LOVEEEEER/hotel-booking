@@ -1,7 +1,8 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
 import { useHistory } from "react-router-dom";
-import Button from "../../common/Button";
+import Button from "../../../common/Button";
+import RoomImageSlider from "../../../common/RoomImageSlider";
 
 const RoomCard = ({ images, type, title, rate, price, id }) => {
   const history = useHistory();
@@ -11,7 +12,13 @@ const RoomCard = ({ images, type, title, rate, price, id }) => {
   return (
     <div className="room">
       <div className="room__main-content_wrapper">
-        <img src={images[0]} alt={type} className="room__image" />
+        <div className="room__swiper-slider">
+          <RoomImageSlider
+            items={images}
+            pagination={false}
+            className="room__image"
+          />
+        </div>
 
         <div className="room__main-content_text-wrapper">
           <h2 className="room__name">{title}</h2>

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../api";
-import RoomImageSlider from "../../ui/RoomImageSlider";
+import RoomImageSlider from "../../common/RoomImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import RoomReasonsChoosing from "../../ui/RoomReasonsChoosing/RoomReasonsChoosing";
+import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import Rating from "../../common/Rating";
 import { fromStorage, toStorage } from "../../../utils/localStorageService";
-import RoomComfortList from "../../ui/RoomComfortList/RoomComfortList";
-import RoomBreakFastList from "../../ui/RoomBreakfastList";
+import RoomComfortList from "../../ui/room/RoomComfortList";
+import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/Booking";
-import ReviewsStaticsBar from "../../ui/ReviewsStatisticsBar";
-import ReviewsForm from "../../ui/ReviewsForm";
+import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
+import ReviewsForm from "../../ui/Forms/ReviewsForm";
+import RoomRulesCard from "../../ui/room/RoomRulesCard";
 
 const RoomPage = ({ roomId }) => {
   const [room, setRoom] = useState();
@@ -56,36 +57,34 @@ const RoomPage = ({ roomId }) => {
                   />
                 </div>
               </div>
-              <RoomImageSlider items={room.images} autoplay={true} />
+              <div className="room-cover__swiper-slider">
+                <RoomImageSlider
+                  items={room.images}
+                  className="room-cover__swiper-image"
+                  autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false,
+                  }}
+                />
+              </div>
             </div>
           </section>
           <section className="room-reasons">
             <div className="container room-reasons__container">
-              <h2 className="room-section-title">
-                Причины выбрать данный отель
-              </h2>
-              <RoomReasonsChoosing />
+              <RoomReasonsChoosingList />
             </div>
           </section>
           <section className="room-properties">
             <div className="container room-properties__container">
               <ul className="room-properties__list">
                 <li className="room-properties__item">
-                  <h2 className="room-properties__title">
-                    Преимущества этого варианта
-                  </h2>
                   <RoomComfortList comfort={room.comfort} />
                 </li>
                 <li className="room-properties__item">
-                  <h2 className="room-properties__title">Питание</h2>
                   <RoomBreakFastList breakfast={room.breakfast} />
                 </li>
                 <li className="room-properties__item">
-                  <h2 className="room-properties__title">Правила</h2>
-                  <p className="room-properties__description room-properties__rules-description">
-                    Нельзя с питомцами Без вечеринок и мероприятий Время
-                    прибытия — после 13:00, а выезд до 12:00
-                  </p>
+                  <RoomRulesCard />
                 </li>
               </ul>
             </div>
@@ -109,7 +108,7 @@ const RoomPage = ({ roomId }) => {
                   <h2 className="room-reviews__statistics-title">
                     Статистика по отзывам
                   </h2>
-                  <ReviewsStaticsBar />
+                  <RoomStatisticsBar />
                 </div>
               </div>
             </div>

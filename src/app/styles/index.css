@@ -27,7 +27,7 @@ html {
 }
 
 .swiper-image {
-  height: 500px;
   width: 100%;
+  /* height: 500px; */
   transition: box-shadow 0.5s linear;
 }

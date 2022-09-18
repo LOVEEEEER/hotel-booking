@@ -29,6 +29,10 @@
     margin-bottom: 5px;
     font-weight: 500;
   }
+  &-cover__swiper-image {
+    width: 100%;
+    height: 530px;
+  }
   &-cover__rate {
     text-align: center;
     margin-top: 20px;
@@ -94,8 +98,8 @@
   }
   &-booking__booking-block {
     padding: 50px;
-    border: 4px solid rgb(134, 118, 226);
-    border-radius: 15px;
+    box-shadow: 2px 2px 8px 3px rgba(34, 60, 80, 0.2);
+    border-radius: 6px;
   }
   &-reviews__form {
     display: flex;
