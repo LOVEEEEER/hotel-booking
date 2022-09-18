@@ -74,16 +74,16 @@ const RoomPage = ({ roomId }) => {
               <RoomReasonsChoosingList />
             </div>
           </section>
-          <section className="room-properties">
-            <div className="container room-properties__container">
-              <ul className="room-properties__list">
-                <li className="room-properties__item">
+          <section className="room-comfort">
+            <div className="container room-comfort__container">
+              <ul className="room-comfort__list">
+                <li className="room-comfort__item">
                   <RoomComfortList comfort={room.comfort} />
                 </li>
-                <li className="room-properties__item">
+                <li className="room-comfort__item">
                   <RoomBreakFastList breakfast={room.breakfast} />
                 </li>
-                <li className="room-properties__item">
+                <li className="room-comfort__item">
                   <RoomRulesCard />
                 </li>
               </ul>
