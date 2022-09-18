@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../api";
-import RoomsList from "../../ui/RoomsList";
+import RoomsList from "../../ui/rooms/RoomsList";
 import { paginate } from "../../../utils/paginate";
 import Pagination from "../../common/Pagination";
 import Search from "../../common/Search";
 import _ from "lodash";
 import SelectField from "../../common/SelectField";
-import RoomsListLoading from "../../ui/RoomsList/RoomsListLoading";
+import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 
 const RoomsListPage = () => {
   const [hotels, setHotels] = useState();

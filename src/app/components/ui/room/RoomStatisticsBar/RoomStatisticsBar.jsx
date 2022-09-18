@@ -1,7 +1,7 @@
 import React from "react";
-import LinearProgress from "../../common/LinearProgress";
+import LinearProgress from "../../../common/LinearProgress";
 
-const ReviewsStaticsBar = () => {
+const RoomStatisticsBar = () => {
   let reviews = [5, 4, 3, 2, 1];
   return (
     <>
@@ -19,4 +19,4 @@ const ReviewsStaticsBar = () => {
   );
 };
 
-export default ReviewsStaticsBar;
+export default RoomStatisticsBar;

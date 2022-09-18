@@ -1,8 +1,8 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
 import { useHistory } from "react-router-dom";
-import Button from "../../common/Button";
-import RoomImageSlider from "../../common/RoomImageSlider";
+import Button from "../../../common/Button";
+import RoomImageSlider from "../../../common/RoomImageSlider";
 
 const RoomCard = ({ images, type, title, rate, price, id }) => {
   const history = useHistory();

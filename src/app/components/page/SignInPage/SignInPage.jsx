@@ -1,5 +1,5 @@
 import React from "react";
-import SignIn from "../../ui/SignIn";
+import SignInForm from "../../ui/Forms/SignInForm";
 import { Link } from "react-router-dom";
 
 const SignInPage = () => {
@@ -9,7 +9,7 @@ const SignInPage = () => {
         <div className="container signin__container">
           <div className="form-card">
             <h1 className="form-title">Вход</h1>
-            <SignIn />
+            <SignInForm />
             <div className="form-offer">
               Нет аккаунт на Cosmos?{" "}
               <Link to="/login/signup">Зарегистрироваться</Link>

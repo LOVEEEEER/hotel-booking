@@ -4,8 +4,8 @@
 @import "../components/common/Logo/scss/logo.scss";
 @import "../components/page/MainPage/scss/mainpage.scss";
 @import "../components/page/RoomsListPage/scss/roomslistpage.scss";
-@import "../components/ui/RoomCard/scss/roomcard.scss";
-@import "../components/ui/RoomsList/scss/roomslist.scss";
+@import "../components/ui/rooms/RoomCard/scss/roomcard.scss";
+@import "../components/ui/rooms/RoomsList/scss/roomslist.scss";
 @import "../components/page/ErrorPage/scss/errorpage.scss";
 @import "../components/page/SignInPage/scss/signinpage.scss";
 @import "../components/page/SignUpPage/scss/signuppage.scss";
@@ -13,8 +13,7 @@
 @import "../components/ui/Booking/scss/booking.scss";
 @import "../components/ui/DatePickForm/scss/datepickform.scss";
 @import "../components/common/Counter/scss/counter.scss";
-@import "../components/ui/RoomProperties/scss/room-properties.scss";
-@import "../components/ui/RoomComfortList/scss/room-comfort-list.scss";
-@import "../components/ui/RoomBreakfastList/scss/room-breakfast-list";
-@import "../components/ui/RoomReasonsChoosing/scss/room-reasons-choosing.scss";
-@import "../components/ui/ReviewsStatisticsBar/scss/reviews-statistics-bar.scss"
+@import "../components/ui/room/RoomComfortList/scss/room-comfort-list.scss";
+@import "../components/ui/room/RoomBreakfastList/scss/room-breakfast-list.scss";
+@import "../components/ui/room/RoomReasonsChoosing/scss/room-reasons-choosing.scss";
+@import "../components/ui/room/RoomStatisticsBar/scss/room-statistics-bar.scss"
