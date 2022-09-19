@@ -1,5 +1,5 @@
 import React from "react";
-import Counter from "../../common/Counter/Counter";
+import Counter from "../../../common/Counter";
 
 const BookingCounter = ({ value, ...rest }) => {
   return (
