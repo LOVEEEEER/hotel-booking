@@ -4,8 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-const RoomImageSlider = ({ items, className, pagination, ...rest }) => {
-  console.log(items);
+const ImageSlider = ({ items, className, pagination, ...rest }) => {
   return (
     <>
       <Swiper
@@ -27,8 +26,8 @@ const RoomImageSlider = ({ items, className, pagination, ...rest }) => {
   );
 };
 
-RoomImageSlider.defaultProps = {
+ImageSlider.defaultProps = {
   pagination: true,
 };
 
-export default RoomImageSlider;
+export default ImageSlider;

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../api";
-import RoomImageSlider from "../../common/RoomImageSlider";
+import ImageSlider from "../../common/ImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import Rating from "../../common/Rating";
 import { fromStorage, toStorage } from "../../../utils/localStorageService";
 import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
-import Booking from "../../ui/Booking";
+import Booking from "../../ui/room/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
-import ReviewsForm from "../../ui/Forms/ReviewsForm";
+import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 
 const RoomPage = ({ roomId }) => {
@@ -58,7 +58,7 @@ const RoomPage = ({ roomId }) => {
                 </div>
               </div>
               <div className="room-cover__swiper-slider">
-                <RoomImageSlider
+                <ImageSlider
                   items={room.images}
                   className="room-cover__swiper-image"
                   autoplay={{

@@ -3,7 +3,6 @@ import { Pagination as PaginationMui } from "@mui/material";
 
 const Pagination = ({ itemsCount, pageSize, currentPage, onChange }) => {
   const pageCount = Math.ceil(itemsCount / pageSize);
-  console.log(itemsCount / pageSize);
   if (pageCount === 1) return null;
   return (
     <div className="pagination-container">
