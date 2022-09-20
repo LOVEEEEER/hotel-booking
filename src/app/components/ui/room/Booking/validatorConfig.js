@@ -6,6 +6,10 @@ export const validatorConfig = {
     isDate: {
       message: "Поле 'Заезд' введено не корректно",
     },
+    notThePast: {
+      message: "Поле 'Заезд' не может быть меньше текущего времени",
+      params: Date.now(),
+    },
   },
   departure: {
     isRequired: {
@@ -13,6 +17,10 @@ export const validatorConfig = {
     },
     isDate: {
       message: "Поле 'Выезд' введено не корректно",
+    },
+    notThePast: {
+      message: "Поле 'Выезд' не может быть меньше текущего времени",
+      params: Date.now(),
     },
   },
 };

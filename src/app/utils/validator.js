@@ -28,6 +28,17 @@ export const validator = (data, config) => {
         )
           return config.message;
         break;
+      case "notThePast": {
+        const millisecondsDate = new Date(
+          Number(data.slice(6, 11)),
+          Number(data.slice(3, 5)) - 1,
+          Number(data.slice(0, 2))
+        );
+        if (millisecondsDate < config.params) {
+          return config.message;
+        }
+        break;
+      }
 
       default:
         return config.message;
