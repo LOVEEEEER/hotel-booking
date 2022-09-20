@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignUpForm from "../../ui/forms/SignUpForm";
+import SignUpForm from "../../ui/SignUpForm";
 
 const SignUpPage = () => {
   return (

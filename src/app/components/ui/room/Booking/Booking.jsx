@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { validatorConfig } from "./validatorConfig";
 import { validator } from "../../../../utils/validator";
-import DatePickForm from "../../forms/DatePickForm";
+import DatePickForm from "../../DatePickForm";
 import Button from "../../../common/Button";
 import BookingCounter from "../BookingCounter";
 

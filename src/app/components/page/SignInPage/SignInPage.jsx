@@ -1,5 +1,5 @@
 import React from "react";
-import SignInForm from "../../ui/forms/SignInForm";
+import SignInForm from "../../ui/SignInForm";
 import { Link } from "react-router-dom";
 
 const SignInPage = () => {

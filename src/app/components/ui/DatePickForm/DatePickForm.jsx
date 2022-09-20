@@ -1,5 +1,5 @@
 import React from "react";
-import TextField from "../../../common/TextField";
+import TextField from "../../common/TextField";
 
 const DatePickForm = ({ data, onChange, errors }) => {
   return (
