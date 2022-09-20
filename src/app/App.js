@@ -1,16 +1,23 @@
 import { Route, Switch } from "react-router-dom";
-import Main from "./layouts/Main";
-import Rooms from "./layouts/Rooms";
+import routes from "./routes";
 import Error from "./layouts/Error";
-import Login from "./layouts/Login";
+
+const getRoutes = (routes) => {
+  return routes.map((prop, key) => (
+    <Route
+      path={prop.path}
+      component={prop.component}
+      exact={prop.exact}
+      key={key}
+    />
+  ));
+};
 
 function App() {
   return (
     <>
       <Switch>
-        <Route path="/login/:type" component={Login} />
-        <Route path="/rooms/:roomId?" component={Rooms} />
-        <Route path="/" exact component={Main} />
+        {getRoutes(routes)}
         <Route component={Error} />
       </Switch>
     </>

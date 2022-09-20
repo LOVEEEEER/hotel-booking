@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "../Logo";
-// import Button from "@mui/material/Button";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -12,12 +11,10 @@ const Header = () => {
     { path: "/vacancies", text: "Вакансии", id: 3 },
     { path: "/news", text: "Новости", id: 4 },
   ];
-  const location = useLocation();
+  const location = useLocation().pathname;
 
   const getNavLinkClasses = (path) => {
-    return (
-      "header__nav-link" + (location.pathname.includes(path) ? " active" : "")
-    );
+    return "header__nav-link" + (location.includes(path) ? " active" : "");
   };
 
   return (
