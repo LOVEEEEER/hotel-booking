@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "../../common/Button";
-import TextAreaField from "../../common/TextAreaField";
+import Button from "../../../common/Button";
+import TextAreaField from "../../../common/TextAreaField";
 
 const ReviewsForm = () => {
   const [data, setData] = useState({ review: "" });

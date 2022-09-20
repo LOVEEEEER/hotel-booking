@@ -9,7 +9,7 @@ import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/room/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
-import ReviewsForm from "../../ui/ReviewsForm";
+import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 
 const RoomPage = ({ roomId }) => {
