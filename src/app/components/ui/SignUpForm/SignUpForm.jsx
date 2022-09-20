@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import TextField from "../../../common/TextField";
-import Button from "../../../common/Button";
-import { validator } from "../../../../utils/validator";
+import TextField from "../../common/TextField";
+import Button from "../../common/Button";
+import { validator } from "../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
-import CheckboxField from "../../../common/CheckboxField";
+import CheckboxField from "../../common/CheckboxField";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState({});

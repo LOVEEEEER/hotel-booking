@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import TextField from "../../../common/TextField";
-import Button from "../../../common/Button";
+import TextField from "../../common/TextField";
+import Button from "../../common/Button";
 import { validatorConfig } from "./validatorConfig";
-import { validator } from "../../../../utils/validator";
+import { validator } from "../../../utils/validator";
 
 const SignInForm = () => {
   const [errors, setErrors] = useState({});
