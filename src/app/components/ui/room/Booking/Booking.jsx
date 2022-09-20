@@ -18,13 +18,13 @@ const Booking = ({ roomPrice }) => {
 
   useEffect(() => {
     const entryNewDate = new Date();
-    const entryDate = entryNewDate.getDate();
+    const entryDate = entryNewDate.getDate() + 1;
     const entryMonth = entryNewDate.getMonth();
     const entryFullYear = entryNewDate.getFullYear();
     const correctEntryDate = `${entryDate < 10 ? `0${entryDate}` : entryDate}.${
       entryMonth < 10 ? `0${entryMonth + 1}` : entryMonth + 1
     }.${entryFullYear}`;
-    const departureNewDate = new Date(entryFullYear, entryMonth, entryDate + 5);
+    const departureNewDate = new Date(entryFullYear, entryMonth, entryDate + 7);
     const departureDate = departureNewDate.getDate();
     const departureMonth = departureNewDate.getMonth();
     const departureFullYear = departureNewDate.getFullYear();
@@ -56,25 +56,32 @@ const Booking = ({ roomPrice }) => {
   const getFullRoomPrice = () => {
     let tenantCount = 0;
     Object.keys(counters).forEach((item) => (tenantCount += counters[item]));
-    const fullRoomPrice = tenantCount * roomPrice;
+    const newDateEntry = new Date(
+      Number(bookingFields.entry.slice(6, 11)),
+      Number(bookingFields.entry.slice(3, 5)) - 1,
+      Number(bookingFields.entry.slice(0, 2))
+    );
+    const newDateDeparture = new Date(
+      Number(bookingFields.departure.slice(6, 11)),
+      Number(bookingFields.departure.slice(3, 5)) - 1,
+      Number(bookingFields.departure.slice(0, 2))
+    );
+    const numberOfDaysInHotel =
+      (newDateDeparture.getTime() - newDateEntry.getTime()) /
+      1000 /
+      60 /
+      60 /
+      24;
+    if (numberOfDaysInHotel < 0) return "";
+    const fullRoomPrice =
+      tenantCount *
+      roomPrice *
+      (numberOfDaysInHotel === 0 ? 1 : numberOfDaysInHotel);
     return fullRoomPrice;
   };
 
-  const handleChange = (e) => {
-    const {
-      nativeEvent: { data: lastOne },
-      target: { name, value },
-    } = e;
-    if (!Number.isNaN(Number(lastOne))) {
-      setBookingFields((prevState) => ({
-        ...prevState,
-        [name]:
-          (value.length === 2 || value.length === 5) &&
-          value.length > prevState[name].length
-            ? `${value}.`
-            : value,
-      }));
-    }
+  const handleChange = (target) => {
+    setBookingFields((prevState) => ({ ...prevState, ...target }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();

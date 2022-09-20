@@ -2,11 +2,26 @@ import React from "react";
 import TextField from "../../../common/TextField";
 
 const DatePickForm = ({ data, onChange, errors }) => {
+  const handleChange = (e) => {
+    const {
+      nativeEvent: { data: lastOne },
+      target: { name, value },
+    } = e;
+    if (!Number.isNaN(Number(lastOne))) {
+      onChange({
+        [name]:
+          (value.length === 2 || value.length === 5) &&
+          value.length > data[name].length
+            ? `${value}.`
+            : value,
+      });
+    }
+  };
   return (
     <div className="room-info__booking_input-group">
       <TextField
         value={data.entry}
-        onChange={onChange}
+        onChange={handleChange}
         label="Заезд"
         name="entry"
         sx={{ marginRight: "20px", width: "170px" }}
@@ -15,7 +30,7 @@ const DatePickForm = ({ data, onChange, errors }) => {
       />
       <TextField
         value={data.departure}
-        onChange={onChange}
+        onChange={handleChange}
         label="Выезд"
         name="departure"
         placeholder={"XX.XX.XXXX"}
