@@ -1,38 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TextField from "../../../common/TextField";
 import Button from "../../../common/Button";
-import { validator } from "../../../../utils/validator";
 import { validatorConfig } from "./validatorConfig";
 import CheckboxField from "../../../common/CheckboxField";
+import { useForm } from "../../../../hooks/useForm";
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState({});
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    twicePassword: "",
-    license: false,
-  });
-  const handleChange = ({ target }) => {
-    setData((prevState) => ({ ...prevState, [target.name]: target.value }));
-  };
-  const validate = () => {
-    const errors = validator(data, validatorConfig);
-    if (data.password !== data.twicePassword) {
-      errors.twicePassword = "Пароли не совпадают";
-    }
-    setErrors(errors);
-    if (!isValid) return;
-  };
-  useEffect(() => {
-    validate();
-  }, [validate]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    validate();
-  };
-  const isValid = Object.keys(errors).length === 0;
+  const { handleChange, data, errors, handleSubmit } = useForm(
+    {
+      name: "",
+      email: "",
+      password: "",
+      twicePassword: "",
+      license: false,
+    },
+    validatorConfig
+  );
+
   return (
     <form onSubmit={handleSubmit}>
       <TextField

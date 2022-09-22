@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TextField from "../../../common/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
-import { validator } from "../../../../utils/validator";
+import { useForm } from "../../../../hooks/useForm";
 
 const SignInForm = () => {
-  const [errors, setErrors] = useState({});
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-  useEffect(() => {
-    if (Object.keys(errors).length) {
-      validate();
-    }
-  }, [errors]);
-  const handleChange = ({ target }) => {
-    setData((prevState) => ({ ...prevState, [target.name]: target.value }));
-  };
-  const validate = () => {
-    const errors = validator(data, validatorConfig);
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const isValid = validate();
-    if (!isValid) return;
-  };
+  const { handleChange, data, errors, handleSubmit } = useForm(
+    {
+      email: "",
+      password: "",
+    },
+    validatorConfig
+  );
   return (
     <form className="signin__form" onSubmit={handleSubmit}>
       <TextField
