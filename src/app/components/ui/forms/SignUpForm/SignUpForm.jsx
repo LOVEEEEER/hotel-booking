@@ -21,34 +21,34 @@ const SignUpForm = () => {
     <form onSubmit={handleSubmit}>
       <TextField
         error={Boolean(errors.name)}
-        label="Введите ваше имя"
+        label="Полное имя"
         onChange={handleChange}
         name="name"
         value={data.name}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.name}
         placeholder="Иван Иванов"
       />
       <br />
       <TextField
         error={Boolean(errors.email)}
-        label="Введите ваш адрес электронной почты"
+        label="E-mail"
         onChange={handleChange}
         name="email"
         value={data.email}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.email}
         placeholder="example@mail.com"
       />
       <br />
       <TextField
         error={Boolean(errors.password)}
-        label="Придумайте пароль"
+        label="Пароль"
         onChange={handleChange}
         type="password"
         name="password"
         value={data.password}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.password}
       />
       <br />
@@ -59,19 +59,9 @@ const SignUpForm = () => {
         onChange={handleChange}
         name="twicePassword"
         value={data.twicePassword}
-        sx={{ marginBottom: "15px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.twicePassword}
       />
-      <br />
-      <CheckboxField
-        label="Подтвердить пользовательское соглашение"
-        onChange={handleChange}
-        value={data.license}
-        name="license"
-        sx={{ marginBottom: "15px" }}
-      >
-        Подтвердить пользовательское соглашение
-      </CheckboxField>
       <br />
       <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
         Зарегистрироваться

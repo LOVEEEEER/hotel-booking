@@ -20,7 +20,7 @@ const SignInForm = () => {
         name="email"
         onChange={handleChange}
         value={data.email}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.email ? errors.email : null}
       />
       <br />
@@ -31,7 +31,7 @@ const SignInForm = () => {
         name="password"
         onChange={handleChange}
         value={data.password}
-        sx={{ marginBottom: "30px", minWidth: "400px" }}
+        sx={{ marginBottom: "30px", minWidth: "320px" }}
         helperText={errors.password ? errors.password : null}
       />
       <br />

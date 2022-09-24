@@ -12,7 +12,7 @@ const SignInPage = () => {
             <SignInForm />
             <div className="form-offer">
               Нет аккаунт на Cosmos?{" "}
-              <Link to="/login/signup">Зарегистрироваться</Link>
+              <Link to="/login/signup">Создать аккаунт</Link>
             </div>
           </div>
         </div>

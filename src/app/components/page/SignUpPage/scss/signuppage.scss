@@ -7,4 +7,17 @@
       background-image: url("../../../../assets/images/mainbackground.jpg");
       background-size: cover;
     }
+    &__user {
+      display: flex;
+      justify-content: center;
+      max-width: 100px;
+      margin-bottom: 23px;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(182, 180, 180);
+      border-radius: 50%;
+    }
+    &__user-image {
+      width: 70px;
+    }
 }
