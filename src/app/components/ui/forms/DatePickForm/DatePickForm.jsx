@@ -7,14 +7,18 @@ const DatePickForm = ({ data, onChange, errors }) => {
       nativeEvent: { data: lastOne },
       target: { name, value },
     } = e;
-    if (!Number.isNaN(Number(lastOne))) {
-      onChange({
-        [name]:
-          (value.length === 2 || value.length === 5) &&
-          value.length > data[name].length
-            ? `${value}.`
-            : value,
-      });
+    if (!Number.isNaN(Number(lastOne)) && value.length < 11) {
+      const fakeTarget = {
+        target: {
+          name: name,
+          value:
+            (value.length === 2 || value.length === 5) &&
+            value.length > data[name].length
+              ? `${value}.`
+              : value,
+        },
+      };
+      onChange(fakeTarget);
     }
   };
   return (
