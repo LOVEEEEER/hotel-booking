@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../api";
 import ImageSlider from "../../common/ImageSlider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
@@ -11,13 +10,14 @@ import Booking from "../../ui/room/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
+import { useRooms } from "../../../hooks/useRooms";
 
 const RoomPage = ({ roomId }) => {
+  const { rooms } = useRooms();
   const [room, setRoom] = useState();
   useEffect(() => {
-    api.hotels.getById(roomId).then((data) => setRoom(data));
-  }, [roomId]);
-  useEffect(() => {}, []);
+    setRoom(rooms.find((room) => room.id === roomId));
+  }, [rooms, roomId]);
   const handleFavouriteRoom = ({ target }) => {
     const favouriteRoomsFromStorage = fromStorage("rooms");
     if (!favouriteRoomsFromStorage) {

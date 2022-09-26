@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import api from "../../../api";
+import React, { useState } from "react";
 import RoomsList from "../../ui/rooms/RoomsList";
 import { paginate } from "../../../utils/paginate";
 import Pagination from "../../common/Pagination";
@@ -7,16 +6,14 @@ import Search from "../../common/Search";
 import _ from "lodash";
 import SelectField from "../../common/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
+import { useRooms } from "../../../hooks/useRooms";
 
 const RoomsListPage = () => {
-  const [hotels, setHotels] = useState();
+  const { rooms } = useRooms();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("asc");
   const [pageSize, setPageSize] = useState(6);
-  useEffect(() => {
-    api.hotels.fetchAll().then((data) => setHotels(data));
-  }, []);
   const handleSearchQuery = ({ target }) => {
     setCurrentPage(1);
     setSearchQuery(target.value);
@@ -31,12 +28,12 @@ const RoomsListPage = () => {
     console.log(item.target);
     setSortBy((prevState) => (prevState === "asc" ? "desc" : "asc"));
   };
-  if (hotels) {
-    const searchedItems = hotels.filter((hotel) =>
+  if (rooms) {
+    const searchedItems = rooms.filter((hotel) =>
       hotel.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    const sortedHotels = _.orderBy(searchedItems, ["price"], [sortBy]);
-    const roomsCrop = paginate(sortedHotels, currentPage, pageSize);
+    const sortedRooms = _.orderBy(searchedItems, ["price"], [sortBy]);
+    const roomsCrop = paginate(sortedRooms, currentPage, pageSize);
     const count = searchedItems.length;
     return (
       <main className="rooms__page">
