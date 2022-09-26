@@ -23,6 +23,7 @@ export const useForm = (initialState, config) => {
     e.preventDefault();
     const isValid = validate();
     if (!isValid) return;
+    console.log("Successfuly");
   };
   return { handleChange, validate, data, errors, handleSubmit };
 };

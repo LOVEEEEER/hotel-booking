@@ -16,7 +16,9 @@ const RoomPage = ({ roomId }) => {
   const { rooms } = useRooms();
   const [room, setRoom] = useState();
   useEffect(() => {
-    setRoom(rooms.find((room) => room.id === roomId));
+    if (rooms) {
+      setRoom(rooms.find((room) => room.id === roomId));
+    }
   }, [rooms, roomId]);
   const handleFavouriteRoom = ({ target }) => {
     const favouriteRoomsFromStorage = fromStorage("rooms");
