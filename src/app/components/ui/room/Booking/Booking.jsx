@@ -44,7 +44,7 @@ const Booking = ({ roomPrice }) => {
 
   useEffect(() => {
     validate();
-  }, [bookingFields, validate]);
+  }, [bookingFields]);
 
   const getFullRoomPrice = (entry, departure) => {
     let tenantCount = 0;
