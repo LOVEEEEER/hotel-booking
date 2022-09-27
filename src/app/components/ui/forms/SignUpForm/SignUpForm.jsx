@@ -2,7 +2,6 @@ import React from "react";
 import TextField from "../../../common/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
-import CheckboxField from "../../../common/CheckboxField";
 import { useForm } from "../../../../hooks/useForm";
 
 const SignUpForm = () => {
@@ -12,7 +11,6 @@ const SignUpForm = () => {
       email: "",
       password: "",
       twicePassword: "",
-      license: false,
     },
     validatorConfig
   );

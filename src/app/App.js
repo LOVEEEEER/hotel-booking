@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import routes from "./routes";
 import Error from "./layouts/Error";
+import React from "react";
 
 const getRoutes = (routes) => {
   return routes.map((prop, key) => (
