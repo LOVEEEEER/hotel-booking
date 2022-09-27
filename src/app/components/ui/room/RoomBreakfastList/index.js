@@ -1,2 +1,2 @@
 import RoomBreakFastList from "./RoomBreakFastList";
-export default RoomBreakFastList
+export default RoomBreakFastList;

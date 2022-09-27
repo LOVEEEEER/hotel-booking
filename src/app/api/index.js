@@ -1,7 +1,7 @@
 import * as hotels from "./hotelsRooms";
 
 const api = {
-  hotels,
+    hotels
 };
 
 export default api;
