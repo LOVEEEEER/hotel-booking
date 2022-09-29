@@ -1,26 +1,51 @@
 import React from "react";
-import { Checkbox } from "@mui/material";
+import PropTypes from "prop-types";
+import { Checkbox, FormControl } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import FormHelperText from "@mui/material/FormHelperText";
 
-const CheckboxField = ({ children, value, name, onChange, sx }) => {
-  const handleChange = ({ target: { name } }) => {
-    const fakeEvent = {
-      target: {
-        name,
-        value: !value,
-      },
+const CheckboxField = ({
+    helperText,
+    error,
+    label,
+    value,
+    name,
+    onChange,
+    ...rest
+}) => {
+    const handleChange = ({ target: { name } }) => {
+        const fakeEvent = {
+            target: {
+                name,
+                value: !value
+            }
+        };
+        onChange(fakeEvent);
     };
-    onChange(fakeEvent);
-  };
-  return (
-    <>
-      <FormControlLabel
-        sx={sx}
-        control={<Checkbox value={value} onChange={handleChange} name={name} />}
-        label={children}
-      />
-    </>
-  );
+    return (
+        <FormControl error={error} {...rest}>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        value={value}
+                        onChange={handleChange}
+                        name={name}
+                    />
+                }
+                label={label}
+            />
+            {error && <FormHelperText>{helperText}</FormHelperText>}
+        </FormControl>
+    );
+};
+
+CheckboxField.propTypes = {
+    label: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    error: PropTypes.bool,
+    helperText: PropTypes.string
 };
 
 export default CheckboxField;

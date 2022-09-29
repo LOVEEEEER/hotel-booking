@@ -26,5 +26,10 @@ export const validatorConfig = {
             message: "Поле пароль должно содержать минимум 8 символов",
             params: 8
         }
+    },
+    license: {
+        isRequired: {
+            message: "Поле обязательно для заполнения"
+        }
     }
 };

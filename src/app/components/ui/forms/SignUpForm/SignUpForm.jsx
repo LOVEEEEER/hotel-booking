@@ -3,6 +3,7 @@ import TextField from "../../../common/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
+import CheckboxField from "../../../common/CheckboxField";
 
 const SignUpForm = () => {
     const { handleChange, data, errors, handleSubmit } = useForm(
@@ -10,7 +11,7 @@ const SignUpForm = () => {
             name: "",
             email: "",
             password: "",
-            twicePassword: ""
+            license: ""
         },
         validatorConfig
     );
@@ -46,8 +47,18 @@ const SignUpForm = () => {
                 type="password"
                 name="password"
                 value={data.password}
-                sx={{ marginBottom: "30px", minWidth: "320px" }}
+                sx={{ marginBottom: "10px", minWidth: "320px" }}
                 helperText={errors.password}
+            />
+            <br />
+            <CheckboxField
+                label="Я люблю реакт"
+                value={data.license}
+                name="license"
+                onChange={handleChange}
+                error={Boolean(errors.license)}
+                helperText={errors.license}
+                sx={{ marginBottom: "7px" }}
             />
             <br />
             <Button type="submit" sx={{ width: "100%", padding: "9px" }}>

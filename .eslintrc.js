@@ -14,6 +14,7 @@ module.exports = {
     plugins: ["react"],
     rules: {
         "object-shorthand": 0,
+        "no-useless-escape": ["off"],
         semi: [2, "always"],
         indent: [0, 4],
         "space-before-function-paren": [
