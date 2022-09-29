@@ -23,10 +23,10 @@ const Breadcrumbs = (props) => {
                     color="inherit"
                     onClick={() => history.push("/")}
                 >
-                    Домой
+                    Главная
                 </LinkMui>
             ) : (
-                <Typography> Home </Typography>
+                <Typography> Главная </Typography>
             )}
             {pathnames.map((name, index) => {
                 const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
