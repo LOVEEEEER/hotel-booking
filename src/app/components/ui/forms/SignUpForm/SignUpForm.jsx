@@ -50,17 +50,6 @@ const SignUpForm = () => {
                 helperText={errors.password}
             />
             <br />
-            <TextField
-                error={Boolean(errors.twicePassword)}
-                label="Повторите пароль"
-                type="password"
-                onChange={handleChange}
-                name="twicePassword"
-                value={data.twicePassword}
-                sx={{ marginBottom: "30px", minWidth: "320px" }}
-                helperText={errors.twicePassword}
-            />
-            <br />
             <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
                 Зарегистрироваться
             </Button>
