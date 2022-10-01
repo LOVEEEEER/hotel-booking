@@ -25,7 +25,6 @@ const RoomsListPage = () => {
         setPageSize(target.value);
     };
     const handleSort = (item) => {
-        console.log(item.target);
         setSortBy((prevState) => (prevState === "asc" ? "desc" : "asc"));
     };
     if (rooms) {

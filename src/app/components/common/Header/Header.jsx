@@ -10,7 +10,8 @@ const Header = () => {
         { path: "/vacancies", text: "Вакансии", id: 3 },
         { path: "/news", text: "Новости", id: 4 }
     ];
-    const location = useLocation().pathname;
+
+    const { pathname: location } = useLocation();
 
     const getNavLinkClasses = (path) => {
         return "header__nav-link" + (location.includes(path) ? " active" : "");
@@ -34,6 +35,14 @@ const Header = () => {
                         ))}
                     </ul>
                 </nav>
+                <input
+                    id="menu__toggle"
+                    className="header__menu-toggle"
+                    type="checkbox"
+                />
+                <label className="header__menu-button" htmlFor="menu__toggle">
+                    <span></span>
+                </label>
                 <ul className="header__auth-list">
                     <li className="header__auth-item">
                         <Link to="/login/signin" className="header__auth-link">
