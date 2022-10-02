@@ -22,7 +22,7 @@ const RoomCard = ({ images, title, rate, price, id }) => {
                 </div>
 
                 <div className="room__main-content_text-wrapper">
-                    <h2 className="room__name">{title}</h2>
+                    <h2 className="room__name">№{title}</h2>
                     <p className="room__description">
                         Lorem, ipsum dolor sit amet consectetur adipisicing
                         elit. Ex sapiente blanditiis perspiciatis, excepturi

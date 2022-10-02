@@ -1,3 +1,5 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
 $content-margin: 15px;
 
 .rooms {
@@ -10,9 +12,21 @@ $content-margin: 15px;
     flex-direction: column;
     padding-top: 30px;
   }
-}
+  &__filters {
+    display: flex;
+    justify-content: space-between; 
+    @include tablets{
+      display: block;
+    }
+  }
+  &__select-block {
+    display: flex;
 
-.filters {
-  display: flex;
-  justify-content: space-between;
+    justify-content: center;
+    width: 40%;
+    @include tablets{
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
 }

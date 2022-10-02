@@ -16,7 +16,7 @@
   &__nav-list {
     display: flex;
     align-items: center;
-    @include phones{display: none;}
+    @include tablets{display: none;}
   }
   &__nav-item {
     &:not(:last-child) {
@@ -41,9 +41,9 @@
     color: rgb(99, 140, 253);
   }
   &__auth-list {
-    @include phones{display: none;}
     display: flex;
     align-items: center;
+    @include tablets{display: none;}
   }
   &__auth-link {
     color: rgb(58, 57, 57);
