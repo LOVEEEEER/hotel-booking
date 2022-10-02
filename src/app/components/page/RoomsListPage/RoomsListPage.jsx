@@ -38,34 +38,41 @@ const RoomsListPage = () => {
             <main className="rooms__page">
                 <section className="rooms">
                     <div className="container rooms__container">
-                        <div className="filters">
+                        <div className="rooms__filters">
                             <Search
                                 value={searchQuery}
                                 onChange={handleSearchQuery}
-                                sx={{ minWidth: "68%" }}
+                                sx={{ width: "100%" }}
                             />
-                            <SelectField
-                                value={sortBy}
-                                options={[
-                                    { value: "asc", name: "По возрастанию" },
-                                    { value: "desc", name: "По убыванию" }
-                                ]}
-                                label="Сортировать по:"
-                                onChange={handleSort}
-                                name="sortBy"
-                            />
-                            <SelectField
-                                value={pageSize}
-                                label="Отображать по"
-                                options={[
-                                    { value: 6, name: "6" },
-                                    { value: 12, name: "12" },
-                                    { value: 18, name: "18" },
-                                    { value: 24, name: "24" }
-                                ]}
-                                name="pageSize"
-                                onChange={handleChangePageSize}
-                            />
+                            <div className="rooms__select-block">
+                                <SelectField
+                                    value={sortBy}
+                                    options={[
+                                        {
+                                            value: "asc",
+                                            name: "По возрастанию"
+                                        },
+                                        { value: "desc", name: "По убыванию" }
+                                    ]}
+                                    label="Сортировать по:"
+                                    onChange={handleSort}
+                                    name="sortBy"
+                                    sx={{ maxWidth: "100%" }}
+                                />
+                                <SelectField
+                                    value={pageSize}
+                                    label="Отображать по"
+                                    options={[
+                                        { value: 6, name: "6" },
+                                        { value: 12, name: "12" },
+                                        { value: 18, name: "18" },
+                                        { value: 24, name: "24" }
+                                    ]}
+                                    name="pageSize"
+                                    onChange={handleChangePageSize}
+                                    sx={{ maxWidth: "100%" }}
+                                />
+                            </div>
                         </div>
                         {roomsCrop.length ? (
                             <RoomsList items={roomsCrop} />
