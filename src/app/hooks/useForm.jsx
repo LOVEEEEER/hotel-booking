@@ -12,7 +12,6 @@ export const useForm = (initialState, config) => {
     }, [data]);
 
     const handleChange = ({ target }) => {
-        console.log(target.value);
         setData((prevState) => ({ ...prevState, [target.name]: target.value }));
     };
     const validate = () => {
@@ -24,7 +23,7 @@ export const useForm = (initialState, config) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log("Successfuly");
+        console.log(data);
     };
     return { handleChange, validate, data, errors, handleSubmit };
 };
