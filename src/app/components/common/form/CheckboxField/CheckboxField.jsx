@@ -13,14 +13,14 @@ const CheckboxField = ({
     onChange,
     ...rest
 }) => {
-    const handleChange = ({ target: { name } }) => {
-        const fakeEvent = {
-            target: {
-                name,
-                value: !value
-            }
-        };
-        onChange(fakeEvent);
+    const handleChange = (e) => {
+        // const fakeEvent = {
+        //     target: {
+        //         name,
+        //         value: !value
+        //     }
+        // };
+        onChange(e);
     };
     return (
         <FormControl error={error} {...rest}>

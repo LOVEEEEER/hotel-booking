@@ -1,0 +1,9 @@
+.filter-panel {
+  &__name {
+    margin-bottom: 12px;
+  }
+  &__checkbox-block {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RoomsList from "../../ui/rooms/RoomsList";
 import { paginate } from "../../../utils/paginate";
 import Pagination from "../../common/Pagination";
 import Search from "../../common/Search";
 import _ from "lodash";
-import SelectField from "../../common/SelectField";
+import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 import { useRooms } from "../../../hooks/useRooms";
+import FilterPanel from "../../ui/rooms/FilterPanel";
+import { useForm } from "../../../hooks/useForm";
 
 const RoomsListPage = () => {
     const { rooms } = useRooms();
@@ -14,6 +16,33 @@ const RoomsListPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [sortBy, setSortBy] = useState("asc");
     const [pageSize, setPageSize] = useState(6);
+    const { data: filters, handleChange: handleChangeFilterValue } = useForm({
+        prices: []
+    });
+
+    const getFilteredItems = () => {
+        const filteredItems = [];
+        const minValues = [];
+        const maxValues = [];
+
+        if (rooms) {
+            filters.prices.forEach((p) => {
+                minValues.push(p.split("-")[0]);
+                maxValues.push(p.split("-")[1]);
+            });
+            rooms.forEach((room) => {
+                minValues.forEach((value, index) => {
+                    if (room.price >= value && room.price <= maxValues[index]) {
+                        filteredItems.push(room);
+                    }
+                });
+            });
+        }
+        console.log(filteredItems);
+    };
+    useEffect(() => {
+        getFilteredItems();
+    }, [filters]);
     const handleSearchQuery = ({ target }) => {
         setCurrentPage(1);
         setSearchQuery(target.value);
@@ -24,7 +53,7 @@ const RoomsListPage = () => {
     const handleChangePageSize = ({ target }) => {
         setPageSize(target.value);
     };
-    const handleSort = (item) => {
+    const handleSort = () => {
         setSortBy((prevState) => (prevState === "asc" ? "desc" : "asc"));
     };
     if (rooms) {
@@ -36,13 +65,19 @@ const RoomsListPage = () => {
         const count = searchedItems.length;
         return (
             <main className="rooms__page">
+                <aside className="filter-panel">
+                    <FilterPanel
+                        filters={filters}
+                        onChangeFilter={handleChangeFilterValue}
+                    />
+                </aside>
                 <section className="rooms">
                     <div className="container rooms__container">
                         <div className="rooms__filters">
                             <Search
                                 value={searchQuery}
                                 onChange={handleSearchQuery}
-                                sx={{ width: "100%" }}
+                                sx={{ width: "60%" }}
                             />
                             <div className="rooms__select-block">
                                 <SelectField
@@ -82,15 +117,15 @@ const RoomsListPage = () => {
                             </h1>
                         )}
                     </div>
+                    {roomsCrop.length > 0 && (
+                        <Pagination
+                            currentPage={currentPage}
+                            itemsCount={count}
+                            pageSize={pageSize}
+                            onChange={handleChangePage}
+                        />
+                    )}
                 </section>
-                {roomsCrop.length > 0 && (
-                    <Pagination
-                        currentPage={currentPage}
-                        itemsCount={count}
-                        pageSize={pageSize}
-                        onChange={handleChangePage}
-                    />
-                )}
             </main>
         );
     }

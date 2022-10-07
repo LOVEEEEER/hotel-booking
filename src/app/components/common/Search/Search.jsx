@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TextField from "../TextField";
+import TextField from "../form/TextField";
 
 const Search = ({ onChange, value, ...rest }) => {
     return (
