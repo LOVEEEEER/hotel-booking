@@ -1,0 +1,10 @@
+.room-reviews {
+  &__item {
+    padding: 35px;
+    background-color: rgb(228, 225, 247);
+    border-radius: 20px;
+  }
+  &__user {
+    margin-bottom: 15px;
+  }
+}
