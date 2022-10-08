@@ -1,5 +1,5 @@
 import React from "react";
-import TextField from "../../../common/TextField";
+import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";

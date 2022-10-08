@@ -6,8 +6,10 @@ export const useForm = (initialState, config) => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        if (Object.keys(errors).length > 0) {
-            validate();
+        if (config) {
+            if (Object.keys(errors).length > 0) {
+                validate();
+            }
         }
     }, [data]);
 

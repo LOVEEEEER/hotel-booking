@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TextField from "../../../common/TextField";
+import TextField from "../../../common/form/TextField";
 
 const DatePickForm = ({ data, onChange, errors }) => {
     const handleChange = (e) => {

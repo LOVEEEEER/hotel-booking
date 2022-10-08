@@ -1,9 +1,9 @@
 import React from "react";
-import TextField from "../../../common/TextField";
+import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
-import CheckboxField from "../../../common/CheckboxField";
+import CheckboxField from "../../../common/form/CheckboxField";
 
 const SignUpForm = () => {
     const { handleChange, data, errors, handleSubmit } = useForm(
