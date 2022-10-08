@@ -6,4 +6,9 @@
     display: flex;
     flex-direction: column;
   }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 }

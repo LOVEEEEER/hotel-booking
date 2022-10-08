@@ -30,6 +30,7 @@ const CheckboxField = ({
                         value={value}
                         onChange={handleChange}
                         name={name}
+                        {...rest}
                     />
                 }
                 label={label}
