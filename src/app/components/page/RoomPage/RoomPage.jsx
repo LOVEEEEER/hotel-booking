@@ -12,6 +12,7 @@ import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import { useRooms } from "../../../hooks/useRooms";
+import RoomReviews from "../../ui/room/RoomReviews";
 
 const RoomPage = ({ roomId }) => {
     const { rooms } = useRooms();
@@ -119,6 +120,9 @@ const RoomPage = ({ roomId }) => {
                             <h2 className="room-section-title">
                                 Отзывы посетителей данного отеля
                             </h2>
+                            <div className="room-reviews__comments">
+                                <RoomReviews />
+                            </div>
                             <div className="room-reviews__form">
                                 <ReviewsForm />
                                 <div className="room-reviews__statistics">

@@ -53,53 +53,51 @@ const RoomsListPage = () => {
                     />
                 </aside>
                 <section className="rooms">
-                    <div className="container rooms__container">
-                        <div className="rooms__filters">
-                            <Search
-                                value={searchQuery}
-                                onChange={(e) =>
-                                    handleSearchQuery(e, rooms, "title")
-                                }
-                                sx={{ width: "60%" }}
+                    <div className="rooms__filters">
+                        <Search
+                            value={searchQuery}
+                            onChange={(e) =>
+                                handleSearchQuery(e, rooms, "title")
+                            }
+                            sx={{ width: "60%" }}
+                        />
+                        <div className="rooms__select-block">
+                            <SelectField
+                                value={sortBy}
+                                options={[
+                                    {
+                                        value: "asc",
+                                        name: "По возрастанию"
+                                    },
+                                    { value: "desc", name: "По убыванию" }
+                                ]}
+                                label="Сортировать по:"
+                                onChange={handleSort}
+                                name="sortBy"
+                                sx={{ maxWidth: "100%" }}
                             />
-                            <div className="rooms__select-block">
-                                <SelectField
-                                    value={sortBy}
-                                    options={[
-                                        {
-                                            value: "asc",
-                                            name: "По возрастанию"
-                                        },
-                                        { value: "desc", name: "По убыванию" }
-                                    ]}
-                                    label="Сортировать по:"
-                                    onChange={handleSort}
-                                    name="sortBy"
-                                    sx={{ maxWidth: "100%" }}
-                                />
-                                <SelectField
-                                    value={pageSize}
-                                    label="Отображать по"
-                                    options={[
-                                        { value: 6, name: "6" },
-                                        { value: 12, name: "12" },
-                                        { value: 18, name: "18" },
-                                        { value: 24, name: "24" }
-                                    ]}
-                                    name="pageSize"
-                                    onChange={handleChangePageSize}
-                                    sx={{ maxWidth: "100%" }}
-                                />
-                            </div>
+                            <SelectField
+                                value={pageSize}
+                                label="Отображать по"
+                                options={[
+                                    { value: 6, name: "6" },
+                                    { value: 12, name: "12" },
+                                    { value: 18, name: "18" },
+                                    { value: 24, name: "24" }
+                                ]}
+                                name="pageSize"
+                                onChange={handleChangePageSize}
+                                sx={{ maxWidth: "100%" }}
+                            />
                         </div>
-                        {roomsCrop.length ? (
-                            <RoomsList items={roomsCrop} />
-                        ) : (
-                            <h1 className="error-page-message">
-                                Ничего не найдено :(
-                            </h1>
-                        )}
                     </div>
+                    {roomsCrop.length ? (
+                        <RoomsList items={roomsCrop} />
+                    ) : (
+                        <h1 className="error-page-message">
+                            Ничего не найдено :(
+                        </h1>
+                    )}
                     {roomsCrop.length > 0 && (
                         <Pagination
                             currentPage={currentPage}
