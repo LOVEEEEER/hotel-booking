@@ -12,6 +12,9 @@
     margin-top: 13px;
     margin-bottom: 25px;
   }
+  &-cover__title-wrapper {
+    margin-bottom: 4px;
+  }
   &-cover__title {
     margin-left: 11px;
     font-size: 35px;
@@ -87,7 +90,7 @@
     width: 300px;
     font-size: 16px;
   }
-  &-booking__container  {
+  &-booking  {
     padding-bottom: 70px;
   }
   &-booking__title {
