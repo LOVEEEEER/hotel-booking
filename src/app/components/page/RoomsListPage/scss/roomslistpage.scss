@@ -5,6 +5,7 @@ $content-margin: 15px;
 .rooms {
   &__page {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     @include tablets{
       display: block;
@@ -38,4 +39,6 @@ $content-margin: 15px;
 
 .filter-panel {
   padding: 20px;
+  box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
+
 }

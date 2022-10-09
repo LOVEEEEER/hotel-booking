@@ -19,44 +19,39 @@ export const useFilters = () => {
         if (items) {
             filters.forEach((item) => {
                 switch (item) {
-                    case "prices": {
-                        const minValues = [];
-                        const maxValues = [];
-                        filtersValue.prices.forEach((p) => {
-                            minValues.push(p.split("-")[0]);
-                            maxValues.push(p.split("-")[1]);
-                        });
-                        items.forEach((room) => {
-                            minValues.forEach((value, index) => {
-                                if (
-                                    room.price >= value &&
-                                    room.price <= maxValues[index]
-                                ) {
-                                    const isRepeat = isRepeatElement(
-                                        filteredItems,
-                                        room
-                                    );
-                                    if (!isRepeat) {
-                                        filteredItems.push(room);
-                                    }
-                                }
-                            });
-                        });
-                    }
-
                     case "comfort": {
+                        // items.forEach((room) => {
+                        //     filtersValue.comfort.forEach((value) => {
+                        //         if (room.comfort.includes(value)) {
+                        //             const isRepeat = isRepeatElement(
+                        //                 filteredItems,
+                        //                 room
+                        //             );
+                        //             if (!isRepeat) {
+                        //                 filteredItems.push(room);
+                        //             }
+                        //         }
+                        //     });
+                        // });
+                        // items.forEach(room=>{
+                        //    room.comfort(item=>)
+                        // })
+                        // items.forEach(room=>{
+                        //     fi
+                        // })
+                    }
+                    case "rate": {
+                        console.log(filteredItems);
                         items.forEach((room) => {
-                            filtersValue.comfort.forEach((value) => {
-                                if (room.comfort.includes(value)) {
-                                    const isRepeat = isRepeatElement(
-                                        filteredItems,
-                                        room
-                                    );
-                                    if (!isRepeat) {
-                                        filteredItems.push(room);
-                                    }
+                            if (room.rate.toString() === filtersValue.rate) {
+                                const isRepeat = isRepeatElement(
+                                    filteredItems,
+                                    room
+                                );
+                                if (!isRepeat) {
+                                    filteredItems.push(room);
                                 }
-                            });
+                            }
                         });
                     }
                 }

@@ -1,73 +1,47 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CheckboxField from "../../../common/form/CheckboxField";
+import RadioField from "../../../common/form/RadioField";
 
 const FilterPanel = ({ filters, onChangeFilter }) => {
     const handleChange = ({ target }) => {
-        const copyFilters = { ...filters };
-        const isIncludeFilter = filters[target.name].includes(target.value);
+        if (Array.isArray(filters[target.name])) {
+            const copyFilters = { ...filters };
+            const isIncludeFilter = filters[target.name].includes(target.value);
 
-        if (!isIncludeFilter) {
-            copyFilters[target.name].push(target.value);
-        } else {
-            copyFilters[target.name].splice(
-                copyFilters[target.name].indexOf(target.value),
-                1
-            );
+            if (!isIncludeFilter) {
+                copyFilters[target.name].push(target.value);
+            } else {
+                copyFilters[target.name].splice(
+                    copyFilters[target.name].indexOf(target.value),
+                    1
+                );
+            }
+            const fakeEvent = {
+                target: {
+                    name: target.name,
+                    value: copyFilters[target.name]
+                }
+            };
+            onChangeFilter(fakeEvent);
+            return;
         }
         const fakeEvent = {
             target: {
                 name: target.name,
-                value: copyFilters[target.name]
+                value: target.value
             }
         };
         onChangeFilter(fakeEvent);
     };
+    const ratesRadio = [
+        { label: "Отлично", value: 5 },
+        { label: "Хорошо", value: 4 },
+        { label: "Нормально", value: 3 }
+    ];
     return (
         <>
             <ul className="filter-panel__list">
-                <li className="filter-panel__item">
-                    <h3 className="filter-panel__name">Цена за номер</h3>
-                    <div className="filter-panel__checkbox-block">
-                        <CheckboxField
-                            value="1000-2000"
-                            name="prices"
-                            label="1000-2000 руб. ночь"
-                            onChange={handleChange}
-                            checked={filters.prices.includes("1000-2000")}
-                        />
-                        <CheckboxField
-                            value="2000-3000"
-                            name="prices"
-                            label="2000-3000 руб. ночь"
-                            onChange={handleChange}
-                            checked={filters.prices.includes("2000-3000")}
-                        />
-                        <CheckboxField
-                            value="3000-4000"
-                            name="prices"
-                            label="3000-4000 руб. ночь"
-                            onChange={handleChange}
-                            checked={filters.prices.includes("3000-4000")}
-                        />
-                        <CheckboxField
-                            value="4000-5000"
-                            name="prices"
-                            label="4000-5000 руб. ночь"
-                            onChange={handleChange}
-                            checked={filters.prices.includes("4000-5000")}
-                        />
-                        <CheckboxField
-                            value="5000-99999999999999"
-                            name="prices"
-                            label="Свыше 5000 руб"
-                            onChange={handleChange}
-                            checked={filters.prices.includes(
-                                "5000-99999999999999"
-                            )}
-                        />
-                    </div>
-                </li>
                 <li className="filter-panel__item">
                     <h3 className="filter-panel__name">Удобства</h3>
                     <div className="filter-panel__checkbox-block">
@@ -112,6 +86,16 @@ const FilterPanel = ({ filters, onChangeFilter }) => {
                             label="Кондинционер"
                             onChange={handleChange}
                             checked={filters.comfort.includes("conditioner")}
+                        />
+                    </div>
+                </li>
+                <li className="filter-panel__item">
+                    <h3 className="filter-panel__name">Оценка по отзывам</h3>
+                    <div className="filter-panel__checkbox-block">
+                        <RadioField
+                            options={ratesRadio}
+                            onChange={handleChange}
+                            name="rate"
                         />
                     </div>
                 </li>

@@ -18,7 +18,7 @@ const RoomsListPage = () => {
 
     const { rooms } = useRooms();
     const { searchQuery, handleSearchQuery, getFilteredItems } = useFilters();
-    const initialFilterState = { prices: [], comfort: [] };
+    const initialFilterState = { comfort: [], rate: "" };
 
     const { data: filters, handleChange: handleChangeFilterValue } =
         useForm(initialFilterState);
