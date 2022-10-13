@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import routes from "./routes";
 import Error from "./layouts/Error";
-import useMockData from "./utils/mockData";
 
 const getRoutes = (routes) => {
     return routes.map((prop, key) => (
@@ -16,8 +15,6 @@ const getRoutes = (routes) => {
 };
 
 function App() {
-    const { initialize } = useMockData();
-    initialize();
     return (
         <>
             <Switch>
