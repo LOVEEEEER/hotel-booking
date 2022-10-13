@@ -32,7 +32,7 @@
   &__nav-link {
     color: rgb(58, 57, 57);
     font-weight: 600;
-    transition: color 0.25s ease-in-out;
+    transition: color 0.15s ease-in-out;
       &:hover {
         color: rgb(99, 140, 253);
       }
@@ -77,7 +77,7 @@
 
 
   &__menu-button {
-    display: flex; 
+    display: none; 
     align-items: center;  
     position: absolute;
     left: 90vw;
@@ -85,6 +85,10 @@
     height: 26px;
     cursor: pointer;
     z-index: 1;
+
+    @include tablets{
+      display: flex;
+    }
   }
   &__menu-toggle {
     opacity: 0;
