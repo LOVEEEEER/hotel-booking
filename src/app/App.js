@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import routes from "./routes";
 import Error from "./layouts/Error";
+import AuthProvider from "./hooks/useAuth";
 
 const getRoutes = (routes) => {
     return routes.map((prop, key) => (
@@ -17,10 +18,12 @@ const getRoutes = (routes) => {
 function App() {
     return (
         <>
-            <Switch>
-                {getRoutes(routes)}
-                <Route component={Error} />
-            </Switch>
+            <AuthProvider>
+                <Switch>
+                    {getRoutes(routes)}
+                    <Route component={Error} />
+                </Switch>
+            </AuthProvider>
         </>
     );
 }

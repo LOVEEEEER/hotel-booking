@@ -19,7 +19,7 @@ axios.interceptors.request.use(
 );
 
 function transformData(data) {
-    return Object.keys(data).map((key) => ({ ...data[key] }));
+    return !data.id ? Object.keys(data).map((key) => ({ ...data[key] })) : data;
 }
 
 axios.interceptors.response.use(

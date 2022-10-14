@@ -21,11 +21,5 @@ export const useForm = (initialState, config) => {
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const isValid = validate();
-        if (!isValid) return;
-        console.log(data);
-    };
-    return { handleChange, validate, data, errors, handleSubmit };
+    return { handleChange, validate, data, errors };
 };
