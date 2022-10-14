@@ -5,13 +5,17 @@ import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 
 const SignInForm = () => {
-    const { handleChange, data, errors, handleSubmit } = useForm(
+    const { handleChange, data, errors } = useForm(
         {
             email: "",
             password: ""
         },
         validatorConfig
     );
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>
             <TextField
