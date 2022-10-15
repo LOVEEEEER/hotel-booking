@@ -17,8 +17,7 @@ const Booking = ({ roomPrice }) => {
         handleChange,
         validate,
         data: bookingFields,
-        errors,
-        handleSubmit
+        errors
     } = useForm(
         {
             entry: getFormatDate(
@@ -39,6 +38,9 @@ const Booking = ({ roomPrice }) => {
         validatorConfig
     );
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
     const handleToggleCounter = (name, value) => {
         setCounters((prevState) => ({ ...prevState, [name]: value }));
     };

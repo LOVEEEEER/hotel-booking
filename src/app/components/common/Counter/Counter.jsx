@@ -35,6 +35,7 @@ const Counter = ({
         <div className="counter">
             <p className="counter-label">{label}</p>
             <Button
+                type="button"
                 disabled={value === minValue && true}
                 onClick={() => onToggleCounter(name, getCounterValue("min"))}
                 sx={counterButtonStyles}
@@ -44,6 +45,7 @@ const Counter = ({
             </Button>
             <span className="counter-value">{value}</span>
             <Button
+                type="button"
                 disabled={value === maxValue && true}
                 onClick={() => onToggleCounter(name, getCounterValue("max"))}
                 sx={counterButtonStyles}
