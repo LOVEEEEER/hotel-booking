@@ -3,8 +3,12 @@ import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
+import { useAuth } from "../../../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const SignInForm = () => {
+    const { signIn } = useAuth();
+    const history = useHistory();
     const { handleChange, data, errors } = useForm(
         {
             email: "",
@@ -13,8 +17,10 @@ const SignInForm = () => {
         validatorConfig
     );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        await signIn(data);
+        history.replace("/rooms");
     };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>

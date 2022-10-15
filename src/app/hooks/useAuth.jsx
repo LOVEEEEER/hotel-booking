@@ -26,6 +26,23 @@ const AuthProvider = ({ children }) => {
         }
     }, []);
 
+    const signIn = async ({ email, password }) => {
+        try {
+            const { data } = await httpAuth.post(
+                "accounts:signInWithPassword",
+                {
+                    email,
+                    password,
+                    returnSecureToken: true
+                }
+            );
+            localStorageService.setTokens(data);
+            getUserInfo();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const signUp = async ({ email, password, name }) => {
         try {
             const { data } = await httpAuth.post("accounts:signUp", {
@@ -45,6 +62,12 @@ const AuthProvider = ({ children }) => {
             console.log(error);
         }
     };
+
+    const logOut = () => {
+        localStorageService.removeUserData();
+        setCurrentUser(null);
+    };
+
     async function createUser(data) {
         try {
             const { content } = await userService.createUser(data);
@@ -61,7 +84,7 @@ const AuthProvider = ({ children }) => {
         }
     };
     return (
-        <AuthContext.Provider value={{ signUp, currentUser }}>
+        <AuthContext.Provider value={{ signUp, signIn, currentUser, logOut }}>
             {children}
         </AuthContext.Provider>
     );

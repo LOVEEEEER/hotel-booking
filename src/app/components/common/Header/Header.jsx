@@ -2,8 +2,11 @@ import React from "react";
 import Logo from "../Logo";
 import Button from "../Button";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Header = () => {
+    const { currentUser, logOut } = useAuth();
+    console.log(currentUser);
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
         { path: "/services", text: "Услуги", id: 2 },
@@ -44,16 +47,33 @@ const Header = () => {
                     <span></span>
                 </label>
                 <ul className="header__auth-list">
-                    <li className="header__auth-item">
-                        <Link to="/login/signin" className="header__auth-link">
-                            Вход
-                        </Link>
-                    </li>
-                    <li className="header__auth-item">
-                        <Link to="/login/signup" className="header__auth-link">
-                            <Button variant="outlined">Регистрация</Button>
-                        </Link>
-                    </li>
+                    {!currentUser ? (
+                        <>
+                            <li className="header__auth-item">
+                                <Link
+                                    to="/login/signin"
+                                    className="header__auth-link"
+                                >
+                                    Вход
+                                </Link>
+                            </li>
+                            <li className="header__auth-item">
+                                <Link
+                                    to="/login/signup"
+                                    className="header__auth-link"
+                                >
+                                    <Button variant="outlined">
+                                        Регистрация
+                                    </Button>
+                                </Link>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            {currentUser.name}
+                            <button onClick={logOut}>Выход</button>
+                        </>
+                    )}
                 </ul>
             </div>
         </header>

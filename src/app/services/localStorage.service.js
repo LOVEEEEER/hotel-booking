@@ -21,9 +21,16 @@ export const getJwtExpires = () => {
     return localStorage.getItem(JWT_EXPIRES);
 };
 
+export const removeUserData = () => {
+    localStorage.removeItem(JWT_TOKEN);
+    localStorage.removeItem(USER_LOCAL_ID);
+    localStorage.removeItem(JWT_EXPIRES);
+};
+
 export default {
     setTokens,
     getAccessToken,
     getLocalId,
-    getJwtExpires
+    getJwtExpires,
+    removeUserData
 };
