@@ -3,8 +3,10 @@ import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
+import { useAuth } from "../../../../hooks/useAuth";
 
 const SignInForm = () => {
+    const { signIn } = useAuth();
     const { handleChange, data, errors } = useForm(
         {
             email: "",
@@ -15,6 +17,7 @@ const SignInForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        signIn(data);
     };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>
