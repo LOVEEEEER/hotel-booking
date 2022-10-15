@@ -62,6 +62,12 @@ const AuthProvider = ({ children }) => {
             console.log(error);
         }
     };
+
+    const logOut = () => {
+        localStorageService.removeUserData();
+        setCurrentUser(null);
+    };
+
     async function createUser(data) {
         try {
             const { content } = await userService.createUser(data);
@@ -78,7 +84,7 @@ const AuthProvider = ({ children }) => {
         }
     };
     return (
-        <AuthContext.Provider value={{ signUp, signIn, currentUser }}>
+        <AuthContext.Provider value={{ signUp, signIn, currentUser, logOut }}>
             {children}
         </AuthContext.Provider>
     );

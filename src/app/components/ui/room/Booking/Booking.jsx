@@ -47,7 +47,7 @@ const Booking = ({ roomPrice }) => {
         validate();
     }, [bookingFields]);
 
-    const getFullRoomPrice = (entry, departure) => {
+    const getFullRoomPrice = () => {
         let tenantCount = 0;
         Object.keys(counters).forEach(
             (item) => (tenantCount += counters[item])

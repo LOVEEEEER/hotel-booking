@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 
 const Header = () => {
-    const { currentUser } = useAuth();
+    const { currentUser, logOut } = useAuth();
     console.log(currentUser);
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
@@ -69,7 +69,10 @@ const Header = () => {
                             </li>
                         </>
                     ) : (
-                        "Профиль"
+                        <>
+                            {currentUser.name}
+                            <button onClick={logOut}>Выход</button>
+                        </>
                     )}
                 </ul>
             </div>
