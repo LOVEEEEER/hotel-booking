@@ -26,6 +26,23 @@ const AuthProvider = ({ children }) => {
         }
     }, []);
 
+    const signIn = async ({ email, password }) => {
+        try {
+            const { data } = await httpAuth.post(
+                "accounts:signInWithPassword",
+                {
+                    email,
+                    password,
+                    returnSecureToken: true
+                }
+            );
+            localStorageService.setTokens(data);
+            getUserInfo();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const signUp = async ({ email, password, name }) => {
         try {
             const { data } = await httpAuth.post("accounts:signUp", {
@@ -61,7 +78,7 @@ const AuthProvider = ({ children }) => {
         }
     };
     return (
-        <AuthContext.Provider value={{ signUp, currentUser }}>
+        <AuthContext.Provider value={{ signUp, signIn, currentUser }}>
             {children}
         </AuthContext.Provider>
     );
