@@ -19,10 +19,13 @@ const httpAuth = axios.create({
 
 const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState();
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         if (localStorageService.getAccessToken()) {
             getUserInfo();
+        } else {
+            setLoading(false);
         }
     }, []);
 
@@ -37,9 +40,18 @@ const AuthProvider = ({ children }) => {
                 }
             );
             localStorageService.setTokens(data);
-            getUserInfo();
+            await getUserInfo();
         } catch (error) {
             console.log(error);
+            const { message, code } = error.response.data.error;
+            if (code === 400) {
+                if (
+                    message === "EMAIL_NOT_FOUND" ||
+                    message === "INVALID_PASSWORD"
+                ) {
+                    throw new Error("E-mail или пароль введены некорректно");
+                }
+            }
         }
     };
 
@@ -78,19 +90,21 @@ const AuthProvider = ({ children }) => {
         try {
             const { content } = await userService.createUser(data);
             setCurrentUser(content);
+            setLoading(false);
         } catch (error) {
             console.log(error);
         }
     }
 
     const getUserInfo = async () => {
-        if (localStorageService.getAccessToken()) {
-            const { content } = await userService.getCurrentUser();
-            setCurrentUser(content);
-        }
+        const { content } = await userService.getCurrentUser();
+        setCurrentUser(content);
+        setLoading(false);
     };
     return (
-        <AuthContext.Provider value={{ signUp, signIn, currentUser, logOut }}>
+        <AuthContext.Provider
+            value={{ signUp, signIn, currentUser, logOut, isLoading }}
+        >
             {children}
         </AuthContext.Provider>
     );
