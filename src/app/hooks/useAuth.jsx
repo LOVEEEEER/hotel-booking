@@ -59,7 +59,8 @@ const AuthProvider = ({ children }) => {
                     Math.random() + 1
                 )
                     .toString(36)
-                    .substring(7)}.svg`
+                    .substring(7)}.svg`,
+                created_at: Date.now()
             };
 
             createUser(newUser);
