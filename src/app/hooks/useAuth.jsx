@@ -54,7 +54,12 @@ const AuthProvider = ({ children }) => {
             const newUser = {
                 id: data.localId,
                 email: email,
-                name: name
+                name: name,
+                image: `https://avatars.dicebear.com/api/avataaars/${(
+                    Math.random() + 1
+                )
+                    .toString(36)
+                    .substring(7)}.svg`
             };
 
             createUser(newUser);

@@ -4,9 +4,11 @@ import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 import { useAuth } from "../../../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const SignUpForm = () => {
     const { signUp } = useAuth();
+    const history = useHistory();
     const { handleChange, data, errors } = useForm(
         {
             name: "",
@@ -17,9 +19,10 @@ const SignUpForm = () => {
         validatorConfig
     );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        signUp(data);
+        await signUp(data);
+        history.replace("/rooms");
     };
 
     return (
