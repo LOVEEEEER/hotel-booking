@@ -21,8 +21,13 @@ const SignUpForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (Object.keys(errors).length !== 0) return;
         await signUp(data);
-        history.replace("/rooms");
+        history.replace(
+            history.location.state
+                ? history.location.state.from.pathname
+                : "/rooms"
+        );
     };
 
     return (
