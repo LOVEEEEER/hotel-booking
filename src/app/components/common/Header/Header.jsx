@@ -3,9 +3,10 @@ import Logo from "../Logo";
 import Button from "../Button";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import NavProfile from "../../ui/NavProfile";
 
 const Header = () => {
-    const { currentUser, logOut } = useAuth();
+    const { currentUser } = useAuth();
     console.log(currentUser);
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
@@ -70,8 +71,7 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            {currentUser.name}
-                            <button onClick={logOut}>Выход</button>
+                            <NavProfile />
                         </>
                     )}
                 </ul>
