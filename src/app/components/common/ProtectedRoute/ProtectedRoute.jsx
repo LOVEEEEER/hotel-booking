@@ -5,7 +5,6 @@ import { useAuth } from "../../../hooks/useAuth";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
     const { currentUser, isLoading } = useAuth();
-    console.log(isLoading);
     return (
         <>
             {!isLoading && (
