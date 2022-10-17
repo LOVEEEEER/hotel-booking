@@ -17,7 +17,7 @@ export const useForm = (initialState, config) => {
     const validate = () => {
         const errors = validator(data, config);
         const errorsUser = {};
-        Object.keys(data).map((item) => {
+        Object.keys(data).forEach((item) => {
             if (errors[item] && data[item].length > 0) {
                 errorsUser[item] = errors[item];
             }
@@ -25,5 +25,10 @@ export const useForm = (initialState, config) => {
         setErrors(errorsUser);
         return Object.keys(errors).length === 0;
     };
-    return { handleChange, validate, data, errors, validate };
+    const validateBySubmit = () => {
+        const errors = validator(data, config);
+        setErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+    return { handleChange, validate, data, validateBySubmit, errors };
 };
