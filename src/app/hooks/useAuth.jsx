@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
                     message === "EMAIL_NOT_FOUND" ||
                     message === "INVALID_PASSWORD"
                 ) {
-                    throw new Error("E-mail или пароль введены некорректно");
+                    throw new Error("Неверный E-mail или пароль");
                 } else {
                     throw new Error();
                 }
@@ -78,7 +78,14 @@ const AuthProvider = ({ children }) => {
 
             createUser(newUser);
         } catch (error) {
-            console.log(error);
+            const { message, code } = error.response.data.error;
+            if (code === 400) {
+                if (message === "EMAIL_EXISTS") {
+                    throw new Error("Неверный E-mail или пароль");
+                } else {
+                    throw new Error();
+                }
+            }
         }
     };
 
