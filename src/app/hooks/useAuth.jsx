@@ -42,7 +42,6 @@ const AuthProvider = ({ children }) => {
             localStorageService.setTokens(data);
             await getUserInfo();
         } catch (error) {
-            console.log(error);
             const { message, code } = error.response.data.error;
             if (code === 400) {
                 if (
@@ -50,6 +49,8 @@ const AuthProvider = ({ children }) => {
                     message === "INVALID_PASSWORD"
                 ) {
                     throw new Error("E-mail или пароль введены некорректно");
+                } else {
+                    throw new Error();
                 }
             }
         }

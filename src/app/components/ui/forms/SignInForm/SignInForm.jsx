@@ -11,7 +11,7 @@ const SignInForm = () => {
     const [authError, setAuthError] = useState();
     const { signIn } = useAuth();
     const history = useHistory();
-    const { handleChange, data, errors } = useForm(
+    const { handleChange, data, errors, validateBySubmit } = useForm(
         {
             email: "",
             password: ""
@@ -21,12 +21,16 @@ const SignInForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (Object.keys(errors).length !== 0) return;
+        const isValid = validateBySubmit();
+        if (!isValid) return;
         try {
             await signIn(data);
-            history.replace(history.location.state ? "/profile" : "/rooms");
+            history.replace(
+                history.location.state
+                    ? history.location.state.from.pathname
+                    : "/rooms"
+            );
         } catch (error) {
-            console.log(error.message);
             setAuthError(error.message);
         }
     };
@@ -58,7 +62,11 @@ const SignInForm = () => {
                     <FormHelperText error={true}>{authError}</FormHelperText>
                 </p>
             )}
-            <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
+            <Button
+                disabled={!Object.keys(errors).length === 0}
+                type="submit"
+                sx={{ width: "100%", padding: "9px" }}
+            >
                 Войти
             </Button>
         </form>
