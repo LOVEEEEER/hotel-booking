@@ -1,14 +1,40 @@
 import React, { useState } from "react";
 import Button from "../../../common/Button";
 import TextAreaField from "../../../common/form/TextAreaField";
+import commentService from "../../../../services/comment.service";
+import { useAuth } from "../../../../hooks/useAuth";
+import { nanoid } from "nanoid";
+import { useParams } from "react-router-dom";
 
 const ReviewsForm = () => {
     const [data, setData] = useState({ review: "" });
+    const { roomId } = useParams();
+    const { currentUser } = useAuth();
     const handleChange = ({ target }) => {
         setData((prevState) => ({ ...prevState, [target.name]: target.value }));
     };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const comment = {
+            userId: currentUser.id,
+            id: nanoid(),
+            text: data.review,
+            created_at: Date.now(),
+            pageId: roomId,
+            rate: Math.round(Math.random() * 5)
+        };
+        try {
+            const { content } = await commentService.create(
+                comment.id,
+                comment
+            );
+            console.log(content);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <TextAreaField
                 value={data.review}
                 name="review"
