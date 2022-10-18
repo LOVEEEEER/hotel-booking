@@ -4,8 +4,14 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useHistory } from "react-router-dom";
+import Person2Icon from "@mui/icons-material/Person2";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import HotelIcon from "@mui/icons-material/Hotel";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuth } from "../../../../hooks/useAuth";
 
 const ProfileList = ({ open }) => {
+    const { logOut } = useAuth();
     const history = useHistory();
     const listStyleConfig = {
         position: "absolute",
@@ -14,7 +20,7 @@ const ProfileList = ({ open }) => {
         maxWidth: 250,
         backgroundColor: "#FFFFFF",
         opacity: "1",
-        borderRadius: "9px",
+        borderRadius: "5px",
         boxShadow: "4px 4px 8px 2px rgba(34, 60, 80, 0.2)",
         zIndex: "100",
         display: !open ? "none" : "block"
@@ -22,13 +28,20 @@ const ProfileList = ({ open }) => {
     return (
         <List sx={listStyleConfig}>
             <ListItemButton onClick={() => history.push("/profile")}>
+                <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </ListItemButton>
             <ListItemButton>
+                <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Панель администратора" />
             </ListItemButton>
             <ListItemButton>
+                <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
+            </ListItemButton>
+            <ListItemButton onClick={logOut}>
+                <LogoutIcon sx={{ marginRight: "15px" }} />
+                <ListItemText primary="Выход" />
             </ListItemButton>
         </List>
     );
