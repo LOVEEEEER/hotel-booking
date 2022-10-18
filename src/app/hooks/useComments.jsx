@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import commentService from "../services/comment.service";
+import { useParams } from "react-router-dom";
 
 const CommentsContext = React.createContext();
 
@@ -9,7 +10,8 @@ export const useComments = () => {
 };
 
 const CommentsProvider = ({ children }) => {
-    const [comments, setComments] = useState();
+    const [comments, setComments] = useState([]);
+    const { roomId } = useParams();
 
     useEffect(() => {
         getRoomsComments();
@@ -17,7 +19,7 @@ const CommentsProvider = ({ children }) => {
 
     async function getRoomsComments() {
         try {
-            const { content } = await commentService.get();
+            const { content } = await commentService.get(roomId);
             console.log(content);
             setComments(content);
         } catch (error) {
@@ -25,8 +27,18 @@ const CommentsProvider = ({ children }) => {
         }
     }
 
+    async function createComment(comment) {
+        try {
+            const content = await commentService.create(comment.id, comment);
+            setComments((prevState) => [comment, ...prevState]);
+            console.log(content);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
-        <CommentsContext.Provider value={{ comments }}>
+        <CommentsContext.Provider value={{ comments, createComment }}>
             {children}
         </CommentsContext.Provider>
     );

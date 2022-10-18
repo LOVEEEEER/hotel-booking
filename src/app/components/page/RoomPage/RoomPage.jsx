@@ -13,6 +13,7 @@ import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import { useRooms } from "../../../hooks/useRooms";
 import RoomReviews from "../../ui/room/RoomReviews";
+import CommentsProvider from "../../../hooks/useComments";
 
 const RoomPage = ({ roomId }) => {
     const { rooms } = useRooms();
@@ -97,23 +98,25 @@ const RoomPage = ({ roomId }) => {
                             <Booking roomPrice={room.price} />
                         </div>
                     </section>
-                    <section className="room-reviews">
-                        <h2 className="room-section-title">
-                            Отзывы посетителей данного отеля
-                        </h2>
-                        <div className="room-reviews__comments">
-                            <RoomReviews />
-                        </div>
-                        <div className="room-reviews__form">
-                            <ReviewsForm />
-                            <div className="room-reviews__statistics">
-                                <h2 className="room-reviews__statistics-title">
-                                    Статистика по отзывам
-                                </h2>
-                                <RoomStatisticsBar />
+                    <CommentsProvider>
+                        <section className="room-reviews">
+                            <h2 className="room-section-title">
+                                Отзывы посетителей данного отеля
+                            </h2>
+                            <div className="room-reviews__comments">
+                                <RoomReviews />
                             </div>
-                        </div>
-                    </section>
+                            <div className="room-reviews__form">
+                                <ReviewsForm />
+                                <div className="room-reviews__statistics">
+                                    <h2 className="room-reviews__statistics-title">
+                                        Статистика по отзывам
+                                    </h2>
+                                    <RoomStatisticsBar />
+                                </div>
+                            </div>
+                        </section>
+                    </CommentsProvider>
                 </main>
             </>
         );

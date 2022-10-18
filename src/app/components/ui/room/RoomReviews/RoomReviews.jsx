@@ -35,9 +35,9 @@ const RoomReviews = () => {
                                 </h3>
                                 <Rating readOnly value={item.rate} />
                             </div>
-                            <div className="room-reviews__description">
+                            <p className="room-reviews__description">
                                 {item.text.toString()}
-                            </div>
+                            </p>
                         </li>
                     ))}
                 </TextSlider>

@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import routes from "./routes";
 import Error from "./layouts/Error";
 import AuthProvider from "./hooks/useAuth";
-import CommentsProvider from "./hooks/useComments";
 
 const getRoutes = (routes) => {
     return routes.map((prop, key) => (
@@ -18,14 +17,12 @@ const getRoutes = (routes) => {
 
 function App() {
     return (
-        <CommentsProvider>
-            <AuthProvider>
-                <Switch>
-                    {getRoutes(routes)}
-                    <Route component={Error} />
-                </Switch>
-            </AuthProvider>
-        </CommentsProvider>
+        <AuthProvider>
+            <Switch>
+                {getRoutes(routes)}
+                <Route component={Error} />
+            </Switch>
+        </AuthProvider>
     );
 }
 
