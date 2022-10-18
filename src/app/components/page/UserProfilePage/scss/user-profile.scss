@@ -1,0 +1,27 @@
+.user {
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__avatar {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+    &__name {
+      font-size: 25px;
+    }
+    &__name {
+      margin-bottom: 15px;
+    }
+    &__text-block {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__account {
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -7,9 +7,7 @@ export const useForm = (initialState, config) => {
 
     useEffect(() => {
         if (config) {
-            if (Object.keys(errors).length > 0) {
-                validate();
-            }
+            validate();
         }
     }, [data]);
 
@@ -18,8 +16,19 @@ export const useForm = (initialState, config) => {
     };
     const validate = () => {
         const errors = validator(data, config);
+        const errorsUser = {};
+        Object.keys(data).forEach((item) => {
+            if (errors[item] && data[item].length > 0) {
+                errorsUser[item] = errors[item];
+            }
+        });
+        setErrors(errorsUser);
+        return Object.keys(errors).length === 0;
+    };
+    const validateBySubmit = () => {
+        const errors = validator(data, config);
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
-    return { handleChange, validate, data, errors };
+    return { handleChange, validate, data, validateBySubmit, errors };
 };
