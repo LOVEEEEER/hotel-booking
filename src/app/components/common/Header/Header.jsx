@@ -3,7 +3,7 @@ import Logo from "../Logo";
 import Button from "../Button";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
-import NavProfile from "../../ui/NavProfile";
+import NavProfile from "../../ui/profile/NavProfile";
 
 const Header = () => {
     const { currentUser } = useAuth();
