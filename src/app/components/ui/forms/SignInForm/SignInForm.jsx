@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 import { useAuth } from "../../../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
+import { FormHelperText } from "@mui/material";
 
 const SignInForm = () => {
+    const [authError, setAuthError] = useState();
     const { signIn } = useAuth();
     const history = useHistory();
-    const { handleChange, data, errors } = useForm(
+    const { handleChange, data, errors, validateBySubmit } = useForm(
         {
             email: "",
             password: ""
@@ -19,8 +21,18 @@ const SignInForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await signIn(data);
-        history.replace("/rooms");
+        const isValid = validateBySubmit();
+        if (!isValid) return;
+        try {
+            await signIn(data);
+            history.replace(
+                history.location.state
+                    ? history.location.state.from.pathname
+                    : "/rooms"
+            );
+        } catch (error) {
+            setAuthError(error.message);
+        }
     };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>
@@ -45,7 +57,16 @@ const SignInForm = () => {
                 helperText={errors.password ? errors.password : null}
             />
             <br />
-            <Button type="submit" sx={{ width: "100%", padding: "9px" }}>
+            {authError && (
+                <p>
+                    <FormHelperText error={true}>{authError}</FormHelperText>
+                </p>
+            )}
+            <Button
+                disabled={!Object.keys(errors).length === 0}
+                type="submit"
+                sx={{ width: "100%", padding: "9px" }}
+            >
                 Войти
             </Button>
         </form>

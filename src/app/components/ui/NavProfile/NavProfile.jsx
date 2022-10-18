@@ -1,10 +1,10 @@
 import React from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import crown from "../../../assets/svg/crown.svg";
+import { Link } from "react-router-dom";
 
 const NavProfile = () => {
     const { currentUser } = useAuth();
-    console.log(currentUser);
     return (
         <>
             <div className="header__profile">
@@ -19,11 +19,13 @@ const NavProfile = () => {
                 {currentUser.isAdmin && (
                     <img className="header__profile-crown" src={crown} />
                 )}
-                <img
-                    className="header__profile-image"
-                    src={currentUser.image}
-                    alt="user"
-                />
+                <Link to="/profile">
+                    <img
+                        className="header__profile-image"
+                        src={currentUser.image}
+                        alt="user"
+                    />
+                </Link>
             </div>
         </>
     );

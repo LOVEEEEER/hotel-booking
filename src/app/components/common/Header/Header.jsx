@@ -7,7 +7,6 @@ import NavProfile from "../../ui/NavProfile";
 
 const Header = () => {
     const { currentUser } = useAuth();
-    console.log(currentUser);
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
         { path: "/services", text: "Услуги", id: 2 },
