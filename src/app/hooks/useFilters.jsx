@@ -20,25 +20,7 @@ export const useFilters = () => {
             filters.forEach((item) => {
                 switch (item) {
                     case "comfort": {
-                        // items.forEach((room) => {
-                        //     filtersValue.comfort.forEach((value) => {
-                        //         if (room.comfort.includes(value)) {
-                        //             const isRepeat = isRepeatElement(
-                        //                 filteredItems,
-                        //                 room
-                        //             );
-                        //             if (!isRepeat) {
-                        //                 filteredItems.push(room);
-                        //             }
-                        //         }
-                        //     });
-                        // });
-                        // items.forEach(room=>{
-                        //    room.comfort(item=>)
-                        // })
-                        // items.forEach(room=>{
-                        //     fi
-                        // })
+                        break;
                     }
                     case "rate": {
                         console.log(filteredItems);
@@ -53,6 +35,7 @@ export const useFilters = () => {
                                 }
                             }
                         });
+                        break;
                     }
                 }
             });
