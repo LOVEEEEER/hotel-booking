@@ -14,10 +14,13 @@ import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import { useRooms } from "../../../hooks/useRooms";
 import RoomReviews from "../../ui/room/RoomReviews";
 import CommentsProvider from "../../../hooks/useComments";
+import { useAuth } from "../../../hooks/useAuth";
 
 const RoomPage = ({ roomId }) => {
     const { rooms } = useRooms();
     const [room, setRoom] = useState();
+    const { currentUser } = useAuth();
+
     useEffect(() => {
         if (rooms) {
             setRoom(rooms.find((room) => room.id === roomId));
@@ -106,15 +109,17 @@ const RoomPage = ({ roomId }) => {
                             <div className="room-reviews__comments">
                                 <RoomReviews />
                             </div>
-                            <div className="room-reviews__form">
-                                <ReviewsForm />
-                                <div className="room-reviews__statistics">
-                                    <h2 className="room-reviews__statistics-title">
-                                        Статистика по отзывам
-                                    </h2>
-                                    <RoomStatisticsBar />
+                            {currentUser && (
+                                <div className="room-reviews__form">
+                                    <ReviewsForm />
+                                    <div className="room-reviews__statistics">
+                                        <h2 className="room-reviews__statistics-title">
+                                            Статистика по отзывам
+                                        </h2>
+                                        <RoomStatisticsBar />
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </section>
                     </CommentsProvider>
                 </main>
