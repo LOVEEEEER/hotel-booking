@@ -1,33 +1,39 @@
 import React from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import Button from "../../common/Button";
+import { getDateByTimestamp } from "../../../utils/dateService";
 
 const UserProfilePage = () => {
     const { currentUser, logOut } = useAuth();
-    const getDateByTimestamp = (timestamp) => {
-        return new Date(timestamp).toString();
-    };
     return (
         <>
             {currentUser && (
                 <main className="user-profile__page">
-                    <section className="user-info">
+                    <div className="user-profile">
                         <img
-                            className="user-info__avatar"
+                            className="user-profile__user-image"
                             src={currentUser.image}
-                            alt=""
+                            alt="user-image"
                         />
-                        <div className="user-info__text-block">
-                            <h2 className="user-info__name">
+                        <div className="user-profile__info-block">
+                            <h2 className="user-profile__user-name">
                                 {currentUser.name}
                             </h2>
-                            <p className="user-info__account">
-                                Аккаунт создан:{" "}
+                            <p className="user-profile__user-description">
+                                Дата регистрации:{" "}
                                 {getDateByTimestamp(currentUser.created_at)}
                             </p>
-                            <Button onClick={logOut}>Выйти из аккаунта</Button>
+                            <p className="user-profile__user-statistics">
+                                Номеров снято: 0
+                            </p>
+                            <p className="user-profile__user-statisticsn">
+                                Оценок поставлено: 0
+                            </p>
+                            <Button sx={{ marginTop: "20px" }} onClick={logOut}>
+                                Выйти
+                            </Button>
                         </div>
-                    </section>
+                    </div>
                 </main>
             )}
         </>
