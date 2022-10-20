@@ -8,6 +8,7 @@ import Rooms from "./layouts/Rooms";
 import Login from "./layouts/Login";
 import UserProfile from "./layouts/UserProfile";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import Admin from "./layouts/Admin";
 
 // const getRoutes = (routes) => {
 //     return routes.map((prop, key) => (
@@ -29,6 +30,11 @@ function App() {
                     <Route path="/rooms/:roomId?" component={Rooms} />
                     <Route path="/login/:type" component={Login} />
                     <ProtectedRoute path="/profile" component={UserProfile} />
+                    <ProtectedRoute
+                        path="/admin"
+                        isAdmin={true}
+                        component={Admin}
+                    />
                     <Route component={Error} />
                 </Switch>
             </AuthProvider>

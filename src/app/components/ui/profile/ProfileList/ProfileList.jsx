@@ -31,7 +31,7 @@ const ProfileList = ({ open }) => {
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton onClick={() => history.push("/admin")}>
                 <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Панель администратора" />
             </ListItemButton>
