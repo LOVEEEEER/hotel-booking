@@ -7,5 +7,10 @@ export const validatorConfig = {
             message: "Отзыв слишком маленький",
             params: 40
         }
+    },
+    rate: {
+        isRequired: {
+            message: "Оцените от 1 до 5"
+        }
     }
 };
