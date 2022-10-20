@@ -2,7 +2,7 @@
   &__item {
     padding: 30px;
     overflow: hidden;
-    background-color: rgb(228, 225, 247);
+    background-color: rgb(245, 244, 255);
     border-radius: 20px;
   }
   &__user {
@@ -10,6 +10,7 @@
   }
   &__description {
     display: block;
-    width: 150px;
+    width: 100%;
+    word-wrap: break-word;
   }
 }

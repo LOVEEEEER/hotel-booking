@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
-import { Rating as RatingMUI } from "@mui/material";
+import { Rating as RatingMUI, styled } from "@mui/material";
+
+const RatingStyled = styled(RatingMUI)(({ theme }) => ({
+    color: "rgb(247, 164, 255)"
+}));
 
 const Rating = ({ value, label, ...rest }) => {
     return (
         <>
             <Typography component="legend">{label}</Typography>
-            <RatingMUI value={value} precision={0.5} {...rest} />
+            <RatingStyled value={value} precision={0.5} {...rest} />
         </>
     );
 };
