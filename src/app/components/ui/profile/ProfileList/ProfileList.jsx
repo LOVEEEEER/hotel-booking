@@ -11,7 +11,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../../../../hooks/useAuth";
 
 const ProfileList = ({ open }) => {
-    const { logOut } = useAuth();
+    const { currentUser, logOut } = useAuth();
     const history = useHistory();
     const listStyleConfig = {
         position: "absolute",
@@ -27,7 +27,9 @@ const ProfileList = ({ open }) => {
     };
     return (
         <List sx={listStyleConfig}>
-            <ListItemButton onClick={() => history.push("/profile")}>
+            <ListItemButton
+                onClick={() => history.push(`/user/${currentUser.id}`)}
+            >
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </ListItemButton>

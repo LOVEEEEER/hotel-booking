@@ -29,7 +29,10 @@ function App() {
                     <Route exact path="/" component={Main} />
                     <Route path="/rooms/:roomId?" component={Rooms} />
                     <Route path="/login/:type" component={Login} />
-                    <ProtectedRoute path="/profile" component={UserProfile} />
+                    <ProtectedRoute
+                        path="/user/:userId?"
+                        component={UserProfile}
+                    />
                     <ProtectedRoute
                         path="/admin"
                         isAdmin={true}
