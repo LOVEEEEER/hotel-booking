@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
-import userService from "../../../services/user.service";
+import React from "react";
+import { useUsers } from "../../../hooks/useUsers";
 import UsersTable from "../../ui/UsersTable/UsersTable";
 
 const AdminPage = () => {
-    const [users, setUsers] = useState();
-    useEffect(() => {
-        getUsers();
-    }, []);
-    async function getUsers() {
-        try {
-            const { content } = await userService.fetchAll();
-            console.log(content);
-            setUsers(content);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    console.log(users);
+    const { users } = useUsers();
     return (
         <main className="admin__page">
             {users ? (
