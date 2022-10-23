@@ -6,7 +6,6 @@ const userEndPoint = "user/";
 const userService = {
     fetchAll: async () => {
         const { data } = await httpService.get(userEndPoint);
-        console.log(data);
         return data;
     },
     createUser: async (payload) => {
