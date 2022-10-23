@@ -10,12 +10,14 @@ export const useUsers = () => {
 
 const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState();
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         getUsers();
     }, []);
     async function getUsers() {
         try {
             const { content } = await userService.fetchAll();
+            setIsLoading(false);
             setUsers(content);
         } catch (error) {
             console.log(error);
@@ -24,9 +26,19 @@ const UsersProvider = ({ children }) => {
     const getUserById = (id) => {
         return users.find((user) => user.id === id);
     };
+
+    const deleteUser = async (id) => {
+        try {
+            const { content } = await userService.deleteUser(id);
+            setUsers((prevState) => prevState.filter((user) => user.id !== id));
+            console.log(content);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
-        <UsersContext.Provider value={{ users, getUserById }}>
-            {children}
+        <UsersContext.Provider value={{ users, getUserById, deleteUser }}>
+            {!isLoading && children}
         </UsersContext.Provider>
     );
 };

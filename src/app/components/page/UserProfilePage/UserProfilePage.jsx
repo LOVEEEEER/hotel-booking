@@ -12,40 +12,33 @@ const UserProfilePage = () => {
     const user = getUserById(userId);
     return (
         <>
-            {user && (
-                <main className="user-profile__page">
-                    <div className="user-profile">
-                        <img
-                            className="user-profile__user-image"
-                            src={user.image}
-                            alt="user-image"
-                        />
-                        <div className="user-profile__info-block">
-                            <h2 className="user-profile__user-name">
-                                {user.name}
-                            </h2>
-                            <p className="user-profile__user-description">
-                                Дата регистрации:{" "}
-                                {getDateByTimestamp(user.created_at)}
-                            </p>
-                            <p className="user-profile__user-statistics">
-                                Номеров снято: 0
-                            </p>
-                            <p className="user-profile__user-statisticsn">
-                                Оценок поставлено: 0
-                            </p>
-                            {userId === currentUser.id && (
-                                <Button
-                                    sx={{ marginTop: "20px" }}
-                                    onClick={logOut}
-                                >
-                                    Выйти
-                                </Button>
-                            )}
-                        </div>
+            <main className="user-profile__page">
+                <div className="user-profile">
+                    <img
+                        className="user-profile__user-image"
+                        src={user.image}
+                        alt="user-image"
+                    />
+                    <div className="user-profile__info-block">
+                        <h2 className="user-profile__user-name">{user.name}</h2>
+                        <p className="user-profile__user-description">
+                            Дата регистрации:{" "}
+                            {getDateByTimestamp(user.created_at)}
+                        </p>
+                        <p className="user-profile__user-statistics">
+                            Номеров снято: 0
+                        </p>
+                        <p className="user-profile__user-statisticsn">
+                            Оценок поставлено: 0
+                        </p>
+                        {userId === currentUser.id && (
+                            <Button sx={{ marginTop: "20px" }} onClick={logOut}>
+                                Выйти
+                            </Button>
+                        )}
                     </div>
-                </main>
-            )}
+                </div>
+            </main>
         </>
     );
 };
