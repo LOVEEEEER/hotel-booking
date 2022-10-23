@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from "react";
-import userService from "../../../services/user.service";
+import React from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import Button from "../../common/Button";
 import { getDateByTimestamp } from "../../../utils/dateService";
 import { useParams } from "react-router-dom";
+import { useUsers } from "../../../hooks/useUsers";
 
 const UserProfilePage = () => {
-    const [user, setUser] = useState();
-    const { logOut } = useAuth();
+    const { currentUser, logOut } = useAuth();
     const { userId } = useParams();
-    useEffect(() => {
-        getUserById(userId);
-    }, []);
-    async function getUserById(userId) {
-        const { content } = await userService.getById(userId);
-        setUser(content);
-    }
+    const { getUserById } = useUsers();
+    const user = getUserById(userId);
     return (
         <>
             {user && (
@@ -40,9 +34,14 @@ const UserProfilePage = () => {
                             <p className="user-profile__user-statisticsn">
                                 Оценок поставлено: 0
                             </p>
-                            <Button sx={{ marginTop: "20px" }} onClick={logOut}>
-                                Выйти
-                            </Button>
+                            {userId === currentUser.id && (
+                                <Button
+                                    sx={{ marginTop: "20px" }}
+                                    onClick={logOut}
+                                >
+                                    Выйти
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </main>

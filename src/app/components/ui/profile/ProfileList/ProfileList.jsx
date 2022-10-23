@@ -28,7 +28,7 @@ const ProfileList = ({ open }) => {
     return (
         <List sx={listStyleConfig}>
             <ListItemButton
-                onClick={() => history.push(`/user/${currentUser.id}`)}
+                onClick={() => history.push(`/users/${currentUser.id}`)}
             >
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
