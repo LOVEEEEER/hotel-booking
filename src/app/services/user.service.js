@@ -28,7 +28,8 @@ const userService = {
         return data;
     },
     deleteUser: async (id) => {
-        await httpService.delete(userEndPoint + id);
+        const data = await httpService.delete(userEndPoint + id);
+        console.log(data);
     }
 };
 

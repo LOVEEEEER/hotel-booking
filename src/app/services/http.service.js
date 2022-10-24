@@ -25,6 +25,7 @@ function transformData(data) {
 
 axios.interceptors.response.use(
     function (res) {
+        if (res.data === null) return res;
         if (typeof res === "object") {
             res.data = { content: transformData(res.data) };
             return res;

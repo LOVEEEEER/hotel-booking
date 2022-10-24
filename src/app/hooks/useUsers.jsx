@@ -29,9 +29,8 @@ const UsersProvider = ({ children }) => {
 
     const deleteUser = async (id) => {
         try {
-            const { content } = await userService.deleteUser(id);
+            await userService.deleteUser(id);
             setUsers((prevState) => prevState.filter((user) => user.id !== id));
-            console.log(content);
         } catch (error) {
             console.log(error);
         }
