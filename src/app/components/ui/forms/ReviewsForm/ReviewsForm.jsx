@@ -11,7 +11,7 @@ import { validatorConfig } from "./validatorConfig";
 
 const ReviewsForm = () => {
     const { data, handleChange, errors, validateBySubmit } = useForm(
-        { review: "", rate: "" },
+        { review: "", rate: "5" },
         validatorConfig
     );
     const { roomId } = useParams();
