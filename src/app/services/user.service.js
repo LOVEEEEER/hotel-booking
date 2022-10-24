@@ -26,6 +26,9 @@ const userService = {
             userEndPoint + localStorageService.getLocalId()
         );
         return data;
+    },
+    deleteUser: async (id) => {
+        await httpService.delete(userEndPoint + id);
     }
 };
 

@@ -25,7 +25,10 @@ function transformData(data) {
 
 axios.interceptors.response.use(
     function (res) {
-        res.data = { content: transformData(res.data) };
+        if (typeof res === "object") {
+            res.data = { content: transformData(res.data) };
+            return res;
+        }
         return res;
     },
     function (error) {
@@ -35,7 +38,8 @@ axios.interceptors.response.use(
 
 const httpService = {
     get: axios.get,
-    put: axios.put
+    put: axios.put,
+    delete: axios.delete
 };
 
 export default httpService;

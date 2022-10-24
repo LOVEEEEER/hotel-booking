@@ -10,17 +10,6 @@ import UserProfile from "./layouts/UserProfile";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import Admin from "./layouts/Admin";
 
-// const getRoutes = (routes) => {
-//     return routes.map((prop, key) => (
-//         <Route
-//             path={prop.path}
-//             component={prop.component}
-//             exact={prop.exact}
-//             key={key}
-//         />
-//     ));
-// };
-
 function App() {
     return (
         <>
@@ -30,7 +19,7 @@ function App() {
                     <Route path="/rooms/:roomId?" component={Rooms} />
                     <Route path="/login/:type" component={Login} />
                     <ProtectedRoute
-                        path="/user/:userId?"
+                        path="/users/:userId?"
                         component={UserProfile}
                     />
                     <ProtectedRoute

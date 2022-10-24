@@ -6,12 +6,14 @@ import UsersProvider from "../hooks/useUsers";
 
 const Admin = () => {
     return (
-        <UsersProvider>
+        <>
             <Header />
-            <Container>
-                <AdminPage />
-            </Container>
-        </UsersProvider>
+            <UsersProvider>
+                <Container>
+                    <AdminPage />
+                </Container>
+            </UsersProvider>
+        </>
     );
 };
 

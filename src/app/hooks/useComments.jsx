@@ -11,6 +11,7 @@ export const useComments = () => {
 
 const CommentsProvider = ({ children }) => {
     const [comments, setComments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const { roomId } = useParams();
 
     useEffect(() => {
@@ -20,7 +21,7 @@ const CommentsProvider = ({ children }) => {
     async function getRoomsComments() {
         try {
             const { content } = await commentService.get(roomId);
-            console.log(content);
+            setIsLoading(false);
             setComments(content);
         } catch (error) {
             console.log(error);
@@ -38,7 +39,9 @@ const CommentsProvider = ({ children }) => {
     }
 
     return (
-        <CommentsContext.Provider value={{ comments, createComment }}>
+        <CommentsContext.Provider
+            value={{ comments, isLoading, createComment }}
+        >
             {children}
         </CommentsContext.Provider>
     );

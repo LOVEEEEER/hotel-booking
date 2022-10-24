@@ -1,9 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "../../common/Button";
 import Table from "../../common/table/Table";
+import { useAuth } from "../../../hooks/useAuth";
 
-const UsersTable = ({ ...rest }) => {
+const UsersTable = ({ onDelete, users, ...rest }) => {
+    const { currentUser } = useAuth();
     const columns = {
         name: {
             name: "Имя",
@@ -33,10 +36,23 @@ const UsersTable = ({ ...rest }) => {
             path: "created_at"
         },
         delete: {
-            component: () => <Button>Удалить</Button>
+            component: (user) => (
+                <>
+                    {!(user.id === currentUser.id) && (
+                        <Button onClick={() => onDelete(user.id)}>
+                            Удалить
+                        </Button>
+                    )}
+                </>
+            )
         }
     };
     return <Table columns={columns} {...rest} />;
+};
+
+UsersTable.propTypes = {
+    onDelete: PropTypes.func.isRequired,
+    users: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default UsersTable;
