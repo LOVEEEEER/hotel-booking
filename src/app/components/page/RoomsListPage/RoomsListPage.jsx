@@ -125,8 +125,10 @@ const RoomsListPage = () => {
                         <div className="rooms__filters">
                             <Search
                                 value={searchQuery}
-                                onChange={handleSearchQuery}
-                                sx={{ width: "100%" }}
+                                onChange={(e) =>
+                                    handleSearchQuery(e, rooms, "title")
+                                }
+                                sx={{ width: "60%" }}
                             />
                             <div className="rooms__select-block">
                                 <SelectField
