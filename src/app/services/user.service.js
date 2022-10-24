@@ -6,7 +6,6 @@ const userEndPoint = "user/";
 const userService = {
     fetchAll: async () => {
         const { data } = await httpService.get(userEndPoint);
-        console.log(data);
         return data;
     },
     createUser: async (payload) => {
@@ -27,6 +26,9 @@ const userService = {
             userEndPoint + localStorageService.getLocalId()
         );
         return data;
+    },
+    deleteUser: async (id) => {
+        await httpService.delete(userEndPoint + id);
     }
 };
 
