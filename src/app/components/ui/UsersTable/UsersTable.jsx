@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "../../common/Button";
 import Table from "../../common/table/Table";
 import { useAuth } from "../../../hooks/useAuth";
+import { getFormatDate } from "../../../utils/dateService";
 
 const UsersTable = ({ onDelete, users, ...rest }) => {
     const { currentUser } = useAuth();
@@ -33,7 +34,7 @@ const UsersTable = ({ onDelete, users, ...rest }) => {
         },
         created_at: {
             name: "Аккаунт создан:",
-            path: "created_at"
+            component: (user) => <span>{getFormatDate(new Date(user.created_at))}</span>
         },
         delete: {
             component: (user) => (

@@ -9,7 +9,3 @@ export function getFormatDate(newDate) {
 
     return `${date}.${month}.${year}`;
 }
-
-export function getDateByTimestamp(timestamp) {
-    return new Date(timestamp).toString();
-}

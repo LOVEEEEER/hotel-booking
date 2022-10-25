@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import Button from "../../common/Button";
-import { getDateByTimestamp } from "../../../utils/dateService";
+import { getFormatDate } from "../../../utils/dateService";
 import { useParams } from "react-router-dom";
 import { useUsers } from "../../../hooks/useUsers";
 
@@ -10,6 +10,7 @@ const UserProfilePage = () => {
     const { userId } = useParams();
     const { getUserById } = useUsers();
     const user = getUserById(userId);
+
     return (
         <>
             <main className="user-profile__page">
@@ -23,7 +24,7 @@ const UserProfilePage = () => {
                         <h2 className="user-profile__user-name">{user.name}</h2>
                         <p className="user-profile__user-description">
                             Дата регистрации:{" "}
-                            {getDateByTimestamp(user.created_at)}
+                            {getFormatDate(new Date(user.created_at))}
                         </p>
                         <p className="user-profile__user-statistics">
                             Номеров снято: 0
