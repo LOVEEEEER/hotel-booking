@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
+const ProtectedRoute = ({ component: Component, isAdmin, ...rest }) => {
     const { currentUser, isLoading } = useAuth();
     return (
         <>
@@ -23,7 +23,16 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
                                 />
                             );
                         }
-                        return <Component />;
+                        if (isAdmin === undefined) {
+                            return <Component />;
+                        }
+                        if (isAdmin) {
+                            if (currentUser.isAdmin) {
+                                return <Component />;
+                            } else {
+                                return <Redirect to="/" />;
+                            }
+                        }
                     }}
                 />
             )}
@@ -33,7 +42,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 ProtectedRoute.propTypes = {
     component: PropTypes.func,
-    location: PropTypes.object
+    location: PropTypes.object,
+    isAdmin: PropTypes.bool
 };
 
 export default ProtectedRoute;

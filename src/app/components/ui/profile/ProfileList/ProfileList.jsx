@@ -33,10 +33,12 @@ const ProfileList = ({ open }) => {
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </ListItemButton>
-            <ListItemButton onClick={() => history.push("/admin")}>
-                <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
-                <ListItemText primary="Панель администратора" />
-            </ListItemButton>
+            {currentUser.isAdmin && (
+                <ListItemButton onClick={() => history.push("/admin")}>
+                    <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
+                    <ListItemText primary="Панель администратора" />
+                </ListItemButton>
+            )}
             <ListItemButton>
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
