@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "../../common/Button";
 import Table from "../../common/table/Table";
-import { useAuth } from "../../../hooks/useAuth";
 import { getFormatDate } from "../../../utils/dateService";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../store/users";
 
-const UsersTable = ({ onDelete, users, ...rest }) => {
-    const { currentUser } = useAuth();
+const UsersTable = ({ onDelete, ...rest }) => {
+    const currentUser = useSelector(getCurrentUser());
     const columns = {
         name: {
             name: "Имя",
@@ -34,12 +35,14 @@ const UsersTable = ({ onDelete, users, ...rest }) => {
         },
         created_at: {
             name: "Аккаунт создан:",
-            component: (user) => <span>{getFormatDate(new Date(user.created_at))}</span>
+            component: (user) => (
+                <span>{getFormatDate(new Date(user.created_at))}</span>
+            )
         },
         delete: {
             component: (user) => (
                 <>
-                    {!(user.id === currentUser.id) && (
+                    {user.id !== currentUser.id && (
                         <Button onClick={() => onDelete(user.id)}>
                             Удалить
                         </Button>
@@ -52,8 +55,7 @@ const UsersTable = ({ onDelete, users, ...rest }) => {
 };
 
 UsersTable.propTypes = {
-    onDelete: PropTypes.func.isRequired,
-    users: PropTypes.arrayOf(PropTypes.object).isRequired
+    onDelete: PropTypes.func.isRequired
 };
 
 export default UsersTable;

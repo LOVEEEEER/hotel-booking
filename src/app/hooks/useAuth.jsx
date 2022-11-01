@@ -113,7 +113,7 @@ const AuthProvider = ({ children }) => {
         <AuthContext.Provider
             value={{ signUp, signIn, currentUser, logOut, isLoading }}
         >
-            {children}
+            {currentUser && children}
         </AuthContext.Provider>
     );
 };
