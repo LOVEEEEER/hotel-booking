@@ -6,17 +6,18 @@ import Search from "../../common/Search";
 import _ from "lodash";
 import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
-import { useRooms } from "../../../hooks/useRooms";
 import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useForm } from "../../../hooks/useForm";
 import { useFilters } from "../../../hooks/useFilters";
+import { useSelector } from "react-redux";
+import { getRooms } from "../../../store/rooms";
 
 const RoomsListPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [sortBy, setSortBy] = useState("asc");
     const [pageSize, setPageSize] = useState(6);
 
-    const { rooms } = useRooms();
+    const rooms = useSelector(getRooms());
     const { searchQuery, handleSearchQuery, getFilteredItems } = useFilters();
     const initialFilterState = { comfort: [], rate: "" };
 

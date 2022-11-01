@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import ImageSlider from "../../common/ImageSlider";
 import Fab from "@mui/material/Fab";
@@ -11,21 +11,16 @@ import Booking from "../../ui/room/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
-import { useRooms } from "../../../hooks/useRooms";
 import RoomReviews from "../../ui/room/RoomReviews";
 import CommentsProvider from "../../../hooks/useComments";
 import { useAuth } from "../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getRoomById } from "../../../store/rooms";
 
 const RoomPage = ({ roomId }) => {
-    const { rooms } = useRooms();
-    const [room, setRoom] = useState();
+    const room = useSelector(getRoomById(roomId));
     const { currentUser } = useAuth();
 
-    useEffect(() => {
-        if (rooms) {
-            setRoom(rooms.find((room) => room.id === roomId));
-        }
-    }, [rooms, roomId]);
     if (room) {
         return (
             <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 // import routes from "./routes";
 import Error from "./layouts/Error";
@@ -9,8 +9,14 @@ import Login from "./layouts/Login";
 import UserProfile from "./layouts/UserProfile";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import Admin from "./layouts/Admin";
+import { loadRooms } from "./store/rooms";
+import { useDispatch } from "react-redux";
 
 function App() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadRooms());
+    }, []);
     return (
         <>
             <AuthProvider>
