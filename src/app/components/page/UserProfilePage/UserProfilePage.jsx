@@ -1,12 +1,13 @@
 import React from "react";
-import { useAuth } from "../../../hooks/useAuth";
-import Button from "../../common/Button";
+// import Button from "../../common/Button";
 import { getFormatDate } from "../../../utils/dateService";
 import { useParams } from "react-router-dom";
 import { useUsers } from "../../../hooks/useUsers";
+// import { useSelector } from "react-redux";
+// import { getCurrentUser } from "../../../store/users";
 
 const UserProfilePage = () => {
-    const { currentUser, logOut } = useAuth();
+    // const currentUser = useSelector(getCurrentUser());
     const { userId } = useParams();
     const { getUserById } = useUsers();
     const user = getUserById(userId);
@@ -32,11 +33,11 @@ const UserProfilePage = () => {
                         <p className="user-profile__user-statisticsn">
                             Оценок поставлено: 0
                         </p>
-                        {userId === currentUser.id && (
+                        {/* {userId === currentUser.id && (
                             <Button sx={{ marginTop: "20px" }} onClick={logOut}>
                                 Выйти
                             </Button>
-                        )}
+                        )} */}
                     </div>
                 </div>
             </main>

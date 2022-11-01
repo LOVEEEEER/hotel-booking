@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import commentService from "../services/comment.service";
+import commentService from "../services/comments.service";
 import { useParams } from "react-router-dom";
 
 const CommentsContext = React.createContext();

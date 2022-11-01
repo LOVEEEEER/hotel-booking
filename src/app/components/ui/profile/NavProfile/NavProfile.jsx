@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useAuth } from "../../../../hooks/useAuth";
 import crownIcon from "../../../../assets/svg/crown.svg";
 import ProfileList from "../ProfileList";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../../store/users";
 
 const NavProfile = () => {
     const [open, setOpen] = useState(false);
-    const { currentUser } = useAuth();
+    const currentUser = useSelector(getCurrentUser());
 
     console.log(currentUser);
 

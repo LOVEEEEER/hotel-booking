@@ -3,9 +3,11 @@ import { useComments } from "../../../../hooks/useComments";
 import Rating from "../../../common/Rating";
 import TextSlider from "../../../common/TextSlider";
 import userService from "../../../../services/user.service";
+import { useHistory } from "react-router-dom";
 
 const RoomReviews = () => {
     const [users, setUsers] = useState();
+    const history = useHistory();
     const { comments } = useComments();
 
     useEffect(() => {
@@ -23,6 +25,10 @@ const RoomReviews = () => {
         return users.find((user) => user.id === id);
     };
 
+    const toggleUserProfile = (userId) => {
+        history.push(`/users/${userId}`);
+    };
+
     if (comments && users) {
         return (
             <ul className="room-reviews__list">
@@ -30,7 +36,12 @@ const RoomReviews = () => {
                     {comments.map((item) => (
                         <li key={item.id} className="room-reviews__item">
                             <div className="room-reviews__user">
-                                <h3 className="room-reviews__author">
+                                <h3
+                                    onClick={() =>
+                                        toggleUserProfile(item.userId)
+                                    }
+                                    className="room-reviews__author"
+                                >
                                     {getUserById(item.userId).name}
                                 </h3>
                                 <Rating readOnly value={item.rate} />

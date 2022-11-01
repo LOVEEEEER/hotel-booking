@@ -2,11 +2,13 @@ import React from "react";
 import Logo from "../Logo";
 import Button from "../Button";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../../../hooks/useAuth";
 import NavProfile from "../../ui/profile/NavProfile";
+import { useSelector } from "react-redux";
+import { getIsLoading, getIsLoggedIn } from "../../../store/users";
 
 const Header = () => {
-    const { currentUser } = useAuth();
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const usersLoading = useSelector(getIsLoading());
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
         { path: "/services", text: "Услуги", id: 2 },
@@ -47,31 +49,37 @@ const Header = () => {
                     <span></span>
                 </label>
                 <ul className="header__auth-list">
-                    {!currentUser ? (
+                    {!usersLoading ? (
                         <>
-                            <li className="header__auth-item">
-                                <Link
-                                    to="/login/signin"
-                                    className="header__auth-link"
-                                >
-                                    Вход
-                                </Link>
-                            </li>
-                            <li className="header__auth-item">
-                                <Link
-                                    to="/login/signup"
-                                    className="header__auth-link"
-                                >
-                                    <Button variant="outlined">
-                                        Регистрация
-                                    </Button>
-                                </Link>
-                            </li>
+                            {!isLoggedIn ? (
+                                <>
+                                    <li className="header__auth-item">
+                                        <Link
+                                            to="/login/signin"
+                                            className="header__auth-link"
+                                        >
+                                            Вход
+                                        </Link>
+                                    </li>
+                                    <li className="header__auth-item">
+                                        <Link
+                                            to="/login/signup"
+                                            className="header__auth-link"
+                                        >
+                                            <Button variant="outlined">
+                                                Регистрация
+                                            </Button>
+                                        </Link>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <NavProfile />
+                                </>
+                            )}
                         </>
                     ) : (
-                        <>
-                            <NavProfile />
-                        </>
+                        "loading..."
                     )}
                 </ul>
             </div>

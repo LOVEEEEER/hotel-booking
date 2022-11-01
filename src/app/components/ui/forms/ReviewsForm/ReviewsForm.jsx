@@ -2,12 +2,13 @@ import React from "react";
 import Button from "../../../common/Button";
 import TextAreaField from "../../../common/form/TextAreaField";
 import Rating from "../../../common/Rating";
-import { useAuth } from "../../../../hooks/useAuth";
 import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
 import { useComments } from "../../../../hooks/useComments";
 import { useForm } from "../../../../hooks/useForm";
 import { validatorConfig } from "./validatorConfig";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../../store/users";
 
 const ReviewsForm = () => {
     const { data, handleChange, errors, validateBySubmit } = useForm(
@@ -15,7 +16,7 @@ const ReviewsForm = () => {
         validatorConfig
     );
     const { roomId } = useParams();
-    const { currentUser } = useAuth();
+    const currentUser = useSelector(getCurrentUser());
     const { createComment } = useComments();
 
     const handleSubmit = (e) => {

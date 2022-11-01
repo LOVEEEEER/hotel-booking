@@ -13,13 +13,13 @@ import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
 import CommentsProvider from "../../../hooks/useComments";
-import { useAuth } from "../../../hooks/useAuth";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/rooms";
+import { getCurrentUser } from "../../../store/users";
 
 const RoomPage = ({ roomId }) => {
     const room = useSelector(getRoomById(roomId));
-    const { currentUser } = useAuth();
+    const currentUser = useSelector(getCurrentUser());
 
     if (room) {
         return (

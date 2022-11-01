@@ -7,11 +7,14 @@ import { useHistory } from "react-router-dom";
 import Person2Icon from "@mui/icons-material/Person2";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import HotelIcon from "@mui/icons-material/Hotel";
-import LogoutIcon from "@mui/icons-material/Logout";
-import { useAuth } from "../../../../hooks/useAuth";
+// import LogoutIcon from "@mui/icons-material/Logout";
+// import { useAuth } from "../../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../../store/users";
 
 const ProfileList = ({ open }) => {
-    const { currentUser, logOut } = useAuth();
+    // const { logOut } = useAuth();
+    const currentUser = useSelector(getCurrentUser());
     const history = useHistory();
     const listStyleConfig = {
         position: "absolute",
@@ -43,10 +46,10 @@ const ProfileList = ({ open }) => {
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
             </ListItemButton>
-            <ListItemButton onClick={logOut}>
+            {/* <ListItemButton onClick={logOut}>
                 <LogoutIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Выход" />
-            </ListItemButton>
+            </ListItemButton> */}
         </List>
     );
 };

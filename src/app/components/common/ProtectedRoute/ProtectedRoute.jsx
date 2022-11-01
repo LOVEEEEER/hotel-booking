@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getCurrentUser, getIsLoading } from "../../../store/users";
 
 const ProtectedRoute = ({ component: Component, isAdmin, ...rest }) => {
-    const { currentUser, isLoading } = useAuth();
+    const currentUser = useSelector(getCurrentUser());
+    const isLoading = useSelector(getIsLoading());
     return (
         <>
             {!isLoading && (
