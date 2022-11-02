@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 import { FormHelperText } from "@mui/material";
-import { signIn } from "../../../../store/users";
-import { useDispatch } from "react-redux";
+import { getAuthSignInError, signIn } from "../../../../store/users";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const SignInForm = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
-    const [authError] = useState();
+    const authError = useSelector(getAuthSignInError());
     const { handleChange, data, errors, validateBySubmit } = useForm(
         {
             email: "",
@@ -22,7 +24,10 @@ const SignInForm = () => {
         e.preventDefault();
         const isValid = validateBySubmit();
         if (!isValid) return;
-        dispatch(signIn(data));
+        const redirect = history.location.state
+            ? history.location.state.from.pathname
+            : "/rooms";
+        dispatch(signIn({ payload: data, redirect }));
     };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>

@@ -7,15 +7,19 @@ import { useHistory } from "react-router-dom";
 import Person2Icon from "@mui/icons-material/Person2";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import HotelIcon from "@mui/icons-material/Hotel";
-// import LogoutIcon from "@mui/icons-material/Logout";
-// import { useAuth } from "../../../../hooks/useAuth";
-import { useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../store/users";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser, logOut } from "../../../../store/users";
 
 const ProfileList = ({ open }) => {
-    // const { logOut } = useAuth();
+    const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
     const history = useHistory();
+
+    const handleLogOut = () => {
+        dispatch(logOut());
+    };
+
     const listStyleConfig = {
         position: "absolute",
         top: "8%",
@@ -46,10 +50,10 @@ const ProfileList = ({ open }) => {
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
             </ListItemButton>
-            {/* <ListItemButton onClick={logOut}>
+            <ListItemButton onClick={handleLogOut}>
                 <LogoutIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Выход" />
-            </ListItemButton> */}
+            </ListItemButton>
         </List>
     );
 };

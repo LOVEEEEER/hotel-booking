@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 import { FormHelperText } from "@mui/material";
-import { signUp } from "../../../../store/users";
-import { useDispatch } from "react-redux";
+import { getAuthSignUpError, signUp } from "../../../../store/users";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUpForm = () => {
-    const [authError] = useState();
+    const authError = useSelector(getAuthSignUpError());
     const { handleChange, data, errors, validateBySubmit } = useForm(
         {
             name: "",
