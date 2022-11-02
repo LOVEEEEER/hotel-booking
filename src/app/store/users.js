@@ -3,21 +3,26 @@ import localStorageService from "../services/localStorage.service";
 import { generateAuthError } from "../utils/generateAuthError";
 import userService from "../services/user.service";
 import authService from "../services/auth.service";
+import history from "../utils/history";
 
 const initialState = localStorageService.getAccessToken()
     ? {
           entities: null,
           isLoading: true,
-          error: null,
+          signInError: null,
+          signUpError: null,
           isLoggedIn: true,
-          auth: { userId: localStorageService.getLocalId() }
+          auth: { userId: localStorageService.getLocalId() },
+          error: null
       }
     : {
           entities: null,
           isLoading: true,
-          error: null,
+          signInError: null,
+          signUpError: null,
           isLoggedIn: false,
-          auth: null
+          auth: null,
+          error: null
       };
 
 const usersSlice = createSlice({
@@ -35,9 +40,19 @@ const usersSlice = createSlice({
             state.error = action.payload;
             state.isLoading = false;
         },
+        authSignInRequestFailed(state, action) {
+            state.signInError = action.payload;
+        },
+        authSignUpRequestFailed(state, action) {
+            state.signUpError = action.payload;
+        },
         userCreated(state, action) {
             state.entities.push(action.payload);
             state.isLoggedIn = true;
+        },
+        userLoggedOut(state, action) {
+            state.isLoggedIn = false;
+            state.auth = null;
         },
         authRequestSuccess(state, action) {
             state.auth = action.payload;
@@ -47,8 +62,15 @@ const usersSlice = createSlice({
 });
 
 const { reducer: usersReducer, actions } = usersSlice;
-const { userRequestFailed, userCreated, usersReceived, authRequestSuccess } =
-    actions;
+const {
+    userRequestFailed,
+    authSignInRequestFailed,
+    authSignUpRequestFailed,
+    userCreated,
+    usersReceived,
+    authRequestSuccess,
+    userLoggedOut
+} = actions;
 
 export const loadUsers = () => async (dispatch) => {
     try {
@@ -60,21 +82,25 @@ export const loadUsers = () => async (dispatch) => {
 };
 
 export const signIn =
-    ({ email, password }) =>
+    ({ payload, redirect }) =>
     async (dispatch) => {
+        const { email, password } = payload;
+
         try {
             const data = await authService.signIn({
                 email,
                 password
             });
-            localStorageService.setTokens(data);
             dispatch(authRequestSuccess({ userId: data.localId }));
+            localStorageService.setTokens(data);
+            history.push(redirect);
         } catch (error) {
             const { message, code } = error.response.data.error;
+            console.log(generateAuthError(message));
             if (code === 400) {
-                dispatch(userRequestFailed(generateAuthError(message)));
+                dispatch(authSignInRequestFailed(generateAuthError(message)));
             } else {
-                dispatch(userRequestFailed(error.message));
+                dispatch(authSignInRequestFailed(error.message));
             }
         }
     };
@@ -99,15 +125,21 @@ export const signUp =
             const user = await createUser(newUser);
             dispatch(authRequestSuccess({ userId: data.localId }));
             dispatch(userCreated(user));
+            history.push("/rooms");
         } catch (error) {
             const { message, code } = error.response.data.error;
             if (code === 400) {
-                dispatch(userRequestFailed(generateAuthError(message)));
+                dispatch(authSignUpRequestFailed(generateAuthError(message)));
             } else {
-                dispatch(userRequestFailed(error.message));
+                dispatch(authSignUpRequestFailed(error.message));
             }
         }
     };
+
+export const logOut = () => (dispatch) => {
+    localStorageService.removeUserData();
+    dispatch(userLoggedOut());
+};
 
 async function createUser(data) {
     const { content } = await userService.createUser(data);
@@ -116,7 +148,7 @@ async function createUser(data) {
 }
 
 export const getCurrentUser = () => (state) => {
-    return state.users.entities
+    return state.users.entities && state.users.isLoggedIn
         ? state.users.entities.find(
               (user) => user.id === state.users.auth.userId
           )
@@ -126,6 +158,9 @@ export const getCurrentUser = () => (state) => {
 export const getIsLoggedIn = () => (state) => {
     return state.users.isLoggedIn || null;
 };
+
+export const getAuthSignInError = () => (state) => state.users.signInError;
+export const getAuthSignUpError = () => (state) => state.users.signUpError;
 
 export const getIsLoading = () => (state) => state.users.isLoading;
 
