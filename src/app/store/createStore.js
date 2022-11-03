@@ -1,10 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import roomsReducer from "./rooms";
 import usersReducer from "./users";
+import commentsReducer from "./comments";
 
 const rootReducer = combineReducers({
     rooms: roomsReducer,
-    users: usersReducer
+    users: usersReducer,
+    comments: commentsReducer
 });
 
 function createStore() {

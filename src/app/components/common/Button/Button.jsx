@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button as ButtonMui, styled } from "@mui/material";
 
-const ButtonContained = styled(ButtonMui)(({ theme }) => ({
+const ButtonContained = styled(ButtonMui)(() => ({
     color: "#FFFFFF",
     paddingLeft: "14px",
     paddingRight: "14px",
@@ -12,7 +12,7 @@ const ButtonContained = styled(ButtonMui)(({ theme }) => ({
     }
 }));
 
-const ButtonOutlined = styled(ButtonMui)(({ theme }) => ({
+const ButtonOutlined = styled(ButtonMui)(() => ({
     paddingLeft: "14px",
     paddingRight: "14px",
     backgroundColor: "transparent",

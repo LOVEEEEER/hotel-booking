@@ -4,20 +4,20 @@ import TextAreaField from "../../../common/form/TextAreaField";
 import Rating from "../../../common/Rating";
 import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
-import { useComments } from "../../../../hooks/useComments";
 import { useForm } from "../../../../hooks/useForm";
 import { validatorConfig } from "./validatorConfig";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "../../../../store/users";
+import { createComment } from "../../../../store/comments";
 
 const ReviewsForm = () => {
+    const dispatch = useDispatch();
     const { data, handleChange, errors, validateBySubmit } = useForm(
         { review: "", rate: "5" },
         validatorConfig
     );
     const { roomId } = useParams();
     const currentUser = useSelector(getCurrentUser());
-    const { createComment } = useComments();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ const ReviewsForm = () => {
             created_at: Date.now(),
             pageId: roomId
         };
-        createComment(comment);
+        dispatch(createComment(comment));
     };
 
     return (

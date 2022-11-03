@@ -15,7 +15,6 @@ const roomsSlice = createSlice({
             state.isLoading = true;
         },
         roomsReceived(state, action) {
-            console.log(action.payload);
             state.entities = action.payload;
             state.isLoading = false;
         },

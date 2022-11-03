@@ -12,7 +12,6 @@ import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
-import CommentsProvider from "../../../hooks/useComments";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/rooms";
 import { getCurrentUser } from "../../../store/users";
@@ -96,27 +95,25 @@ const RoomPage = ({ roomId }) => {
                             <Booking roomPrice={room.price} />
                         </div>
                     </section>
-                    <CommentsProvider>
-                        <section className="room-reviews">
-                            <h2 className="room-section-title">
-                                Отзывы посетителей данного отеля
-                            </h2>
-                            <div className="room-reviews__comments">
-                                <RoomReviews />
-                            </div>
-                            {currentUser && (
-                                <div className="room-reviews__form">
-                                    <ReviewsForm />
-                                    <div className="room-reviews__statistics">
-                                        <h2 className="room-reviews__statistics-title">
-                                            Статистика по отзывам
-                                        </h2>
-                                        <RoomStatisticsBar />
-                                    </div>
+                    <section className="room-reviews">
+                        <h2 className="room-section-title">
+                            Отзывы посетителей данного отеля
+                        </h2>
+                        <div className="room-reviews__comments">
+                            <RoomReviews />
+                        </div>
+                        {currentUser && (
+                            <div className="room-reviews__form">
+                                <ReviewsForm />
+                                <div className="room-reviews__statistics">
+                                    <h2 className="room-reviews__statistics-title">
+                                        Статистика по отзывам
+                                    </h2>
+                                    <RoomStatisticsBar />
                                 </div>
-                            )}
-                        </section>
-                    </CommentsProvider>
+                            </div>
+                        )}
+                    </section>
                 </main>
             </>
         );

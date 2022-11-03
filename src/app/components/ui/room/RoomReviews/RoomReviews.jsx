@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useComments } from "../../../../hooks/useComments";
 import Rating from "../../../common/Rating";
 import TextSlider from "../../../common/TextSlider";
 import userService from "../../../../services/user.service";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { getComments, loadComments } from "../../../../store/comments";
+import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
 
 const RoomReviews = () => {
     const [users, setUsers] = useState();
+    const dispatch = useDispatch();
+    const { roomId } = useParams();
     const history = useHistory();
-    const { comments } = useComments();
+    const comments = useSelector(getComments());
 
     useEffect(() => {
+        dispatch(loadComments(roomId));
         getUsers();
     }, []);
 
     async function getUsers() {
         const { content } = await userService.fetchAll();
-        console.log(content);
         setUsers(content);
         return content;
     }
@@ -30,10 +34,11 @@ const RoomReviews = () => {
     };
 
     if (comments && users) {
+        const sortedComments = _.orderBy(comments, ["created_at"], ["desc"]);
         return (
             <ul className="room-reviews__list">
                 <TextSlider>
-                    {comments.map((item) => (
+                    {sortedComments.map((item) => (
                         <li key={item.id} className="room-reviews__item">
                             <div className="room-reviews__user">
                                 <h3
