@@ -30,9 +30,8 @@ const CommentsProvider = ({ children }) => {
 
     async function createComment(comment) {
         try {
-            const content = await commentService.create(comment.id, comment);
+            await commentService.create(comment.id, comment);
             setComments((prevState) => [comment, ...prevState]);
-            console.log(content);
         } catch (error) {
             console.log(error);
         }

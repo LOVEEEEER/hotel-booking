@@ -7,6 +7,13 @@ import HomeIcon from "@mui/icons-material/Home";
 import HotelIcon from "@mui/icons-material/Hotel";
 import RoomServiceIcon from "@mui/icons-material/RoomService";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { styled } from "@mui/material";
+
+const BreadcrumbsStyled = styled(BreadcrumbsMui)(() => ({
+    "&:hover": {
+        cursor: "pointer"
+    }
+}));
 
 const Breadcrumbs = (props) => {
     const {
@@ -21,7 +28,7 @@ const Breadcrumbs = (props) => {
     };
     const pathnames = pathname.split("/").filter((x) => x);
     return (
-        <BreadcrumbsMui
+        <BreadcrumbsStyled
             separator={<NavigateNextIcon fontSize="small" />}
             sx={{ paddingTop: "20px" }}
             aria-label="breadcrumb"
@@ -80,7 +87,7 @@ const Breadcrumbs = (props) => {
                     </LinkMui>
                 );
             })}
-        </BreadcrumbsMui>
+        </BreadcrumbsStyled>
     );
 };
 
