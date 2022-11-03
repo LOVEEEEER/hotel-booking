@@ -50,6 +50,11 @@ const usersSlice = createSlice({
             state.entities.push(action.payload);
             state.isLoggedIn = true;
         },
+        userDeleted(state, action) {
+            state.entities = state.entities.filter(
+                (user) => user.id !== action.payload
+            );
+        },
         userLoggedOut(state, action) {
             state.isLoggedIn = false;
             state.auth = null;
@@ -69,7 +74,8 @@ const {
     userCreated,
     usersReceived,
     authRequestSuccess,
-    userLoggedOut
+    userLoggedOut,
+    userDeleted
 } = actions;
 
 export const loadUsers = () => async (dispatch) => {
@@ -146,6 +152,21 @@ async function createUser(data) {
     console.log(content);
     return content;
 }
+
+export const deleteUser = (userId) => async (dispatch) => {
+    try {
+        await userService.deleteUser(userId);
+        dispatch(userDeleted(userId));
+    } catch (error) {
+        dispatch(userRequestFailed(error.message));
+    }
+};
+
+export const getUserById = (userId) => (state) => {
+    return state.users.entities.find((user) => user.id === userId);
+};
+
+export const getUsersList = () => (state) => state.users.entities;
 
 export const getCurrentUser = () => (state) => {
     return state.users.entities && state.users.isLoggedIn

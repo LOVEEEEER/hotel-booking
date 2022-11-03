@@ -2,15 +2,12 @@ import React from "react";
 // import Button from "../../common/Button";
 import { getFormatDate } from "../../../utils/dateService";
 import { useParams } from "react-router-dom";
-import { useUsers } from "../../../hooks/useUsers";
-// import { useSelector } from "react-redux";
-// import { getCurrentUser } from "../../../store/users";
+import { useSelector } from "react-redux";
+import { getUserById } from "../../../store/users";
 
 const UserProfilePage = () => {
-    // const currentUser = useSelector(getCurrentUser());
     const { userId } = useParams();
-    const { getUserById } = useUsers();
-    const user = getUserById(userId);
+    const user = useSelector(getUserById(userId));
 
     return (
         <>

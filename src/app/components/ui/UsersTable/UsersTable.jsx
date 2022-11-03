@@ -1,13 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "../../common/Button";
 import Table from "../../common/table/Table";
 import { getFormatDate } from "../../../utils/dateService";
-import { useSelector } from "react-redux";
-import { getCurrentUser } from "../../../store/users";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser, deleteUser, getUsersList } from "../../../store/users";
 
-const UsersTable = ({ onDelete, ...rest }) => {
+const UsersTable = () => {
+    const dispatch = useDispatch();
+    const users = useSelector(getUsersList());
     const currentUser = useSelector(getCurrentUser());
     const columns = {
         name: {
@@ -43,7 +44,7 @@ const UsersTable = ({ onDelete, ...rest }) => {
             component: (user) => (
                 <>
                     {user.id !== currentUser.id && (
-                        <Button onClick={() => onDelete(user.id)}>
+                        <Button onClick={() => dispatch(deleteUser(user.id))}>
                             Удалить
                         </Button>
                     )}
@@ -51,11 +52,7 @@ const UsersTable = ({ onDelete, ...rest }) => {
             )
         }
     };
-    return <Table columns={columns} {...rest} />;
-};
-
-UsersTable.propTypes = {
-    onDelete: PropTypes.func.isRequired
+    return <Table columns={columns} data={users} />;
 };
 
 export default UsersTable;
