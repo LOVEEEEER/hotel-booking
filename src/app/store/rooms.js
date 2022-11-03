@@ -45,4 +45,6 @@ export const getRoomById = (roomId) => (state) => {
         : null;
 };
 
+export const getRoomsLoading = () => (state) => state.rooms.isLoading;
+
 export default roomsReducer;
