@@ -20,11 +20,17 @@ export function displayDate(data) {
             const hourDif = dateNow.getHours() - date.getHours();
             if (hourDif === 0) {
                 const minutesDif = dateNow.getMinutes() - date.getMinutes();
-
+                const lastOne =
+                    minutesDif.toString()[minutesDif.toString().length - 1];
+                console.log(minutesDif, lastOne);
                 if (minutesDif >= 0 && minutesDif < 1) return "Только что";
-                if (minutesDif < 5) {
+                if (
+                    ([2, 3, 4].includes(Number(lastOne)) && minutesDif < 5) ||
+                    minutesDif > 21
+                ) {
                     return `${minutesDif} минуты назад`;
                 }
+                if (minutesDif === 1) return `${minutesDif} минуту назад`;
                 return `${minutesDif} минут назад`;
             }
             return `${date.getHours()}:${date.getMinutes()}`;
