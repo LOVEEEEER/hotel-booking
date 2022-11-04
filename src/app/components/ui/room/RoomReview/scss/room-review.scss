@@ -1,0 +1,29 @@
+.room-reviews {
+  &__item {
+    padding: 23px;
+    overflow: hidden;
+    background-color: rgb(245, 244, 255);
+    border-radius: 20px;
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+  &__author {
+    font-size: 15px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__description {
+    display: block;
+    width: 95%;
+    word-wrap: break-word;
+  }
+  &__created {
+    margin-left: auto;
+    align-self: flex-start;
+    font-size: 14px;
+  }
+}
