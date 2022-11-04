@@ -21,7 +21,10 @@ export function displayDate(data) {
             if (hourDif === 0) {
                 const minutesDif = dateNow.getMinutes() - date.getMinutes();
 
-                if (minutesDif >= 0 && minutesDif < 5) return "Только что";
+                if (minutesDif >= 0 && minutesDif < 1) return "Только что";
+                if (minutesDif < 5) {
+                    return `${minutesDif} минуты назад`;
+                }
                 return `${minutesDif} минут назад`;
             }
             return `${date.getHours()}:${date.getMinutes()}`;
