@@ -6,7 +6,6 @@ export function getFormatDate(newDate) {
             ? `0${newDate.getMonth() + 1}`
             : newDate.getMonth() + 1;
     const year = newDate.getFullYear();
-
     return `${date}.${month}.${year}`;
 }
 
@@ -22,11 +21,11 @@ export function displayDate(data) {
                 const minutesDif = dateNow.getMinutes() - date.getMinutes();
                 const lastOne =
                     minutesDif.toString()[minutesDif.toString().length - 1];
-                console.log(minutesDif, lastOne);
+
                 if (minutesDif >= 0 && minutesDif < 1) return "Только что";
                 if (
-                    ([2, 3, 4].includes(Number(lastOne)) && minutesDif < 5) ||
-                    minutesDif > 21
+                    [2, 3, 4].includes(Number(lastOne)) &&
+                    (minutesDif < 5 || minutesDif > 21)
                 ) {
                     return `${minutesDif} минуты назад`;
                 }
