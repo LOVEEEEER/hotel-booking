@@ -34,12 +34,11 @@ export function displayDate(data) {
             }
             return `${date.getHours()}:${date.getMinutes()}`;
         }
-
-        return `${date.getDate()} ${date.toLocaleString("default", {
-            month: "long"
-        })}`;
     }
-    return (
-        date.getFullYear() + "." + (date.getMonth() + 1) + "_" + date.getDate()
-    );
+
+    return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}.${
+        date.getMonth() + 1 < 10
+            ? "0" + date.getMonth() + 1
+            : date.getMonth() + 1
+    }.${date.getFullYear()}`;
 }
