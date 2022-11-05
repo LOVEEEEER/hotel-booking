@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ImageSlider from "../../common/ImageSlider";
 import Fab from "@mui/material/Fab";
 import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
@@ -15,8 +14,10 @@ import RoomReviews from "../../ui/room/RoomReviews";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/rooms";
 import { getCurrentUser } from "../../../store/users";
+import { useParams } from "react-router-dom";
 
-const RoomPage = ({ roomId }) => {
+const RoomPage = () => {
+    const { roomId } = useParams();
     const room = useSelector(getRoomById(roomId));
     const currentUser = useSelector(getCurrentUser());
 
@@ -118,10 +119,6 @@ const RoomPage = ({ roomId }) => {
             </>
         );
     }
-};
-
-RoomPage.propTypes = {
-    roomId: PropTypes.string.isRequired
 };
 
 export default RoomPage;
