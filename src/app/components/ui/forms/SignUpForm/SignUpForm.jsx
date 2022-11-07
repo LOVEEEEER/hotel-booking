@@ -6,9 +6,11 @@ import { useForm } from "../../../../hooks/useForm";
 import { FormHelperText } from "@mui/material";
 import { getAuthSignUpError, signUp } from "../../../../store/users";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
     const authError = useSelector(getAuthSignUpError());
+    const navigate = useNavigate();
     const { handleChange, data, errors, validateBySubmit } = useForm(
         {
             name: "",
@@ -24,7 +26,7 @@ const SignUpForm = () => {
         e.preventDefault();
         const isValid = validateBySubmit();
         if (!isValid) return;
-        dispatch(signUp(data));
+        dispatch(signUp({ payload: data, navigate }));
     };
 
     return (

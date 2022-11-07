@@ -1,11 +1,11 @@
 import React from "react";
-// import Button from "../../common/Button";
+import { Navigate } from "react-router-dom";
+import Button from "../../common/Button";
 
 const ErrorPage = () => {
-    // const history = useHistory();
-    // const handleTogglePage = () => {
-    //   history.replace("/rooms");
-    // };
+    const handleTogglePage = () => {
+        return <Navigate to="/rooms" />;
+    };
     return (
         <main className="error">
             <div className="container error__container">
@@ -24,9 +24,9 @@ const ErrorPage = () => {
                             Свяжитесь с владельцом сайта
                         </li>
                     </ul>
-                    {/* <Button variant="outlined" onClick={handleTogglePage}>
-            Вернуться к подбору номера
-          </Button> */}
+                    <Button variant="outlined" onClick={handleTogglePage}>
+                        Вернуться к подбору номера
+                    </Button>
                 </div>
                 <img
                     src="https://pngimg.com/uploads/air_balloon/air_balloon_PNG19402.png"

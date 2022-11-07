@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Rating from "@mui/material/Rating";
-// import { useHistory } from "react-router-dom";
-// import Button from "../../../common/Button";
+import Button from "../../../common/Button";
 import ImageSlider from "../../../common/ImageSlider";
+import { useNavigate } from "react-router-dom";
 
 const RoomCard = ({ images, title, rate, price, id }) => {
-    // const history = useHistory();
-    // const handleToggleHotelPage = () => {
-    //     history.push(`/rooms/${id}`);
-    // };
+    const navigate = useNavigate();
+    const handleToggleHotelPage = () => {
+        navigate(`/rooms/${id}`);
+    };
     return (
         <div className="room">
             <div className="room__main-content_wrapper">
@@ -37,9 +37,9 @@ const RoomCard = ({ images, title, rate, price, id }) => {
                 <p className="room__price">
                     Цена от <br /> <span>{price} руб</span> <br /> за ночь
                 </p>
-                {/* <Button variant="outlined" onClick={handleToggleHotelPage}>
+                <Button variant="outlined" onClick={handleToggleHotelPage}>
                     Подробнее об отеле
-                </Button> */}
+                </Button>
             </div>
         </div>
     );

@@ -3,7 +3,6 @@ import localStorageService from "../services/localStorage.service";
 import { generateAuthError } from "../utils/generateAuthError";
 import userService from "../services/user.service";
 import authService from "../services/auth.service";
-import history from "../utils/history";
 
 const initialState = localStorageService.getAccessToken()
     ? {
@@ -88,7 +87,7 @@ export const loadUsers = () => async (dispatch) => {
 };
 
 export const signIn =
-    ({ payload, redirect }) =>
+    ({ payload, redirect, navigate }) =>
     async (dispatch) => {
         const { email, password } = payload;
 
@@ -99,10 +98,9 @@ export const signIn =
             });
             dispatch(authRequestSuccess({ userId: data.localId }));
             localStorageService.setTokens(data);
-            history.push(redirect);
+            navigate(redirect);
         } catch (error) {
             const { message, code } = error.response.data.error;
-            console.log(generateAuthError(message));
             if (code === 400) {
                 dispatch(authSignInRequestFailed(generateAuthError(message)));
             } else {
@@ -112,9 +110,11 @@ export const signIn =
     };
 
 export const signUp =
-    ({ email, password, name }) =>
+    ({ payload, navigate }) =>
     async (dispatch) => {
+        const { email, password, name } = payload;
         try {
+            console.log(email, password);
             const data = await authService.signUp({ email, password });
             localStorageService.setTokens(data);
             const newUser = {
@@ -131,7 +131,7 @@ export const signUp =
             const user = await createUser(newUser);
             dispatch(authRequestSuccess({ userId: data.localId }));
             dispatch(userCreated(user));
-            history.push("/rooms");
+            navigate("/rooms");
         } catch (error) {
             const { message, code } = error.response.data.error;
             if (code === 400) {

@@ -3,21 +3,22 @@ import PropTypes from "prop-types";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-// import Person2Icon from "@mui/icons-material/Person2";
-// import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import Person2Icon from "@mui/icons-material/Person2";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import HotelIcon from "@mui/icons-material/Hotel";
-// import LogoutIcon from "@mui/icons-material/Logout";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getCurrentUser, logOut } from "../../../../store/users";
+import { useNavigate } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser, logOut } from "../../../../store/users";
 
 const ProfileList = ({ open }) => {
-    // const dispatch = useDispatch();
-    // const currentUser = useSelector(getCurrentUser());
-    // const history = useHistory();
+    const dispatch = useDispatch();
+    const currentUser = useSelector(getCurrentUser());
+    const navigate = useNavigate();
 
-    // const handleLogOut = () => {
-    //     dispatch(logOut());
-    // };
+    const handleLogOut = () => {
+        dispatch(logOut());
+    };
 
     const listStyleConfig = {
         position: "absolute",
@@ -33,26 +34,26 @@ const ProfileList = ({ open }) => {
     };
     return (
         <List sx={listStyleConfig}>
-            {/* <ListItemButton
-                onClick={() => history.push(`/users/${currentUser.id}`)}
+            <ListItemButton
+                onClick={() => navigate(`/users/${currentUser.id}`)}
             >
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </ListItemButton>
             {currentUser.isAdmin && (
-                <ListItemButton onClick={() => history.push("/admin")}>
+                <ListItemButton onClick={() => navigate("/admin")}>
                     <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
                     <ListItemText primary="Панель администратора" />
                 </ListItemButton>
-            )} */}
+            )}
             <ListItemButton>
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
             </ListItemButton>
-            {/* <ListItemButton onClick={handleLogOut}>
+            <ListItemButton onClick={handleLogOut}>
                 <LogoutIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Выход" />
-            </ListItemButton> */}
+            </ListItemButton>
         </List>
     );
 };
