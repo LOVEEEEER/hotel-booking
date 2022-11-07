@@ -6,10 +6,10 @@ import { useForm } from "../../../../hooks/useForm";
 import { FormHelperText } from "@mui/material";
 import { getAuthSignInError, signIn } from "../../../../store/users";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const SignInForm = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const dispatch = useDispatch();
     const authError = useSelector(getAuthSignInError());
     const { handleChange, data, errors, validateBySubmit } = useForm(
@@ -24,10 +24,10 @@ const SignInForm = () => {
         e.preventDefault();
         const isValid = validateBySubmit();
         if (!isValid) return;
-        const redirect = history.location.state
-            ? history.location.state.from.pathname
-            : "/rooms";
-        dispatch(signIn({ payload: data, redirect }));
+        // const redirect = history.location.state
+        //     ? history.location.state.from.pathname
+        //     : "/rooms";
+        dispatch(signIn({ payload: data }));
     };
     return (
         <form className="signin__form" onSubmit={handleSubmit}>

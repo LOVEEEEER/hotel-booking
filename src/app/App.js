@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // import routes from "./routes";
 import Error from "./layouts/Error";
 import Main from "./layouts/Main";
 import Rooms from "./layouts/Rooms";
 import Login from "./layouts/Login";
 import UserProfile from "./layouts/UserProfile";
-import ProtectedRoute from "./components/common/ProtectedRoute";
+// import ProtectedRoute from "./components/common/ProtectedRoute";
 import Admin from "./layouts/Admin";
 import { loadRooms } from "./store/rooms";
 import { loadUsers } from "./store/users";
@@ -20,21 +20,16 @@ function App() {
     }, []);
     return (
         <>
-            <Switch>
-                <Route exact path="/" component={Main} />
-                <Route path="/rooms/:roomId?" component={Rooms} />
-                <Route path="/login/:type" component={Login} />
-                <ProtectedRoute
-                    path="/users/:userId?"
-                    component={UserProfile}
-                />
-                <ProtectedRoute
-                    path="/admin"
-                    isAdmin={true}
-                    component={Admin}
-                />
-                <Route component={Error} />
-            </Switch>
+            <Routes>
+                <Route path="" element={<Main />} />
+                <Route path="rooms/*" element={<Rooms />} />
+                <Route path="login/*" element={<Login />} />
+                <Route path="users/:userId?" element={<UserProfile />} />
+                {/* protected */}
+                <Route path="admin" isAdmin={true} element={<Admin />} />
+                {/* protected */}
+                <Route path="*" element={<Error />} />
+            </Routes>
         </>
     );
 }

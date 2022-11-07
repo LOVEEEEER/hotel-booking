@@ -1,17 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from "../components/common/Header";
 import SignInPage from "../components/page/SignInPage";
 import SignUpPage from "../components/page/SignUpPage";
 
 const Login = () => {
-  const { type } = useParams();
-  return (
-    <>
-      <Header />
-      {type === "signin" ? <SignInPage /> : <SignUpPage />}
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Routes>
+                <Route path="signin" element={<SignInPage />} />
+                <Route path="signup" element={<SignUpPage />} />
+            </Routes>
+        </>
+    );
 };
 
 export default Login;
