@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import BreadcrumbsMui from "@mui/material/Breadcrumbs";
 import LinkMui from "@mui/material/Link";
@@ -8,6 +7,7 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import RoomServiceIcon from "@mui/icons-material/RoomService";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { styled } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BreadcrumbsStyled = styled(BreadcrumbsMui)(() => ({
     "&:hover": {
@@ -15,11 +15,9 @@ const BreadcrumbsStyled = styled(BreadcrumbsMui)(() => ({
     }
 }));
 
-const Breadcrumbs = (props) => {
-    const {
-        history,
-        location: { pathname }
-    } = props;
+const Breadcrumbs = () => {
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
     const crumbs = {
         rooms: {
             name: "Номера",
@@ -38,7 +36,7 @@ const Breadcrumbs = (props) => {
                     underline="hover"
                     color="inherit"
                     sx={{ display: "flex", alignItems: "center" }}
-                    onClick={() => history.push("/")}
+                    onClick={() => navigate("/")}
                 >
                     <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Главная
@@ -75,7 +73,7 @@ const Breadcrumbs = (props) => {
                             textTransform: "capitalize"
                         }}
                         role="button"
-                        onClick={() => history.push(routeTo)}
+                        onClick={() => navigate(routeTo)}
                     >
                         {crumbs[name]?.icon || (
                             <RoomServiceIcon
@@ -89,11 +87,6 @@ const Breadcrumbs = (props) => {
             })}
         </BreadcrumbsStyled>
     );
-};
-
-Breadcrumbs.propTypes = {
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired
 };
 
 export default Breadcrumbs;

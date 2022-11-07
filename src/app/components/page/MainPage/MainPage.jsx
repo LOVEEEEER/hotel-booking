@@ -1,12 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./scss/mainpage.scss";
-// import { useHistory } from "react-router-dom";
 
 const MainPage = () => {
-    // const history = useHistory();
-    // const handleToggleHotelsPage = () => {
-    //   history.push("/rooms");
-    // };
+    const navigate = useNavigate();
+    const handleToggleHotelsPage = () => {
+        navigate("/rooms");
+    };
     return (
         <>
             <main className="main__page">
@@ -18,9 +18,12 @@ const MainPage = () => {
                         Наш сервис поможет подобрать тебе отличный номер по
                         привлекательной цене!
                     </p>
-                    {/* <button className="main__buy-button" onClick={handleToggleHotelsPage}>
-            Посмотреть варианты
-          </button> */}
+                    <button
+                        className="main__buy-button"
+                        onClick={handleToggleHotelsPage}
+                    >
+                        Посмотреть варианты
+                    </button>
                 </div>
             </main>
         </>
