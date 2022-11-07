@@ -18,39 +18,6 @@ const ProtectedRoute = ({
     const isLoggedIn = useSelector(getIsLoggedIn());
     const location = useLocation();
     const currentUser = useSelector(getCurrentUser());
-    // return (
-    //     <>
-    //         {!isLoading && (
-    //             <Route
-    //                 {...rest}
-    //                 render={(props) => {
-    //                     if (!currentUser) {
-    //                         return (
-    //                             <Redirect
-    //                                 to={{
-    //                                     pathname: "/login/signin",
-    //                                     state: {
-    //                                         from: props.location
-    //                                     }
-    //                                 }}
-    //                             />
-    //                         );
-    //                     }
-    //                     if (isAdmin === undefined) {
-    //                         return <Component />;
-    //                     }
-    //                     if (isAdmin) {
-    //                         if (currentUser.isAdmin) {
-    //                             return <Component />;
-    //                         } else {
-    //                             return <Redirect to="/" />;
-    //                         }
-    //                     }
-    //                 }}
-    //             />
-    //         )}
-    //     </>
-    // );
 
     if (!isLoading) {
         if (isLoggedIn) {
@@ -59,9 +26,7 @@ const ProtectedRoute = ({
                     return children;
                 }
             } else {
-                if (isLoggedIn) {
-                    return children;
-                }
+                return children;
             }
         }
         return <Navigate to={to} state={{ from: location }} />;

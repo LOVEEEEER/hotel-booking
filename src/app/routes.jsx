@@ -1,24 +1,66 @@
-import Rooms from "./layouts/Rooms";
+import React from "react";
+import { Navigate } from "react-router-dom";
+import ProtectedRoute from "./components/common/ProtectedRoute/ProtectedRoute";
+import RoomPage from "./components/page/RoomPage";
+import RoomsListPage from "./components/page/RoomsListPage";
+import SignInPage from "./components/page/SignInPage";
+import SignUpPage from "./components/page/SignUpPage";
+import UserProfilePage from "./components/page/UserProfilePage";
+import Admin from "./layouts/Admin";
+import Error from "./layouts/Error";
 import Login from "./layouts/Login";
 import Main from "./layouts/Main";
+import Rooms from "./layouts/Rooms";
 import UserProfile from "./layouts/UserProfile";
-import Admin from "./layouts/Admin";
 
 const routes = [
-    { path: "/", exact: true, component: Main },
-    { path: "/rooms/:roomId?", exact: false, component: Rooms },
-    { path: "/login/:type", exact: false, component: Login },
     {
-        path: "/users/:userId?",
-        exact: false,
-        component: UserProfile,
-        isProtect: true
+        path: "",
+        element: <Main />
     },
     {
-        path: "/admin",
-        exact: false,
-        component: Admin,
-        isProtect: true
+        path: "rooms",
+        element: <Rooms />,
+        children: [
+            { path: "", element: <RoomsListPage /> },
+            { path: ":roomId", element: <RoomPage /> }
+        ]
+    },
+    {
+        path: "login",
+        element: <Login />,
+        children: [
+            { path: "", element: <SignUpPage /> },
+            { path: "signup", element: <SignUpPage /> },
+            { path: "signin", element: <SignInPage /> }
+        ]
+    },
+    {
+        path: "users",
+        element: <UserProfile />,
+        children: [
+            { path: "", element: <Navigate to="rooms" /> },
+            {
+                path: ":userId",
+                element: (
+                    <ProtectedRoute>
+                        <UserProfilePage />
+                    </ProtectedRoute>
+                )
+            }
+        ]
+    },
+    {
+        path: "admin",
+        element: (
+            <ProtectedRoute>
+                <Admin />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: "*",
+        element: <Error />
     }
 ];
 
