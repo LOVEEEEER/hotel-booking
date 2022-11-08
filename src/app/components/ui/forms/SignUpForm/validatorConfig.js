@@ -31,5 +31,10 @@ export const validatorConfig = {
         isRequired: {
             message: "Поле обязательно для заполнения"
         }
+    },
+    birth: {
+        isRequired: {
+            message: "Поле Дата Рождения обязательно для заполнения"
+        }
     }
 };

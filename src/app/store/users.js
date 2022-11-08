@@ -112,15 +112,15 @@ export const signIn =
 export const signUp =
     ({ payload, navigate }) =>
     async (dispatch) => {
-        const { email, password, name } = payload;
+        const { email, password, name, birth } = payload;
         try {
-            console.log(email, password);
             const data = await authService.signUp({ email, password });
             localStorageService.setTokens(data);
             const newUser = {
                 id: data.localId,
                 email: email,
                 name: name,
+                birth: birth.$d,
                 image: `https://avatars.dicebear.com/api/avataaars/${(
                     Math.random() + 1
                 )
