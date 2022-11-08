@@ -1,10 +1,11 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
 import Button from "../../common/Button";
+import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+    const navigate = useNavigate();
     const handleTogglePage = () => {
-        return <Navigate to="/rooms" />;
+        navigate("/rooms");
     };
     return (
         <main className="error">
