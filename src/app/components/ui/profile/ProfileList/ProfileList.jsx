@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Person2Icon from "@mui/icons-material/Person2";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
@@ -10,6 +8,12 @@ import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, logOut } from "../../../../store/users";
+import { Menu, MenuItem, styled } from "@mui/material";
+
+const MenuStyled = styled(Menu)(() => ({
+    position: "absolute",
+    right: "50%"
+}));
 
 const ProfileList = ({ open }) => {
     const dispatch = useDispatch();
@@ -20,41 +24,38 @@ const ProfileList = ({ open }) => {
         dispatch(logOut());
     };
 
-    const listStyleConfig = {
-        position: "absolute",
-        top: "8%",
-        width: "100%",
-        maxWidth: 250,
-        backgroundColor: "#FFFFFF",
-        opacity: "1",
-        borderRadius: "5px",
-        boxShadow: "4px 4px 8px 2px rgba(34, 60, 80, 0.2)",
-        zIndex: "100",
-        display: !open ? "none" : "block"
-    };
     return (
-        <List sx={listStyleConfig}>
-            <ListItemButton
-                onClick={() => navigate(`/users/${currentUser.id}`)}
-            >
+        <MenuStyled
+            open={open}
+            elevation={0}
+            anchorOrigin={{
+                vertical: "top",
+                horizontal: "right"
+            }}
+            transformOrigin={{
+                vertical: "top",
+                horizontal: "right"
+            }}
+        >
+            <MenuItem onClick={() => navigate(`/users/${currentUser.id}`)}>
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
-            </ListItemButton>
+            </MenuItem>
             {currentUser.isAdmin && (
-                <ListItemButton onClick={() => navigate("/admin")}>
+                <MenuItem onClick={() => navigate("/admin")}>
                     <AdminPanelSettingsIcon sx={{ marginRight: "15px" }} />
                     <ListItemText primary="Панель администратора" />
-                </ListItemButton>
+                </MenuItem>
             )}
-            <ListItemButton>
+            <MenuItem>
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
-            </ListItemButton>
-            <ListItemButton onClick={handleLogOut}>
+            </MenuItem>
+            <MenuItem onClick={handleLogOut}>
                 <LogoutIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Выход" />
-            </ListItemButton>
-        </List>
+            </MenuItem>
+        </MenuStyled>
     );
 };
 

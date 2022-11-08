@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../Logo";
 import Button from "../Button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NavProfile from "../../ui/profile/NavProfile";
 import { useSelector } from "react-redux";
 import { getIsLoading, getIsLoggedIn } from "../../../store/users";
@@ -16,12 +16,6 @@ const Header = () => {
         { path: "/news", text: "Новости", id: 4 }
     ];
 
-    const { pathname: location } = useLocation();
-
-    const getNavLinkClasses = (path) => {
-        return "header__nav-link" + (location.includes(path) ? " active" : "");
-    };
-
     return (
         <header className="header">
             <div className="container header__container">
@@ -30,12 +24,16 @@ const Header = () => {
                     <ul className="header__nav-list">
                         {links.map((link) => (
                             <li className="header__nav-item" key={link.id}>
-                                <Link
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `header__nav-link ${
+                                            isActive ? "active" : ""
+                                        }`
+                                    }
                                     to={link.path}
-                                    className={getNavLinkClasses(link.path)}
                                 >
                                     {link.text}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
