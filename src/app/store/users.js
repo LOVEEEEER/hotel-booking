@@ -120,7 +120,7 @@ export const signUp =
                 id: data.localId,
                 email: email,
                 name: name,
-                birth: birth.$d,
+                birth: birth,
                 image: `https://avatars.dicebear.com/api/avataaars/${(
                     Math.random() + 1
                 )

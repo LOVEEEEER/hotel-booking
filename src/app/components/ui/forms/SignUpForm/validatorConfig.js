@@ -35,6 +35,13 @@ export const validatorConfig = {
     birth: {
         isRequired: {
             message: "Поле Дата Рождения обязательно для заполнения"
+        },
+        isCorrectDate: {
+            message: "Поле Дата Рождения некоректна"
+        },
+        isAdult: {
+            message: "Наш сервис предназначен для лиц старше 18 лет",
+            params: 18
         }
     }
 };

@@ -15,10 +15,11 @@ const DatePicker = ({
     ...rest
 }) => {
     const first = (dateValue) => {
+        console.log(dateValue);
         const fakeEvent = {
             target: {
                 name: name,
-                value: dateValue
+                value: !dateValue ? "" : dateValue.$d
             }
         };
         onChange(fakeEvent);

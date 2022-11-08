@@ -42,3 +42,7 @@ export function displayDate(data) {
             : date.getMonth() + 1
     }.${date.getFullYear()}`;
 }
+
+export function getFullYearByTimeStamp(timestamp) {
+    return Math.floor(timestamp / 1000 / 60 / 60 / 24 / 365);
+}

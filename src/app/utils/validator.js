@@ -1,3 +1,5 @@
+import { getFullYearByTimeStamp } from "./dateService";
+
 export const validator = (data, config) => {
     const errors = {};
     function validate(validateMethod, data, config) {
@@ -37,6 +39,22 @@ export const validator = (data, config) => {
                 );
                 if (millisecondsDate < config.params) {
                     return config.message;
+                }
+                break;
+            }
+            case "isCorrectDate": {
+                if (data.toString() === "Invalid Date") return config.message;
+                break;
+            }
+            case "isAdult": {
+                if (data) {
+                    const fullYears = getFullYearByTimeStamp(
+                        Date.now() - data.getTime()
+                    );
+                    console.log(fullYears);
+                    if (fullYears < 18) {
+                        return config.message;
+                    }
                 }
                 break;
             }
