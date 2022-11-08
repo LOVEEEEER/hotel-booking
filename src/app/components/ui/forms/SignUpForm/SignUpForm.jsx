@@ -7,6 +7,7 @@ import { FormHelperText } from "@mui/material";
 import { getAuthSignUpError, signUp } from "../../../../store/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "../../../common/form/DatePicker";
 
 const SignUpForm = () => {
     const authError = useSelector(getAuthSignUpError());
@@ -15,7 +16,8 @@ const SignUpForm = () => {
         {
             name: "",
             email: "",
-            password: ""
+            password: "",
+            birth: ""
         },
         validatorConfig
     );
@@ -62,6 +64,16 @@ const SignUpForm = () => {
                 value={data.password}
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
                 helperText={errors.password}
+            />
+            <br />
+            <DatePicker
+                error={Boolean(errors.birth)}
+                value={data.birth}
+                name="birth"
+                onChange={handleChange}
+                label="День рождения"
+                sx={{ marginBottom: "30px", minWidth: "320px" }}
+                helperText={errors.birth}
             />
             <br />
             {authError && (

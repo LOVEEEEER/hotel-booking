@@ -18,7 +18,7 @@ export const useForm = (initialState, config) => {
         const errors = validator(data, config);
         const errorsUser = {};
         Object.keys(data).forEach((item) => {
-            if (errors[item] && data[item].length > 0) {
+            if (errors[item] && data[item].toString().length > 0) {
                 errorsUser[item] = errors[item];
             }
         });

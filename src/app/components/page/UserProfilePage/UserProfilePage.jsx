@@ -25,9 +25,12 @@ const UserProfilePage = () => {
                             {getFormatDate(new Date(user.created_at))}
                         </p>
                         <p className="user-profile__user-statistics">
+                            День рождения: {getFormatDate(new Date(user.birth))}
+                        </p>
+                        <p className="user-profile__user-statistics">
                             Номеров снято: 0
                         </p>
-                        <p className="user-profile__user-statisticsn">
+                        <p className="user-profile__user-statistics">
                             Оценок поставлено: 0
                         </p>
                         {/* {userId === currentUser.id && (
