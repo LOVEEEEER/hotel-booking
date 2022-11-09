@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../Logo";
 import Button from "../Button";
 import { Link, NavLink } from "react-router-dom";
-import NavProfile from "../../ui/profile/NavProfile";
+import NavProfile, { NavProfileLoading } from "../../ui/profile/NavProfile";
 import { useSelector } from "react-redux";
 import { getIsLoading, getIsLoggedIn } from "../../../store/users";
 
@@ -77,7 +77,7 @@ const Header = () => {
                             )}
                         </>
                     ) : (
-                        "loading..."
+                        <NavProfileLoading />
                     )}
                 </ul>
             </div>
