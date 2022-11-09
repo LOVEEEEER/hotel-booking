@@ -4,7 +4,7 @@ import TableHead from "@mui/material/TableHead/TableHead";
 import TableRow from "@mui/material/TableRow/TableRow";
 import TableCell from "@mui/material/TableCell";
 
-const TableHeader = ({ columns }) => {
+const TableHeader = ({ sortBy, columns }) => {
     return (
         <TableHead>
             <TableRow>
@@ -19,7 +19,8 @@ const TableHeader = ({ columns }) => {
 };
 
 TableHeader.propTypes = {
-    columns: PropTypes.object.isRequired
+    columns: PropTypes.object.isRequired,
+    sortBy: PropTypes.object.isRequired
 };
 
 export default TableHeader;
