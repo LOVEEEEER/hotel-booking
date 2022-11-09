@@ -6,7 +6,6 @@ import "./app/styles/links.scss";
 import "./app/styles/index.css";
 import { Provider } from "react-redux";
 import createStore from "./app/store/createStore";
-// import history from "./app/utils/history";
 
 const store = createStore();
 

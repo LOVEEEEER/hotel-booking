@@ -1,29 +1,26 @@
 .header {
   &__profile {
+    position: relative;
     display: flex;
     align-items: center;
-  }
-  &__profile-name {
-    margin-right: 8px;
-    font-weight: 600;
-  }
-  &__profile-crown {
-    width: 30px;
-    margin-right: 16px;
-  }
-  &__profile-image {
-    padding: 10px;
-    max-width: 60px;
-    width: 50px;
-    background-color: #ebe8e8;
-    border-radius: 50%;
-    transition: background-color 0.7s linear;
+    padding: 7px;
+    transition: background-color 0.1s linear;
     &:hover {
-      background-color: #cccaca;
+      background-color: rgb(247, 247, 247);
       cursor: pointer;
     }
   }
-  &__profile-admin {
-    color: rgb(92, 126, 238);
+  &__admin-image {
+    border: 1px solid yellow;
+  }
+  &__profile-image {
+    padding: 7px;
+    max-width: 50px;
+    width: 45px;
+    background-color: #ebe8e8;
+    border-radius: 50%;
+  }
+  &__toggle-arrow {
+    width: 25px;
   }
 }
