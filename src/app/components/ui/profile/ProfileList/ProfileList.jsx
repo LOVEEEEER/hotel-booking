@@ -10,11 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, logOut } from "../../../../store/users";
 import { Menu, MenuItem, styled } from "@mui/material";
 
-const MenuStyled = styled(Menu)(() => ({
-    position: "absolute",
-    right: "50%"
-}));
-
 const ProfileList = ({ open }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
@@ -24,10 +19,16 @@ const ProfileList = ({ open }) => {
         dispatch(logOut());
     };
 
+    const MenuStyled = styled(Menu)(() => ({
+        position: "fixed",
+        top: "6%",
+        right: "200%"
+    }));
+
     return (
         <MenuStyled
+            sx={{ position: "absolute", top: "6%", right: "15%" }}
             open={open}
-            elevation={0}
             anchorOrigin={{
                 vertical: "top",
                 horizontal: "right"
