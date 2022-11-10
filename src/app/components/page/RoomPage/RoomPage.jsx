@@ -93,7 +93,7 @@ const RoomPage = () => {
                     <section className="room-booking">
                         <h2 className="room-booking__title">Бронирование</h2>
                         <div className="room-booking__booking-block">
-                            <Booking roomPrice={room.price} />
+                            <Booking {...room} />
                         </div>
                     </section>
                     <section className="room-reviews">

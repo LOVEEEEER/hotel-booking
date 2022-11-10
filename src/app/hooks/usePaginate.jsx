@@ -6,7 +6,6 @@ export const usePaginate = (items, initialPageSize) => {
     const [pageSize, setPageSize] = useState(initialPageSize);
 
     const handlePageChange = (pageIndex) => {
-        console.log(pageIndex);
         setCurrentPage(pageIndex);
     };
     const handleChangePageSize = (size) => {
@@ -15,8 +14,6 @@ export const usePaginate = (items, initialPageSize) => {
     };
 
     const itemsCrop = paginate(items, currentPage, pageSize);
-
-    console.log(itemsCrop, pageSize);
 
     return {
         itemsCrop,

@@ -7,14 +7,12 @@ axios.interceptors.request.use(
     function (res) {
         if (config.isFireBase) {
             const containSlash = /\/$/g.test(res.url);
-            console.log(res.url);
             res.url = (containSlash ? res.url.slice(0, -1) : res.url) + ".json";
             return res;
         }
         return res;
     },
     function (error) {
-        console.log(error);
         return Promise.reject(error);
     }
 );
