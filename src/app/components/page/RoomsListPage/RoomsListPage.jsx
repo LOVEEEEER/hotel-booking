@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRooms, getRoomsLoading, loadRooms } from "../../../store/rooms";
 
 const RoomsListPage = () => {
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
     const [sortBy, setSortBy] = useState("asc");
     const [pageSize, setPageSize] = useState(6);
     const dispatch = useDispatch();
@@ -36,6 +36,7 @@ const RoomsListPage = () => {
 
     const handleChangePageSize = ({ target }) => {
         setPageSize(target.value);
+        setCurrentPage(1);
     };
 
     const handleSort = () => {
