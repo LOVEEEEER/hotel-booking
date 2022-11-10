@@ -14,8 +14,6 @@ const TableBody = ({ data, columns }) => {
         return _.get(item, columns[column].path);
     };
 
-    console.log(data, columns);
-
     return (
         <TableBodyMUI>
             {data.map((item) => (

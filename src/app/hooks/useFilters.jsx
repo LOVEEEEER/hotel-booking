@@ -23,7 +23,6 @@ export const useFilters = () => {
                         break;
                     }
                     case "rate": {
-                        console.log(filteredItems);
                         items.forEach((room) => {
                             if (room.rate.toString() === filtersValue.rate) {
                                 const isRepeat = isRepeatElement(

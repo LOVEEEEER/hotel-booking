@@ -9,7 +9,6 @@ const userService = {
         return data;
     },
     createUser: async (payload) => {
-        console.log(payload);
         const { data } = await httpService.put(
             userEndPoint + payload.id,
             payload
@@ -18,7 +17,6 @@ const userService = {
     },
     getById: async (id) => {
         const { data } = await httpService.get(userEndPoint + id);
-        console.log(data);
         return data;
     },
     getCurrentUser: async () => {
@@ -29,7 +27,7 @@ const userService = {
     },
     deleteUser: async (id) => {
         const data = await httpService.delete(userEndPoint + id);
-        console.log(data);
+        return data;
     }
 };
 

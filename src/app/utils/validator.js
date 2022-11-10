@@ -32,13 +32,10 @@ export const validator = (data, config) => {
                 }
                 break;
             case "notThePast": {
-                const millisecondsDate = new Date(
-                    Number(data.slice(6, 11)),
-                    Number(data.slice(3, 5)) - 1,
-                    Number(data.slice(0, 2))
-                );
-                if (millisecondsDate < config.params) {
-                    return config.message;
+                if (data.toString().length) {
+                    if (data.getTime() < config.params) {
+                        return config.message;
+                    }
                 }
                 break;
             }
@@ -51,7 +48,6 @@ export const validator = (data, config) => {
                     const fullYears = getFullYearByTimeStamp(
                         Date.now() - data.getTime()
                     );
-                    console.log(fullYears);
                     if (fullYears < 18) {
                         return config.message;
                     }

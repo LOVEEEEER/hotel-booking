@@ -26,7 +26,6 @@ const commentsSlice = createSlice({
             state.error = action.payload;
         },
         commentCreated(state, action) {
-            console.log(action.payload);
             if (!Array.isArray(state.entities)) {
                 state.entities = [];
             }
@@ -48,7 +47,6 @@ export const loadComments = (pageId) => async (dispatch, getState) => {
     dispatch(commentsRequested());
     try {
         const { content } = await commentsService.get(pageId);
-        console.log("content", content);
         dispatch(commentsReceived(content));
     } catch (error) {
         dispatch(commentsLoadFailed(error.message));
@@ -56,7 +54,6 @@ export const loadComments = (pageId) => async (dispatch, getState) => {
 };
 
 export const createComment = (comment) => async (dispatch) => {
-    console.log(comment);
     try {
         await commentsService.create(comment.id, comment);
         dispatch(commentCreated(comment));

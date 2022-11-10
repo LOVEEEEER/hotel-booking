@@ -8,8 +8,6 @@ const NavProfile = () => {
     const [open, setOpen] = useState(false);
     const currentUser = useSelector(getCurrentUser());
 
-    console.log(open);
-
     const handleOpen = () => {
         setOpen((prevState) => !prevState);
     };

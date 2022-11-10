@@ -149,7 +149,7 @@ export const logOut = () => (dispatch) => {
 
 async function createUser(data) {
     const { content } = await userService.createUser(data);
-    console.log(content);
+
     return content;
 }
 

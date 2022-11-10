@@ -11,6 +11,7 @@ import Error from "./layouts/Error";
 import Login from "./layouts/Login";
 import Main from "./layouts/Main";
 import Rooms from "./layouts/Rooms";
+import UserBooking from "./layouts/UserBooking";
 import UserProfile from "./layouts/UserProfile";
 
 const routes = [
@@ -55,6 +56,14 @@ const routes = [
         element: (
             <ProtectedRoute>
                 <Admin />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: "booking",
+        element: (
+            <ProtectedRoute>
+                <UserBooking />
             </ProtectedRoute>
         )
     },

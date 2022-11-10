@@ -48,7 +48,7 @@ const ProfileList = ({ open }) => {
                     <ListItemText primary="Панель администратора" />
                 </MenuItem>
             )}
-            <MenuItem>
+            <MenuItem onClick={() => navigate("/booking")}>
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
             </MenuItem>

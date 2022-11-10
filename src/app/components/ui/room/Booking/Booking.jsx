@@ -4,14 +4,23 @@ import { validatorConfig } from "./validatorConfig";
 import DatePickForm from "../../forms/DatePickForm";
 import Button from "../../../common/Button";
 import BookingCounter from "../BookingCounter";
-import { getFormatDate } from "../../../../utils/dateService";
 import { useForm } from "../../../../hooks/useForm";
+import { useDispatch, useSelector } from "react-redux";
+import { reserveRoom } from "../../../../store/booking";
+import { getCurrentUser } from "../../../../store/users";
+import { nanoid } from "nanoid";
 
-const Booking = ({ roomPrice }) => {
+const Booking = ({ price, id }) => {
     const [counters, setCounters] = useState({
         adults: 1,
         kids: 0
     });
+
+    const dispatch = useDispatch();
+
+    const currentUser = useSelector(getCurrentUser());
+
+    const newDate = new Date();
 
     const {
         handleChange,
@@ -20,65 +29,37 @@ const Booking = ({ roomPrice }) => {
         errors
     } = useForm(
         {
-            entry: getFormatDate(
-                new Date(
-                    new Date().getFullYear(),
-                    new Date().getMonth(),
-                    new Date().getDate() + 1
-                )
-            ),
-            departure: getFormatDate(
-                new Date(
-                    new Date().getFullYear(),
-                    new Date().getMonth(),
-                    new Date().getDate() + 7
-                )
+            entry: new Date(),
+            departure: new Date(
+                newDate.getFullYear(),
+                newDate.getMonth(),
+                newDate.getDate() + 1
             )
         },
         validatorConfig
     );
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
     const handleToggleCounter = (name, value) => {
         setCounters((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+    const handleSubmitBooking = (e) => {
+        e.preventDefault();
+        const bookingRoom = {
+            id: nanoid(),
+            user: currentUser.id,
+            room: id,
+            created_at: Date.now()
+        };
+        dispatch(reserveRoom(bookingRoom));
     };
 
     useEffect(() => {
         validate();
     }, [bookingFields]);
 
-    const getFullRoomPrice = () => {
-        let tenantCount = 0;
-        Object.keys(counters).forEach(
-            (item) => (tenantCount += counters[item])
-        );
-        const newDateEntry = new Date(
-            Number(bookingFields.entry.slice(6, 11)),
-            Number(bookingFields.entry.slice(3, 5)) - 1,
-            Number(bookingFields.entry.slice(0, 2))
-        );
-        const newDateDeparture = new Date(
-            Number(bookingFields.departure.slice(6, 11)),
-            Number(bookingFields.departure.slice(3, 5)) - 1,
-            Number(bookingFields.departure.slice(0, 2))
-        );
-        const numberOfDaysInHotel =
-            (newDateDeparture.getTime() - newDateEntry.getTime()) /
-            1000 /
-            60 /
-            60 /
-            24;
-        if (numberOfDaysInHotel < 0) return "";
-        const fullRoomPrice =
-            tenantCount *
-            roomPrice *
-            (numberOfDaysInHotel === 0 ? 1 : numberOfDaysInHotel);
-        return fullRoomPrice;
-    };
     return (
-        <form className="room-booking__form" onSubmit={handleSubmit}>
+        <form className="room-booking__form" onSubmit={handleSubmitBooking}>
             <DatePickForm
                 onChange={handleChange}
                 data={bookingFields}
@@ -92,7 +73,7 @@ const Booking = ({ roomPrice }) => {
             </div>
             <div className="room-booking__submit-block">
                 <h3 className="room-booking__price">
-                    Итого: {getFullRoomPrice()}₽
+                    {/* Итого: {getFullRoomPrice()}₽ */}
                 </h3>
                 <Button
                     type="submit"
@@ -108,7 +89,8 @@ const Booking = ({ roomPrice }) => {
 };
 
 Booking.propTypes = {
-    roomPrice: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 };
 
 export default Booking;

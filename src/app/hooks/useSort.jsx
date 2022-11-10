@@ -7,6 +7,5 @@ export const useSort = (elements, initialPath) => {
         setSortBy(item);
     };
     const sortedItems = _.orderBy(elements, [sortBy.path], [sortBy.route]);
-    console.log("sorted", sortedItems);
     return { sortedItems, handleSort, sortBy };
 };
