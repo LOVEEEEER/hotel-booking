@@ -9,17 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { reserveRoom } from "../../../../store/booking";
 import { getCurrentUser } from "../../../../store/users";
 import { nanoid } from "nanoid";
+import Dialog from "../../../common/Dialog";
+import { useDialog } from "../../../../hooks/useDialog";
 
 const Booking = ({ price, id }) => {
     const [counters, setCounters] = useState({
         adults: 1,
         kids: 0
     });
-
+    const { open: openDialog, handleClickOpen, handleClose } = useDialog();
     const dispatch = useDispatch();
-
     const currentUser = useSelector(getCurrentUser());
-
     const newDate = new Date();
 
     const {
@@ -29,35 +29,49 @@ const Booking = ({ price, id }) => {
         errors
     } = useForm(
         {
-            entry: new Date(),
-            departure: new Date(
+            entry: new Date(
                 newDate.getFullYear(),
                 newDate.getMonth(),
                 newDate.getDate() + 1
+            ),
+            departure: new Date(
+                newDate.getFullYear(),
+                newDate.getMonth(),
+                newDate.getDate() + 2
             )
         },
         validatorConfig
     );
-
     const handleToggleCounter = (name, value) => {
         setCounters((prevState) => ({ ...prevState, [name]: value }));
     };
-
     const handleSubmitBooking = (e) => {
         e.preventDefault();
         const bookingRoom = {
             id: nanoid(),
             user: currentUser.id,
             room: id,
-            created_at: Date.now()
+            created_at: Date.now(),
+            fullPrice: getRoomPrice()
         };
         dispatch(reserveRoom(bookingRoom));
+        handleClickOpen();
     };
-
+    function getRoomPrice() {
+        const daysCount =
+            (bookingFields.departure.getTime() -
+                bookingFields.entry.getTime()) /
+            1000 /
+            60 /
+            60 /
+            24;
+        return daysCount * price;
+    }
     useEffect(() => {
         validate();
     }, [bookingFields]);
 
+    const isValid = Object.keys(errors).length === 0;
     return (
         <form className="room-booking__form" onSubmit={handleSubmitBooking}>
             <DatePickForm
@@ -72,9 +86,11 @@ const Booking = ({ price, id }) => {
                 />
             </div>
             <div className="room-booking__submit-block">
-                <h3 className="room-booking__price">
-                    {/* Итого: {getFullRoomPrice()}₽ */}
-                </h3>
+                {isValid && (
+                    <h3 className="room-booking__price">
+                        Итого: {getRoomPrice()}₽
+                    </h3>
+                )}
                 <Button
                     type="submit"
                     color="secondary"
@@ -84,6 +100,14 @@ const Booking = ({ price, id }) => {
                     Забронировать
                 </Button>
             </div>
+
+            {openDialog && (
+                <Dialog
+                    open={openDialog}
+                    onClickOpen={handleClickOpen}
+                    onClose={handleClose}
+                />
+            )}
         </form>
     );
 };
