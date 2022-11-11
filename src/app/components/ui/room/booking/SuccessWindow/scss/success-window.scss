@@ -1,0 +1,18 @@
+.room-booking {
+  &__dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+  }
+  &__dialog-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  &__dialog-info {
+    font-size: 20px;
+  }
+  &__dialog-item:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}

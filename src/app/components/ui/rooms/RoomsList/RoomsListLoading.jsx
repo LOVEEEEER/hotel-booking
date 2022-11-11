@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 import _ from "lodash";
 
 const RoomsListLoading = ({ pageSize }) => {
-    const array = _.range(1, pageSize);
+    const array = _.range(0, pageSize - 1);
     return (
         <>
             <div className="container rooms-list">
