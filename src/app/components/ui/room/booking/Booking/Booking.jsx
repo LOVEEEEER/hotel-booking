@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { validatorConfig } from "./validatorConfig";
-import DatePickForm from "../../forms/DatePickForm";
-import Button from "../../../common/Button";
+import DatePickForm from "../../../forms/DatePickForm";
+import Button from "../../../../common/Button";
 import BookingCounter from "../BookingCounter";
-import { useForm } from "../../../../hooks/useForm";
+import { useForm } from "../../../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
-import { reserveRoom } from "../../../../store/booking";
-import { getCurrentUser } from "../../../../store/users";
+import {
+    getCurrentBookingRoom,
+    reserveRoom
+} from "../../../../../store/booking";
 import { nanoid } from "nanoid";
-import Dialog from "../../../common/Dialog";
-import { useDialog } from "../../../../hooks/useDialog";
+import { useDialog } from "../../../../../hooks/useDialog";
+import { getCurrentUser } from "../../../../../store/users";
+import SuccessWindow from "../SuccessWindow/SuccessWindow";
 
 const Booking = ({ price, id }) => {
     const [counters, setCounters] = useState({
         adults: 1,
         kids: 0
     });
+    const bookingInfo = useSelector(getCurrentBookingRoom());
     const { open: openDialog, handleClickOpen, handleClose } = useDialog();
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
@@ -52,7 +56,9 @@ const Booking = ({ price, id }) => {
             user: currentUser.id,
             room: id,
             created_at: Date.now(),
-            fullPrice: getRoomPrice()
+            fullPrice: getRoomPrice(),
+            entry: bookingFields.entry.getTime(),
+            departure: bookingFields.departure.getTime()
         };
         dispatch(reserveRoom(bookingRoom));
         handleClickOpen();
@@ -101,10 +107,10 @@ const Booking = ({ price, id }) => {
                 </Button>
             </div>
 
-            {openDialog && (
-                <Dialog
+            {bookingInfo && (
+                <SuccessWindow
+                    info={bookingInfo}
                     open={openDialog}
-                    onClickOpen={handleClickOpen}
                     onClose={handleClose}
                 />
             )}

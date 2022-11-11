@@ -6,7 +6,7 @@ import Rating from "../../common/Rating";
 import RoomComfortList from "../../ui/room/RoomComfortList";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
-import Booking from "../../ui/room/Booking";
+import Booking from "../../ui/room/booking/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";

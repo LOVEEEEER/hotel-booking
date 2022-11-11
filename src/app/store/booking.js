@@ -4,7 +4,8 @@ import bookingService from "../services/booking.service";
 const initialState = {
     entities: [],
     isLoading: true,
-    error: null
+    error: null,
+    currentBookingRoom: null
 };
 
 const bookingSlice = createSlice({
@@ -24,6 +25,7 @@ const bookingSlice = createSlice({
         },
         roomBookedReceived(state, action) {
             state.entities.push(action.payload);
+            state.currentBookingRoom = action.payload;
         },
         roomBookedFailed(state, action) {
             state.error = action.payload;
@@ -57,5 +59,12 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
 };
 
 export const getUserRooms = () => (state) => state.booking.entities;
+
+export const getCurrentBookingRoom = () => (state) => {
+    console.log(state.booking.currentBookingRoom);
+    return state.booking.currentBookingRoom
+        ? state.booking.currentBookingRoom
+        : null;
+};
 
 export default bookingReducer;
