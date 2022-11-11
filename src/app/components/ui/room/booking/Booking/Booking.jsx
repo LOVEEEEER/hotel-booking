@@ -14,6 +14,7 @@ import { nanoid } from "nanoid";
 import { useDialog } from "../../../../../hooks/useDialog";
 import { getCurrentUser } from "../../../../../store/users";
 import SuccessWindow from "../SuccessWindow/SuccessWindow";
+import SuccessWindowLoading from "../SuccessWindow/SuccessWindowLoading";
 
 const Booking = ({ price, id }) => {
     const [counters, setCounters] = useState({
@@ -79,42 +80,51 @@ const Booking = ({ price, id }) => {
 
     const isValid = Object.keys(errors).length === 0;
     return (
-        <form className="room-booking__form" onSubmit={handleSubmitBooking}>
-            <DatePickForm
-                onChange={handleChange}
-                data={bookingFields}
-                errors={errors}
-            />
-            <div className="room-booking__counters">
-                <BookingCounter
-                    value={counters}
-                    onToggleCounter={handleToggleCounter}
+        <>
+            <form className="room-booking__form" onSubmit={handleSubmitBooking}>
+                <DatePickForm
+                    onChange={handleChange}
+                    data={bookingFields}
+                    errors={errors}
                 />
-            </div>
-            <div className="room-booking__submit-block">
-                {isValid && (
-                    <h3 className="room-booking__price">
-                        Итого: {getRoomPrice()}₽
-                    </h3>
-                )}
-                <Button
-                    type="submit"
-                    color="secondary"
-                    variant="outlined"
-                    sx={{ width: "250px" }}
-                >
-                    Забронировать
-                </Button>
-            </div>
+                <div className="room-booking__counters">
+                    <BookingCounter
+                        value={counters}
+                        onToggleCounter={handleToggleCounter}
+                    />
+                </div>
+                <div className="room-booking__submit-block">
+                    {isValid && (
+                        <h3 className="room-booking__price">
+                            Итого: {getRoomPrice()}₽
+                        </h3>
+                    )}
+                    <Button
+                        type="submit"
+                        color="secondary"
+                        variant="outlined"
+                        sx={{ width: "250px" }}
+                    >
+                        Забронировать
+                    </Button>
+                </div>
+            </form>
 
-            {bookingInfo && (
-                <SuccessWindow
-                    info={bookingInfo}
-                    open={openDialog}
-                    onClose={handleClose}
-                />
-            )}
-        </form>
+            {openDialog ? (
+                !bookingInfo ? (
+                    <SuccessWindowLoading
+                        open={openDialog}
+                        onClose={handleClose}
+                    />
+                ) : (
+                    <SuccessWindow
+                        info={bookingInfo}
+                        open={openDialog}
+                        onClose={handleClose}
+                    />
+                )
+            ) : null}
+        </>
     );
 };
 
