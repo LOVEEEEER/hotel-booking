@@ -6,13 +6,12 @@ import { getFormatDate } from "../../../utils/dateService";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, deleteUser, getUsersList } from "../../../store/users";
 import { useSort } from "../../../hooks/useSort";
-import _ from "lodash";
 
 const UsersTable = () => {
     const dispatch = useDispatch();
     const users = useSelector(getUsersList());
     const currentUser = useSelector(getCurrentUser());
-    const { sortBy, handleSortBy } = useSort(users, "name");
+    const { sortBy, handleSortBy, sortedItems } = useSort(users, "name");
     if (users) {
         const columns = {
             name: {
@@ -59,8 +58,6 @@ const UsersTable = () => {
                 )
             }
         };
-
-        const sortedItems = _.orderBy(users, [sortBy.path], [sortBy.route]);
 
         return (
             <Table

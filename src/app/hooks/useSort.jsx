@@ -1,19 +1,17 @@
-import { useState } from "react";
-// import _ from "lodash";
+import { useState, useEffect } from "react";
+import _ from "lodash";
 
 export const useSort = (elements, initialPath) => {
-    // const [sortedItems, setSortedItems] = useState(elements);
+    const [sortedItems, setSortedItems] = useState(elements);
     const [sortBy, setSortBy] = useState({ path: initialPath, route: "asc" });
     const handleSortBy = (item) => {
         setSortBy({ ...item });
     };
 
-    // useEffect(() => {
-    //     const sorted = _.orderBy(elements, [sortBy.path], ["desc"]);
-    //     setSortedItems(sorted);
+    useEffect(() => {
+        const orderedItems = _.orderBy(elements, [sortBy.path], [sortBy.route]);
+        setSortedItems(orderedItems);
+    }, [sortBy]);
 
-    //     console.log(sortBy.route);
-    // }, [sortBy]);
-
-    return { handleSortBy, sortBy };
+    return { handleSortBy, sortBy, sortedItems };
 };
