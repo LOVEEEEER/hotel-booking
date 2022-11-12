@@ -21,10 +21,10 @@ const Booking = ({ price, id }) => {
         adults: 1,
         kids: 0
     });
-    const bookingInfo = useSelector(getCurrentBookingRoom());
+    const currentUser = useSelector(getCurrentUser());
+    const bookingInfo = useSelector(getCurrentBookingRoom({ ...currentUser }));
     const { open: openDialog, handleClickOpen, handleClose } = useDialog();
     const dispatch = useDispatch();
-    const currentUser = useSelector(getCurrentUser());
     const newDate = new Date();
 
     const {

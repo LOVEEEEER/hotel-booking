@@ -90,12 +90,16 @@ const RoomPage = () => {
                             </li>
                         </ul>
                     </section>
-                    <section className="room-booking">
-                        <h2 className="room-booking__title">Бронирование</h2>
-                        <div className="room-booking__booking-block">
-                            <Booking {...room} />
-                        </div>
-                    </section>
+                    {currentUser && (
+                        <section className="room-booking">
+                            <h2 className="room-booking__title">
+                                Бронирование
+                            </h2>
+                            <div className="room-booking__booking-block">
+                                <Booking {...room} />
+                            </div>
+                        </section>
+                    )}
                     <section className="room-reviews">
                         <h2 className="room-section-title">
                             Отзывы посетителей данного отеля

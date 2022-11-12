@@ -5,7 +5,7 @@ const initialState = {
     entities: [],
     isLoading: true,
     error: null,
-    currentBookingRoom: null
+    bookingLoading: false
 };
 
 const bookingSlice = createSlice({
@@ -23,9 +23,12 @@ const bookingSlice = createSlice({
             state.error = action.payload;
             state.isLoading = false;
         },
+        roomBookedRequest(state, action) {
+            state.bookingLoading = true;
+        },
         roomBookedReceived(state, action) {
+            state.bookingLoading = false;
             state.entities.push(action.payload);
-            state.currentBookingRoom = action.payload;
         },
         roomBookedFailed(state, action) {
             state.error = action.payload;
@@ -34,7 +37,12 @@ const bookingSlice = createSlice({
 });
 
 const { reducer: bookingReducer, actions } = bookingSlice;
-const { bookingRequested, bookingReceived, roomBookedReceived } = actions;
+const {
+    bookingRequested,
+    bookingReceived,
+    roomBookedReceived,
+    roomBookedRequest
+} = actions;
 
 export const loadUserBooking = (userId) => async (dispatch) => {
     dispatch(bookingRequested());
@@ -47,6 +55,7 @@ export const loadUserBooking = (userId) => async (dispatch) => {
 };
 
 export const reserveRoom = (bookingRoom) => async (dispatch) => {
+    dispatch(roomBookedRequest());
     try {
         const { content } = await bookingService.add(
             bookingRoom.id,
@@ -60,11 +69,16 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
 
 export const getUserRooms = () => (state) => state.booking.entities;
 
-export const getCurrentBookingRoom = () => (state) => {
-    console.log(state.booking.currentBookingRoom);
-    return state.booking.currentBookingRoom
-        ? state.booking.currentBookingRoom
-        : null;
-};
+export const getCurrentBookingRoom =
+    ({ id: userId }) =>
+    (state) => {
+        const usersRooms = state.booking.entities.filter(
+            (room) => room.user === userId
+        );
+
+        return !state.booking.bookingLoading
+            ? usersRooms[usersRooms.length - 1]
+            : null;
+    };
 
 export default bookingReducer;

@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
+    padding: 33px 33px;
   }
   &__dialog-title {
     margin-bottom: 15px;
@@ -12,7 +12,26 @@
   &__dialog-info {
     font-size: 20px;
   }
+  &__dialog-list {
+    margin-bottom: 12px;
+  }
   &__dialog-item:not(:last-child) {
     margin-bottom: 12px;
+  }
+  &__dialog-price {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 23px;
+  }
+  &__dialog-success {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 120px;
+  }
+  &__dialog-success_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
