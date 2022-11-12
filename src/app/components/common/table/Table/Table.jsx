@@ -7,25 +7,23 @@ import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
-import { useSort } from "../../../../hooks/useSort";
 import { usePaginate } from "../../../../hooks/usePaginate";
 
 export const Table = ({ children, data, ...rest }) => {
-    const { sortedItems, sortBy } = useSort(data, "name");
     const {
         itemsCrop: dataCrop,
         handlePageChange,
         currentPage,
         pageSize,
         handleChangePageSize
-    } = usePaginate(sortedItems, 5);
+    } = usePaginate(data, 5);
 
     return (
         <TableContainer component={Paper}>
             <TableMUI sx={{ minWidth: 650 }}>
                 {children || (
                     <>
-                        <TableHeader sortBy={sortBy} {...rest} />
+                        <TableHeader {...rest} />
                         <TableBody data={dataCrop} {...rest} />
                     </>
                 )}
