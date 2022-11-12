@@ -13,8 +13,6 @@ export const usePaginate = (items, initialPageSize) => {
         setCurrentPage(0);
     };
 
-    console.log("items", items);
-
     const itemsCrop = paginate(items, currentPage, pageSize);
 
     return {

@@ -20,7 +20,6 @@ const TableHeader = ({ selectedSort, columns, onSort }) => {
         });
     };
     const renderSortArrow = (selectedSort, currentPath) => {
-        console.log(selectedSort, currentPath);
         if (selectedSort.path === currentPath) {
             if (selectedSort.route === "asc") {
                 return "asc";
