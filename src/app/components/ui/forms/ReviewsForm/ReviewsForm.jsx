@@ -31,6 +31,7 @@ const ReviewsForm = () => {
             created_at: Date.now(),
             pageId: roomId
         };
+        console.log("created comment", comment);
         dispatch(createComment(comment));
     };
 
