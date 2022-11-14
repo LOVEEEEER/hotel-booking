@@ -67,9 +67,9 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
     }
 };
 
-export const getUserRooms = () => (state) => state.booking.entities;
+export const getUserBooking = () => (state) => state.booking.entities;
 
-export const getCurrentBookingRoom =
+export const getBookingById =
     ({ id: userId }) =>
     (state) => {
         const usersRooms = state.booking.entities.filter(

@@ -6,10 +6,7 @@ import Button from "../../../../common/Button";
 import BookingCounter from "../BookingCounter";
 import { useForm } from "../../../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    getCurrentBookingRoom,
-    reserveRoom
-} from "../../../../../store/booking";
+import { getBookingById, reserveRoom } from "../../../../../store/booking";
 import { nanoid } from "nanoid";
 import { useDialog } from "../../../../../hooks/useDialog";
 import { getCurrentUser } from "../../../../../store/users";
@@ -22,7 +19,7 @@ const Booking = ({ price, id }) => {
         kids: 0
     });
     const currentUser = useSelector(getCurrentUser());
-    const bookingInfo = useSelector(getCurrentBookingRoom({ ...currentUser }));
+    const currentBooking = useSelector(getBookingById({ ...currentUser }));
     const { open: openDialog, handleClickOpen, handleClose } = useDialog();
     const dispatch = useDispatch();
     const newDate = new Date();
@@ -111,14 +108,14 @@ const Booking = ({ price, id }) => {
             </form>
 
             {openDialog ? (
-                !bookingInfo ? (
+                !currentBooking ? (
                     <SuccessWindowLoading
                         open={openDialog}
                         onClose={handleClose}
                     />
                 ) : (
                     <SuccessWindow
-                        info={bookingInfo}
+                        info={currentBooking}
                         open={openDialog}
                         onClose={handleClose}
                     />
