@@ -2,11 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 60px;
   &__user-image {
-    width: 280px;
+    margin-right: 75px;
+    width: 350px;
   }
   &__user-name {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
+    font-size: 30px;
+  }
+  &__description {
+    font-size: 20px;
   }
 }
