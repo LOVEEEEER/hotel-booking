@@ -122,7 +122,7 @@ export const signUp =
                 name: name,
                 birth: birth,
                 image: `https://avatars.dicebear.com/api/avataaars/${(
-                    Math.random() + 1
+                    Math.random() + 15
                 )
                     .toString(36)
                     .substring(7)}.svg`,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import RoomsList from "../../ui/rooms/RoomsList";
 import { paginate } from "../../../utils/paginate";
 import Pagination from "../../common/Pagination";
@@ -9,23 +9,18 @@ import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useForm } from "../../../hooks/useForm";
 import { useFilters } from "../../../hooks/useFilters";
-import { useDispatch, useSelector } from "react-redux";
-import { getRooms, getRoomsLoading, loadRooms } from "../../../store/rooms";
+import { useSelector } from "react-redux";
+import { getRooms, getRoomsLoading } from "../../../store/rooms";
 
 const RoomsListPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [sortBy, setSortBy] = useState("asc");
     const [pageSize, setPageSize] = useState(6);
-    const dispatch = useDispatch();
 
     const rooms = useSelector(getRooms());
     const roomsLoading = useSelector(getRoomsLoading());
     const { searchQuery, handleSearchQuery, getFilteredItems } = useFilters();
     const initialFilterState = { comfort: [], rate: "" };
-
-    useEffect(() => {
-        dispatch(loadRooms());
-    }, []);
 
     const { data: filters, handleChange: handleChangeFilterValue } =
         useForm(initialFilterState);
