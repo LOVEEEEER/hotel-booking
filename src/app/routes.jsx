@@ -7,6 +7,7 @@ import SignInPage from "./components/page/SignInPage";
 import SignUpPage from "./components/page/SignUpPage";
 import UserProfilePage from "./components/page/UserProfilePage";
 import Admin from "./layouts/Admin";
+import Edit from "./layouts/Edit";
 import Error from "./layouts/Error";
 import Login from "./layouts/Login";
 import Main from "./layouts/Main";
@@ -50,6 +51,14 @@ const routes = [
                 )
             }
         ]
+    },
+    {
+        path: "edit",
+        element: (
+            <ProtectedRoute>
+                <Edit />
+            </ProtectedRoute>
+        )
     },
     {
         path: "admin",
