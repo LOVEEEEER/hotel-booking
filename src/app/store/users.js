@@ -177,12 +177,16 @@ export const getCurrentUser = () => (state) => {
 };
 
 export const getIsLoggedIn = () => (state) => {
-    return state.users.isLoggedIn || null;
+    return state.users.isLoggedIn;
 };
 
 export const getAuthSignInError = () => (state) => state.users.signInError;
 export const getAuthSignUpError = () => (state) => state.users.signUpError;
 
 export const getIsLoading = () => (state) => state.users.isLoading;
+
+export const getCurrentUserId = () => (state) => {
+    return state.users.auth ? state.users.auth.userId : null;
+};
 
 export default usersReducer;

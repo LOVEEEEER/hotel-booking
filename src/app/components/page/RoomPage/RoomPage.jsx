@@ -13,13 +13,13 @@ import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/rooms";
-import { getCurrentUser } from "../../../store/users";
+import { getIsLoggedIn } from "../../../store/users";
 import { useParams } from "react-router-dom";
 
 const RoomPage = () => {
     const { roomId } = useParams();
     const room = useSelector(getRoomById(roomId));
-    const currentUser = useSelector(getCurrentUser());
+    const isLoggedIn = useSelector(getIsLoggedIn());
 
     if (room) {
         return (
@@ -90,7 +90,7 @@ const RoomPage = () => {
                             </li>
                         </ul>
                     </section>
-                    {currentUser && (
+                    {isLoggedIn && (
                         <section className="room-booking">
                             <h2 className="room-booking__title">
                                 Бронирование
@@ -107,7 +107,7 @@ const RoomPage = () => {
                         <div className="room-reviews__comments">
                             <RoomReviews />
                         </div>
-                        {currentUser && (
+                        {isLoggedIn && (
                             <div className="room-reviews__form">
                                 <ReviewsForm />
                                 <div className="room-reviews__statistics">
