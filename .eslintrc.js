@@ -13,6 +13,7 @@ module.exports = {
     },
     plugins: ["react"],
     rules: {
+        "react/display-name": "off",
         "object-shorthand": 0,
         "no-useless-escape": ["off"],
         semi: [2, "always"],

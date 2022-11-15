@@ -18,7 +18,9 @@ function App() {
             dispatch(loadUserBooking(currentUserId));
         }
     }, []);
+
     const elements = useRoutes(routes);
+
     return elements;
 }
 
