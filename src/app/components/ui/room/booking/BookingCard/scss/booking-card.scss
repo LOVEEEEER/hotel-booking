@@ -1,0 +1,18 @@
+.booking {
+  &__card {
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+  }
+  &__properties-text {
+    font-size: 20px;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+  &__properties-list {
+    margin-left: 70px;
+  }
+}
