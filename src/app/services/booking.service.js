@@ -15,6 +15,10 @@ const bookingService = {
             }
         });
         return data;
+    },
+    delete: async (id) => {
+        const { data } = await httpService.delete(bookingEndPoint + id);
+        return data;
     }
 };
 

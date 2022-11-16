@@ -14,7 +14,7 @@ const DatePicker = ({
     helperText,
     ...rest
 }) => {
-    const first = (dateValue) => {
+    const handleChange = (dateValue) => {
         const fakeEvent = {
             target: {
                 name: name,
@@ -32,7 +32,7 @@ const DatePicker = ({
                 label={label}
                 value={value}
                 onChange={(newValue) => {
-                    first(newValue);
+                    handleChange(newValue);
                 }}
                 renderInput={(params) => (
                     <TextField
@@ -48,7 +48,7 @@ const DatePicker = ({
 };
 
 DatePicker.propTypes = {
-    value: PropTypes.object.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,

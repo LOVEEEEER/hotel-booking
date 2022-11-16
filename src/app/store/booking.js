@@ -32,6 +32,11 @@ const bookingSlice = createSlice({
         },
         roomBookedFailed(state, action) {
             state.error = action.payload;
+        },
+        userBookingDeleted(state, action) {
+            state.entities = state.entities.filter(
+                (item) => item.id !== action.payload
+            );
         }
     }
 });
@@ -41,7 +46,8 @@ const {
     bookingRequested,
     bookingReceived,
     roomBookedReceived,
-    roomBookedRequest
+    roomBookedRequest,
+    userBookingDeleted
 } = actions;
 
 export const loadUserBooking = (userId) => async (dispatch) => {
@@ -62,6 +68,16 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
             bookingRoom
         );
         dispatch(roomBookedReceived(content));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteUserBooking = (id) => async (dispatch) => {
+    console.log(id);
+    try {
+        await bookingService.delete(id);
+        dispatch(userBookingDeleted(id));
     } catch (error) {
         console.log(error);
     }

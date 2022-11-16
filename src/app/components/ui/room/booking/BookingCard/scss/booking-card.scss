@@ -4,6 +4,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    background-size: 100% 300%;
+    filter: grayscale(50%);
   }
   &__properties-text {
     font-size: 20px;

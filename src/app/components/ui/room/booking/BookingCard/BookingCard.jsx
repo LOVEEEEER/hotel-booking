@@ -3,10 +3,23 @@ import PropTypes from "prop-types";
 import QRCode from "react-qr-code";
 import { displayDate } from "../../../../../utils/dateService";
 import Button from "../../../../common/Button";
+import { useDispatch } from "react-redux";
+import { deleteUserBooking } from "../../../../../store/booking";
 
 const BookingCard = ({ item: bookingItem, room }) => {
+    const dispatch = useDispatch();
+    const handleDelete = (id) => {
+        dispatch(deleteUserBooking(id));
+    };
+    console.log(bookingItem);
+    if (!bookingItem) {
+        return "Список бронирований пуст";
+    }
     return (
-        <div className="room booking__card">
+        <div
+            className="room booking__card"
+            style={{ backgroundImage: `url(${room.images[0]})` }}
+        >
             <div className="booking__info">
                 <QRCode
                     size={256}
@@ -41,7 +54,12 @@ const BookingCard = ({ item: bookingItem, room }) => {
                     </li>
                 </ul>
             </div>
-            <Button variant="outlined">Отозвать бронь</Button>
+            <Button
+                variant="outlined"
+                onClick={() => handleDelete(bookingItem.id)}
+            >
+                Отозвать бронь
+            </Button>
         </div>
     );
 };
