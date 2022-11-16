@@ -120,7 +120,7 @@ export const signUp =
                 id: data.localId,
                 email: email,
                 name: name,
-                birth: birth,
+                birth: new Date(birth).getTime(),
                 image: `https://avatars.dicebear.com/api/avataaars/${(
                     Math.random() + 15
                 )
@@ -149,7 +149,6 @@ export const logOut = () => (dispatch) => {
 
 async function createUser(data) {
     const { content } = await userService.createUser(data);
-
     return content;
 }
 

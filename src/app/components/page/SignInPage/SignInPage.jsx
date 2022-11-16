@@ -5,7 +5,7 @@ import FormCardStyles from "../../ui/HOC/FormCardStyles";
 
 const SignInPage = () => {
     return (
-        <div className="signin__page">
+        <main className="signin__page">
             <div className="container signin__container">
                 <FormCardStyles>
                     <h1 className="form-title">Вход</h1>
@@ -16,7 +16,7 @@ const SignInPage = () => {
                     </div>
                 </FormCardStyles>
             </div>
-        </div>
+        </main>
     );
 };
 
