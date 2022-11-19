@@ -11,9 +11,9 @@ const Header = () => {
     const usersLoading = useSelector(getIsLoading());
     const links = [
         { path: "/rooms", text: "Номера", id: 1 },
-        { path: "/services", text: "Услуги", id: 2 },
-        { path: "/vacancies", text: "Вакансии", id: 3 },
-        { path: "/news", text: "Новости", id: 4 }
+        { path: "/services", text: "Вакансии", id: 2 },
+        { path: "/vacancies", text: "Услуги", id: 3 },
+        { path: "/news", text: "Политика", id: 4 }
     ];
 
     return (
