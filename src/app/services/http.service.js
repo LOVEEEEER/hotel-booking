@@ -1,14 +1,30 @@
 import axios from "axios";
 import config from "../config.json";
+import authService from "./auth.service";
+import localStorageService from "./localStorage.service";
 
 axios.defaults.baseURL = config.apiEndPoint;
 
 axios.interceptors.request.use(
-    function (res) {
+    async function (res) {
         if (config.isFireBase) {
             const containSlash = /\/$/g.test(res.url);
             res.url = (containSlash ? res.url.slice(0, -1) : res.url) + ".json";
-            return res;
+            const expiresDate = localStorageService.getJwtExpires();
+            const refreshToken = localStorageService.getRefreshToken();
+            if (refreshToken && Date.now() > expiresDate) {
+                const data = await authService.refresh();
+                localStorageService.setTokens({
+                    refreshToken: data.refresh_token,
+                    idToken: data.id_token,
+                    expiresIn: data.expires_in,
+                    localId: data.user_id
+                });
+                const accessToken = localStorageService.getAccessToken();
+                if (accessToken) {
+                    config.params = { ...config.params, auth: accessToken };
+                }
+            }
         }
         return res;
     },

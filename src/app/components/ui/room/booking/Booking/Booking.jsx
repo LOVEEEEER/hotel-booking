@@ -23,7 +23,6 @@ const Booking = ({ price, id }) => {
     const { open: openDialog, handleClickOpen, handleClose } = useDialog();
     const dispatch = useDispatch();
     const newDate = new Date();
-
     const {
         handleChange,
         validate,
@@ -44,9 +43,11 @@ const Booking = ({ price, id }) => {
         },
         validatorConfig
     );
+
     const handleToggleCounter = (name, value) => {
         setCounters((prevState) => ({ ...prevState, [name]: value }));
     };
+
     const handleSubmitBooking = (e) => {
         e.preventDefault();
         const bookingRoom = {
@@ -74,7 +75,6 @@ const Booking = ({ price, id }) => {
     useEffect(() => {
         validate();
     }, [bookingFields]);
-
     const isValid = Object.keys(errors).length === 0;
     return (
         <>
