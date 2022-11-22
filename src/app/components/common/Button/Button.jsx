@@ -25,20 +25,41 @@ const ButtonOutlined = styled(ButtonMui)(() => ({
     }
 }));
 
+const ButtonCancel = styled(ButtonMui)(() => ({
+    paddingLeft: "14px",
+    paddingRight: "14px",
+    backgroundColor: "transparent",
+    border: "1px solid #f71919",
+    color: "#f71919",
+    "&:hover": {
+        backgroundColor: "#f8d1d1"
+    }
+}));
+
 const Button = ({ type, label, variant, children, ...rest }) => {
-    return (
-        <>
-            {variant === "outlined" ? (
-                <ButtonOutlined type={type} label={label} {...rest}>
-                    {children}
-                </ButtonOutlined>
-            ) : (
-                <ButtonContained type={type} label={label} {...rest}>
-                    {children}
-                </ButtonContained>
-            )}
-        </>
-    );
+    const getButtonType = () => {
+        switch (variant) {
+            case "outlined":
+                return (
+                    <ButtonOutlined type={type} label={label} {...rest}>
+                        {children}
+                    </ButtonOutlined>
+                );
+            case "cancel":
+                return (
+                    <ButtonCancel type={type} label={label} {...rest}>
+                        {children}
+                    </ButtonCancel>
+                );
+            default:
+                return (
+                    <ButtonContained type={type} label={label} {...rest}>
+                        {children}
+                    </ButtonContained>
+                );
+        }
+    };
+    return <>{getButtonType()}</>;
 };
 
 Button.propTypes = {

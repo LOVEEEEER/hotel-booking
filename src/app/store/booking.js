@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import bookingService from "../services/booking.service";
 
 const initialState = {
-    entities: [],
+    entities: null,
     isLoading: true,
     error: null,
     bookingLoading: false
@@ -12,28 +12,31 @@ const bookingSlice = createSlice({
     name: "booking",
     initialState,
     reducers: {
-        bookingRequested(state, action) {
+        requested(state, action) {
             state.isLoading = true;
         },
-        bookingReceived(state, action) {
+        received(state, action) {
             state.entities = action.payload;
             state.isLoading = false;
         },
-        bookingRequestFailed(state, action) {
+        requestFailed(state, action) {
             state.error = action.payload;
             state.isLoading = false;
         },
-        roomBookedRequest(state, action) {
+        bookingRequested(state, action) {
             state.bookingLoading = true;
         },
-        roomBookedReceived(state, action) {
+        created(state, action) {
             state.bookingLoading = false;
+            if (!Array.isArray(state.entities)) {
+                state.entities = [];
+            }
             state.entities.push(action.payload);
         },
-        roomBookedFailed(state, action) {
+        requetFailed(state, action) {
             state.error = action.payload;
         },
-        userBookingDeleted(state, action) {
+        removed(state, action) {
             state.entities = state.entities.filter(
                 (item) => item.id !== action.payload
             );
@@ -43,43 +46,43 @@ const bookingSlice = createSlice({
 
 const { reducer: bookingReducer, actions } = bookingSlice;
 const {
+    requested,
+    received,
+    created,
     bookingRequested,
-    bookingReceived,
-    roomBookedReceived,
-    roomBookedRequest,
-    userBookingDeleted
+    removed,
+    requestFailed
 } = actions;
 
 export const loadUserBooking = (userId) => async (dispatch) => {
-    dispatch(bookingRequested());
+    dispatch(requested());
     try {
         const { content } = await bookingService.getUserBooking(userId);
-        dispatch(bookingReceived(content));
+        dispatch(received(content));
     } catch (error) {
-        console.log(error);
+        dispatch(requestFailed(error.message));
     }
 };
 
 export const reserveRoom = (bookingRoom) => async (dispatch) => {
-    dispatch(roomBookedRequest());
+    dispatch(bookingRequested());
     try {
         const { content } = await bookingService.add(
             bookingRoom.id,
             bookingRoom
         );
-        dispatch(roomBookedReceived(content));
+        dispatch(created(content));
     } catch (error) {
-        console.log(error);
+        dispatch(requestFailed(error.message));
     }
 };
 
 export const deleteUserBooking = (id) => async (dispatch) => {
-    console.log(id);
     try {
         await bookingService.delete(id);
-        dispatch(userBookingDeleted(id));
+        dispatch(removed(id));
     } catch (error) {
-        console.log(error);
+        dispatch(requestFailed(error.message));
     }
 };
 

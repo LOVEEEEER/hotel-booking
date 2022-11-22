@@ -1,0 +1,23 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
+.booking {
+  &__page {
+    margin-top: 25px;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+  &__error-message {
+    @include phones {
+      font-size: 14px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 77vh;
+  }
+}

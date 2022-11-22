@@ -15,6 +15,10 @@ const commentsService = {
     create: async (id, payload) => {
         const { data } = await httpService.put(commentsEndPoint + id, payload);
         return data;
+    },
+    delete: async (commentId) => {
+        const { data } = await httpService.delete(commentsEndPoint + commentId);
+        return data;
     }
 };
 
