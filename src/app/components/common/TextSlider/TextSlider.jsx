@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import { FreeMode, Autoplay } from "swiper";
 
 const TextSlider = ({ children }) => {
+    console.log(children);
     return (
         <>
             <Swiper
