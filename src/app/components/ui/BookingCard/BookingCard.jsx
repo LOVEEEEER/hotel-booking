@@ -4,15 +4,15 @@ import QRCode from "react-qr-code";
 import { displayDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
+import CancelWindow from "../CancelWindow";
+import { useDialog } from "../../../hooks/useDialog";
 import { useDispatch } from "react-redux";
 import { deleteUserBooking } from "../../../store/booking";
 
 const BookingCard = ({ item, room }) => {
     const dispatch = useDispatch();
+    const { open, handleClickOpen, handleClose } = useDialog();
     const navigate = useNavigate();
-    const handleCancelBooking = () => {
-        dispatch(deleteUserBooking(item.id));
-    };
     return (
         <div className="booking__card">
             <div className="booking__qr">
@@ -57,12 +57,17 @@ const BookingCard = ({ item, room }) => {
                     <Button
                         variant="cancel"
                         sx={{ padding: "5px", fontSize: "11px" }}
-                        onClick={handleCancelBooking}
+                        onClick={handleClickOpen}
                     >
                         Отменить бронь
                     </Button>
                 </div>
             </div>
+            <CancelWindow
+                onCancel={() => dispatch(deleteUserBooking(item.id))}
+                open={open}
+                onClose={handleClose}
+            />
         </div>
     );
 };
