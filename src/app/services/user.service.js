@@ -25,6 +25,10 @@ const userService = {
         );
         return data;
     },
+    updateUser: async (id, payload) => {
+        const { data } = await httpService.put(userEndPoint + id, payload);
+        return data;
+    },
     deleteUser: async (id) => {
         const data = await httpService.delete(userEndPoint + id);
         return data;
