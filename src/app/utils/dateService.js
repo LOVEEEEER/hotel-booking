@@ -43,6 +43,19 @@ export function displayDate(data) {
     }.${date.getFullYear()}`;
 }
 
+export const getPresenceBookingDate = (days) => {
+    const newDate = new Date();
+    return new Date(
+        newDate.getFullYear(),
+        newDate.getMonth(),
+        newDate.getDate() + days
+    );
+};
+
+export const getDaysCountFromTimeStamp = (timestamp) => {
+    return timestamp / 1000 / 60 / 60 / 24;
+};
+
 export function getFullYearByTimeStamp(timestamp) {
     return Math.floor(timestamp / 1000 / 60 / 60 / 24 / 365);
 }

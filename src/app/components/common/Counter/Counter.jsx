@@ -10,7 +10,7 @@ const Counter = ({
     name,
     minValue,
     maxValue,
-    onToggleCounter,
+    onChange,
     ...rest
 }) => {
     const counterButtonStyles = {
@@ -27,6 +27,15 @@ const Counter = ({
             opacity: 0.7
         }
     };
+    const handleChange = (name, value) => {
+        const fakeEvent = {
+            target: {
+                name,
+                value
+            }
+        };
+        onChange(fakeEvent);
+    };
     const getCounterValue = (status) => {
         if (status === "min") return value > minValue ? value - 1 : value;
         if (status === "max") return value < maxValue ? value + 1 : value;
@@ -37,7 +46,7 @@ const Counter = ({
             <Button
                 type="button"
                 disabled={value === minValue && true}
-                onClick={() => onToggleCounter(name, getCounterValue("min"))}
+                onClick={() => handleChange(name, getCounterValue("min"))}
                 sx={counterButtonStyles}
                 {...rest}
             >
@@ -47,7 +56,7 @@ const Counter = ({
             <Button
                 type="button"
                 disabled={value === maxValue && true}
-                onClick={() => onToggleCounter(name, getCounterValue("max"))}
+                onClick={() => handleChange(name, getCounterValue("max"))}
                 sx={counterButtonStyles}
                 {...rest}
             >
@@ -63,7 +72,7 @@ Counter.propTypes = {
     name: PropTypes.string.isRequired,
     minValue: PropTypes.number.isRequired,
     maxValue: PropTypes.number.isRequired,
-    onToggleCounter: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired
 };
 
 export default Counter;

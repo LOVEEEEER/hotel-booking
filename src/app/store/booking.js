@@ -66,6 +66,7 @@ export const loadUserBooking = (userId) => async (dispatch) => {
 
 export const reserveRoom = (bookingRoom) => async (dispatch) => {
     dispatch(bookingRequested());
+    console.log(bookingRoom);
     try {
         const { content } = await bookingService.add(
             bookingRoom.id,
