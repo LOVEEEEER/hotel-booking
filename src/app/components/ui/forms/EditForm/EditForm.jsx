@@ -53,11 +53,10 @@ const EditForm = () => {
                 helperText={errors.birth}
                 value={data.birth}
                 error={Boolean(errors.birth)}
-                sx={{ width: "100%", marginBottom: "20px" }}
+                sx={{ width: "100%", marginBottom: "10px" }}
             />
             <br />
             <RadioField
-                row
                 options={[
                     {
                         label: "Мужской",
@@ -71,6 +70,8 @@ const EditForm = () => {
                 name="sex"
                 value={data.sex}
                 onChange={handleChange}
+                row
+                sx={{ marginBottom: "10px" }}
             />
             <br />
             <Button sx={{ width: "100%" }}>Редактировать</Button>

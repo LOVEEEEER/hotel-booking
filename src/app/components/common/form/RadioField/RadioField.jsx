@@ -5,10 +5,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
-const RadioField = ({ options, onChange, name }) => {
+const RadioField = ({ options, onChange, name, ...rest }) => {
     return (
         <FormControl>
-            <RadioGroup name={name}>
+            <RadioGroup name={name} {...rest}>
                 {options.map((option) => (
                     <FormControlLabel
                         key={option.value}
