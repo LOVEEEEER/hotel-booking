@@ -1,46 +1,81 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../../../hooks/useForm";
-import TextField from "../../../common/form/TextField";
-import DatePicker from "../../../common/form/DatePicker";
+import { getCurrentUser, updateUser } from "../../../../store/users";
 import Button from "../../../common/Button";
+import DatePicker from "../../../common/form/DatePicker";
+import RadioField from "../../../common/form/RadioField";
+import TextField from "../../../common/form/TextField";
+import { validatorConfig } from "./validatorConfig";
 
-const EditForm = ({ currentUser }) => {
-    const { data, handleChange } = useForm({
-        name: currentUser.name,
-        birth: currentUser.birth
-    });
+const EditForm = () => {
+    const dispatch = useDispatch();
+    const currentUser = useSelector(getCurrentUser());
+    const { data, handleChange, errors } = useForm(
+        {
+            name: currentUser.name,
+            birth: currentUser.birth,
+            sex: currentUser.sex
+        },
+        validatorConfig
+    );
+    const isValid = Object.keys(errors).length === 0;
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        if (isValid) {
+            const updatedUser = {
+                ...currentUser,
+                ...data,
+                birth: new Date(data.birth).getTime()
+            };
+            dispatch(updateUser(updatedUser));
+        }
     };
-    if (currentUser) {
-        return (
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    name="name"
-                    value={data.name}
-                    onChange={handleChange}
-                    label="Имя пользователя"
-                    sx={{ marginBottom: "23px", minWidth: "320px" }}
-                />
-                <br />
-                <DatePicker
-                    name="birth"
-                    value={data.birth}
-                    label="День рождения"
-                    onChange={handleChange}
-                    sx={{ marginBottom: "23px", minWidth: "320px" }}
-                />
-                <br />
-                <Button>Редактировать профиль</Button>
-            </form>
-        );
-    }
-};
-
-EditForm.propTypes = {
-    currentUser: PropTypes.object.isRequired
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
+    return (
+        <form onSubmit={handleSubmit}>
+            <TextField
+                error={Boolean(errors.name)}
+                helperText={errors.name}
+                name="name"
+                label="Имя"
+                value={data.name}
+                onChange={handleChange}
+                sx={{ width: "100%", marginBottom: "20px" }}
+            />
+            <br />
+            <DatePicker
+                name="birth"
+                onChange={handleChange}
+                label="Дата рождения"
+                helperText={errors.birth}
+                value={data.birth}
+                error={Boolean(errors.birth)}
+                sx={{ width: "100%", marginBottom: "20px" }}
+            />
+            <br />
+            <RadioField
+                row
+                options={[
+                    {
+                        label: "Мужской",
+                        value: "male"
+                    },
+                    {
+                        label: "Женский",
+                        value: "female"
+                    }
+                ]}
+                name="sex"
+                value={data.sex}
+                onChange={handleChange}
+            />
+            <br />
+            <Button sx={{ width: "100%" }}>Редактировать</Button>
+        </form>
+    );
 };
 
 export default EditForm;

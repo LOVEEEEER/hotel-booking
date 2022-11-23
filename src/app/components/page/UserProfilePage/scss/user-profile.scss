@@ -1,11 +1,28 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
 .user-profile {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include tablets {
+    margin-top: 30px;
+    flex-direction: column;
+  }
+  &__buttons-group {
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  
   margin-top: 60px;
   &__user-image {
     margin-right: 75px;
     width: 350px;
+    @include tablets {
+      margin-right: 0;
+    }
   }
   &__user-name {
     margin-bottom: 14px;

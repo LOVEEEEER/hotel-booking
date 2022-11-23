@@ -61,6 +61,12 @@ const usersSlice = createSlice({
         authRequestSuccess(state, action) {
             state.auth = action.payload;
             state.isLoggedIn = true;
+        },
+        userUpdated(state, action) {
+            const elementIndex = state.entities.findIndex(
+                (user) => user.id === action.payload.id
+            );
+            state.entities[elementIndex] = action.payload;
         }
     }
 });
@@ -74,7 +80,8 @@ const {
     usersReceived,
     authRequestSuccess,
     userLoggedOut,
-    userDeleted
+    userDeleted,
+    userUpdated
 } = actions;
 
 export const loadUsers = () => async (dispatch) => {
@@ -98,6 +105,7 @@ export const signIn =
             });
             dispatch(authRequestSuccess({ userId: data.localId }));
             localStorageService.setTokens(data);
+            console.log(redirect);
             navigate(redirect);
         } catch (error) {
             const { message, code } = error.response.data.error;
@@ -112,7 +120,7 @@ export const signIn =
 export const signUp =
     ({ payload, navigate }) =>
     async (dispatch) => {
-        const { email, password, name, birth } = payload;
+        const { email, password, name, birth, sex } = payload;
         try {
             const data = await authService.signUp({ email, password });
             localStorageService.setTokens(data);
@@ -126,7 +134,8 @@ export const signUp =
                 )
                     .toString(36)
                     .substring(7)}.svg`,
-                created_at: Date.now()
+                created_at: Date.now(),
+                sex
             };
             const user = await createUser(newUser);
             dispatch(authRequestSuccess({ userId: data.localId }));
@@ -141,6 +150,15 @@ export const signUp =
             }
         }
     };
+
+export const updateUser = (data) => async (dispatch) => {
+    try {
+        await userService.updateUser(data.id, data);
+        dispatch(userUpdated(data));
+    } catch (error) {
+        dispatch(userRequestFailed(error.message));
+    }
+};
 
 export const logOut = () => (dispatch) => {
     localStorageService.removeUserData();
