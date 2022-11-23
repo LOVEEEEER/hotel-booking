@@ -8,7 +8,6 @@ import { displayDate } from "../../../../utils/dateService";
 
 const RoomReview = ({ review, onToggleUserProfile }) => {
     const authorComment = useSelector(getUserById(review.userId));
-    console.log(authorComment);
     if (authorComment) {
         return (
             <li key={review.id} className="room-reviews__item">
