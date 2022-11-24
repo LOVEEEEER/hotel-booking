@@ -34,7 +34,8 @@ const SignInForm = () => {
         <form className="signin__form" onSubmit={handleSubmit}>
             <TextField
                 error={Boolean(errors.email)}
-                label="Введите ваш E-mail"
+                label="E-mail"
+                placeholder="example@mail.com"
                 name="email"
                 onChange={handleChange}
                 value={data.email}
@@ -44,7 +45,7 @@ const SignInForm = () => {
             <br />
             <TextField
                 error={Boolean(errors.password)}
-                label="Введите ваш пароль"
+                label="Пароль"
                 type="password"
                 name="password"
                 onChange={handleChange}

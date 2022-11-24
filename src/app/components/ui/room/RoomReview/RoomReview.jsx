@@ -5,6 +5,7 @@ import Avatar from "../../../common/Avatar";
 import { useSelector } from "react-redux";
 import { getUserById } from "../../../../store/users";
 import { displayDate } from "../../../../utils/dateService";
+// import deleteIcon from "../../../../assets/svg/delete.svg";
 
 const RoomReview = ({ review, onToggleUserProfile }) => {
     const authorComment = useSelector(getUserById(review.userId));

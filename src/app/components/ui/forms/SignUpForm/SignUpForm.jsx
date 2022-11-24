@@ -8,6 +8,7 @@ import { getAuthSignUpError, signUp } from "../../../../store/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "../../../common/form/DatePicker";
+import RadioField from "../../../common/form/RadioField";
 
 const SignUpForm = () => {
     const authError = useSelector(getAuthSignUpError());
@@ -17,7 +18,8 @@ const SignUpForm = () => {
             name: "",
             email: "",
             password: "",
-            birth: ""
+            birth: "",
+            sex: ""
         },
         validatorConfig
     );
@@ -72,8 +74,26 @@ const SignUpForm = () => {
                 name="birth"
                 onChange={handleChange}
                 label="День рождения"
-                sx={{ marginBottom: "30px", minWidth: "320px" }}
+                sx={{ marginBottom: "20px", minWidth: "320px" }}
                 helperText={errors.birth}
+            />
+            <br />
+
+            <RadioField
+                options={[
+                    {
+                        label: "Мужской",
+                        value: "male"
+                    },
+                    {
+                        label: "Женский",
+                        value: "female"
+                    }
+                ]}
+                name="sex"
+                onChange={handleChange}
+                row
+                sx={{ marginBottom: "20px", minWidth: "320px" }}
             />
             <br />
             {authError && (
