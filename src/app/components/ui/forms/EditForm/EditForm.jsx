@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../../../hooks/useForm";
 import { getCurrentUser, updateUser } from "../../../../store/users";
@@ -31,9 +31,6 @@ const EditForm = () => {
             dispatch(updateUser(updatedUser));
         }
     };
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
     return (
         <form onSubmit={handleSubmit}>
             <TextField

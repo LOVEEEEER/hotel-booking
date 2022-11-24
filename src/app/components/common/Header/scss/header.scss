@@ -53,7 +53,9 @@
       margin-right: 12px;
     }
   }
-
+  &__toggler {
+    z-index: 50;
+  }
 
   #menu__toggle:checked ~ .menu__btn > span {
     transform: rotate(45deg);
@@ -86,11 +88,11 @@
     z-index: 1;
 
     @include tablets{
-      display: flex;
+      display: block;
     }
   }
   &__menu-toggle {
-    opacity: 0;
+    display: none;
   }
   &__menu-toggle:checked ~ &__menu-button > span {
     transform: rotate(45deg);
