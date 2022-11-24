@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import bookingService from "../services/booking.service";
 
 const initialState = {
@@ -81,6 +82,7 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
 export const deleteUserBooking = (id) => async (dispatch) => {
     try {
         await bookingService.delete(id);
+        toast(`Бронь номера успешно снята`);
         dispatch(removed(id));
     } catch (error) {
         dispatch(requestFailed(error.message));

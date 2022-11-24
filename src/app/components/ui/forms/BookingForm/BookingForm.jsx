@@ -12,22 +12,28 @@ import { getCurrentUser } from "../../../../store/users";
 import { nanoid } from "nanoid";
 import Button from "../../../common/Button";
 import { reserveRoom } from "../../../../store/booking";
+import { validatorConfig } from "./validatorConfig";
 
 const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
-    const { data, errors, handleChange } = useForm({
-        entry: getPresenceBookingDate(1),
-        departure: getPresenceBookingDate(2),
-        adults: 1,
-        kids: 0
-    });
+    const { data, errors, handleChange } = useForm(
+        {
+            entry: getPresenceBookingDate(1),
+            departure: getPresenceBookingDate(2),
+            adults: 1,
+            kids: 0
+        },
+        validatorConfig
+    );
     const getRoomPrice = () => {
-        const daysCount = getDaysCountFromTimeStamp(
-            data.departure.getTime() - data.entry.getTime()
-        );
-        const guestsCount = data.adults + data.kids;
-        return daysCount * guestsCount * dayPrice;
+        if (data.entry && data.departure) {
+            const daysCount = getDaysCountFromTimeStamp(
+                data.departure.getTime() - data.entry.getTime()
+            );
+            const guestsCount = data.adults + data.kids;
+            return daysCount * guestsCount * dayPrice;
+        }
     };
     const handleSubmit = (e) => {
         e.preventDefault();
