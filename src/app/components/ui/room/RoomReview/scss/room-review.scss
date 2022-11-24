@@ -7,11 +7,12 @@
   }
   &__user {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 7px;
   }
   &__author {
-    font-size: 15px;
+    font-size: 13px;
     &:hover {
       cursor: pointer;
     }
@@ -24,6 +25,13 @@
   &__created {
     margin-left: auto;
     align-self: flex-start;
-    font-size: 14px;
+    font-size: 12px;
+  }
+  &__delete {
+    width: 20px;
+  }
+  &__user-right_block {
+    display: flex;
+    align-items: center;
   }
 }
