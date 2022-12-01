@@ -2,10 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getUserBooking } from "../../../store/booking";
 import { getRooms } from "../../../store/rooms";
+import { getCurrentUser } from "../../../store/users";
 import BookingCard from "../../ui/BookingCard/BookingCard";
 
 const BookingPage = () => {
-    const userBooking = useSelector(getUserBooking());
+    const currentUser = useSelector(getCurrentUser());
+    const userBooking = useSelector(getUserBooking(currentUser.id));
     const rooms = useSelector(getRooms());
     const getRoomById = (id) => {
         return rooms.find((room) => room.id === id);

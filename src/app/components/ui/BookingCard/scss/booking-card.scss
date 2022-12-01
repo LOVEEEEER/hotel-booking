@@ -10,6 +10,7 @@
     box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2)
     ;
     @include tablets {
+      width: 100%;
       padding: 10px;
       margin-bottom: 17px;
     }
@@ -54,6 +55,10 @@
     }
   }
   &__id {
+   @include phones {
+    text-align: center;
+   }
+    width: 190px;
     font-size: 14px;
   }
   &__buttons-block {

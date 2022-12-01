@@ -89,7 +89,9 @@ export const deleteUserBooking = (id) => async (dispatch) => {
     }
 };
 
-export const getUserBooking = () => (state) => state.booking.entities;
+export const getUserBooking = (userId) => (state) => {
+    return state.booking.entities.filter((booking) => booking.user === userId);
+};
 
 export const getBookingById =
     ({ id: userId }) =>
