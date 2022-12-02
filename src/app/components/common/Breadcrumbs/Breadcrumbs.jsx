@@ -36,7 +36,7 @@ const BreadCrumbs = () => {
             case "home":
                 return "Главная";
             case "rooms":
-                return "Свободные комнаты";
+                return "Свободные номера";
             case "users":
                 return "Пользователи";
             case "admin":
