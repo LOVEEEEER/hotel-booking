@@ -1,25 +1,41 @@
 import React from "react";
 import ImageSlider from "../../common/ImageSlider";
-import Fab from "@mui/material/Fab";
 import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import Rating from "../../common/Rating";
 import RoomComfortList from "../../ui/room/RoomComfortList";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/room/booking/Booking";
 import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getRoomById } from "../../../store/rooms";
 import { getIsLoggedIn } from "../../../store/users";
 import { useParams } from "react-router-dom";
+import FavouriteButton from "../../common/FavouriteButton";
+import { nanoid } from "nanoid";
+import { addInFavorites } from "../../../store/favorites";
+import { toast } from "react-toastify";
 
 const RoomPage = () => {
+    const dispatch = useDispatch();
     const { roomId } = useParams();
     const room = useSelector(getRoomById(roomId));
     const isLoggedIn = useSelector(getIsLoggedIn());
+
+    const handleSelectFavorite = () => {
+        console.log("log");
+        if (isLoggedIn) {
+            const favoriteItem = {
+                id: nanoid(),
+                roomId: roomId
+            };
+            dispatch(addInFavorites(favoriteItem));
+        } else {
+            toast("Для этого действия войдите в аккаунт");
+        }
+    };
 
     if (room) {
         return (
@@ -29,17 +45,9 @@ const RoomPage = () => {
                         <div className="room-cover__head-content">
                             <div className="room-cover__main-content">
                                 <div className="room-cover__title-wrapper">
-                                    <Fab
-                                        size="small"
-                                        sx={{
-                                            backgroundColor:
-                                                "rgb(134, 118, 226)",
-                                            color: "#FFFFFF"
-                                        }}
-                                        aria-label="like"
-                                    >
-                                        <FavoriteIcon />
-                                    </Fab>
+                                    <FavouriteButton
+                                        onClick={handleSelectFavorite}
+                                    />
                                     <h1 className="room-cover__title">
                                         Отель: {room.title}
                                     </h1>

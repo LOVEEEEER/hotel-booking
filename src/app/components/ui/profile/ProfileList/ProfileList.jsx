@@ -4,6 +4,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Person2Icon from "@mui/icons-material/Person2";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import HotelIcon from "@mui/icons-material/Hotel";
+import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +52,10 @@ const ProfileList = ({ open }) => {
             <MenuItem onClick={() => navigate("/booking")}>
                 <HotelIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Мои бронирования" />
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/favorites")}>
+                <FavoriteIcon sx={{ marginRight: "15px" }} />
+                <ListItemText primary="Избранное" />
             </MenuItem>
             <MenuItem onClick={handleLogOut}>
                 <LogoutIcon sx={{ marginRight: "15px" }} />

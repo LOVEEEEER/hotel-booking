@@ -76,4 +76,4 @@ TextField.propTypes = {
     type: PropTypes.string
 };
 
-export default TextField;
+export default React.memo(TextField);

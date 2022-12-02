@@ -8,6 +8,7 @@ import SignUpPage from "./components/page/SignUpPage";
 import UserProfilePage from "./components/page/UserProfilePage";
 import Admin from "./layouts/Admin";
 import Error from "./layouts/Error";
+import Favorites from "./layouts/Favorites";
 import Login from "./layouts/Login";
 import Main from "./layouts/Main";
 import Rooms from "./layouts/Rooms";
@@ -70,6 +71,10 @@ const routes = [
     {
         path: "*",
         element: <Error />
+    },
+    {
+        path: "favorites",
+        element: <Favorites />
     }
 ];
 

@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { getRooms, getRoomsLoading } from "../../../store/rooms";
 
 const RoomsListPage = () => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
     const [sortBy, setSortBy] = useState("asc");
     const [pageSize, setPageSize] = useState(6);
 
@@ -26,7 +26,7 @@ const RoomsListPage = () => {
         useForm(initialFilterState);
 
     const handleChangePage = (e, page) => {
-        setCurrentPage(page);
+        setCurrentPage(page - 1);
     };
 
     const handleChangePageSize = ({ target }) => {
@@ -103,7 +103,7 @@ const RoomsListPage = () => {
                     )}
                     {roomsCrop.length > 0 && (
                         <Pagination
-                            currentPage={currentPage}
+                            currentPage={currentPage + 1}
                             itemsCount={count}
                             pageSize={pageSize}
                             onChange={handleChangePage}
