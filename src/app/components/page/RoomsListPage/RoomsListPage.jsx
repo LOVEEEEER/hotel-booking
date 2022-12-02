@@ -11,28 +11,20 @@ import { useForm } from "../../../hooks/useForm";
 import { useFilters } from "../../../hooks/useFilters";
 import { useSelector } from "react-redux";
 import { getRooms, getRoomsLoading } from "../../../store/rooms";
+import { usePaginate } from "../../../hooks/usePaginate";
 
 const RoomsListPage = () => {
-    const [currentPage, setCurrentPage] = useState(0);
     const [sortBy, setSortBy] = useState("asc");
-    const [pageSize, setPageSize] = useState(6);
-
     const rooms = useSelector(getRooms());
     const roomsLoading = useSelector(getRoomsLoading());
     const { searchQuery, handleSearchQuery, getFilteredItems } = useFilters();
+    const { currentPage, handlePageChange, handleChangePageSize, pageSize } =
+        usePaginate(rooms || [], 6);
+
     const initialFilterState = { comfort: [], rate: "" };
 
     const { data: filters, handleChange: handleChangeFilterValue } =
         useForm(initialFilterState);
-
-    const handleChangePage = (e, page) => {
-        setCurrentPage(page - 1);
-    };
-
-    const handleChangePageSize = ({ target }) => {
-        setPageSize(target.value);
-        setCurrentPage(1);
-    };
 
     const handleSort = () => {
         setSortBy((prevState) => (prevState === "asc" ? "desc" : "asc"));
@@ -89,7 +81,9 @@ const RoomsListPage = () => {
                                     { value: 24, name: "24" }
                                 ]}
                                 name="pageSize"
-                                onChange={handleChangePageSize}
+                                onChange={({ target }) =>
+                                    handleChangePageSize(target.value)
+                                }
                                 sx={{ maxWidth: "100%" }}
                             />
                         </div>
@@ -106,7 +100,9 @@ const RoomsListPage = () => {
                             currentPage={currentPage + 1}
                             itemsCount={count}
                             pageSize={pageSize}
-                            onChange={handleChangePage}
+                            onChange={(e, pageIndex) =>
+                                handlePageChange(pageIndex - 1)
+                            }
                         />
                     )}
                 </section>

@@ -4,6 +4,7 @@ export const useFilters = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleSearchQuery = ({ target }) => {
+        console.log("render", target);
         setSearchQuery(target.value);
     };
 

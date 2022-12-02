@@ -19,4 +19,4 @@ Search.propTypes = {
     value: PropTypes.string.isRequired
 };
 
-export default Search;
+export default React.memo(Search);
