@@ -41,7 +41,7 @@ const routes = [
         path: "users",
         element: <UserProfile />,
         children: [
-            { path: "", element: <Navigate to="rooms" /> },
+            { path: "", element: <Navigate to="/rooms" /> },
             {
                 path: ":userId",
                 element: (
@@ -69,12 +69,12 @@ const routes = [
         )
     },
     {
-        path: "*",
-        element: <Error />
-    },
-    {
         path: "favorites",
         element: <Favorites />
+    },
+    {
+        path: "*",
+        element: <Error />
     }
 ];
 
