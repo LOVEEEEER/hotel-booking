@@ -8,6 +8,7 @@ export const usePaginate = (items, initialPageSize) => {
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex);
     };
+
     const handleChangePageSize = (size) => {
         setPageSize(size);
         setCurrentPage(0);
