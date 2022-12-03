@@ -7,7 +7,7 @@ import Header from "../components/common/Header";
 const UserProfile = () => {
     return (
         <>
-            <Header />
+         <Header />
             <Container>
                 <BreadCrumbs />
                 <Outlet />

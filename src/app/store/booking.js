@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import bookingService from "../services/booking.service";
 
 const initialState = {
-    entities: null,
+    entities: [],
     isLoading: true,
     error: null,
     bookingLoading: false

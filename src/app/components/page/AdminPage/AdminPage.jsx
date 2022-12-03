@@ -7,10 +7,10 @@ import TabPanel from "../../common/TabPanel";
 import UsersBookingList from "../../ui/admin/UsersBookingList";
 
 const AdminPage = () => {
-    const [value, setValue] = useState(0);
+    const [tapPage, setTapPage] = useState(0);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const handleChange = (page) => {
+        setTapPage(page);
     };
 
     return (
@@ -19,8 +19,8 @@ const AdminPage = () => {
                 sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}
             >
                 <Tabs
-                    value={value}
-                    onChange={handleChange}
+                    value={tapPage}
+                    onChange={(e, page) => handleChange(page)}
                     aria-label="basic tabs example"
                 >
                     <Tab label="Бронирования" />
@@ -28,13 +28,13 @@ const AdminPage = () => {
                     <Tab label="Номера" />
                 </Tabs>
             </Box>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={tapPage} index={0}>
                 <UsersBookingList />
             </TabPanel>
-            <TabPanel value={value} index={1}>
+            <TabPanel value={tapPage} index={1}>
                 <UsersTable />
             </TabPanel>
-            <TabPanel value={value} index={2}>
+            <TabPanel value={tapPage} index={2}>
                 Item Three
             </TabPanel>
         </main>

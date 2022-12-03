@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getBookingList } from "../../../../store/booking";
-import BookingCard from "../../BookingCard";
+import BookingCard from "../../BookingCard/BookingCard";
 
 const UsersBookingList = () => {
     const bookingList = useSelector(getBookingList());
@@ -10,7 +10,7 @@ const UsersBookingList = () => {
             <ul className="admin__booking-list">
                 {bookingList.map((item) => (
                     <li className="admin__booking-item" key={item.id}>
-                        <BookingCard item={item} forAdmins={true} />
+                        <BookingCard item={item} />
                     </li>
                 ))}
             </ul>

@@ -1,8 +1,10 @@
 .admin {
   &__booking-list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__booking-item {
+    margin-bottom: 20px;
   }
 }
