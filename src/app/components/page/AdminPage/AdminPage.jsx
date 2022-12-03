@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import UsersTable from "../../ui/UsersTable/UsersTable";
 import TabPanel from "../../common/TabPanel";
+import UsersBookingList from "../../ui/admin/UsersBookingList";
 
 const AdminPage = () => {
     const [value, setValue] = useState(0);
@@ -28,7 +29,7 @@ const AdminPage = () => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                Бронирования
+                <UsersBookingList />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <UsersTable />

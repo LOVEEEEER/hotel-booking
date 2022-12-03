@@ -55,10 +55,10 @@ const {
     requestFailed
 } = actions;
 
-export const loadUserBooking = (userId) => async (dispatch) => {
+export const loadBooking = () => async (dispatch) => {
     dispatch(requested());
     try {
-        const { content } = await bookingService.getUserBooking(userId);
+        const { content } = await bookingService.fetchAll();
         dispatch(received(content));
     } catch (error) {
         dispatch(requestFailed(error.message));
@@ -91,6 +91,10 @@ export const deleteUserBooking = (id) => async (dispatch) => {
 
 export const getUserBooking = (userId) => (state) => {
     return state.booking.entities.filter((booking) => booking.user === userId);
+};
+
+export const getBookingList = () => (state) => {
+    return state.booking.entities;
 };
 
 export const getBookingById =
