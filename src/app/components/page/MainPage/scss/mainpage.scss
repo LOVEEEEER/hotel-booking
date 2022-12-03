@@ -1,40 +1,47 @@
-.main {
+.hero {
   &__container {
-    padding-top: 25vh;
+    padding-top: 12vh;
   }
-  &__page {  
-    background-size: cover;
-    background-image: url("../../../../assets/images/mainbackground.jpg");
-    height: 92vh;
-  }
-  &__title {  
-    margin-bottom: 30px;
-    width: 600px;
-    font-size: 50px;
-    font-weight: 800;
-    color: #FFFFFF;
-  }
-  &__description {
-    font-weight: 600;
-    color: #FFFFFF;
-  }
-  &__buy-button {
-    margin-bottom: auto;
-    padding: 20px;
-    font-size: 20px;
-    color: #FFFFFF;
-    background: radial-gradient(132.6% 1892.39% at 29.66% 0%, #CA03FC 0%, rgba(158, 0, 172, 0) 100%);
-    border: 0;
-    border-radius: 15px;
-    transition: opacity 0.5s linear;
-    &:hover {
-      opacity: 0.7;
-      cursor: pointer;
+  &__title {
+    margin-bottom: 32px;
+    max-width: 567px;
+    font-size: 48px;
+    &-addition {
+      padding: 3px;
+      background-color: #99F3FF;
+      border-radius: 15px;
     }
   }
   &__description {
-    font-size: 25px;
-    margin-bottom: 30px;
-    width: 500px;
+    margin-bottom: 32px;
+    width: 483px;
+    color: #202020;
+  }
+  &__ad-button {
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #4A72FF;
+    border-radius: 10px;
+    border: 0;
+    transition: 0.7s;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title-image {
+    width: 400px;
+    border-radius: 10px;
+    transition: filter 0.4s linear;
+    &:hover {
+      filter: grayscale(65%);
+    }
   }
 }
