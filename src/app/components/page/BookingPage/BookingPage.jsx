@@ -1,27 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getUserBooking } from "../../../store/booking";
-import { getRooms } from "../../../store/rooms";
 import { getCurrentUser } from "../../../store/users";
 import BookingCard from "../../ui/BookingCard/BookingCard";
 
 const BookingPage = () => {
     const currentUser = useSelector(getCurrentUser());
     const userBooking = useSelector(getUserBooking(currentUser.id));
-    const rooms = useSelector(getRooms());
-    const getRoomById = (id) => {
-        return rooms.find((room) => room.id === id);
-    };
-    if (rooms && userBooking) {
+    if (userBooking) {
         return (
             <main className="booking__page">
                 {userBooking.length ? (
                     <ul className="booking__list">
                         {userBooking.map((item) => {
-                            const room = getRoomById(item.room);
                             return (
                                 <li className="booking__item" key={item.id}>
-                                    <BookingCard item={item} room={room} />
+                                    <BookingCard item={item} />
                                 </li>
                             );
                         })}

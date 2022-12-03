@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+
 @import "../components/common/Header/scss/header.scss";
 @import "../components/common/Pagination/scss/pagination.scss";
 @import "../components/common/Logo/scss/logo.scss";
@@ -29,3 +30,4 @@
 @import "../components/page/BookingPage/scss/booking-page.scss";
 @import "../components/ui/CancelWindow/scss/cancel-window.scss";
 @import "../components/ui/PhoneMenu/scss/phone-menu.scss";
+@import "../components/ui/admin/UsersBookingList/scss/users-booking-list.scss";

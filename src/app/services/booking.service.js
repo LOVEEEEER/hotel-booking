@@ -7,13 +7,8 @@ const bookingService = {
         const { data } = await httpService.put(bookingEndPoint + id, payload);
         return data;
     },
-    getUserBooking: async (userId) => {
-        const { data } = await httpService.get(bookingEndPoint, {
-            params: {
-                orderBy: '"user"',
-                equalTo: `"${userId}"`
-            }
-        });
+    fetchAll: async () => {
+        const { data } = await httpService.get(bookingEndPoint);
         return data;
     },
     delete: async (id) => {

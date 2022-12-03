@@ -55,7 +55,7 @@ const routes = [
     {
         path: "admin",
         element: (
-            <ProtectedRoute>
+            <ProtectedRoute isAdmin={true}>
                 <Admin />
             </ProtectedRoute>
         )
