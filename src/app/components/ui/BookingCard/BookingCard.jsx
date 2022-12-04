@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import QRCode from "react-qr-code";
-import { displayDate } from "../../../utils/dateService";
+import { getFormatDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
 import CancelWindow from "../CancelWindow";
@@ -39,13 +39,13 @@ const BookingCard = ({ item }) => {
                     <p className="booking__date-text">
                         <span className="booking__date-title">Заезд:</span>{" "}
                         <span className="booking__date">
-                            {displayDate(item.entry)} в 13:00
+                            {getFormatDate(item.entry)} в 13:00
                         </span>
                     </p>
                     <p className="booking__date-text">
                         <span className="booking__date-title">Выезд:</span>{" "}
                         <span className="booking__date">
-                            {displayDate(item.departure)} в 13:00
+                            {getFormatDate(item.departure)} в 13:00
                         </span>
                     </p>
                     <div className="booking__buttons-block">
