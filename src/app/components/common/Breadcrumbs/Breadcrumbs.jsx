@@ -6,6 +6,7 @@ import { styled } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const BreadcrumbsStyled = styled(BreadcrumbsMui)(() => ({
+    display: "inline-block",
     marginTop: "12px",
     "&:hover": {
         cursor: "pointer"
