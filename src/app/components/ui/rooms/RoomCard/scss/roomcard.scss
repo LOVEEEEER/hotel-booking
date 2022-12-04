@@ -1,4 +1,5 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
+@import "../../../../../styles/constants.scss";
 
 .room {
   display: flex;
@@ -68,8 +69,7 @@
     span {
       font-size: 30px;
       font-weight: 600;
-      color: rgb(134, 118, 226);
-  
+      color: $options-color;
     }
   }
   &__image {

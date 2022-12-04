@@ -1,3 +1,5 @@
+@import "../../../../../styles/constants.scss";
+
 .room-reasons {
   &__list {
     display: flex;
@@ -7,7 +9,7 @@
     margin-right: 15px;
     padding: 7px;
     width: 40px;
-    background-color: rgb(134, 118, 226);
+    background-color: $options-color;
     border-radius: 5px;
   }
   &__card-header {

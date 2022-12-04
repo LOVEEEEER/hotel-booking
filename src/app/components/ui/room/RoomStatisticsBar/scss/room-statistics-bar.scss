@@ -1,3 +1,5 @@
+@import '../../../../../styles/constants.scss';
+
 .room-reviews {
   &__reviews-bar_item {
     &:not(:last-child) {
@@ -19,7 +21,7 @@
     font-size: 20px;
     font-weight: 600;
     color: #FFFFFF;
-    background-color: rgb(134, 118, 226);
+    background-color: $options-color;
     border-radius: 10px;
   }
 }

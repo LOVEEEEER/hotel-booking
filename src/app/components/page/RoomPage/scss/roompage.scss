@@ -1,3 +1,5 @@
+@import "../../../../styles/constants.scss";
+
 .room {
   &__page {
     padding-bottom: 60px;
@@ -21,7 +23,7 @@
     font-weight: 600;
   }
   &-cover__type {
-    color: rgb(134, 118, 226);
+    color: $options-color;
     font-weight: 700;
     font-size: 20px;
   }
