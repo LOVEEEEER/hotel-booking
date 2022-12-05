@@ -3,7 +3,7 @@
   "title": "1",
   "price": 9990,
   "rate": 5,
-  "type": "Обычный",
+  "type": "Стандарт",
   "images": ["https://sun9-9.userapi.com/impg/FRjJyavyC33j98YQJOsNFqs4UiL07HQ---hFww/4SkNK1Czxxw.jpg?size=582x436&quality=96&sign=bc95231654709f8886120e54e8ccb52c&type=album", "https://sun9-51.userapi.com/impg/c5kt3rtfHDQ4STffEHwsYAZt9gpmiPWQlzdQcQ/viPboFO4Cxg.jpg?size=582x436&quality=96&sign=c37327f02919974715940ced0367701a&type=album", "https://sun9-7.userapi.com/impg/dKoaKSIeqnIYnIbTjkfCcPfkMDeuAW9o-SK4wA/6Ry8wVu030A.jpg?size=582x436&quality=96&sign=ee3a186efe9e07e56986e25a5f65750f&type=album"],
   "comfort": ["wifi",  "parking", "bankCard", "conditioner"],
   "breakfast": [{
