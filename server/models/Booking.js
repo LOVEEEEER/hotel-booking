@@ -19,7 +19,7 @@ const schema = new Schema(
       ref: "Room",
       required: true,
     },
-    user: {
+    userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
