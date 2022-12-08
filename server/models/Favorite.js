@@ -6,6 +6,11 @@ const schema = new Schema({
     ref: "Room",
     required: true,
   },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 module.exports = model("Favorite", schema);
