@@ -11,6 +11,9 @@ const schema = new Schema(
       required: true,
       unique: true,
     },
+    password: {
+      type: String,
+    },
     image: {
       type: String,
       required: true,
@@ -22,6 +25,7 @@ const schema = new Schema(
     sex: {
       type: String,
       enum: ["male", "female", "other"],
+      required: true,
     },
   },
   {

@@ -16,4 +16,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model("Favorite", schema);
+module.exports = model("Token", schema);
