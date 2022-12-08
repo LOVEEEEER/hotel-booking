@@ -1,5 +1,5 @@
 const express = require("express");
-const auth = require("../models/Booking");
+const auth = require("../middleware/auth.middleware");
 const Booking = require("../models/Booking");
 const router = express.Router({
   mergeParams: true,
@@ -7,7 +7,9 @@ const router = express.Router({
 
 router.get("/", auth, async (req, res) => {
   try {
+    console.log("get");
     const list = await Booking.find();
+    console.log(list);
     res.status(200).send(list);
   } catch {
     res.status(500).json({
@@ -16,7 +18,7 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-router.post(auth, async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const newBooking = await Booking.create({
       ...req.body,

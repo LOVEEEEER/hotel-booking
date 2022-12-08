@@ -16,7 +16,7 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-router.post(auth, async (req, res) => {
+router.post("/",auth, async (req, res) => {
   try {
     const newEntity = await Favorite.create({
       ...req.body,

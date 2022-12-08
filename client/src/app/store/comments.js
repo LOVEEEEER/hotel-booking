@@ -55,8 +55,8 @@ export const loadComments = (pageId) => async (dispatch, getState) => {
 
 export const createComment = (comment) => async (dispatch) => {
     try {
-        await commentsService.create(comment.id, comment);
-        dispatch(created(comment));
+        const { content } = await commentsService.create(comment);
+        dispatch(created(content));
     } catch (error) {
         dispatch(requestFailed(error.message));
     }

@@ -4,20 +4,16 @@ const schema = new Schema(
   {
     departure: {
       type: Number,
-      required: true,
     },
     entry: {
       type: Number,
-      required: true,
     },
     fullPrice: {
       type: Number,
-      required: true,
     },
-    room: {
+    roomId: {
       type: Schema.Types.ObjectId,
       ref: "Room",
-      required: true,
     },
     userId: {
       type: Schema.Types.ObjectId,

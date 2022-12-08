@@ -18,7 +18,7 @@ const UsersTable = () => {
                 name: "Имя",
                 path: "name",
                 component: (user) => (
-                    <Link to={`/users/${user.id}`}>{user.name}</Link>
+                    <Link to={`/users/${user._id}`}>{user.name}</Link>
                 )
             },
             email: {
@@ -47,9 +47,9 @@ const UsersTable = () => {
             delete: {
                 component: (user) => (
                     <>
-                        {user.id !== currentUser.id && (
+                        {user._id !== currentUser._id && (
                             <Button
-                                onClick={() => dispatch(deleteUser(user.id))}
+                                onClick={() => dispatch(deleteUser(user._id))}
                             >
                                 Удалить
                             </Button>

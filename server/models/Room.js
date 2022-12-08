@@ -6,15 +6,12 @@ const schema = new Schema({
   images: [String],
   price: {
     type: String,
-    required: true,
   },
   rate: {
     type: String,
-    required: true,
   },
   title: {
     type: String,
-    required: true,
   },
   type: {
     type: String,

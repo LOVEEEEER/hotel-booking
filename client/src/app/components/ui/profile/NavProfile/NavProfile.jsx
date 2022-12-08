@@ -11,6 +11,7 @@ const NavProfile = () => {
     const handleOpen = () => {
         setOpen((prevState) => !prevState);
     };
+    console.log(currentUser);
     if (currentUser) {
         return (
             <>

@@ -41,7 +41,7 @@ export const getRooms = () => (state) => state.rooms.entities;
 
 export const getRoomById = (roomId) => (state) => {
     return state.rooms.entities
-        ? state.rooms.entities.find((room) => room.id === roomId)
+        ? state.rooms.entities.find((room) => room._id === roomId)
         : null;
 };
 

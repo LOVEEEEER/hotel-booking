@@ -11,7 +11,7 @@ const initialState = localStorageService.getAccessToken()
           signInError: null,
           signUpError: null,
           isLoggedIn: true,
-          auth: { userId: localStorageService.getLocalId() },
+          auth: { userId: localStorageService.getUserId() },
           error: null
       }
     : {
@@ -45,13 +45,9 @@ const usersSlice = createSlice({
         authSignUpRequestFailed(state, action) {
             state.signUpError = action.payload;
         },
-        userCreated(state, action) {
-            state.entities.push(action.payload);
-            state.isLoggedIn = true;
-        },
         userDeleted(state, action) {
             state.entities = state.entities.filter(
-                (user) => user.id !== action.payload
+                (user) => user._id !== action.payload
             );
         },
         userLoggedOut(state, action) {
@@ -64,7 +60,7 @@ const usersSlice = createSlice({
         },
         userUpdated(state, action) {
             const elementIndex = state.entities.findIndex(
-                (user) => user.id === action.payload.id
+                (user) => user._id === action.payload._id
             );
             state.entities[elementIndex] = action.payload;
         }
@@ -76,7 +72,6 @@ const {
     userRequestFailed,
     authSignInRequestFailed,
     authSignUpRequestFailed,
-    userCreated,
     usersReceived,
     authRequestSuccess,
     userLoggedOut,
@@ -103,7 +98,7 @@ export const signIn =
                 email,
                 password
             });
-            dispatch(authRequestSuccess({ userId: data.localId }));
+            dispatch(authRequestSuccess({ userId: data.userId }));
             localStorageService.setTokens(data);
             console.log(redirect);
             navigate(redirect);
@@ -120,26 +115,10 @@ export const signIn =
 export const signUp =
     ({ payload, navigate }) =>
     async (dispatch) => {
-        const { email, password, name, birth, sex } = payload;
         try {
-            const data = await authService.signUp({ email, password });
+            const data = await authService.signUp(payload);
             localStorageService.setTokens(data);
-            const newUser = {
-                id: data.localId,
-                email: email,
-                name: name,
-                birth: new Date(birth).getTime(),
-                image: `https://avatars.dicebear.com/api/avataaars/${(
-                    Math.random() + 15
-                )
-                    .toString(36)
-                    .substring(7)}.svg`,
-                created_at: Date.now(),
-                sex
-            };
-            const user = await createUser(newUser);
-            dispatch(authRequestSuccess({ userId: data.localId }));
-            dispatch(userCreated(user));
+            dispatch(authRequestSuccess({ userId: data.userId }));
             navigate("/rooms");
         } catch (error) {
             const { message, code } = error.response.data.error;
@@ -153,7 +132,7 @@ export const signUp =
 
 export const updateUser = (data) => async (dispatch) => {
     try {
-        await userService.updateUser(data.id, data);
+        await userService.updateUser(data._id, data);
         dispatch(userUpdated(data));
     } catch (error) {
         dispatch(userRequestFailed(error.message));
@@ -161,14 +140,9 @@ export const updateUser = (data) => async (dispatch) => {
 };
 
 export const logOut = () => (dispatch) => {
-    localStorageService.removeUserData();
+    localStorageService.removeAuthData();
     dispatch(userLoggedOut());
 };
-
-async function createUser(data) {
-    const { content } = await userService.createUser(data);
-    return content;
-}
 
 export const deleteUser = (userId) => async (dispatch) => {
     try {
@@ -180,7 +154,7 @@ export const deleteUser = (userId) => async (dispatch) => {
 };
 
 export const getUserById = (userId) => (state) => {
-    return state.users.entities.find((user) => user.id === userId);
+    return state.users.entities.find((user) => user._id === userId);
 };
 
 export const getUsersList = () => (state) => state.users.entities;
@@ -188,7 +162,7 @@ export const getUsersList = () => (state) => state.users.entities;
 export const getCurrentUser = () => (state) => {
     return state.users.entities && state.users.isLoggedIn
         ? state.users.entities.find(
-              (user) => user.id === state.users.auth.userId
+              (user) => user._id === state.users.auth.userId
           )
         : null;
 };

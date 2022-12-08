@@ -1,5 +1,5 @@
 export function getFormatDate(data) {
-    const newDate = new Date(parseInt(data));
+    const newDate = new Date(data);
     const date =
         newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
     const month =
@@ -11,7 +11,7 @@ export function getFormatDate(data) {
 }
 
 export function displayDate(data) {
-    const date = new Date(parseInt(data));
+    const date = new Date(data);
     console.log(date.get);
     const dateNow = new Date();
     const yearDif = dateNow.getFullYear() - date.getFullYear();

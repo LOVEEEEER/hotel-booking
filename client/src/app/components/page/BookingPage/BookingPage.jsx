@@ -6,7 +6,8 @@ import BookingCard from "../../ui/BookingCard/BookingCard";
 
 const BookingPage = () => {
     const currentUser = useSelector(getCurrentUser());
-    const userBooking = useSelector(getUserBooking(currentUser.id));
+    const userBooking = useSelector(getUserBooking(currentUser._id));
+    console.log("booking", userBooking);
     if (userBooking) {
         return (
             <main className="booking__page">

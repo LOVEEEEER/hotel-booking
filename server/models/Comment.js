@@ -5,20 +5,16 @@ const schema = new Schema(
     pageId: {
       type: Schema.Types.ObjectId,
       ref: "Room",
-      required: true,
     },
     text: {
       type: String,
-      required: true,
     },
     rate: {
       type: Number,
-      required: true,
     },
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
     },
   },
   {

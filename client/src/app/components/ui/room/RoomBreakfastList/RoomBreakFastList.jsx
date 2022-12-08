@@ -1,20 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
+import vegetarianIcon from "../../../../assets/svg/breakfast/vegetarian.svg";
+import italyIcon from "../../../../assets/svg/breakfast/italy.svg";
+import swedenIcon from "../../../../assets/svg/breakfast/sweden.svg";
 
 const RoomBreakFastList = ({ breakfast }) => {
+    const getBreakFastIcon = (type) => {
+        switch (type.toLowerCase()) {
+            case "итальянский":
+                return italyIcon;
+            case "вегетарианский":
+                return vegetarianIcon;
+            case "шведский":
+                return swedenIcon;
+
+            default:
+                break;
+        }
+    };
     return (
         <>
             <h2 className="room-comfort__title">Питание</h2>
             <ul className="room-info__breakfast-list">
                 {breakfast.map((item) => (
-                    <li key={item.id} className="room-info__breakfast-item">
+                    <li key={item._id} className="room-info__breakfast-item">
                         <img
-                            src={item.image}
-                            alt={item.name}
+                            src={getBreakFastIcon(item)}
+                            alt={item}
                             className="room-info__breakfast-flag"
                         />
                         <span className="room-info__breakfast-text">
-                            {item.name} стол
+                            {item} стол
                         </span>
                     </li>
                 ))}

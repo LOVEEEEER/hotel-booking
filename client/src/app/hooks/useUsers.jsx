@@ -24,13 +24,15 @@ const UsersProvider = ({ children }) => {
         }
     }
     const getUserById = (id) => {
-        return users.find((user) => user.id === id);
+        return users.find((user) => user._id === id);
     };
 
     const deleteUser = async (id) => {
         try {
             await userService.deleteUser(id);
-            setUsers((prevState) => prevState.filter((user) => user.id !== id));
+            setUsers((prevState) =>
+                prevState.filter((user) => user._id !== id)
+            );
         } catch (error) {
             console.log(error);
         }
