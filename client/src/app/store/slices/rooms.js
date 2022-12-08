@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import roomsService from "../services/rooms.service";
+import roomsService from "../../services/rooms.service";
 
 const initialState = {
     entities: null,
@@ -11,29 +11,29 @@ const roomsSlice = createSlice({
     name: "rooms",
     initialState,
     reducers: {
-        roomsRequested(state, action) {
+        requested(state, action) {
             state.isLoading = true;
         },
-        roomsReceived(state, action) {
+        received(state, action) {
             state.entities = action.payload;
             state.isLoading = false;
         },
-        roomsLoadFailed(state, action) {
+        loadFailed(state, action) {
             state.error = action.payload;
         }
     }
 });
 
 const { reducer: roomsReducer, actions } = roomsSlice;
-const { roomsRequested, roomsReceived, roomsLoadFailed } = actions;
+const { requested, received, loadFailed } = actions;
 
 export const loadRooms = () => async (dispatch, getState) => {
-    dispatch(roomsRequested());
+    dispatch(requested());
     try {
         const { content } = await roomsService.fetchAll();
-        dispatch(roomsReceived(content));
+        dispatch(received(content));
     } catch (error) {
-        dispatch(roomsLoadFailed(error.message));
+        dispatch(loadFailed(error.message));
     }
 };
 

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import localStorageService from "../services/localStorage.service";
-import { generateAuthError } from "../utils/generateAuthError";
-import userService from "../services/user.service";
-import authService from "../services/auth.service";
+import localStorageService from "../../services/localStorage.service";
+import { generateAuthError } from "../../utils/generateAuthError";
+import userService from "../../services/user.service";
+import authService from "../../services/auth.service";
 
 const initialState = localStorageService.getAccessToken()
     ? {

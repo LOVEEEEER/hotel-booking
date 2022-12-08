@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import commentsService from "../services/comments.service";
+import commentsService from "../../services/comments.service";
 
 const initialState = {
     entities: null,

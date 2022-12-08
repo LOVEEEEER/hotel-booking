@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import roomsReducer from "./rooms";
-import usersReducer from "./users";
-import commentsReducer from "./comments";
-import bookingReducer from "./booking";
-import favoritesReducer from "./favorites";
+import roomsReducer from "./slices/rooms";
+import usersReducer from "./slices/users";
+import commentsReducer from "./slices/comments";
+import bookingReducer from "./slices/booking";
+import favoritesReducer from "./slices/favorites";
 
 const rootReducer = combineReducers({
     rooms: roomsReducer,

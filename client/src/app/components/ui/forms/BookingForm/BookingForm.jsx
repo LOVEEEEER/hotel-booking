@@ -8,16 +8,16 @@ import {
 import Counter from "../../../common/Counter";
 import DatePicker from "../../../common/form/DatePicker";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../store/users";
+import { getCurrentUser } from "../../../../store/slices/users";
 import { nanoid } from "nanoid";
 import Button from "../../../common/Button";
-import { reserveRoom } from "../../../../store/booking";
+import { reserveRoom } from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
 
 const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
-    const { data, errors, handleChange } = useForm(
+    const { data, errors, handleChange, validateBySubmit } = useForm(
         {
             entry: getPresenceBookingDate(1),
             departure: getPresenceBookingDate(2),
@@ -37,7 +37,8 @@ const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        e.preventDefault();
+        const isValid = validateBySubmit();
+        if (!isValid) return;
         const bookingRoom = {
             id: nanoid(),
             user: currentUser.id,
@@ -55,21 +56,19 @@ const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
         <form className="room-booking__form" onSubmit={handleSubmit}>
             <div>
                 <DatePicker
-                    sx={{ width: "170px", marginRight: "20px" }}
-                    error={Boolean(errors.entry)}
-                    helperText={errors.entry}
+                    sx={{ width: "180px", marginRight: "20px" }}
                     label="Заезд"
                     name="entry"
                     value={data.entry}
+                    errorMessage={errors.entry}
                     onChange={handleChange}
                 />
                 <DatePicker
-                    sx={{ width: "170px" }}
-                    error={Boolean(errors.departure)}
-                    helperText={errors.departure}
+                    sx={{ width: "180px" }}
                     label="Заезд"
                     name="departure"
                     value={data.departure}
+                    errorMessage={errors.departure}
                     onChange={handleChange}
                 />
             </div>

@@ -10,12 +10,12 @@ import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
 import { useDispatch, useSelector } from "react-redux";
-import { getRoomById } from "../../../store/rooms";
-import { getIsLoggedIn } from "../../../store/users";
+import { getRoomById } from "../../../store/slices/rooms";
+import { getIsLoggedIn } from "../../../store/slices/users";
 import { useParams } from "react-router-dom";
 import FavouriteButton from "../../common/FavouriteButton";
 import { nanoid } from "nanoid";
-import { addInFavorites } from "../../../store/favorites";
+import { addInFavorites } from "../../../store/slices/favorites";
 import { toast } from "react-toastify";
 
 const RoomPage = () => {

@@ -1,13 +1,27 @@
 import React from "react";
 import { useForm } from "../../../../hooks/useForm";
 import Button from "../../../common/Button";
-import TextAreaField from "../../../common/form/TextAreaField";
 import TextField from "../../../common/form/TextField";
+import { validatorConfig } from "./validatorConfig";
+import { toast } from "react-toastify";
+import feedbackService from "../../../../services/feedback.service";
+import { nanoid } from "@reduxjs/toolkit";
 
 const FeedbackForm = () => {
-    const { data, handleChange } = useForm({ email: "", message: "" });
-    const handleSubmit = (e) => {
+    const { data, handleChange, errors, validateBySubmit } = useForm(
+        {
+            email: "",
+            name: "",
+            description: ""
+        },
+        validatorConfig
+    );
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const isValid = validateBySubmit();
+        if (!isValid) return;
+        await feedbackService.create(nanoid(), data);
+        toast.success("Сообщение успешно отправлено!");
     };
     return (
         <form className="feedback__form" onSubmit={handleSubmit}>
@@ -18,23 +32,26 @@ const FeedbackForm = () => {
                     onChange={handleChange}
                     label="Ваш E-mail"
                     placeholder="example@mail.com"
+                    errorMessage={errors.email}
                 />
             </div>
             <div>
                 <TextField
-                    name="email"
-                    value={data.email}
+                    name="name"
+                    value={data.name}
                     onChange={handleChange}
                     label="Ваше имя"
                     placeholder="Иван Иванов"
+                    errorMessage={errors.name}
                 />
             </div>
             <div>
-                <TextAreaField
-                    name="message"
-                    value={data.message}
+                <TextField
+                    name="description"
+                    value={data.description}
                     label="Сообщение"
                     onChange={handleChange}
+                    errorMessage={errors.description}
                 />
             </div>
             <Button variant="outlined">Отправить</Button>

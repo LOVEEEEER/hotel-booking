@@ -6,7 +6,11 @@ import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 // import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useDispatch, useSelector } from "react-redux";
-import { getRooms, getRoomsLoading, loadRooms } from "../../../store/rooms";
+import {
+    getRooms,
+    getRoomsLoading,
+    loadRooms
+} from "../../../store/slices/rooms";
 import { usePaginate } from "../../../hooks/usePaginate";
 import useSearch from "../../../hooks/useSearch";
 import { useSort } from "../../../hooks/useSort";
@@ -29,11 +33,9 @@ const RoomsListPage = () => {
         handleChangePageSize,
         pageSize
     } = usePaginate(sortedItems || [], 6);
-
     useEffect(() => {
         dispatch(loadRooms());
     }, []);
-
     return (
         <main className="rooms__page">
             <aside className="filter-panel">

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Dialog from "../../../../common/Dialog";
 import successIcon from "../../../../../assets/svg/success.svg";
 import { useSelector } from "react-redux";
-import { getRoomById } from "../../../../../store/rooms";
+import { getRoomById } from "../../../../../store/slices/rooms";
 import { displayDate } from "../../../../../utils/dateService";
 import Button from "../../../../common/Button";
 import { useNavigate } from "react-router-dom";

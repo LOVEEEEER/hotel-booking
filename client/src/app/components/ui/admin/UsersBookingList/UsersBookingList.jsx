@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getBookingList } from "../../../../store/booking";
+import { getBookingList } from "../../../../store/slices/booking";
 import BookingCard from "../../BookingCard/BookingCard";
 
 const UsersBookingList = () => {

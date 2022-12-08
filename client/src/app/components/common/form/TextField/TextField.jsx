@@ -9,7 +9,15 @@ import InputAdornment from "@mui/material/InputAdornment";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 
-const TextField = ({ name, label, onChange, value, type, ...rest }) => {
+const TextField = ({
+    name,
+    label,
+    onChange,
+    value,
+    type,
+    errorMessage,
+    ...rest
+}) => {
     const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
@@ -27,6 +35,8 @@ const TextField = ({ name, label, onChange, value, type, ...rest }) => {
                         type={showPassword ? "text" : "password"}
                         value={value}
                         onChange={onChange}
+                        error={Boolean(errorMessage)}
+                        helperText={errorMessage}
                         {...rest}
                         endAdornment={
                             <InputAdornment position="end">
@@ -57,6 +67,8 @@ const TextField = ({ name, label, onChange, value, type, ...rest }) => {
                     value={value}
                     className="muiinput"
                     type={type}
+                    error={Boolean(errorMessage)}
+                    helperText={errorMessage}
                     {...rest}
                 />
             )}
@@ -73,7 +85,8 @@ TextField.propTypes = {
     label: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    errorMessage: PropTypes.string.isRequired
 };
 
 export default React.memo(TextField);

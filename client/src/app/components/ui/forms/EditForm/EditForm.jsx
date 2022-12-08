@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../../../hooks/useForm";
-import { getCurrentUser, updateUser } from "../../../../store/users";
+import { getCurrentUser, updateUser } from "../../../../store/slices/users";
 import Button from "../../../common/Button";
 import DatePicker from "../../../common/form/DatePicker";
 import RadioField from "../../../common/form/RadioField";
@@ -34,23 +34,21 @@ const EditForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <TextField
-                error={Boolean(errors.name)}
-                helperText={errors.name}
                 name="name"
                 label="Имя"
                 value={data.name}
                 onChange={handleChange}
                 sx={{ width: "100%", marginBottom: "20px" }}
+                errorMessage={errors.name}
             />
             <br />
             <DatePicker
                 name="birth"
                 onChange={handleChange}
                 label="Дата рождения"
-                helperText={errors.birth}
                 value={data.birth}
-                error={Boolean(errors.birth)}
                 sx={{ width: "100%", marginBottom: "10px" }}
+                errorMessage={errors.birth}
             />
             <br />
             <RadioField

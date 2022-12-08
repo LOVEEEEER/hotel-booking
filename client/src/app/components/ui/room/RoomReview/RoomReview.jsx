@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Rating from "../../../common/Rating";
 import Avatar from "../../../common/Avatar";
 import { useSelector } from "react-redux";
-import { getUserById } from "../../../../store/users";
+import { getUserById } from "../../../../store/slices/users";
 import { displayDate } from "../../../../utils/dateService";
 // import deleteIcon from "../../../../assets/svg/delete.svg";
 

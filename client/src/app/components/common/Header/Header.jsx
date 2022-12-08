@@ -4,7 +4,7 @@ import Button from "../Button";
 import { Link, NavLink } from "react-router-dom";
 import NavProfile, { NavProfileLoading } from "../../ui/profile/NavProfile";
 import { useSelector } from "react-redux";
-import { getIsLoading, getIsLoggedIn } from "../../../store/users";
+import { getIsLoading, getIsLoggedIn } from "../../../store/slices/users";
 import PhoneMenu from "../../ui/PhoneMenu";
 
 const Header = () => {

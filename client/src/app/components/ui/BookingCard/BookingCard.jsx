@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import CancelWindow from "../CancelWindow";
 import { useDialog } from "../../../hooks/useDialog";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUserBooking } from "../../../store/booking";
-import { getUserById } from "../../../store/users";
-import { getRoomById } from "../../../store/rooms";
+import { deleteUserBooking } from "../../../store/slices/booking";
+import { getUserById } from "../../../store/slices/users";
+import { getRoomById } from "../../../store/slices/rooms";
 
 const BookingCard = ({ item }) => {
     const dispatch = useDispatch();
@@ -21,7 +21,10 @@ const BookingCard = ({ item }) => {
         return (
             <div className="booking__card">
                 <div className="booking__qr">
-                    <QRCode value={item.id} size={100} />
+                    <QRCode
+                        value={"Номер бронирования " + item.id}
+                        size={100}
+                    />
                 </div>
                 <div className="booking__text-block">
                     <ul className="booking__text-list">

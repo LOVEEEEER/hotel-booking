@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import bookingService from "../services/booking.service";
+import bookingService from "../../services/booking.service";
 
 const initialState = {
     entities: [],

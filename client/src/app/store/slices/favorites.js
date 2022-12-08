@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import favoritesService from "../services/favorites.service";
+import favoritesService from "../../services/favorites.service";
 
 const initialState = {
     entities: [],

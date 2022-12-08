@@ -8,7 +8,7 @@ import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser, logOut } from "../../../../store/users";
+import { getCurrentUser, logOut } from "../../../../store/slices/users";
 import { Menu, MenuItem, styled } from "@mui/material";
 
 const ProfileList = ({ open }) => {
