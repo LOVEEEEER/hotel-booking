@@ -53,7 +53,6 @@ const SignInForm = () => {
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
                 helperText={errors.password ? errors.password : null}
             />
-            <br />
             {authError && (
                 <p>
                     <FormHelperText error={true}>{authError}</FormHelperText>

@@ -41,7 +41,7 @@ const UsersTable = () => {
             created_at: {
                 name: "Аккаунт создан:",
                 component: (user) => (
-                    <span>{getFormatDate(new Date(user.created_at))}</span>
+                    <span>{getFormatDate(user.created_at)}</span>
                 )
             },
             delete: {

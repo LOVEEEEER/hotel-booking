@@ -4,18 +4,9 @@ import _ from "lodash";
 export const useSort = (elements, initialPath) => {
     const [sortedItems, setSortedItems] = useState(elements);
     const [sortBy, setSortBy] = useState({ path: initialPath, route: "asc" });
-    const handleSortBy = (item) => {
-        if (sortBy.path === item) {
-            setSortBy((prevState) => ({
-                ...prevState,
-                route: sortBy.route === "asc" ? "desc" : "asc"
-            }));
-            return;
-        }
-        setSortBy((prevState) => ({
-            ...prevState,
-            route: "asc"
-        }));
+
+    const handleSortBy = ({ target: { value } }) => {
+        setSortBy((prevState) => ({ ...prevState, route: value }));
     };
 
     useEffect(() => {

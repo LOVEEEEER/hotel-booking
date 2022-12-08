@@ -2,7 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./scss/mainpage.scss";
 import mainHotelImage from "../../../assets/images/main-hotel.jpg";
-import reasonImg from "../../../assets/svg/reasons/lock.svg";
+import rocketIcon from "../../../assets/svg/rocket.svg";
+import handShakeIcon from "../../../assets/svg/handshake.svg";
+import bookingIcon from "../../../assets/svg/booking.svg";
+import FeedbackForm from "../../ui/forms/FeedbackForm/FeedbackForm";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -41,32 +44,16 @@ const MainPage = () => {
             </section>
             <section className="info">
                 <div className="info__container">
-                    <div className="info__type">
-                        <div className="info__line"></div>
-                        <span className="info__type-title">Работа</span>
+                    <div className="section__type">
+                        <div className="section__line"></div>
+                        <span className="section__type-title">Работа</span>
                     </div>
-                    <h2 className="info__title">Как мы работаем</h2>
+                    <h2 className="section__title">Как мы работаем</h2>
                     <ul className="info__list">
                         <li className="info__item">
                             <div className="info__image-card">
                                 <img
-                                    src={reasonImg}
-                                    alt="work"
-                                    className="info__image"
-                                />
-                            </div>
-                            <h3 className="info__item-title">
-                                Легкое бронирование
-                            </h3>
-                            <p className="info__item-description">
-                                Наш сервис позволяет в максимально короткий срок
-                                найти номер своей мечты
-                            </p>
-                        </li>
-                        <li className="info__item">
-                            <div className="info__image-card">
-                                <img
-                                    src={reasonImg}
+                                    src={rocketIcon}
                                     alt="work"
                                     className="info__image"
                                 />
@@ -82,20 +69,48 @@ const MainPage = () => {
                         <li className="info__item">
                             <div className="info__image-card">
                                 <img
-                                    src={reasonImg}
+                                    src={bookingIcon}
+                                    alt="work"
+                                    className="info__image"
+                                />
+                            </div>
+                            <h3 className="info__item-title">Онлайн сервис</h3>
+                            <p className="info__item-description">
+                                Вы можете забронировать свой номер находясь в
+                                любой точке мира
+                            </p>
+                        </li>
+                        <li className="info__item">
+                            <div className="info__image-card">
+                                <img
+                                    src={handShakeIcon}
                                     alt="work"
                                     className="info__image"
                                 />
                             </div>
                             <h3 className="info__item-title">
-                                Легкое бронирование
+                                Сотрудничество с отелями
                             </h3>
                             <p className="info__item-description">
-                                Обратившись к нашему сервису, вы за несколько
-                                минут сможете забронировать отель своей мечты
+                                Мы имееет большую базу отелей, с
+                                привлекательными ценами
                             </p>
                         </li>
                     </ul>
+                </div>
+            </section>
+            <section className="feedback">
+                <div className="container feedback__container">
+                    <div className="section__type">
+                        <div className="section__line"></div>
+                        <span className="section__type-title">
+                            Обратная связь
+                        </span>
+                    </div>
+                    <h2 className="section__title">Оставьте вопрос</h2>
+                    <div className="feedback__form-block">
+                        <FeedbackForm />
+                    </div>
                 </div>
             </section>
         </main>

@@ -19,7 +19,7 @@ const LinkStyled = styled(LinkMui)(() => ({
 }));
 
 const TypographyStyled = styled(Typography)(() => ({
-    color: "rgb(100 96 96 / 87%)",
+    color: "rgb(126, 160, 255)",
     "&:hover": {
         cursor: "text"
     }

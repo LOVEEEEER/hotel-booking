@@ -60,7 +60,7 @@ const RoomsListPage = () => {
                                 { value: "desc", name: "По убыванию" }
                             ]}
                             label="Сортировать по:"
-                            onChange={() => handleSortBy("price")}
+                            onChange={handleSortBy}
                             name="sortBy"
                             sx={{ maxWidth: "100%" }}
                         />

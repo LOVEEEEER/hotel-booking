@@ -1,4 +1,7 @@
 @import "../../../../styles/constants.scss";
+@import "../../../../styles/mixins/response-mixin.scss";
+
+$section-padding: 100px;
 
 .hero {
   &__container {
@@ -14,11 +17,20 @@
       background-color: #99F3FF;
       border-radius: 20px;
     }
+    @include laptop {
+      font-size: 40px;
+    }
+    @include tablets {
+      text-align: center;
+    }
   }
   &__description {
     margin-bottom: 32px;
-    width: 483px;
+    max-width: 483px;
     color: #202020;
+    @include tablets {
+      text-align: center;
+    }
   }
   &__ad-button {
     padding: 12px 24px;
@@ -38,6 +50,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include tablets {
+      justify-content: center;
+    }
   }
   &__title-image {
     width: 430px;
@@ -46,33 +61,44 @@
     &:hover {
       filter: grayscale(65%);
     }
+    @include tablets {
+      max-width: 320px;
+    }
+    @include tablets {
+      display: none;
+    }
+  }
+  &__main-info {
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }
 
 .info {
-  &__type {
-    display: flex;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-  &__line {
-    margin-right: 12.5px;
-    width: 30px;
-    border: 2px solid #4A72FF;
-  }
-  &__title {
-    margin-bottom: 40px;
-    font-size: $caption-size-text;
-  }
+  padding-bottom: $section-padding;
   &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+    }
   }
   &__item {
     display: flex;
     align-items: center;
     flex-direction: column;
+    @include tablets {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__image {
+    width: 75px;
   }
   &__image-card {
     display: flex;
@@ -88,9 +114,47 @@
   &__item-title {
     margin-bottom: 16px;
     font-size: 24px;
+    @include laptop {
+      font-size: 18px;
+    }
   }
   &__item-description {
+    width: 300px;
     text-align: center;
     font-size: 16px;
+  }
+}
+
+.feedback {
+  padding-bottom: $section-padding;
+  &__title {
+    font-size: 30px;
+  }
+  &__form-block {
+    padding: 50px;
+    border: 1px solid #EEEEEE;
+  }
+}
+
+.section {
+  &__title {
+    margin-bottom: 40px;
+    font-size: $caption-size-text;
+    @include tablets {
+      text-align: center;
+    }
+  }
+  &__type {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    @include tablets {
+      justify-content: center;
+    }
+  }
+  &__line {
+    margin-right: 12.5px;
+    width: 30px;
+    border: 2px solid #4A72FF;
   }
 }
