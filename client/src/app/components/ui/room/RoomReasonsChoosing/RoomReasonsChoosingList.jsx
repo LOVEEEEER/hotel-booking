@@ -7,19 +7,19 @@ const RoomReasonsChoosingList = () => {
     const reasons = [
         {
             name: "Доступные цены",
-            id: 1,
+            _id: 1,
             image: walletIcon,
             description: "Отель имеет цены по соотношению цена/качество"
         },
         {
             name: "Безопасность",
-            id: 2,
+            _id: 2,
             image: lockIcon,
             description: "Служба охраны всегда следит за вашей безопасностью"
         },
         {
             name: "Онлайн",
-            id: 3,
+            _id: 3,
             image: onlineIcon,
             description:
                 "Управлять бронированием отеля вы можете прямо на нашем сайте!"
@@ -30,7 +30,7 @@ const RoomReasonsChoosingList = () => {
             <h2 className="room-section-title">Причины выбрать данный отель</h2>
             <ul className="room-reasons__list">
                 {reasons.map((item) => (
-                    <li className="room-reasons__item" key={item.id}>
+                    <li className="room-reasons__item" key={item._id}>
                         <div className="room-reasons__card">
                             <div className="room-reasons__card-header">
                                 <img

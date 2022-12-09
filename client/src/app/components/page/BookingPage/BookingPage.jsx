@@ -8,12 +8,12 @@ import BookingCard from "../../ui/BookingCard/BookingCard";
 
 const BookingPage = () => {
     const currentUser = useSelector(getCurrentUser());
-    const userBooking = useSelector(getUserBooking(currentUser.id));
+    const userBooking = useSelector(getUserBooking(currentUser._id));
     const { currentPage, itemsCrop, pageSize, handlePageChange } = usePaginate(
         userBooking || [],
         6
     );
-    console.log(currentPage);
+    console.log(userBooking);
     if (userBooking) {
         return (
             <main className="booking__page">
@@ -22,7 +22,10 @@ const BookingPage = () => {
                         <ul className="booking__list">
                             {itemsCrop.map((item) => {
                                 return (
-                                    <li className="booking__item" key={item.id}>
+                                    <li
+                                        className="booking__item"
+                                        key={item._id}
+                                    >
                                         <BookingCard item={item} />
                                     </li>
                                 );

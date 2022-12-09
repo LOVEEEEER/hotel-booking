@@ -7,7 +7,7 @@ const RoomsList = ({ items }) => {
         <>
             <ul className="rooms__list">
                 {items.map((item) => (
-                    <li key={item.id}>
+                    <li key={item._id}>
                         <RoomCard {...item} />
                     </li>
                 ))}

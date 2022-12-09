@@ -1,9 +1,11 @@
 const express = require("express");
+const auth = require("../middleware/auth.middleware");
+const Comment = require("../models/Comment");
 const router = express.Router({
   mergeParams: true,
 });
 
-router.get(auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     const { orderBy, equalTo } = req.query;
     const list = await Comment.find({ [orderBy]: equalTo });
@@ -15,7 +17,7 @@ router.get(auth, async (req, res) => {
   }
 });
 
-router.post(auth, async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
@@ -23,6 +25,7 @@ router.post(auth, async (req, res) => {
     });
     res.status(201).send(newComment);
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({
       message: "На сервере произошла ошибка. Попробуйте позже",
     });

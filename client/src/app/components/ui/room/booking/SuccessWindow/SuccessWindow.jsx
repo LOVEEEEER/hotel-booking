@@ -4,14 +4,14 @@ import Dialog from "../../../../common/Dialog";
 import successIcon from "../../../../../assets/svg/success.svg";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../../../store/slices/rooms";
-import { displayDate } from "../../../../../utils/dateService";
+import { getFormatDate } from "../../../../../utils/dateService";
 import Button from "../../../../common/Button";
 import { useNavigate } from "react-router-dom";
 import Divider from "../../../../common/Divider";
 
 const SuccessWindow = ({ info, ...rest }) => {
     const navigate = useNavigate();
-    const bookedRoom = useSelector(getRoomById(info.room));
+    const bookedRoom = useSelector(getRoomById(info.roomId));
     return (
         <Dialog {...rest}>
             <div className="room-booking__dialog">
@@ -38,17 +38,17 @@ const SuccessWindow = ({ info, ...rest }) => {
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Заезд: {displayDate(info.entry)} в 13:00
+                            Заезд: {getFormatDate(info.entry)} в 13:00
                         </span>
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Выезд: {displayDate(info.departure)} в 13:00
+                            Выезд: {getFormatDate(info.departure)} в 13:00
                         </span>
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Номер брони: {info.id}
+                            Номер брони: {info._id}
                         </span>
                     </li>
                 </ul>

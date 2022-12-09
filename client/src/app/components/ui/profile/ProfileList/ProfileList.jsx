@@ -39,7 +39,7 @@ const ProfileList = ({ open }) => {
                 horizontal: "right"
             }}
         >
-            <MenuItem onClick={() => navigate(`/users/${currentUser.id}`)}>
+            <MenuItem onClick={() => navigate(`/users/${currentUser._id}`)}>
                 <Person2Icon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Профиль" />
             </MenuItem>

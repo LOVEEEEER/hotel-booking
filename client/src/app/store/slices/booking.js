@@ -39,7 +39,7 @@ const bookingSlice = createSlice({
         },
         removed(state, action) {
             state.entities = state.entities.filter(
-                (item) => item.id !== action.payload
+                (item) => item._id !== action.payload
             );
         }
     }
@@ -67,12 +67,8 @@ export const loadBooking = () => async (dispatch) => {
 
 export const reserveRoom = (bookingRoom) => async (dispatch) => {
     dispatch(bookingRequested());
-    console.log(bookingRoom);
     try {
-        const { content } = await bookingService.add(
-            bookingRoom.id,
-            bookingRoom
-        );
+        const { content } = await bookingService.add(bookingRoom);
         dispatch(created(content));
     } catch (error) {
         dispatch(requestFailed(error.message));
@@ -90,7 +86,9 @@ export const deleteUserBooking = (id) => async (dispatch) => {
 };
 
 export const getUserBooking = (userId) => (state) => {
-    return state.booking.entities.filter((booking) => booking.user === userId);
+    return state.booking.entities.filter(
+        (booking) => booking.userId.toString() === userId
+    );
 };
 
 export const getBookingList = () => (state) => {
@@ -98,10 +96,10 @@ export const getBookingList = () => (state) => {
 };
 
 export const getBookingById =
-    ({ id: userId }) =>
+    ({ _id: userId }) =>
     (state) => {
         const usersRooms = state.booking.entities.filter(
-            (room) => room.user === userId
+            (room) => room.userId === userId
         );
 
         return !state.booking.bookingLoading

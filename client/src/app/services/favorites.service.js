@@ -1,17 +1,14 @@
 import httpService from "./http.service";
 
-const favoritesEndPoint = "favorites/";
+const favoritesEndPoint = "favorite/";
 
 const favoritesService = {
     fetchAll: async () => {
         const { data } = await httpService.get(favoritesEndPoint);
         return data;
     },
-    create: async (id, payload) => {
-        const { content } = await httpService.put(
-            favoritesEndPoint + id,
-            payload
-        );
+    create: async (payload) => {
+        const { content } = await httpService.post(favoritesEndPoint, payload);
         return content;
     }
 };

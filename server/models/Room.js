@@ -5,16 +5,13 @@ const schema = new Schema({
   comfort: [String],
   images: [String],
   price: {
-    type: String,
-    required: true,
+    type: Number,
   },
   rate: {
-    type: String,
-    required: true,
+    type: Number,
   },
   title: {
     type: String,
-    required: true,
   },
   type: {
     type: String,

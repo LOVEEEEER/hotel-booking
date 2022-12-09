@@ -1,43 +1,51 @@
-const JWT_TOKEN = "jwt-token";
-const USER_LOCAL_ID = "user-local-id";
-const JWT_EXPIRES = "jwt-expires";
-const JWT_REFRESH = "jwt-refresh-token";
+const TOKEN_KEY = "jwt-token";
+const REFRESH_KEY = "jwt-refresh-token";
+const EXPIRES_KEY = "jwt-expires";
+const USERID_KEY = "user-local-id";
 
-export const setTokens = ({ idToken, localId, expiresIn, refreshToken }) => {
-    const expiresInMillSec = Date.now() + expiresIn * 1000;
-    localStorage.setItem(JWT_TOKEN, idToken);
-    localStorage.setItem(USER_LOCAL_ID, localId);
-    localStorage.setItem(JWT_EXPIRES, expiresInMillSec);
-    localStorage.setItem(JWT_REFRESH, refreshToken);
-};
+export function setTokens({
+    refreshToken,
+    accessToken,
+    userId,
+    expiresIn = 3600
+}) {
+    const expiresDate = new Date().getTime() + expiresIn * 1000;
+    localStorage.setItem(USERID_KEY, userId);
+    localStorage.setItem(TOKEN_KEY, accessToken);
+    localStorage.setItem(REFRESH_KEY, refreshToken);
+    localStorage.setItem(EXPIRES_KEY, expiresDate);
+}
 
-export const getAccessToken = () => {
-    return localStorage.getItem(JWT_TOKEN);
-};
+export function getAccessToken() {
+    return localStorage.getItem(TOKEN_KEY);
+}
 
-export const getRefreshToken = () => {
-    return localStorage.getItem(JWT_REFRESH);
-};
+export function getRefreshToken() {
+    return localStorage.getItem(REFRESH_KEY);
+}
 
-export const getLocalId = () => {
-    return localStorage.getItem(USER_LOCAL_ID);
-};
+export function getTokenExpiresDate() {
+    return localStorage.getItem(EXPIRES_KEY);
+}
 
-export const getJwtExpires = () => {
-    return localStorage.getItem(JWT_EXPIRES);
-};
+export function getUserId() {
+    return localStorage.getItem(USERID_KEY);
+}
 
-export const removeUserData = () => {
-    localStorage.removeItem(JWT_TOKEN);
-    localStorage.removeItem(USER_LOCAL_ID);
-    localStorage.removeItem(JWT_EXPIRES);
-};
+export function removeAuthData() {
+    localStorage.removeItem(USERID_KEY);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(REFRESH_KEY);
+    localStorage.removeItem(EXPIRES_KEY);
+}
 
-export default {
+const localStorageService = {
     setTokens,
     getAccessToken,
-    getLocalId,
-    getJwtExpires,
-    removeUserData,
-    getRefreshToken
+    getRefreshToken,
+    getTokenExpiresDate,
+    getUserId,
+    removeAuthData
 };
+
+export default localStorageService;

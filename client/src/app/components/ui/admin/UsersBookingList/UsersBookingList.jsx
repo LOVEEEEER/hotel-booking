@@ -9,7 +9,7 @@ const UsersBookingList = () => {
         return (
             <ul className="admin__booking-list">
                 {bookingList.map((item) => (
-                    <li className="admin__booking-item" key={item.id}>
+                    <li className="admin__booking-item" key={item._id}>
                         <BookingCard item={item} />
                     </li>
                 ))}

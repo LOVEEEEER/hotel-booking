@@ -13,16 +13,17 @@ import { getRoomById } from "../../../store/slices/rooms";
 
 const BookingCard = ({ item }) => {
     const dispatch = useDispatch();
-    const bookingAuthor = useSelector(getUserById(item.user));
-    const room = useSelector(getRoomById(item.room));
+    const bookingAuthor = useSelector(getUserById(item.userId));
+    const room = useSelector(getRoomById(item.roomId));
     const { open, handleClickOpen, handleClose } = useDialog();
     const navigate = useNavigate();
+    console.log(room, bookingAuthor);
     if (room && bookingAuthor) {
         return (
             <div className="booking__card">
                 <div className="booking__qr">
                     <QRCode
-                        value={"Номер бронирования " + item.id}
+                        value={"Номер бронирования " + item._id}
                         size={100}
                     />
                 </div>
@@ -30,7 +31,7 @@ const BookingCard = ({ item }) => {
                     <ul className="booking__text-list">
                         <li className="booking__text-item">
                             <h3 className="booking__title">Номер брони</h3>
-                            <p className="booking__id">{item.id}</p>
+                            <p className="booking__id">{item._id}</p>
                         </li>
                         <li className="booking__text-item">
                             <h3 className="booking__title">Номер</h3>
@@ -58,7 +59,7 @@ const BookingCard = ({ item }) => {
                                 padding: "5px",
                                 fontSize: "11px"
                             }}
-                            onClick={() => navigate(`/rooms/${room.id}`)}
+                            onClick={() => navigate(`/rooms/${room._id}`)}
                         >
                             Страница отеля
                         </Button>
@@ -72,7 +73,7 @@ const BookingCard = ({ item }) => {
                     </div>
                 </div>
                 <CancelWindow
-                    onCancel={() => dispatch(deleteUserBooking(item.id))}
+                    onCancel={() => dispatch(deleteUserBooking(item._id))}
                     open={open}
                     onClose={handleClose}
                 />

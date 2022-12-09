@@ -28,7 +28,7 @@ const RoomReviews = () => {
                     {sortedComments.map((item) => (
                         <RoomReview
                             onToggleUserProfile={toggleUserProfile}
-                            key={item.id}
+                            key={item._id}
                             review={item}
                         />
                     ))}

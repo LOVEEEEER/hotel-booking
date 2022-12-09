@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema(
   {
     birth: {
-      type: Number,
+      type: Date,
       required: true,
     },
     email: {
@@ -16,16 +16,13 @@ const schema = new Schema(
     },
     image: {
       type: String,
-      required: true,
     },
     name: {
       type: String,
-      required: true,
     },
     sex: {
       type: String,
       enum: ["male", "female", "other"],
-      required: true,
     },
   },
   {

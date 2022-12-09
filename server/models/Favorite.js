@@ -4,12 +4,10 @@ const schema = new Schema({
   roomId: {
     type: Schema.Types.ObjectId,
     ref: "Room",
-    required: true,
   },
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true,
   },
 });
 

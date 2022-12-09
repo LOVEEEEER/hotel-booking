@@ -5,10 +5,10 @@ import Button from "../../../common/Button";
 import ImageSlider from "../../../common/ImageSlider";
 import { useNavigate } from "react-router-dom";
 
-const RoomCard = ({ images, title, rate, price, id }) => {
+const RoomCard = ({ images, title, rate, price, _id }) => {
     const navigate = useNavigate();
     const handleToggleHotelPage = () => {
-        navigate(`/rooms/${id}`);
+        navigate(`/rooms/${_id}`);
     };
     return (
         <div className="room">
@@ -50,7 +50,7 @@ RoomCard.propTypes = {
     title: PropTypes.string.isRequired,
     rate: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    id: PropTypes.string.isRequired
+    _id: PropTypes.string.isRequired
 };
 
 export default RoomCard;

@@ -11,7 +11,7 @@ const RoomReview = ({ review, onToggleUserProfile }) => {
     const authorComment = useSelector(getUserById(review.userId));
     if (authorComment) {
         return (
-            <li key={review.id} className="room-reviews__item">
+            <li key={review._id} className="room-reviews__item">
                 <div className="room-reviews__user">
                     <Avatar
                         image={authorComment.image}

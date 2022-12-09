@@ -1,10 +1,19 @@
 import React from "react";
 import Fab from "@mui/material/Fab";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { styled } from "@mui/material";
 
-const FavouriteButton = ({ ...rest }) => {
+const FavoriteButtonStyled = styled(Fab)(() => ({
+    backgroundColor: "rgb(134, 118, 226)",
+    color: "#FFFFFF",
+    "&:hover": {
+        backgroundColor: "rgb(110, 87, 238)"
+    }
+}));
+
+const FavoriteButton = ({ ...rest }) => {
     return (
-        <Fab
+        <FavoriteButtonStyled
             size="small"
             sx={{
                 backgroundColor: "rgb(134, 118, 226)",
@@ -14,8 +23,8 @@ const FavouriteButton = ({ ...rest }) => {
             aria-label="like"
         >
             <FavoriteIcon />
-        </Fab>
+        </FavoriteButtonStyled>
     );
 };
 
-export default FavouriteButton;
+export default FavoriteButton;

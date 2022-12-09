@@ -17,7 +17,7 @@ function App() {
         if (isLoggedIn) {
             dispatch(loadBooking());
         }
-    }, []);
+    }, [isLoggedIn]);
     const elements = useRoutes(routes);
     return (
         <>

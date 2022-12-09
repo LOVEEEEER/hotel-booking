@@ -49,7 +49,7 @@ const UserProfilePage = () => {
                                 </span>
                             </li>
                         </ul>
-                        {currentUser.id === user.id && (
+                        {currentUser._id === user._id && (
                             <>
                                 <Button
                                     variant="outlined"

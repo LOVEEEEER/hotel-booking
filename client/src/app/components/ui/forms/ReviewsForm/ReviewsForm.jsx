@@ -2,12 +2,10 @@ import React from "react";
 import Button from "../../../common/Button";
 import TextAreaField from "../../../common/form/TextAreaField";
 import Rating from "../../../common/Rating";
-import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
 import { validatorConfig } from "./validatorConfig";
-import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../store/slices/users";
+import { useDispatch } from "react-redux";
 import { createComment } from "../../../../store/slices/comments";
 
 const ReviewsForm = () => {
@@ -17,22 +15,12 @@ const ReviewsForm = () => {
         validatorConfig
     );
     const { roomId } = useParams();
-    const currentUser = useSelector(getCurrentUser());
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validateBySubmit();
         if (!isValid) return;
-        const comment = {
-            userId: currentUser.id,
-            id: nanoid(),
-            rate: data.rate,
-            text: data.review,
-            created_at: Date.now(),
-            pageId: roomId
-        };
-        console.log("created comment", comment);
-        dispatch(createComment(comment));
+        dispatch(createComment({ ...data, text: data.review, pageId: roomId }));
     };
 
     return (

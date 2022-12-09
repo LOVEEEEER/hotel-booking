@@ -7,17 +7,14 @@ import {
 } from "../../../../utils/dateService";
 import Counter from "../../../common/Counter";
 import DatePicker from "../../../common/form/DatePicker";
-import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../store/slices/users";
-import { nanoid } from "nanoid";
+import { useDispatch } from "react-redux";
 import Button from "../../../common/Button";
 import { reserveRoom } from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
 
-const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
+const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
-    const currentUser = useSelector(getCurrentUser());
-    const { data, errors, handleChange, validateBySubmit } = useForm(
+    const { data, errors, handleChange } = useForm(
         {
             entry: getPresenceBookingDate(1),
             departure: getPresenceBookingDate(2),
@@ -37,13 +34,8 @@ const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        const isValid = validateBySubmit();
-        if (!isValid) return;
         const bookingRoom = {
-            id: nanoid(),
-            user: currentUser.id,
-            room: id,
-            created_at: Date.now(),
+            roomId: _id,
             fullPrice: getRoomPrice(data),
             entry: data.entry.getTime(),
             departure: data.departure.getTime()
@@ -110,7 +102,7 @@ const BookingForm = ({ id, price: dayPrice, onOpenDialog }) => {
 };
 
 BookingForm.propTypes = {
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     onOpenDialog: PropTypes.func.isRequired,
     price: PropTypes.number.isRequired
 };

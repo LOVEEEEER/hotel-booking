@@ -13,10 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRoomById } from "../../../store/slices/rooms";
 import { getIsLoggedIn } from "../../../store/slices/users";
 import { useParams } from "react-router-dom";
-import FavouriteButton from "../../common/FavouriteButton";
-import { nanoid } from "nanoid";
 import { addInFavorites } from "../../../store/slices/favorites";
 import { toast } from "react-toastify";
+import FavoriteButton from "../../common/FavoriteButton";
 
 const RoomPage = () => {
     const dispatch = useDispatch();
@@ -25,13 +24,8 @@ const RoomPage = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
 
     const handleSelectFavorite = () => {
-        console.log("log");
         if (isLoggedIn) {
-            const favoriteItem = {
-                id: nanoid(),
-                roomId: roomId
-            };
-            dispatch(addInFavorites(favoriteItem));
+            dispatch(addInFavorites({ roomId }));
         } else {
             toast("Для этого действия войдите в аккаунт");
         }
@@ -45,7 +39,7 @@ const RoomPage = () => {
                         <div className="room-cover__head-content">
                             <div className="room-cover__main-content">
                                 <div className="room-cover__title-wrapper">
-                                    <FavouriteButton
+                                    <FavoriteButton
                                         onClick={handleSelectFavorite}
                                     />
                                     <h1 className="room-cover__title">

@@ -86,7 +86,7 @@ TextField.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     type: PropTypes.string,
-    errorMessage: PropTypes.string.isRequired
+    errorMessage: PropTypes.string
 };
 
 export default React.memo(TextField);
