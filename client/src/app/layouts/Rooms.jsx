@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/common/Header";
-import Breadcrumbs from "../components/common/Breadcrumbs";
+import BreadCrumbs from "../components/common/BreadCrumbs";
 import Container from "../components/common/Container";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/common/Footer";
@@ -10,7 +10,7 @@ const Rooms = ({ ...rest }) => {
         <>
             <Header />
             <Container>
-                <Breadcrumbs {...rest} />
+                <BreadCrumbs {...rest} />
                 <Outlet />
             </Container>
             <Footer />

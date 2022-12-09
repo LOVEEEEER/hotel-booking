@@ -15,7 +15,11 @@ const BreadcrumbsStyled = styled(BreadcrumbsMui)(() => ({
 
 const LinkStyled = styled(LinkMui)(() => ({
     color: "#302f2f",
-    textDecoration: "none"
+    textDecoration: "none",
+    transition: "0.1s color linear",
+    "&:hover": {
+        color: "rgb(161, 183, 245)"
+    }
 }));
 
 const TypographyStyled = styled(Typography)(() => ({
