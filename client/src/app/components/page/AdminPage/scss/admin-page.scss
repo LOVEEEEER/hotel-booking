@@ -1,6 +1,7 @@
 .admin {
   &__page {
     margin-top: 25px;
+    min-height: calc(87vh - 200px);
   }
   &__title {
     margin-top: 28px;

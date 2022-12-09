@@ -17,32 +17,37 @@ const BookingPage = () => {
     if (userBooking) {
         return (
             <main className="booking__page">
-                {userBooking.length ? (
-                    <>
-                        <ul className="booking__list">
-                            {itemsCrop.map((item) => {
-                                return (
-                                    <li
-                                        className="booking__item"
-                                        key={item._id}
-                                    >
-                                        <BookingCard item={item} />
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <Pagination
-                            currentPage={currentPage + 1}
-                            itemsCount={userBooking.length}
-                            onChange={(e, page) => handlePageChange(page - 1)}
-                            pageSize={pageSize}
-                        />
-                    </>
-                ) : (
-                    <div className="booking__error-message">
-                        Вы пока не забронировали ни одного номера
-                    </div>
-                )}
+                <div className="booking">
+                    {userBooking.length ? (
+                        <>
+                            <ul className="booking__list">
+                                {itemsCrop.map((item) => {
+                                    return (
+                                        <li
+                                            className="booking__item"
+                                            key={item._id}
+                                        >
+                                            <BookingCard item={item} />
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            <Pagination
+                                currentPage={currentPage + 1}
+                                itemsCount={userBooking.length}
+                                onChange={(e, page) =>
+                                    handlePageChange(page - 1)
+                                }
+                                pageSize={pageSize}
+                            />
+                        </>
+                    ) : (
+                        <div className="booking__error-message">
+                            Вы пока не забронировали ни одного номера
+                        </div>
+                    )}
+                    <div className="booking__push"></div>
+                </div>
             </main>
         );
     }

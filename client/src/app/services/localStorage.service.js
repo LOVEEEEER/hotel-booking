@@ -9,6 +9,7 @@ export function setTokens({
     userId,
     expiresIn = 3600
 }) {
+    console.log("init data");
     const expiresDate = new Date().getTime() + expiresIn * 1000;
     localStorage.setItem(USERID_KEY, userId);
     localStorage.setItem(TOKEN_KEY, accessToken);

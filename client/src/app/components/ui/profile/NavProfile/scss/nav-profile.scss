@@ -1,6 +1,5 @@
 .header {
   &__profile {
-    position: relative;
     display: flex;
     align-items: center;
     padding: 7px;
@@ -9,6 +8,10 @@
       background-color: rgb(247, 247, 247);
       cursor: pointer;
     }
+  }
+  &__profile_images {
+    display: flex;
+    align-items: center;
   }
   &__admin-image {
     border: 1px solid yellow;

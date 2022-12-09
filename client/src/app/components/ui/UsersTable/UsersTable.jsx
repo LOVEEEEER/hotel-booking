@@ -10,6 +10,7 @@ import {
     getUsersList
 } from "../../../store/slices/users";
 import { useSort } from "../../../hooks/useSort";
+import { getUserBookingCount } from "../../../store/slices/booking";
 
 const UsersTable = () => {
     const dispatch = useDispatch();
@@ -37,9 +38,9 @@ const UsersTable = () => {
                 )
             },
             roomsCount: {
-                name: "Номер снято",
-                component: () => {
-                    return `${Math.floor(Math.random() * 20)}`;
+                name: "Номеров снято",
+                component: (user) => {
+                    return `${dispatch(getUserBookingCount(user._id))}`;
                 }
             },
             created_at: {

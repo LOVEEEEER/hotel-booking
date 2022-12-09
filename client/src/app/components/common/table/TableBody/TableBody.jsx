@@ -18,7 +18,7 @@ const TableBody = ({ data, columns }) => {
         <TableBodyMUI>
             {data.map((item) => (
                 <TableRow
-                    key={item.id}
+                    key={item._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                     {Object.keys(columns).map((column) => (

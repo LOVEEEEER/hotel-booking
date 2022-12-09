@@ -7,13 +7,21 @@ const UsersBookingList = () => {
     const bookingList = useSelector(getBookingList());
     if (bookingList) {
         return (
-            <ul className="admin__booking-list">
-                {bookingList.map((item) => (
-                    <li className="admin__booking-item" key={item._id}>
-                        <BookingCard item={item} />
-                    </li>
-                ))}
-            </ul>
+            <>
+                {bookingList.length > 0 ? (
+                    <ul className="admin__booking-list">
+                        {bookingList.map((item) => (
+                            <li className="admin__booking-item" key={item._id}>
+                                <BookingCard item={item} />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="booking__error-message">
+                        Вы пока не забронировали ни одного номера
+                    </div>
+                )}
+            </>
         );
     }
 };

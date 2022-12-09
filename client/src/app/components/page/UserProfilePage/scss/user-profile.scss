@@ -4,11 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // margin-bottom: 250px;
+  min-height: calc(88vh - 200px);
   @include tablets {
     margin-top: 30px;
-    // margin-bottom: 120px;
-    flex-direction: column;
+    margin-bottom: 30px;
   }
   &__buttons-group {
     @include tablets {
@@ -17,9 +16,7 @@
       width: 100%;
     }
   }
-  
-  margin-top: 60px;
-  &__user-image {
+    &__user-image {
     margin-right: 75px;
     width: 350px;
     @include tablets {

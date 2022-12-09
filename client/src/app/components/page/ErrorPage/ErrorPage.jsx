@@ -8,8 +8,8 @@ const ErrorPage = () => {
         navigate("/rooms");
     };
     return (
-        <main className="error">
-            <div className="container error__container">
+        <main className="error__page">
+            <div className="error__container">
                 <div className="error__text-wrapper">
                     <h1 className="error__title" data-tilt-scale="1.1">
                         страница не найдена

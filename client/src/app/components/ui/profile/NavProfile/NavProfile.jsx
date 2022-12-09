@@ -5,27 +5,40 @@ import { getCurrentUser } from "../../../../store/slices/users";
 import arrowDown from "../../../../assets/svg/arrow-down.svg";
 
 const NavProfile = () => {
-    const [open, setOpen] = useState(false);
+    const [anchor, setAnchor] = useState(null);
+    const open = Boolean(anchor);
     const currentUser = useSelector(getCurrentUser());
 
-    const handleOpen = () => {
-        setOpen((prevState) => !prevState);
+    const handleClick = ({ currentTarget }) => {
+        setAnchor(currentTarget);
+    };
+    const handleClose = () => {
+        setAnchor(null);
     };
     if (currentUser) {
         return (
             <>
-                <div className="header__profile" onClick={handleOpen}>
-                    <img
-                        className="header__profile-image header__admin-image"
-                        src={currentUser.image}
-                        alt="user"
+                <div className="header__profile">
+                    <div
+                        className="header__profile_images"
+                        onClick={handleClick}
+                    >
+                        <img
+                            className="header__profile-image header__admin-image"
+                            src={currentUser.image}
+                            alt="user"
+                        />
+                        <img
+                            className="header__toggle-arrow"
+                            src={arrowDown}
+                            alt="arrow"
+                        />
+                    </div>
+                    <ProfileList
+                        anchorEl={anchor}
+                        open={open}
+                        onClose={handleClose}
                     />
-                    <img
-                        className="header__toggle-arrow"
-                        src={arrowDown}
-                        alt=""
-                    />
-                    <ProfileList open={open} />
                 </div>
             </>
         );

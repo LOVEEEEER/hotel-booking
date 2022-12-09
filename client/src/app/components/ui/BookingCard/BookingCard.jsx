@@ -17,7 +17,6 @@ const BookingCard = ({ item }) => {
     const room = useSelector(getRoomById(item.roomId));
     const { open, handleClickOpen, handleClose } = useDialog();
     const navigate = useNavigate();
-    console.log(room, bookingAuthor);
     if (room && bookingAuthor) {
         return (
             <div className="booking__card">

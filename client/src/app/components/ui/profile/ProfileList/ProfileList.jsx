@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, logOut } from "../../../../store/slices/users";
-import { Menu, MenuItem, styled } from "@mui/material";
+import { Menu, MenuItem } from "@mui/material";
 
-const ProfileList = ({ open }) => {
+const ProfileList = ({ open, anchorEl, ...rest }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
     const navigate = useNavigate();
@@ -20,24 +20,12 @@ const ProfileList = ({ open }) => {
         dispatch(logOut());
     };
 
-    const MenuStyled = styled(Menu)(() => ({
-        position: "fixed",
-        top: "6%",
-        right: "200%"
-    }));
-
     return (
-        <MenuStyled
-            sx={{ position: "absolute", top: "6%", right: "15%" }}
+        <Menu
             open={open}
-            anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-            }}
-            transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-            }}
+            anchorEl={anchorEl}
+            sx={{ marginTop: "19px" }}
+            {...rest}
         >
             <MenuItem onClick={() => navigate(`/users/${currentUser._id}`)}>
                 <Person2Icon sx={{ marginRight: "15px" }} />
@@ -61,12 +49,14 @@ const ProfileList = ({ open }) => {
                 <LogoutIcon sx={{ marginRight: "15px" }} />
                 <ListItemText primary="Выход" />
             </MenuItem>
-        </MenuStyled>
+        </Menu>
     );
 };
 
 ProfileList.propTypes = {
-    open: PropTypes.bool.isRequired
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    anchorEl: PropTypes.object
 };
 
 export default ProfileList;

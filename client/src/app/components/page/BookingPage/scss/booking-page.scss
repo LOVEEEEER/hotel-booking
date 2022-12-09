@@ -3,6 +3,7 @@
 .booking {
   &__page {
     margin-top: 25px;
+    min-height: calc(88vh - 200px);
   }
   &__list {
     display: flex;
@@ -19,7 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 77vh;
+    height: 70vh;
   }
   &__item {
     margin-bottom: 20px;
