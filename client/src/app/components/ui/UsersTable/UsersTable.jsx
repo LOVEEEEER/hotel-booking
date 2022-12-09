@@ -4,7 +4,11 @@ import Button from "../../common/Button";
 import Table from "../../common/table/Table";
 import { getFormatDate } from "../../../utils/dateService";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser, deleteUser, getUsersList } from "../../../store/users";
+import {
+    getCurrentUser,
+    deleteUser,
+    getUsersList
+} from "../../../store/slices/users";
 import { useSort } from "../../../hooks/useSort";
 
 const UsersTable = () => {
@@ -41,7 +45,7 @@ const UsersTable = () => {
             created_at: {
                 name: "Аккаунт создан:",
                 component: (user) => (
-                    <span>{getFormatDate(new Date(user.created_at))}</span>
+                    <span>{getFormatDate(user.created_at)}</span>
                 )
             },
             delete: {

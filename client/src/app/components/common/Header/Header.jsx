@@ -4,7 +4,7 @@ import Button from "../Button";
 import { Link, NavLink } from "react-router-dom";
 import NavProfile, { NavProfileLoading } from "../../ui/profile/NavProfile";
 import { useSelector } from "react-redux";
-import { getIsLoading, getIsLoggedIn } from "../../../store/users";
+import { getIsLoading, getIsLoggedIn } from "../../../store/slices/users";
 import PhoneMenu from "../../ui/PhoneMenu";
 
 const Header = () => {
@@ -12,10 +12,10 @@ const Header = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());
     const usersLoading = useSelector(getIsLoading());
     const links = [
-        { path: "/rooms", text: "Номера", id: 1 },
-        { path: "/services", text: "Вакансии", id: 2 },
-        { path: "/vacancies", text: "Услуги", id: 3 },
-        { path: "/news", text: "Политика", id: 4 }
+        { path: "/rooms", text: "Номера", _id: 1 },
+        { path: "/services", text: "Вакансии", _id: 2 },
+        { path: "/vacancies", text: "Услуги", _id: 3 },
+        { path: "/news", text: "Политика", _id: 4 }
     ];
     const handleOpenMenu = () => {
         setOpen((prevState) => !prevState);
@@ -28,7 +28,7 @@ const Header = () => {
                     <Logo />
                     <ul className="header__nav-list">
                         {links.map((link) => (
-                            <li className="header__nav-item" key={link.id}>
+                            <li className="header__nav-item" key={link._id}>
                                 <NavLink
                                     className={({ isActive }) =>
                                         `header__nav-link ${

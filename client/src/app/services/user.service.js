@@ -7,13 +7,6 @@ const userService = {
         const { data } = await httpService.get(userEndPoint);
         return data;
     },
-    createUser: async (payload) => {
-        const { data } = await httpService.put(
-            userEndPoint + payload.id,
-            payload
-        );
-        return data;
-    },
     updateUser: async (id, payload) => {
         console.log("id", id);
         const { data } = await httpService.patch(userEndPoint + id, payload);

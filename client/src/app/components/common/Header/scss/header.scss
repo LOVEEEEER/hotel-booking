@@ -3,7 +3,7 @@
 .header {
   background-color: #fff;
   min-height: 78px;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
   &__container{
     display: flex;
     justify-content: space-between;
@@ -56,6 +56,7 @@
   &__toggler {
     z-index: 50;
   }
+
 
   #menu__toggle:checked ~ .menu__btn > span {
     transform: rotate(45deg);

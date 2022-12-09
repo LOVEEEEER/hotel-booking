@@ -5,10 +5,10 @@ const schema = new Schema({
   comfort: [String],
   images: [String],
   price: {
-    type: String,
+    type: Number,
   },
   rate: {
-    type: String,
+    type: Number,
   },
   title: {
     type: String,

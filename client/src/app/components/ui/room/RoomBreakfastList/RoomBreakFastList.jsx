@@ -23,7 +23,7 @@ const RoomBreakFastList = ({ breakfast }) => {
             <h2 className="room-comfort__title">Питание</h2>
             <ul className="room-info__breakfast-list">
                 {breakfast.map((item) => (
-                    <li key={item._id} className="room-info__breakfast-item">
+                    <li key={item} className="room-info__breakfast-item">
                         <img
                             src={getBreakFastIcon(item)}
                             alt={item}

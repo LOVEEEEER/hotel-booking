@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRoutes } from "react-router-dom";
-import { loadRooms } from "./store/rooms";
-import { getIsLoggedIn, loadUsers } from "./store/users";
+import { loadRooms } from "./store/slices/rooms";
+import { getIsLoggedIn, loadUsers } from "./store/slices/users";
 import { useDispatch, useSelector } from "react-redux";
 import routes from "./routes";
-import { loadBooking } from "./store/booking";
+import { loadBooking } from "./store/slices/booking";
 
 function App() {
     const dispatch = useDispatch();

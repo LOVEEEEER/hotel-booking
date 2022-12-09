@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
 import { validatorConfig } from "./validatorConfig";
 import { useDispatch } from "react-redux";
-import { createComment } from "../../../../store/comments";
+import { createComment } from "../../../../store/slices/comments";
 
 const ReviewsForm = () => {
     const dispatch = useDispatch();
@@ -26,7 +26,6 @@ const ReviewsForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <TextAreaField
-                error={Boolean(errors.review)}
                 value={data.review}
                 name="review"
                 label="Отзыв"
@@ -34,7 +33,7 @@ const ReviewsForm = () => {
                 onChange={handleChange}
                 rows={4}
                 sx={{ width: "600px", marginBottom: "15px" }}
-                helperText={errors.review ? errors.review : null}
+                errorMessage={errors.review}
             />
             <br />
             <Rating

@@ -10,8 +10,7 @@ const DatePicker = ({
     name,
     onChange,
     label,
-    error,
-    helperText,
+    errorMessage,
     ...rest
 }) => {
     const handleChange = (dateValue) => {
@@ -38,8 +37,8 @@ const DatePicker = ({
                     <TextField
                         {...params}
                         {...rest}
-                        helperText={helperText}
-                        error={error}
+                        error={Boolean(errorMessage)}
+                        helperText={errorMessage}
                     />
                 )}
             />
@@ -52,8 +51,7 @@ DatePicker.propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
-    error: PropTypes.bool,
-    helperText: PropTypes.string
+    errorMessage: PropTypes.string
 };
 
 export default DatePicker;

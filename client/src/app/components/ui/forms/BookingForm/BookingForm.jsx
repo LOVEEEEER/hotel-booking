@@ -9,7 +9,7 @@ import Counter from "../../../common/Counter";
 import DatePicker from "../../../common/form/DatePicker";
 import { useDispatch } from "react-redux";
 import Button from "../../../common/Button";
-import { reserveRoom } from "../../../../store/booking";
+import { reserveRoom } from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
 
 const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
@@ -40,7 +40,6 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
             entry: data.entry.getTime(),
             departure: data.departure.getTime()
         };
-        console.log("new", bookingRoom);
         dispatch(reserveRoom(bookingRoom));
         onOpenDialog();
     };
@@ -49,21 +48,19 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
         <form className="room-booking__form" onSubmit={handleSubmit}>
             <div>
                 <DatePicker
-                    sx={{ width: "170px", marginRight: "20px" }}
-                    error={Boolean(errors.entry)}
-                    helperText={errors.entry}
+                    sx={{ width: "180px", marginRight: "20px" }}
                     label="Заезд"
                     name="entry"
                     value={data.entry}
+                    errorMessage={errors.entry}
                     onChange={handleChange}
                 />
                 <DatePicker
-                    sx={{ width: "170px" }}
-                    error={Boolean(errors.departure)}
-                    helperText={errors.departure}
+                    sx={{ width: "180px" }}
                     label="Заезд"
                     name="departure"
                     value={data.departure}
+                    errorMessage={errors.departure}
                     onChange={handleChange}
                 />
             </div>

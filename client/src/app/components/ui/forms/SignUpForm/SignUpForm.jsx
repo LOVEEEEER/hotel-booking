@@ -4,7 +4,7 @@ import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
 import { FormHelperText } from "@mui/material";
-import { getAuthSignUpError, signUp } from "../../../../store/users";
+import { getAuthSignUpError, signUp } from "../../../../store/slices/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "../../../common/form/DatePicker";
@@ -36,46 +36,42 @@ const SignUpForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <TextField
-                error={Boolean(errors.name)}
                 label="Полное имя"
                 onChange={handleChange}
                 name="name"
                 value={data.name}
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
-                helperText={errors.name}
+                errorMessage={errors.name}
                 placeholder="Иван Иванов"
             />
             <br />
             <TextField
-                error={Boolean(errors.email)}
                 label="E-mail"
                 onChange={handleChange}
                 name="email"
                 value={data.email}
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
-                helperText={errors.email}
+                errorMessage={errors.email}
                 placeholder="example@mail.com"
             />
             <br />
             <TextField
-                error={Boolean(errors.password)}
                 label="Пароль"
                 onChange={handleChange}
                 type="password"
                 name="password"
                 value={data.password}
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
-                helperText={errors.password}
+                errorMessage={errors.password}
             />
             <br />
             <DatePicker
-                error={Boolean(errors.birth)}
                 value={data.birth}
                 name="birth"
                 onChange={handleChange}
                 label="День рождения"
                 sx={{ marginBottom: "20px", minWidth: "320px" }}
-                helperText={errors.birth}
+                errorMessage={errors.birth}
             />
             <br />
 

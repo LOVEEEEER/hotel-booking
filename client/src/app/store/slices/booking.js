@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import bookingService from "../services/booking.service";
+import bookingService from "../../services/booking.service";
 
 const initialState = {
     entities: [],
@@ -39,7 +39,7 @@ const bookingSlice = createSlice({
         },
         removed(state, action) {
             state.entities = state.entities.filter(
-                (item) => item.id !== action.payload
+                (item) => item._id !== action.payload
             );
         }
     }

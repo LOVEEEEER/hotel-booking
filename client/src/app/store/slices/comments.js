@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import commentsService from "../services/comments.service";
+import commentsService from "../../services/comments.service";
 
 const initialState = {
     entities: null,
@@ -33,7 +33,7 @@ const commentsSlice = createSlice({
         },
         removed(state, action) {
             state.entities = state.entities.filter(
-                (comment) => comment.id !== action.payload
+                (comment) => comment._id !== action.payload
             );
         }
     }

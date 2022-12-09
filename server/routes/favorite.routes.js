@@ -7,7 +7,8 @@ const router = express.Router({
 
 router.get("/", auth, async (req, res) => {
   try {
-    const list = await Favorite.find();
+    const { orderBy, equalTo } = req.query;
+    const list = await Favorite.find({ [orderBy]: equalTo });
     res.status(200).send(list);
   } catch (error) {
     res.status(500).json({
@@ -16,7 +17,7 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-router.post("/",auth, async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const newEntity = await Favorite.create({
       ...req.body,

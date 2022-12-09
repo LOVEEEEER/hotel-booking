@@ -12,7 +12,6 @@ export function getFormatDate(data) {
 
 export function displayDate(data) {
     const date = new Date(data);
-    console.log(date.get);
     const dateNow = new Date();
     const yearDif = dateNow.getFullYear() - date.getFullYear();
     if (yearDif === 0) {

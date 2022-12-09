@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import favoritesService from "../services/favorites.service";
+import favoritesService from "../../services/favorites.service";
 
 const initialState = {
     entities: [],
@@ -40,7 +40,7 @@ export const loadFavorites = () => async (dispatch) => {
 
 export const addInFavorites = (data) => async (dispatch) => {
     try {
-        await favoritesService.create(data.id, data);
+        await favoritesService.create(data);
     } catch (error) {
         dispatch(requestFailed(error.message));
     }

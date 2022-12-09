@@ -3,7 +3,7 @@ import Button from "../../common/Button";
 import { getFormatDate } from "../../../utils/dateService";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getCurrentUser, getUserById } from "../../../store/users";
+import { getCurrentUser, getUserById } from "../../../store/slices/users";
 import { useDialog } from "../../../hooks/useDialog";
 import Dialog from "../../common/Dialog";
 import EditForm from "../../ui/forms/EditForm";
@@ -30,13 +30,12 @@ const UserProfilePage = () => {
                             <li className="user-profile__item">
                                 <span className="user-profile__description">
                                     Дата регистрации:{" "}
-                                    {getFormatDate(new Date(user.created_at))}
+                                    {getFormatDate(user.created_at)}
                                 </span>
                             </li>
                             <li className="user-profile__item">
                                 <span className="user-profile__description">
-                                    День рождения:{" "}
-                                    {getFormatDate(new Date(user.birth))}
+                                    День рождения: {getFormatDate(user.birth)}
                                 </span>
                             </li>
                             <li className="user-profile__item">

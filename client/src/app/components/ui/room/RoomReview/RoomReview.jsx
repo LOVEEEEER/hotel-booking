@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Rating from "../../../common/Rating";
 import Avatar from "../../../common/Avatar";
 import { useSelector } from "react-redux";
-import { getUserById } from "../../../../store/users";
+import { getUserById } from "../../../../store/slices/users";
 import { displayDate } from "../../../../utils/dateService";
 // import deleteIcon from "../../../../assets/svg/delete.svg";
 
@@ -11,7 +11,7 @@ const RoomReview = ({ review, onToggleUserProfile }) => {
     const authorComment = useSelector(getUserById(review.userId));
     if (authorComment) {
         return (
-            <li key={review.id} className="room-reviews__item">
+            <li key={review._id} className="room-reviews__item">
                 <div className="room-reviews__user">
                     <Avatar
                         image={authorComment.image}

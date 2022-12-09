@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getBookingById } from "../../../../../store/booking";
+import { getBookingById } from "../../../../../store/slices/booking";
 import { useDialog } from "../../../../../hooks/useDialog";
-import { getCurrentUser } from "../../../../../store/users";
+import { getCurrentUser } from "../../../../../store/slices/users";
 import SuccessWindow from "../SuccessWindow/SuccessWindow";
 import SuccessWindowLoading from "../SuccessWindow/SuccessWindowLoading";
 import BookingForm from "../../../forms/BookingForm";

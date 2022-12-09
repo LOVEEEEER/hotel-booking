@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfileList from "../ProfileList";
 import { useSelector } from "react-redux";
-import { getCurrentUser } from "../../../../store/users";
+import { getCurrentUser } from "../../../../store/slices/users";
 import arrowDown from "../../../../assets/svg/arrow-down.svg";
 
 const NavProfile = () => {
@@ -11,7 +11,6 @@ const NavProfile = () => {
     const handleOpen = () => {
         setOpen((prevState) => !prevState);
     };
-    console.log(currentUser);
     if (currentUser) {
         return (
             <>

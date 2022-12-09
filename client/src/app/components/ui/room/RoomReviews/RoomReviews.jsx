@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import TextSlider from "../../../common/TextSlider";
 import { useNavigate, useParams } from "react-router-dom";
-import { getComments, loadComments } from "../../../../store/comments";
+import { getComments, loadComments } from "../../../../store/slices/comments";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import RoomReview from "../RoomReview/RoomReview";
@@ -28,7 +28,7 @@ const RoomReviews = () => {
                     {sortedComments.map((item) => (
                         <RoomReview
                             onToggleUserProfile={toggleUserProfile}
-                            key={item.id}
+                            key={item._id}
                             review={item}
                         />
                     ))}

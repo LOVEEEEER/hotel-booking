@@ -1,13 +1,4 @@
-import { useState } from "react";
-
 export const useFilters = () => {
-    const [searchQuery, setSearchQuery] = useState("");
-
-    const handleSearchQuery = ({ target }) => {
-        console.log("render", target);
-        setSearchQuery(target.value);
-    };
-
     function isRepeatElement(items, item) {
         return items.some((_item) => _item.id === item.id);
     }
@@ -44,5 +35,7 @@ export const useFilters = () => {
         }
     };
 
-    return { searchQuery, handleSearchQuery, getFilteredItems };
+    return {
+        getFilteredItems
+    };
 };

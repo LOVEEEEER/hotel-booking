@@ -7,7 +7,7 @@ const PhoneMenu = ({ open, navLinks }) => {
         <div className={"header__menu" + (open ? " active" : "")}>
             <ul className="header__menu-list">
                 {navLinks.map((link) => (
-                    <li key={link.id} className="header__menu-item">
+                    <li key={link._id} className="header__menu-item">
                         <NavLink
                             className={({ isActive }) =>
                                 `header__nav-link ${isActive ? "active" : ""}`

@@ -6,7 +6,7 @@ import {
     getCurrentUser,
     getIsLoading,
     getIsLoggedIn
-} from "../../../store/users";
+} from "../../../store/slices/users";
 
 const ProtectedRoute = ({
     children,
