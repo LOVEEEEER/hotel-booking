@@ -90,12 +90,10 @@ const RoomsListPage = () => {
                 )}
                 {itemsCrop.length > 0 && (
                     <Pagination
-                        currentPage={currentPage + 1}
+                        currentPage={currentPage}
                         itemsCount={rooms.length}
                         pageSize={pageSize}
-                        onChange={(e, pageIndex) =>
-                            handlePageChange(pageIndex - 1)
-                        }
+                        onChange={handlePageChange}
                     />
                 )}
             </section>

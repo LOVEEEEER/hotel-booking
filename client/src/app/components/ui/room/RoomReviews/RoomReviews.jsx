@@ -1,41 +1,41 @@
-import React, { useEffect } from "react";
-import TextSlider from "../../../common/TextSlider";
-import { useNavigate, useParams } from "react-router-dom";
-import { getComments, loadComments } from "../../../../store/slices/comments";
-import { useDispatch, useSelector } from "react-redux";
-import _ from "lodash";
-import RoomReview from "../RoomReview/RoomReview";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { getIsLoggedIn } from "../../../../store/slices/users";
+import ReviewsForm from "../../forms/ReviewsForm";
+import RoomReviewsList from "../RoomReviewsList";
+import RoomStatisticsBar from "../RoomStatisticsBar";
 
 const RoomReviews = () => {
-    const dispatch = useDispatch();
-    const { roomId } = useParams();
-    const navigate = useNavigate();
-    const comments = useSelector(getComments());
+    const [answerOn, setAnswerOn] = useState();
+    const isLoggedIn = useSelector(getIsLoggedIn());
 
-    useEffect(() => {
-        dispatch(loadComments(roomId));
-    }, []);
-
-    const toggleUserProfile = (userId) => {
-        navigate(`/users/${userId}`);
+    const handleAnswerOn = (userId) => {
+        setAnswerOn(userId);
     };
 
-    if (comments) {
-        const sortedComments = _.orderBy(comments, ["created_at"], ["desc"]);
-        return (
-            <ul className="room-reviews__list">
-                <TextSlider>
-                    {sortedComments.map((item) => (
-                        <RoomReview
-                            onToggleUserProfile={toggleUserProfile}
-                            key={item._id}
-                            review={item}
-                        />
-                    ))}
-                </TextSlider>
-            </ul>
-        );
-    }
+    return (
+        <div className="room-reviews__feedback">
+            <div>
+                {isLoggedIn && (
+                    <div className="room-reviews__form">
+                        <ReviewsForm answerOn={answerOn} />
+                    </div>
+                )}
+                <div className="room-reviews__comments">
+                    <RoomReviewsList
+                        answerOn={answerOn}
+                        onAnswer={handleAnswerOn}
+                    />
+                </div>
+            </div>
+            <div className="room-reviews__statistics">
+                <h2 className="room-reviews__statistics-title">
+                    Статистика по отзывам
+                </h2>
+                <RoomStatisticsBar />
+            </div>
+        </div>
+    );
 };
 
 export default RoomReviews;

@@ -1,0 +1,16 @@
+.room {
+  &-reviews__feedback {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &-reviews__form {
+    margin-bottom: 25px;
+  }
+  &-reviews__statistics-title {
+    margin-bottom: 20px;
+  }
+  &-reviews__comments {
+    margin-bottom: 40px;
+  }
+}

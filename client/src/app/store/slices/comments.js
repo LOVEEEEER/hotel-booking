@@ -71,6 +71,12 @@ export const removeComment = (id) => async (dispatch) => {
     }
 };
 
+export const getRoomRates = () => (state) => {
+    return state.comments.entities
+        ? state.comments.entities.map((comment) => comment.rate)
+        : null;
+};
+
 export const getComments = () => (state) => state.comments.entities;
 
 export default commentsReducer;

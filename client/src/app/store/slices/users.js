@@ -154,7 +154,6 @@ export const deleteUser = (userId) => async (dispatch) => {
 };
 
 export const getUserById = (userId) => (state) => {
-    console.log(state.users.entities);
     return state.users.entities
         ? state.users.entities.find((user) => user._id === userId)
         : null;

@@ -16,6 +16,10 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    answerOn: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: {

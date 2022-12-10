@@ -8,12 +8,12 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onChange }) => {
     return (
         <div className="pagination-container">
             <PaginationMui
-                page={currentPage}
+                page={currentPage + 1}
                 count={pageCount}
                 variant="outlined"
                 color="primary"
                 size="large"
-                onChange={onChange}
+                onChange={(e, pageIndex) => onChange(pageIndex - 1)}
             />
         </div>
     );

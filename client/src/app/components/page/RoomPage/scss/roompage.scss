@@ -103,17 +103,6 @@
     box-shadow: 2px 2px 8px 3px rgba(34, 60, 80, 0.2);
     border-radius: 6px;
   }
-  &-reviews__form {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  &-reviews__statistics-title {
-    margin-bottom: 20px;
-  }
-  &-reviews__comments {
-    margin-bottom: 40px;
-  }
 }
 .love-icon {
   &:hover {

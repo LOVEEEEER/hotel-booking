@@ -4,8 +4,6 @@ import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/room/booking/Booking";
-import RoomStatisticsBar from "../../ui/room/RoomStatisticsBar";
-import ReviewsForm from "../../ui/forms/ReviewsForm";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
 import { useSelector } from "react-redux";
@@ -66,20 +64,7 @@ const RoomPage = () => {
                         <h2 className="room-section-title">
                             Отзывы посетителей данного отеля
                         </h2>
-                        <div className="room-reviews__comments">
-                            <RoomReviews />
-                        </div>
-                        {isLoggedIn && (
-                            <div className="room-reviews__form">
-                                <ReviewsForm />
-                                <div className="room-reviews__statistics">
-                                    <h2 className="room-reviews__statistics-title">
-                                        Статистика по отзывам
-                                    </h2>
-                                    <RoomStatisticsBar />
-                                </div>
-                            </div>
-                        )}
+                        <RoomReviews />
                     </section>
                 </main>
             </>

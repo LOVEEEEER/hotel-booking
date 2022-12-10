@@ -6,12 +6,12 @@ import UsersBookingList from "../../ui/admin/UsersBookingList";
 const AdminPage = () => {
     const tabsColumns = [
         {
-            name: "Бронирование",
-            component: <UsersBookingList />
-        },
-        {
             name: "Пользователи",
             component: <UsersTable />
+        },
+        {
+            name: "Бронирования",
+            component: <UsersBookingList />
         }
     ];
     return (

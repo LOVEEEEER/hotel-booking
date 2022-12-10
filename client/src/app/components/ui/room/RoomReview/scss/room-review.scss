@@ -1,37 +1,74 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
 .room-reviews {
   &__item {
-    padding: 23px;
-    overflow: hidden;
-    background-color: rgb(245, 244, 255);
-    border-radius: 20px;
+    width: 500px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
-  &__user {
+  &__review {
+    max-width: 500px;
+    padding: 23px;
+    background-color: rgb(233, 230, 247);
+    border-radius: 10px;
+    @include phones {
+      width: 300px;
+    }
+  }
+  &__user-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 7px;
   }
-  &__author {
+  &__user-info_first {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__user-info_second {
+    display: flex;
+    align-items: center;
+  }
+  &__description {
+    width: 300px;
+    word-wrap: break-word;
+    line-height: 20px;
+  }
+  &__user-name {
+    margin-right: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__user-answer {
+    font-size: 11px;
+  }
+  &__answer-text {
     font-size: 13px;
     &:hover {
       cursor: pointer;
     }
   }
-  &__description {
-    display: block;
-    width: 95%;
-    word-wrap: break-word;
+  &__user-created {
+    margin-right: 7px;
+    font-size: 14px;
   }
-  &__created {
-    margin-left: auto;
-    align-self: flex-start;
-    font-size: 12px;
+  &__remove {
+    width: 22px;
+    &:hover {
+      cursor: pointer;
+    }
   }
-  &__delete {
-    width: 20px;
-  }
-  &__user-right_block {
-    display: flex;
-    align-items: center;
+  &__control-text {
+    color: rgb(122, 122, 122);
+    transition: 0.3s opacity linear;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
   }
 }
