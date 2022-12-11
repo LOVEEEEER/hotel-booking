@@ -25,7 +25,7 @@ http.interceptors.request.use(
                     refreshToken: data.refreshToken,
                     accessToken: data.accessToken,
                     expiresIn: data.expiresIn,
-                    localId: data.userId
+                    userId: data.userId
                 });
             }
             const accessToken = localStorageService.getAccessToken();

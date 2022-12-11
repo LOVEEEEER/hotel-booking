@@ -3,10 +3,10 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema(
   {
     departure: {
-      type: Number,
+      type: Date,
     },
     entry: {
-      type: Number,
+      type: Date,
     },
     fullPrice: {
       type: Number,
@@ -19,6 +19,12 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    adults: {
+      type: Number,
+    },
+    kids: {
+      type: Number,
     },
   },
   {

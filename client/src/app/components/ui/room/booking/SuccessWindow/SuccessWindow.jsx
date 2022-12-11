@@ -9,9 +9,9 @@ import Button from "../../../../common/Button";
 import { useNavigate } from "react-router-dom";
 import Divider from "../../../../common/Divider";
 
-const SuccessWindow = ({ info, ...rest }) => {
+const SuccessWindow = ({ currentBooking, ...rest }) => {
     const navigate = useNavigate();
-    const bookedRoom = useSelector(getRoomById(info.roomId));
+    const bookedRoom = useSelector(getRoomById(currentBooking.roomId));
     return (
         <Dialog {...rest}>
             <div className="room-booking__dialog">
@@ -38,23 +38,34 @@ const SuccessWindow = ({ info, ...rest }) => {
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Заезд: {getFormatDate(info.entry)} в 13:00
+                            Взрослых: {currentBooking.adults}
                         </span>
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Выезд: {getFormatDate(info.departure)} в 13:00
+                            Детей: {currentBooking.kids}
                         </span>
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Номер брони: {info._id}
+                            Заезд: {getFormatDate(currentBooking.entry)} в 13:00
+                        </span>
+                    </li>
+                    <li className="room-booking__dialog-item">
+                        <span className="room-booking__dialog-info">
+                            Выезд: {getFormatDate(currentBooking.departure)} в
+                            13:00
+                        </span>
+                    </li>
+                    <li className="room-booking__dialog-item">
+                        <span className="room-booking__dialog-info">
+                            Номер брони: {currentBooking._id}
                         </span>
                     </li>
                 </ul>
                 <Divider />
                 <h3 className="room-booking__dialog-price">
-                    Итого: {info.fullPrice} рублей
+                    Итого: {currentBooking.fullPrice} рублей
                 </h3>
 
                 <Button
@@ -69,7 +80,7 @@ const SuccessWindow = ({ info, ...rest }) => {
 };
 
 SuccessWindow.propTypes = {
-    info: PropTypes.object.isRequired
+    currentBooking: PropTypes.object.isRequired
 };
 
 export default SuccessWindow;

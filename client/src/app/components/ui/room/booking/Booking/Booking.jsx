@@ -22,7 +22,7 @@ const Booking = ({ ...rest }) => {
                     />
                 ) : (
                     <SuccessWindow
-                        info={currentBooking}
+                        currentBooking={currentBooking}
                         open={openDialog}
                         onClose={handleClose}
                     />

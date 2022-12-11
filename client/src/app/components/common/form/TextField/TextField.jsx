@@ -25,8 +25,17 @@ const TextField = ({
     return (
         <>
             {type === "password" ? (
-                <FormControl sx={{ width: "25ch" }} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">
+                <FormControl
+                    sx={{ width: "25ch" }}
+                    variant="outlined"
+                    error={Boolean(errorMessage)}
+                    helperText={errorMessage}
+                >
+                    <InputLabel
+                        htmlFor="outlined-adornment-password"
+                        error={Boolean(errorMessage)}
+                        helperText={errorMessage}
+                    >
                         {label}
                     </InputLabel>
                     <OutlinedInput
@@ -39,7 +48,11 @@ const TextField = ({
                         helperText={errorMessage}
                         {...rest}
                         endAdornment={
-                            <InputAdornment position="end">
+                            <InputAdornment
+                                position="end"
+                                error={Boolean(errorMessage)}
+                                helperText={errorMessage}
+                            >
                                 <IconButton
                                     aria-label="toggle password visibility"
                                     onClick={handleShowPassword}
