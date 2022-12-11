@@ -13,7 +13,6 @@ const BookingPage = () => {
         userBooking || [],
         6
     );
-    console.log(userBooking);
     if (userBooking) {
         return (
             <main className="booking__page">
@@ -33,11 +32,9 @@ const BookingPage = () => {
                                 })}
                             </ul>
                             <Pagination
-                                currentPage={currentPage + 1}
+                                currentPage={currentPage}
                                 itemsCount={userBooking.length}
-                                onChange={(e, page) =>
-                                    handlePageChange(page - 1)
-                                }
+                                onChange={handlePageChange}
                                 pageSize={pageSize}
                             />
                         </>
@@ -53,4 +50,4 @@ const BookingPage = () => {
     }
 };
 
-export default BookingPage;
+export default React.memo(BookingPage);

@@ -33,5 +33,12 @@ export const useForm = (initialState, config) => {
         }
         return Object.keys(errors).length === 0;
     };
-    return { handleChange, validate, data, validateBySubmit, errors };
+    return {
+        handleChange,
+        validate,
+        data,
+        validateBySubmit,
+        errors,
+        setErrors
+    };
 };

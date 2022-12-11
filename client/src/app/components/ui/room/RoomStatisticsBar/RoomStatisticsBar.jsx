@@ -9,7 +9,7 @@ const RoomStatisticsBar = () => {
     const getPercentOfRate = (rateItem) => {
         let sumOfRates = 0;
         rates.forEach((rate) => {
-            if (rateItem === Math.floor(rate)) {
+            if (rateItem === Math.round(rate)) {
                 sumOfRates += 1;
             }
         });

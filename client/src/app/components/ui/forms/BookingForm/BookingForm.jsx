@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "../../../../hooks/useForm";
 import {
@@ -7,14 +7,18 @@ import {
 } from "../../../../utils/dateService";
 import Counter from "../../../common/Counter";
 import DatePicker from "../../../common/form/DatePicker";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../common/Button";
-import { reserveRoom } from "../../../../store/slices/booking";
+import {
+    getRoomBookingList,
+    reserveRoom
+} from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
 
 const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
-    const { data, errors, handleChange } = useForm(
+    const [bookingError, setBookingError] = useState();
+    const { data, errors, handleChange, validateBySubmit } = useForm(
         {
             entry: getPresenceBookingDate(1),
             departure: getPresenceBookingDate(2),
@@ -23,6 +27,7 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
         },
         validatorConfig
     );
+    const roomBookingList = useSelector(getRoomBookingList(_id));
     const getRoomPrice = () => {
         if (data.entry && data.departure) {
             const daysCount = getDaysCountFromTimeStamp(
@@ -34,14 +39,41 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        const bookingRoom = {
-            roomId: _id,
-            fullPrice: getRoomPrice(data),
-            entry: data.entry.getTime(),
-            departure: data.departure.getTime()
-        };
-        dispatch(reserveRoom(bookingRoom));
-        onOpenDialog();
+        const isValid = validateBySubmit();
+        if (isValid) {
+            const currentBookingEntry = new Date(data.entry).getTime();
+            const currentBookingDeparture = new Date(data.departure).getTime();
+            const isCorrectFormat =
+                currentBookingEntry > currentBookingDeparture;
+
+            if (isCorrectFormat) {
+                setBookingError("Отъезд не может быть позже выезда");
+                return;
+            }
+            const bookingRoom = {
+                roomId: _id,
+                fullPrice: getRoomPrice(data),
+                ...data
+            };
+
+            const isBookingOnThisDate = roomBookingList.some((booking) => {
+                const bookingEntry = new Date(booking.entry).getTime();
+                const bookingDeparture = new Date(booking.departure).getTime();
+                const isValid =
+                    (currentBookingEntry >= bookingEntry &&
+                        currentBookingEntry <= bookingDeparture) ||
+                    (currentBookingDeparture >= bookingEntry &&
+                        currentBookingDeparture <= bookingDeparture);
+                return isValid;
+            });
+
+            if (!isBookingOnThisDate) {
+                dispatch(reserveRoom(bookingRoom));
+                onOpenDialog();
+            } else {
+                setBookingError("На указанные вами числа уже есть бронь.");
+            }
+        }
     };
     const isValid = Object.keys(errors).length === 0;
     return (
@@ -96,6 +128,10 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
                 >
                     Забронировать
                 </Button>
+                <br />
+                {bookingError && (
+                    <span className="room-booking__error">{bookingError}</span>
+                )}
             </div>
         </form>
     );

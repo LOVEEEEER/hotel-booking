@@ -91,6 +91,12 @@ export const getUserBooking = (userId) => (state) => {
     );
 };
 
+export const getRoomBookingList = (roomId) => (state) => {
+    return state.booking.entities.filter(
+        (booking) => booking.roomId === roomId
+    );
+};
+
 export const getUserBookingCount = (userId) => (dispatch, getState) => {
     return getState().booking.entities.filter(
         (booking) => booking.userId.toString() === userId

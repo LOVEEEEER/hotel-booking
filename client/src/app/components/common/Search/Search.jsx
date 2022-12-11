@@ -9,6 +9,7 @@ const Search = ({ onChange, value, ...rest }) => {
             label="Поиск по номеру..."
             value={value}
             onChange={onChange}
+            type="search"
             {...rest}
         />
     );

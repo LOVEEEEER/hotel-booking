@@ -17,6 +17,7 @@ const RoomReviewsList = ({ ...rest }) => {
         sortedItems || [],
         pageSize
     );
+    const itemsCount = comments?.length;
 
     useEffect(() => {
         dispatch(loadComments(roomId));
@@ -36,12 +37,14 @@ const RoomReviewsList = ({ ...rest }) => {
                 ) : (
                     "Список отзывов пуст"
                 )}
-                <Pagination
-                    currentPage={currentPage}
-                    onChange={handlePageChange}
-                    itemsCount={comments.length}
-                    pageSize={pageSize}
-                />
+                {itemsCount > pageSize && (
+                    <Pagination
+                        currentPage={currentPage}
+                        onChange={handlePageChange}
+                        itemsCount={comments.length}
+                        pageSize={pageSize}
+                    />
+                )}
             </div>
         );
     }

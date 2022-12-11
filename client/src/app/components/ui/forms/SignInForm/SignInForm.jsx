@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "../../../common/form/TextField";
 import Button from "../../../common/Button";
 import { validatorConfig } from "./validatorConfig";
 import { useForm } from "../../../../hooks/useForm";
-import { FormHelperText } from "@mui/material";
 import { getAuthSignInError, signIn } from "../../../../store/slices/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -13,13 +12,17 @@ const SignInForm = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const authError = useSelector(getAuthSignInError());
-    const { handleChange, data, errors, validateBySubmit } = useForm(
+    const { handleChange, data, errors, validateBySubmit, setErrors } = useForm(
         {
             email: "",
             password: ""
         },
         validatorConfig
     );
+
+    useEffect(() => {
+        setErrors((prevState) => ({ ...prevState, password: authError }));
+    }, [authError]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,11 +54,6 @@ const SignInForm = () => {
                 sx={{ marginBottom: "30px", minWidth: "320px" }}
                 errorMessage={errors.password}
             />
-            {authError && (
-                <p>
-                    <FormHelperText error={true}>{authError}</FormHelperText>
-                </p>
-            )}
             <Button
                 disabled={!Object.keys(errors).length === 0}
                 type="submit"

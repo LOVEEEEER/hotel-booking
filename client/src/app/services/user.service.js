@@ -8,7 +8,6 @@ const userService = {
         return data;
     },
     updateUser: async (id, payload) => {
-        console.log("id", id);
         const { data } = await httpService.patch(userEndPoint + id, payload);
         return data;
     },

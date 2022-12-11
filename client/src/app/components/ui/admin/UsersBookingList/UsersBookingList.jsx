@@ -18,7 +18,7 @@ const UsersBookingList = () => {
                     </ul>
                 ) : (
                     <div className="booking__error-message">
-                        Вы пока не забронировали ни одного номера
+                        Список бронирований пуст
                     </div>
                 )}
             </>
