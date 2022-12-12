@@ -30,6 +30,7 @@ const DatePicker = ({
             <DatePickerMUI
                 label={label}
                 value={value}
+                inputFormat="DD/MM/YYYY"
                 onChange={(newValue) => {
                     handleChange(newValue);
                 }}

@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Pagination as PaginationMui } from "@mui/material";
+import { Pagination as PaginationMui, styled } from "@mui/material";
+
+const PaginationStyled = styled(PaginationMui)(() => ({
+    color: "rgb(99, 140, 253)"
+}));
 
 const Pagination = ({ itemsCount, pageSize, currentPage, onChange }) => {
     const pageCount = Math.ceil(itemsCount / pageSize);
     if (pageCount === 1) return null;
     return (
         <div className="pagination-container">
-            <PaginationMui
+            <PaginationStyled
                 page={currentPage + 1}
                 count={pageCount}
                 variant="outlined"

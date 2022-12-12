@@ -15,8 +15,8 @@ const RoomsListLoading = ({ pageSize }) => {
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
-                                    height={370}
-                                    width={400}
+                                    height={392}
+                                    width={392}
                                 />
                             </div>
                             <div className="room-card-loading__first-section_text">
@@ -24,13 +24,13 @@ const RoomsListLoading = ({ pageSize }) => {
                                     variant="text"
                                     animation="wave"
                                     height={50}
-                                    width={400}
+                                    width={392}
                                 />
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
                                     height={140}
-                                    width={400}
+                                    width={392}
                                 />
                             </div>
                         </div>
@@ -39,19 +39,19 @@ const RoomsListLoading = ({ pageSize }) => {
                                 variant="text"
                                 animation="wave"
                                 height={50}
-                                width={100}
+                                width={90}
                             />
                             <Skeleton
                                 variant="text"
                                 animation="wave"
                                 height={100}
-                                width={130}
+                                width={120}
                             />
                             <Skeleton
                                 variant="text"
                                 animation="wave"
                                 height={60}
-                                width={150}
+                                width={140}
                             />
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import parkingIcon from "../../../../assets/svg/comfort/parking.svg";
 import bankIcon from "../../../../assets/svg/comfort/bank.svg";
 import gymIcon from "../../../../assets/svg/comfort/gym.svg";
 import conditionerIcon from "../../../../assets/svg/comfort/conditioner.svg";
+import smokeIcon from "../../../../assets/svg/comfort/smoke.svg";
 
 const RoomComfortList = ({ comfort }) => {
     return (
@@ -75,6 +76,18 @@ const RoomComfortList = ({ comfort }) => {
                         />
                         <span className="room-info__comfort-name">
                             Кондинционер
+                        </span>
+                    </li>
+                )}
+                {comfort.includes("smoke") && (
+                    <li className="room-info__comfort-item">
+                        <img
+                            src={smokeIcon}
+                            alt="smoke icon"
+                            className="room-info__comfort-icon"
+                        />
+                        <span className="room-info__comfort-name">
+                            Можно курить
                         </span>
                     </li>
                 )}

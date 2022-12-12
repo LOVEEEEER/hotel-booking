@@ -5,11 +5,7 @@ import Search from "../../common/Search";
 import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    getRooms,
-    getRoomsLoading,
-    loadRooms
-} from "../../../store/slices/rooms";
+import { getRooms, loadRooms } from "../../../store/slices/rooms";
 import { usePaginate } from "../../../hooks/usePaginate";
 import useSearch from "../../../hooks/useSearch";
 import { useSort } from "../../../hooks/useSort";
@@ -20,14 +16,13 @@ import { getBookingList } from "../../../store/slices/booking";
 const RoomsListPage = () => {
     const dispatch = useDispatch();
     const rooms = useSelector(getRooms());
-    const roomsLoading = useSelector(getRoomsLoading());
     const bookingList = useSelector(getBookingList());
     const { handleFilterQuery, filteredItems } = useFilters(
         rooms || [],
         bookingList || []
     );
     const { searchQueryItems, handleSearchQuery, searchQuery } = useSearch(
-        filteredItems || rooms || []
+        filteredItems || []
     );
     const { sortedItems, handleSortBy, sortBy } = useSort(
         searchQueryItems || [],
@@ -53,7 +48,7 @@ const RoomsListPage = () => {
                     <Search
                         value={searchQuery}
                         onChange={(e) => handleSearchQuery(e, rooms, "title")}
-                        sx={{ width: "60%" }}
+                        sx={{ width: "600px" }}
                     />
                     <div className="rooms__select-block">
                         <SelectField
@@ -87,7 +82,7 @@ const RoomsListPage = () => {
                         />
                     </div>
                 </div>
-                {!roomsLoading && itemsCrop.length ? (
+                {itemsCrop.length ? (
                     <RoomsList items={itemsCrop} />
                 ) : (
                     <RoomsListLoading pageSize={pageSize} />
