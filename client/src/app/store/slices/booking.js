@@ -71,7 +71,8 @@ export const reserveRoom = (bookingRoom) => async (dispatch) => {
         const { content } = await bookingService.add(bookingRoom);
         dispatch(created(content));
     } catch (error) {
-        dispatch(requestFailed(error.message));
+        const { message } = error.response.data.error;
+        dispatch(requestFailed(message));
     }
 };
 
@@ -91,6 +92,8 @@ export const getUserBooking = (userId) => (state) => {
     );
 };
 
+export const getBookingLoading = () => (state) => state.booking.isLoading;
+
 export const getRoomBookingList = (roomId) => (state) => {
     return state.booking.entities.filter(
         (booking) => booking.roomId === roomId
@@ -105,6 +108,10 @@ export const getUserBookingCount = (userId) => (dispatch, getState) => {
 
 export const getBookingList = () => (state) => {
     return state.booking.entities;
+};
+
+export const getBookingError = () => (state) => {
+    return state.booking.error;
 };
 
 export const getBookingById =

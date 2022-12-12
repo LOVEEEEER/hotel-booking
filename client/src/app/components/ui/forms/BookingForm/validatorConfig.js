@@ -3,5 +3,10 @@ export const validatorConfig = {
         isRequired: {
             message: "Введите корректную дату"
         }
+    },
+    departure: {
+        isRequired: {
+            message: "Введите корректную дату"
+        }
     }
 };

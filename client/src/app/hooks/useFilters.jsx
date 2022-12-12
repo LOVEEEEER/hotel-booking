@@ -4,7 +4,8 @@ export const useFilters = (initialState, bookingList) => {
     const [filteredItems, setFilteredItems] = useState();
     const handleFilterQuery = (name, data) => {
         switch (name) {
-            case "entry" || "departure": {
+            case "departure":
+            case "entry": {
                 if (data.entry && data.departure) {
                     const entry = new Date(data.entry).getTime();
                     const departure = new Date(data.departure).getTime();
@@ -16,10 +17,10 @@ export const useFilters = (initialState, bookingList) => {
                             const bookingDeparture = new Date(
                                 booking.departure
                             ).getTime();
-                            if (
+                            const isValidList =
                                 bookingEntry >= entry &&
-                                bookingDeparture <= departure
-                            ) {
+                                bookingDeparture <= departure;
+                            if (isValidList) {
                                 return true;
                             } else {
                                 return false;
@@ -36,11 +37,6 @@ export const useFilters = (initialState, bookingList) => {
                             }
                             return true;
                         }
-                    );
-                    console.log(
-                        filteredRoomsByNotBooked,
-                        "ids",
-                        bookingRoomIds
                     );
                     setFilteredItems(filteredRoomsByNotBooked);
                 }

@@ -46,6 +46,10 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
             const isCorrectFormat =
                 currentBookingEntry > currentBookingDeparture;
 
+            if (new Date(data.entry).getTime() < Date.now()) {
+                setBookingError("Нельзя забронировать номер в прошлом");
+                return;
+            }
             if (isCorrectFormat) {
                 setBookingError("Отъезд не может быть позже выезда");
                 return;
@@ -66,6 +70,8 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
                         currentBookingDeparture <= bookingDeparture);
                 return isValid;
             });
+
+            console.log("front", isBookingOnThisDate);
 
             if (!isBookingOnThisDate) {
                 dispatch(reserveRoom(bookingRoom));
