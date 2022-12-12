@@ -14,7 +14,6 @@ export const useSort = (elements, initialPath, initialRoute) => {
 
     useEffect(() => {
         const orderedItems = _.orderBy(elements, [sortBy.path], [sortBy.route]);
-        console.log("ordered", orderedItems);
         setSortedItems(orderedItems);
     }, [sortBy, elements]);
 

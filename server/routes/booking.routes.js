@@ -24,6 +24,7 @@ router.post("/", auth, async (req, res) => {
       ...req.body,
       userId: req.user._id,
     });
+
     res.status(201).send(newBooking);
   } catch (error) {
     res.status(500).json({

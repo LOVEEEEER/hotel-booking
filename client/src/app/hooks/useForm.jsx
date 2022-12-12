@@ -4,6 +4,7 @@ import { validator } from "../utils/validator";
 export const useForm = (initialState, config) => {
     const [data, setData] = useState(initialState);
     const [errors, setErrors] = useState({});
+    const [lastChangeName, setLastChangeName] = useState();
 
     useEffect(() => {
         if (config) {
@@ -13,6 +14,7 @@ export const useForm = (initialState, config) => {
 
     const handleChange = ({ target }) => {
         setData((prevState) => ({ ...prevState, [target.name]: target.value }));
+        setLastChangeName(target.name);
     };
     const validate = () => {
         const errors = validator(data, config);
@@ -39,6 +41,7 @@ export const useForm = (initialState, config) => {
         data,
         validateBySubmit,
         errors,
-        setErrors
+        setErrors,
+        lastChangeName
     };
 };

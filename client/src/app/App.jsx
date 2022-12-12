@@ -18,6 +18,7 @@ function App() {
             dispatch(loadBooking());
         }
     }, [isLoggedIn]);
+
     const elements = useRoutes(routes);
     return (
         <>
