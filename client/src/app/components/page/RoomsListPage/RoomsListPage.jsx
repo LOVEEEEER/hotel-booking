@@ -4,7 +4,6 @@ import Pagination from "../../common/Pagination";
 import Search from "../../common/Search";
 import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
-// import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useDispatch, useSelector } from "react-redux";
 import {
     getRooms,
@@ -14,13 +13,21 @@ import {
 import { usePaginate } from "../../../hooks/usePaginate";
 import useSearch from "../../../hooks/useSearch";
 import { useSort } from "../../../hooks/useSort";
+import FilterPanel from "../../ui/rooms/FilterPanel";
+import { useFilters } from "../../../hooks/useFilters";
+import { getBookingList } from "../../../store/slices/booking";
 
 const RoomsListPage = () => {
     const dispatch = useDispatch();
     const rooms = useSelector(getRooms());
     const roomsLoading = useSelector(getRoomsLoading());
+    const bookingList = useSelector(getBookingList());
+    const { handleFilterQuery, filteredItems } = useFilters(
+        rooms || [],
+        bookingList || []
+    );
     const { searchQueryItems, handleSearchQuery, searchQuery } = useSearch(
-        rooms || []
+        filteredItems || rooms || []
     );
     const { sortedItems, handleSortBy, sortBy } = useSort(
         searchQueryItems || [],
@@ -39,10 +46,7 @@ const RoomsListPage = () => {
     return (
         <main className="rooms__page">
             <aside className="filter-panel">
-                {/* <FilterPanel
-                    // filters={filters}
-                    // onChangeFilter={handleChangeFilterValue}
-                    /> */}
+                <FilterPanel onFilterQuery={handleFilterQuery} />
             </aside>
             <section className="rooms">
                 <div className="rooms__filters">

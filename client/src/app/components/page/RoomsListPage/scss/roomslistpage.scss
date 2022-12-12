@@ -38,11 +38,9 @@ $content-margin: 15px;
   }
 }
 .filter-panel {
-  @include tablets{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60px;
+  // margin-right: 30px;
+  @include tablets {
+    // margin-bottom: 60px;
   }
-  padding: 20px;
   box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
 }
