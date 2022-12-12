@@ -9,14 +9,12 @@ import Counter from "../../../common/Counter";
 import DatePicker from "../../../common/form/DatePicker";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../common/Button";
-import {
-    getRoomBookingList,
-    reserveRoom
-} from "../../../../store/slices/booking";
+import { getBookingError, reserveRoom } from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
 
 const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
+    const bookingServerError = useSelector(getBookingError());
     const [bookingError, setBookingError] = useState();
     const { data, errors, handleChange, validateBySubmit } = useForm(
         {
@@ -27,7 +25,6 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
         },
         validatorConfig
     );
-    const roomBookingList = useSelector(getRoomBookingList(_id));
     const getRoomPrice = () => {
         if (data.entry && data.departure) {
             const daysCount = getDaysCountFromTimeStamp(
@@ -60,25 +57,8 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
                 ...data
             };
 
-            const isBookingOnThisDate = roomBookingList.some((booking) => {
-                const bookingEntry = new Date(booking.entry).getTime();
-                const bookingDeparture = new Date(booking.departure).getTime();
-                const isValid =
-                    (currentBookingEntry >= bookingEntry &&
-                        currentBookingEntry <= bookingDeparture) ||
-                    (currentBookingDeparture >= bookingEntry &&
-                        currentBookingDeparture <= bookingDeparture);
-                return isValid;
-            });
-
-            console.log("front", isBookingOnThisDate);
-
-            if (!isBookingOnThisDate) {
-                dispatch(reserveRoom(bookingRoom));
-                onOpenDialog();
-            } else {
-                setBookingError("На указанные вами числа уже есть бронь.");
-            }
+            dispatch(reserveRoom(bookingRoom));
+            onOpenDialog();
         }
     };
     const isValid = Object.keys(errors).length === 0;
@@ -135,9 +115,11 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
                     Забронировать
                 </Button>
                 <br />
-                {bookingError && (
-                    <span className="room-booking__error">{bookingError}</span>
-                )}
+                {bookingError || bookingServerError ? (
+                    <span className="room-booking__error">
+                        {bookingError || bookingServerError}
+                    </span>
+                ) : null}
             </div>
         </form>
     );
