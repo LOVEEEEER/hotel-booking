@@ -23,20 +23,22 @@ const CheckboxField = ({
         onChange(e);
     };
     return (
-        <FormControl error={error} {...rest}>
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        value={value}
-                        onChange={handleChange}
-                        name={name}
-                        {...rest}
-                    />
-                }
-                label={label}
-            />
-            {error && <FormHelperText>{helperText}</FormHelperText>}
-        </FormControl>
+        <div>
+            <FormControl error={error} {...rest}>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            value={value}
+                            onChange={handleChange}
+                            name={name}
+                            {...rest}
+                        />
+                    }
+                    label={label}
+                />
+                {error && <FormHelperText>{helperText}</FormHelperText>}
+            </FormControl>
+        </div>
     );
 };
 

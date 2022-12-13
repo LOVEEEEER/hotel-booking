@@ -40,7 +40,7 @@ const RoomPage = () => {
                     <section className="room-comfort">
                         <ul className="room-comfort__list">
                             <li className="room-comfort__item">
-                                <RoomComfortList comfort={room.comfort} />
+                                <RoomComfortList {...room} />
                             </li>
                             <li className="room-comfort__item">
                                 <RoomBreakFastList breakfast={room.breakfast} />

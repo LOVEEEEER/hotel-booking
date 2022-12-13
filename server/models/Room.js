@@ -2,7 +2,27 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema({
   breakfast: [String],
-  comfort: [String],
+  hasSmokeZone: {
+    type: Boolean,
+  },
+  hasSwimmingPool: {
+    type: Boolean,
+  },
+  hasBank: {
+    type: Boolean,
+  },
+  hasWifi: {
+    type: Boolean,
+  },
+  hasGym: {
+    type: Boolean,
+  },
+  hasParking: {
+    type: Boolean,
+  },
+  hasConditioner: {
+    type: Boolean,
+  },
   images: [String],
   price: {
     type: Number,

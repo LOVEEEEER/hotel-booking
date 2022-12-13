@@ -8,12 +8,20 @@ import gymIcon from "../../../../assets/svg/comfort/gym.svg";
 import conditionerIcon from "../../../../assets/svg/comfort/conditioner.svg";
 import smokeIcon from "../../../../assets/svg/comfort/smoke.svg";
 
-const RoomComfortList = ({ comfort }) => {
+const RoomComfortList = ({
+    hasSmokeZone,
+    hasSwimmingPool,
+    hasBank,
+    hasWifi,
+    hasGym,
+    hasParking,
+    hasConditioner
+}) => {
     return (
         <>
             <h2 className="room-comfort__title">Преимущества этого варианта</h2>
             <ul className="room-info__comfort-list">
-                {comfort.includes("wifi") && (
+                {hasWifi && (
                     <li className="room-info__comfort-item">
                         <img
                             src={wifiIcon}
@@ -23,7 +31,7 @@ const RoomComfortList = ({ comfort }) => {
                         <span className="room-info__comfort-name">Wi-Fi</span>
                     </li>
                 )}
-                {comfort.includes("swimmingPool") && (
+                {hasSwimmingPool && (
                     <li className="room-info__comfort-item">
                         <img
                             src={swimmingPoolIcon}
@@ -33,7 +41,7 @@ const RoomComfortList = ({ comfort }) => {
                         <span className="room-info__comfort-name">Бассейн</span>
                     </li>
                 )}
-                {comfort.includes("parking") && (
+                {hasParking && (
                     <li className="room-info__comfort-item">
                         <img
                             src={parkingIcon}
@@ -45,7 +53,7 @@ const RoomComfortList = ({ comfort }) => {
                         </span>
                     </li>
                 )}
-                {comfort.includes("bankCard") && (
+                {hasBank && (
                     <li className="room-info__comfort-item">
                         <img
                             src={bankIcon}
@@ -55,7 +63,7 @@ const RoomComfortList = ({ comfort }) => {
                         <span className="room-info__comfort-name">Банк</span>
                     </li>
                 )}
-                {comfort.includes("gym") && (
+                {hasGym && (
                     <li className="room-info__comfort-item">
                         <img
                             src={gymIcon}
@@ -67,7 +75,7 @@ const RoomComfortList = ({ comfort }) => {
                         </span>
                     </li>
                 )}
-                {comfort.includes("conditioner") && (
+                {hasConditioner && (
                     <li className="room-info__comfort-item">
                         <img
                             src={conditionerIcon}
@@ -79,7 +87,7 @@ const RoomComfortList = ({ comfort }) => {
                         </span>
                     </li>
                 )}
-                {comfort.includes("smoke") && (
+                {hasSmokeZone && (
                     <li className="room-info__comfort-item">
                         <img
                             src={smokeIcon}
@@ -97,7 +105,13 @@ const RoomComfortList = ({ comfort }) => {
 };
 
 RoomComfortList.propTypes = {
-    comfort: PropTypes.array.isRequired
+    hasSmokeZone: PropTypes.bool,
+    hasSwimmingPool: PropTypes.bool,
+    hasBank: PropTypes.bool,
+    hasWifi: PropTypes.bool,
+    hasGym: PropTypes.bool,
+    hasParking: PropTypes.bool,
+    hasConditioner: PropTypes.bool
 };
 
 export default RoomComfortList;
