@@ -57,10 +57,13 @@
     margin-right: 7px;
     font-size: 14px;
   }
-  &__remove {
+  &__icon {
     width: 22px;
     &:hover {
       cursor: pointer;
+    }
+    &:not(:last-child) {
+      margin-right: 8px;
     }
   }
   &__control-text {

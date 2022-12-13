@@ -85,7 +85,7 @@ const RoomReview = ({ review, onAnswer }) => {
                             <img
                                 src={removeIcon}
                                 alt="remove"
-                                className="room-reviews__remove"
+                                className="room-reviews__icon"
                                 onClick={() => commentRemove(review._id)}
                             />
                         )}

@@ -14,9 +14,7 @@ function App() {
     useEffect(() => {
         dispatch(loadRooms());
         dispatch(loadUsers());
-        if (isLoggedIn) {
-            dispatch(loadBooking());
-        }
+        dispatch(loadBooking());
     }, [isLoggedIn]);
 
     const elements = useRoutes(routes);

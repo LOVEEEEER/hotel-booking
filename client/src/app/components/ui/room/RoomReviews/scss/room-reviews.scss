@@ -13,4 +13,10 @@
   &-reviews__comments {
     margin-bottom: 40px;
   }
+  &-reviews__auth-error {
+    margin-bottom: 30px;
+    &_link {
+      color: #585858;
+    }
+  }
 }

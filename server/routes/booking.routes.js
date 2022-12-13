@@ -8,9 +8,7 @@ const router = express.Router({
 
 router.get("/", auth, async (req, res) => {
   try {
-    console.log("get");
     const list = await Booking.find();
-    console.log(list);
     res.status(200).send(list);
   } catch {
     res.status(500).json({
