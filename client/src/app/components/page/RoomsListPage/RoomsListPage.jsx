@@ -48,7 +48,6 @@ const RoomsListPage = () => {
                     <Search
                         value={searchQuery}
                         onChange={(e) => handleSearchQuery(e, rooms, "title")}
-                        sx={{ width: "600px" }}
                     />
                     <div className="rooms__select-block">
                         <SelectField
@@ -90,7 +89,7 @@ const RoomsListPage = () => {
                 {itemsCrop.length > 0 && (
                     <Pagination
                         currentPage={currentPage}
-                        itemsCount={rooms.length}
+                        itemsCount={filteredItems.length}
                         pageSize={pageSize}
                         onChange={handlePageChange}
                     />

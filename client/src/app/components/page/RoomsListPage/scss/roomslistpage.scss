@@ -40,7 +40,14 @@ $content-margin: 15px;
 .filter-panel {
   // margin-right: 30px;
   @include tablets {
-    // margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
+}
+
+.MuiInputBase-inputTypeSearch {
+  width: 600px !important;
 }

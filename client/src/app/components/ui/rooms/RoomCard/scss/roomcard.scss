@@ -75,8 +75,12 @@
     }
   }
   &__image {
-    width: 100%;    
+    width: 20vw;    
     height: 250px;
+    object-fit: cover;
+    @include tablets {
+      width: 100%;
+    }
   }
   &__swiper-slider {
     margin-right: 30px;

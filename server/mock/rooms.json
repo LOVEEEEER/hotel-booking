@@ -3,14 +3,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
     "id": "1000d646-07fe-4450-819c-f1c3106d785c",
     "images": [
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -26,14 +22,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
     "id": "20af8b10-ecc1-4b1b-9c36-f7fb74f58378",
     "images": [
       "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -49,13 +41,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "bankCard",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
     "id": "48438004-0139-4af7-a642-f7a444f1d144",
     "images": [
       "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80",
@@ -71,14 +60,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
     "id": "54cadbbc-149b-469f-b603-489086ac8c84",
     "images": [
       "https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
@@ -94,14 +79,12 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "5b8c1a24-34d6-46f2-ac61-fdc8d912ca8c",
     "images": [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -117,15 +100,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "79e86bb0-a991-4c76-b646-f4fff3fac8d4",
     "images": [
       "https://images.unsplash.com/photo-1590490359854-dfba19688d70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
@@ -141,14 +119,11 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "parking",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
     "id": "88dded2c-a9bf-42fe-be67-ddcc8ab3d561",
     "images": [
       "https://images.unsplash.com/photo-1631048730670-ff5cd0d08f15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -164,14 +139,12 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "89afd507-046e-49bf-a6d3-211abec7d804",
     "images": [
       "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -187,12 +160,13 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
+    "hasSmokeZone": true,
     "id": "baf1f1e7-d468-4d66-a8dd-80ecafb0c338",
     "images": [
       "https://images.unsplash.com/photo-1595526051245-4506e0005bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -208,14 +182,13 @@
     "breakfast":[
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "gym",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
+    "hasSmokeZone": true,
     "id": "c00bf6ea-6871-4ba1-91b7-8c7096ed0133",
     "images": [
       "https://sun9-30.userapi.com/impg/QVSsCjdSJFOwvkYgzev7Evhx22sILhEMHoBL3Q/df_RoPlenBM.jpg?size=582x437&quality=96&sign=86538a64a3fab48d69be1c11b75002c8&type=album",
@@ -231,15 +204,13 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
+    "hasSmokeZone": true,
     "id": "d49e6a20-9a8f-4807-80fe-ccde2282b733",
     "images": [
       "https://images.unsplash.com/photo-1621293954908-907159247fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -255,14 +226,13 @@
     "breakfast":[
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasSwimmingPool": true,
+    "hasWifi": true,
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
+    "hasSmokeZone": true,
     "id": "d65c1e45-6135-4c3a-90d3-a9ff48cd6ab2",
     "images": [
       "https://images.unsplash.com/photo-1611892441796-ae6af0ec2cc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -278,14 +248,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "swimmingPool",
-      "parking",
-      "bankCard",
-      "gym",
-      "smoke"
-    ],
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "daa13b59-9703-4420-83d2-83564d727aeb",
     "images": [
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
@@ -301,13 +267,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "bankCard",
-      "gym",
-      "conditioner",
-      "smoke"
-    ],
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "ded2a1f5-6173-4860-aa44-4ab9b13a87ce",
     "images": [
       "https://images.unsplash.com/photo-1582582484783-0a7a9e45b0d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
@@ -323,13 +286,10 @@
     "breakfast": [
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "parking",
-      "bankCard",
-      "conditioner",
-      "smoke"
-    ],
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
+    "hasConditioner": true,
     "id": "f235a855-d505-4139-b1a6-d672f36fc0e2",
     "images": [
       "https://sun9-9.userapi.com/impg/FRjJyavyC33j98YQJOsNFqs4UiL07HQ---hFww/4SkNK1Czxxw.jpg?size=582x436&quality=96&sign=bc95231654709f8886120e54e8ccb52c&type=album",
@@ -345,13 +305,9 @@
     "breakfast":[
       "итальянский","вегетарианский","шведский"
     ],
-    "comfort": [
-      "wifi",
-      "parking",
-      "bankCard",
-      "gym",
-      "conditioner"
-    ],
+    "hasGym": true,
+    "hasBank": true,
+    "hasParking": true,
     "id": "fde2a427-387e-4252-a430-485c243b687a",
     "images": [
       "https://images.unsplash.com/photo-1631049035182-249067d7618e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
