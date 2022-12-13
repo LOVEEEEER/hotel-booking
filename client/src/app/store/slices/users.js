@@ -172,6 +172,13 @@ export const getIsLoggedIn = () => (state) => {
     return state.users.isLoggedIn;
 };
 
+export const getUserBookingCount = (userId) => (state) => {
+    return state.booking.entities
+        ? state.booking.entities.filter((booking) => booking.userId === userId)
+              .length
+        : null;
+};
+
 export const getAuthSignInError = () => (state) => state.users.signInError;
 export const getAuthSignUpError = () => (state) => state.users.signUpError;
 
