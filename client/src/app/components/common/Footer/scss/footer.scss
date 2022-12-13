@@ -12,10 +12,26 @@
     }
   }
   &__description {
+    margin-bottom: 10px;
     font-size: 15px;
     @include phones {
       margin-bottom: 15px;
       font-size: 12px;
+    }
+  }
+  &__social-list {
+    display: flex;
+    align-items: center;
+  }
+  &__social-item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  &__social {
+    width: 40px;
+    &:hover {
+      cursor: pointer;
     }
   }
 }

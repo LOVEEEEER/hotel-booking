@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import {
     getCurrentUser,
     getIsLoading,
+    getUserBookingCount,
     getUserById
 } from "../../../store/slices/users";
 import { useDialog } from "../../../hooks/useDialog";
@@ -19,7 +20,7 @@ const UserProfilePage = () => {
     const currentUser = useSelector(getCurrentUser());
     const user = useSelector(getUserById(userId));
     const usersLoading = useSelector(getIsLoading());
-
+    const userBookingCount = useSelector(getUserBookingCount(userId));
     if (!usersLoading && user) {
         return (
             <>
@@ -49,12 +50,7 @@ const UserProfilePage = () => {
                                 </li>
                                 <li className="user-profile__item">
                                     <span className="user-profile__description">
-                                        Номеров снято: 0
-                                    </span>
-                                </li>
-                                <li className="user-profile__item">
-                                    <span className="user-profile__description">
-                                        Оценок поставлено: 0
+                                        Бронирований: {userBookingCount}
                                     </span>
                                 </li>
                             </ul>
