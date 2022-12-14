@@ -5,17 +5,30 @@ import italyIcon from "../../../../assets/svg/breakfast/italy.svg";
 import swedenIcon from "../../../../assets/svg/breakfast/sweden.svg";
 
 const RoomBreakFastList = ({ breakfast }) => {
-    const getBreakFastIcon = (type) => {
+    const getBreakfastIcon = (type) => {
         switch (type.toLowerCase()) {
-            case "итальянский":
+            case "italian":
                 return italyIcon;
-            case "вегетарианский":
+            case "sweden":
                 return vegetarianIcon;
-            case "шведский":
+            case "vegeterian":
                 return swedenIcon;
 
             default:
-                break;
+                return type;
+        }
+    };
+    const getBreakfastName = (type) => {
+        switch (type) {
+            case "italian":
+                return "Итальянский";
+            case "sweden":
+                return "Шведский";
+            case "vegeterian":
+                return "Вегетерианский";
+
+            default:
+                return type;
         }
     };
     return (
@@ -25,12 +38,12 @@ const RoomBreakFastList = ({ breakfast }) => {
                 {breakfast.map((item) => (
                     <li key={item} className="room-info__breakfast-item">
                         <img
-                            src={getBreakFastIcon(item)}
+                            src={getBreakfastIcon(item)}
                             alt={item}
                             className="room-info__breakfast-flag"
                         />
                         <span className="room-info__breakfast-text">
-                            {item} стол
+                            {getBreakfastName(item)} стол
                         </span>
                     </li>
                 ))}

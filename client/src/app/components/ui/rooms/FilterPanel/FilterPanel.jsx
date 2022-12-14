@@ -8,57 +8,25 @@ import { useSelector } from "react-redux";
 import { getRoomsLoading } from "../../../../store/slices/rooms";
 import { getBookingLoading } from "../../../../store/slices/booking";
 import CheckboxField from "../../../common/form/CheckboxField";
+import {
+    breakfastList,
+    comfortList
+} from "../../../../constants/AppFilterConfig";
 
 const FilterPanel = ({ onFilterQuery }) => {
     const roomsLoading = useSelector(getRoomsLoading());
     const bookingLoading = useSelector(getBookingLoading());
-    const { data, handleChange, lastChangeName } = useForm({
+    const { data, handleChange } = useForm({
         entry: getPresenceBookingDate(1),
         departure: getPresenceBookingDate(2),
-        comfort: []
+        comfort: [],
+        breakfast: []
     });
     useEffect(() => {
         if (!roomsLoading && !bookingLoading) {
-            onFilterQuery(lastChangeName || "entry", data);
+            onFilterQuery(data);
         }
     }, [data, roomsLoading, bookingLoading]);
-    const comfortList = [
-        {
-            id: 1,
-            label: "Места для курения",
-            value: "hasSmokeZone"
-        },
-        {
-            id: 2,
-            label: "Бассейн",
-            value: "hasSwimmingPool"
-        },
-        {
-            id: 3,
-            label: "Банк",
-            value: "hasBank"
-        },
-        {
-            id: 4,
-            label: "Wi-Fi",
-            value: "hasWifi"
-        },
-        {
-            id: 5,
-            label: "Зал",
-            value: "hasGym"
-        },
-        {
-            id: 6,
-            label: "Парковка",
-            value: "hasParking"
-        },
-        {
-            id: 7,
-            label: "Кондинционер",
-            value: "hasConditioner"
-        }
-    ];
     const handleCheckboxChange = ({ target }) => {
         const values = data[target.name];
         const newValue = values.includes(target.value)
@@ -100,6 +68,18 @@ const FilterPanel = ({ onFilterQuery }) => {
                             name="comfort"
                             value={comfort.value}
                             label={comfort.label}
+                            onChange={handleCheckboxChange}
+                        />
+                    ))}
+                </li>
+                <li className="filter-panel__item">
+                    <h3 className="filter-panel__filter-title">Завтраки</h3>
+                    {breakfastList.map((breakfast) => (
+                        <CheckboxField
+                            key={breakfast.id}
+                            name="breakfast"
+                            value={breakfast.value}
+                            label={breakfast.label}
                             onChange={handleCheckboxChange}
                         />
                     ))}
