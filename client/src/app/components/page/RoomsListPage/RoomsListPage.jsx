@@ -17,7 +17,7 @@ const RoomsListPage = () => {
     const dispatch = useDispatch();
     const rooms = useSelector(getRooms());
     const bookingList = useSelector(getBookingList());
-    const { handleFilterQuery, filteredItems } = useFilters(
+    const { handleFilter, filteredItems } = useFilters(
         rooms || [],
         bookingList || []
     );
@@ -41,7 +41,7 @@ const RoomsListPage = () => {
     return (
         <main className="rooms__page">
             <aside className="filter-panel">
-                <FilterPanel onFilterQuery={handleFilterQuery} />
+                <FilterPanel onFilterQuery={handleFilter} />
             </aside>
             <section className="rooms">
                 <div className="rooms__filters">
