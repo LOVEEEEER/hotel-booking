@@ -42,17 +42,17 @@ const RoomPage = () => {
                         <h2 className="room-section-title">
                             Преимущества этого варианта
                         </h2>
-                        <ul className="room-comfort__list">
-                            <li className="room-comfort__item">
+                        <div className="room-comfort__block">
+                            <div className="room-comfort__item">
                                 <RoomComfortList {...room} />
-                            </li>
-                            <li className="room-comfort__item">
+                            </div>
+                            <div className="room-comfort__item">
                                 <RoomBreakFastList breakfast={room.breakfast} />
-                            </li>
-                            <li className="room-comfort__item">
+                            </div>
+                            <div className="room-comfort__item">
                                 <RoomRulesCard />
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </section>
                     {isLoggedIn && (
                         <section className="room-booking">

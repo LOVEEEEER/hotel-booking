@@ -1,15 +1,8 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
 
 .room-info__comfort {
-  &-list {
-    margin-bottom: 25px;
-    width: 490px;
-    -webkit-column-count: 2;
-    column-count: 2;
-    @include tablets {
-      -webkit-column-count: 0;
-      column-count: 0;
-    }
+  &-block {
+    max-width: 360px;
   }
   &-item {
     display: flex;
@@ -17,16 +10,29 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+  } 
+  &-icon {
+    margin-right: 12px;
+    width: 30px;
   }
   &-name {
-    font-size: 18px;
-    font-weight: 600;
+    margin-right: 70px;
+    margin-left: 15px;
+    font-weight: 400;
+    font-size: 22px;
+    @include tablets {
+      font-size: 25px;
+      margin-right: 0;
+    }
   }
-  &-icon {
-    margin-right: 15px;
-    width: 40px;
-  }
-  &-smoke_icon {
-    width: 50px;
+  &-list {
+    display: flex;
+    margin-right: 100px;
+    max-height: 180px;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    @include tablets {
+      max-height: 100%;
+    }
   }
 }
