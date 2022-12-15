@@ -1,4 +1,5 @@
 import { useState } from "react";
+import sessionStorageService from "../services/sessionStorage.service";
 
 export const useFilters = (initialState, bookingList) => {
     const [filteredItems, setFilteredItems] = useState();
@@ -76,6 +77,8 @@ export const useFilters = (initialState, bookingList) => {
             }
 
             setFilteredItems(filteredRooms);
+
+            sessionStorageService.toSessionStorage("filtersData", data);
         }
     };
 

@@ -12,16 +12,22 @@ import {
     breakfastList,
     comfortList
 } from "../../../../constants/AppFilterConfig";
+import sessionStorageService from "../../../../services/sessionStorage.service";
 
 const FilterPanel = ({ onFilterQuery }) => {
     const roomsLoading = useSelector(getRoomsLoading());
     const bookingLoading = useSelector(getBookingLoading());
-    const { data, handleChange } = useForm({
-        entry: getPresenceBookingDate(1),
-        departure: getPresenceBookingDate(2),
-        comfort: [],
-        breakfast: []
-    });
+    const storageData = sessionStorageService.fromSessionStorage("filtersData");
+    const { data, handleChange } = useForm(
+        !storageData
+            ? {
+                  entry: getPresenceBookingDate(1),
+                  departure: getPresenceBookingDate(2),
+                  comfort: [],
+                  breakfast: []
+              }
+            : storageData
+    );
     useEffect(() => {
         if (!roomsLoading && !bookingLoading) {
             onFilterQuery(data);
@@ -69,6 +75,7 @@ const FilterPanel = ({ onFilterQuery }) => {
                             value={comfort.value}
                             label={comfort.label}
                             onChange={handleCheckboxChange}
+                            checked={data.comfort.includes(comfort.value)}
                         />
                     ))}
                 </li>
@@ -81,6 +88,7 @@ const FilterPanel = ({ onFilterQuery }) => {
                             value={breakfast.value}
                             label={breakfast.label}
                             onChange={handleCheckboxChange}
+                            checked={data.breakfast.includes(breakfast.value)}
                         />
                     ))}
                 </li>
