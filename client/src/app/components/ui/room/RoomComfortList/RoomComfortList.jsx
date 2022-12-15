@@ -18,34 +18,64 @@ const RoomComfortList = ({
     hasConditioner
 }) => {
     return (
-        <>
+        <div className="room-info__comfort-block">
             <h2 className="room-comfort__title">Удобства</h2>
             <ul className="room-info__comfort-list">
-                {hasWifi && (
+                {hasSmokeZone && (
                     <li className="room-info__comfort-item">
                         <img
-                            src={wifiIcon}
-                            alt="wifi icon"
+                            src={smokeIcon}
+                            alt="smoke zone"
                             className="room-info__comfort-icon"
                         />
-                        <span className="room-info__comfort-name">Wi-Fi</span>
+                        <span className="room-info__comfort-name">Курение</span>
                     </li>
                 )}
                 {hasSwimmingPool && (
                     <li className="room-info__comfort-item">
                         <img
                             src={swimmingPoolIcon}
-                            alt="swipmming pool icon"
+                            alt="swimming pool"
                             className="room-info__comfort-icon"
                         />
                         <span className="room-info__comfort-name">Бассейн</span>
+                    </li>
+                )}
+                {hasBank && (
+                    <li className="room-info__comfort-item">
+                        <img
+                            src={bankIcon}
+                            alt="bank"
+                            className="room-info__comfort-icon"
+                        />
+                        <span className="room-info__comfort-name">Банк</span>
+                    </li>
+                )}
+                {hasWifi && (
+                    <li className="room-info__comfort-item">
+                        <img
+                            src={wifiIcon}
+                            alt="wi-fi"
+                            className="room-info__comfort-icon"
+                        />
+                        <span className="room-info__comfort-name">Wi-Fi</span>
+                    </li>
+                )}
+                {hasGym && (
+                    <li className="room-info__comfort-item">
+                        <img
+                            src={gymIcon}
+                            alt="gym"
+                            className="room-info__comfort-icon"
+                        />
+                        <span className="room-info__comfort-name">Зал</span>
                     </li>
                 )}
                 {hasParking && (
                     <li className="room-info__comfort-item">
                         <img
                             src={parkingIcon}
-                            alt="parking icon"
+                            alt="parking"
                             className="room-info__comfort-icon"
                         />
                         <span className="room-info__comfort-name">
@@ -53,33 +83,11 @@ const RoomComfortList = ({
                         </span>
                     </li>
                 )}
-                {hasBank && (
-                    <li className="room-info__comfort-item">
-                        <img
-                            src={bankIcon}
-                            alt="bank icon"
-                            className="room-info__comfort-icon"
-                        />
-                        <span className="room-info__comfort-name">Банк</span>
-                    </li>
-                )}
-                {hasGym && (
-                    <li className="room-info__comfort-item">
-                        <img
-                            src={gymIcon}
-                            alt="gym icon"
-                            className="room-info__comfort-icon"
-                        />
-                        <span className="room-info__comfort-name">
-                            Тренажерный зал
-                        </span>
-                    </li>
-                )}
                 {hasConditioner && (
                     <li className="room-info__comfort-item">
                         <img
                             src={conditionerIcon}
-                            alt="conditioner icon"
+                            alt="conditioner"
                             className="room-info__comfort-icon"
                         />
                         <span className="room-info__comfort-name">
@@ -87,20 +95,8 @@ const RoomComfortList = ({
                         </span>
                     </li>
                 )}
-                {hasSmokeZone && (
-                    <li className="room-info__comfort-item">
-                        <img
-                            src={smokeIcon}
-                            alt="smoke icon"
-                            className="room-info__comfort-icon"
-                        />
-                        <span className="room-info__comfort-name">
-                            Можно курить
-                        </span>
-                    </li>
-                )}
             </ul>
-        </>
+        </div>
     );
 };
 

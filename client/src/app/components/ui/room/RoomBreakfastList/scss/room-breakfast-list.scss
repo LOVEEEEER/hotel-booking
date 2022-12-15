@@ -6,6 +6,7 @@
   &-item {
     display: flex;
     align-items: center;
+    width: 100%;
     &:not(:last-child) {
       margin-bottom: 20px;
     }
@@ -16,7 +17,6 @@
     font-size: 22px;
     text-transform: capitalize;
     list-style: square;
-    border-bottom: 1px dotted #b686c5;
   }
   &-flag {
     width: 30px

@@ -40,9 +40,6 @@
     width: 100%;
     height: 100%;
     height: 530px;
-    // @include tablets {
-    //   height: 100%;
-    // }
   }
   &-cover__rate {
     text-align: center;
@@ -79,30 +76,38 @@
   }
   &-comfort {
     padding-bottom: 80px;
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &-comfort__title {
     margin-bottom: 30px;
   }
-  &-comfort__list {
+  &-comfort__block {
     display: flex;
     justify-content: space-between;
     @include tablets {
       flex-direction: column;
+      align-items: center;
     }
   } 
   &-comfort__item {
-    max-width: 40%;
+    width: 360px;
     padding-right: 40px;
-    &:not(:last-child) {
-      border-right: 1px solid #e0e0e0;
-      @include tablets {
-        margin-bottom: 25px;
-        border: 0;
-      }
-    }
     &:not(:first-child) {
       padding-left: 20px;
-      @include tablets {
+    }
+    &:not(:last-child) {
+      border-right: 1px solid #EEEEEE;
+    }
+    @include tablets {
+      &:first-child {
+        padding-left: 20px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 35px;
         border: 0;
       }
     }

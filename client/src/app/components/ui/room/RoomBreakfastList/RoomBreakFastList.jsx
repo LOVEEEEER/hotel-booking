@@ -32,7 +32,7 @@ const RoomBreakFastList = ({ breakfast }) => {
         }
     };
     return (
-        <>
+        <div className="room-comfort__breakfast-block">
             <h2 className="room-comfort__title">Питание</h2>
             <ul className="room-info__breakfast-list">
                 {breakfast.map((item) => (
@@ -48,7 +48,7 @@ const RoomBreakFastList = ({ breakfast }) => {
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     );
 };
 
