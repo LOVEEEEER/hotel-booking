@@ -12,6 +12,7 @@ import { useSort } from "../../../hooks/useSort";
 import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useFilters } from "../../../hooks/useFilters";
 import { getBookingList } from "../../../store/slices/booking";
+import { pageSizesList, sortByList } from "../../../constants/AppFilterConfig";
 
 const RoomsListPage = () => {
     const dispatch = useDispatch();
@@ -38,6 +39,9 @@ const RoomsListPage = () => {
     useEffect(() => {
         dispatch(loadRooms());
     }, []);
+    useEffect(() => {
+        handlePageChange(0);
+    }, [searchQuery]);
     return (
         <main className="rooms__page">
             <aside className="filter-panel">
@@ -52,13 +56,7 @@ const RoomsListPage = () => {
                     <div className="rooms__select-block">
                         <SelectField
                             value={sortBy.route}
-                            options={[
-                                {
-                                    value: "asc",
-                                    name: "По возрастанию"
-                                },
-                                { value: "desc", name: "По убыванию" }
-                            ]}
+                            options={sortByList}
                             label="Сортировать по:"
                             onChange={handleSortBy}
                             name="sortBy"
@@ -67,12 +65,7 @@ const RoomsListPage = () => {
                         <SelectField
                             value={pageSize}
                             label="Отображать по"
-                            options={[
-                                { value: 6, name: "6" },
-                                { value: 12, name: "12" },
-                                { value: 18, name: "18" },
-                                { value: 24, name: "24" }
-                            ]}
+                            options={pageSizesList}
                             name="pageSize"
                             onChange={({ target }) =>
                                 handleChangePageSize(target.value)
