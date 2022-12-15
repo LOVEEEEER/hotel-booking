@@ -53,3 +53,18 @@ export const breakfastList = [
         value: "vegeterian"
     }
 ];
+
+export const pageSizesList = [
+    { value: 6, name: "6" },
+    { value: 12, name: "12" },
+    { value: 18, name: "18" },
+    { value: 24, name: "24" }
+];
+
+export const sortByList = [
+    {
+        value: "asc",
+        name: "По возрастанию"
+    },
+    { value: "desc", name: "По убыванию" }
+];
