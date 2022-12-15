@@ -1,14 +1,22 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
 .room-info__comfort {
   &-list {
     margin-bottom: 25px;
     width: 490px;
     -webkit-column-count: 2;
     column-count: 2;
+    @include tablets {
+      -webkit-column-count: 0;
+      column-count: 0;
+    }
   }
   &-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
   &-name {
     font-size: 18px;

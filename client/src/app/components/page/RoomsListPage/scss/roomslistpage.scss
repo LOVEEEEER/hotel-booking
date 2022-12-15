@@ -28,7 +28,6 @@ $content-margin: 15px;
   }
   &__select-block {
     display: flex;
-
     justify-content: center;
     width: 40%;
     @include tablets{
@@ -38,16 +37,30 @@ $content-margin: 15px;
   }
 }
 .filter-panel {
-  // margin-right: 30px;
   @include tablets {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
   }
   box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
 }
 
 .MuiInputBase-inputTypeSearch {
   width: 600px !important;
+  @include tablets {
+    width: 100% !important;
+  }
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  @include tablets {
+    width: 100%;
+  }
+}
+
+.MuiFormControl-root.MuiFormControl-fullWidth {
+  @include tablets {
+    width: 100vw;
+  }
 }

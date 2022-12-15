@@ -1,9 +1,19 @@
 @import "../../../../../styles/constants.scss";
+@import "../../../../../styles/mixins/response-mixin.scss";
 
 .room-reasons {
   &__list {
     display: flex;
     justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
   &__card-image {
     margin-right: 15px;
@@ -16,6 +26,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    @include tablets {
+      margin-bottom: 10px;
+    }
   }
   &__card {
     display: flex;

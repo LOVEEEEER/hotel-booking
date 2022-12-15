@@ -19,7 +19,7 @@ const RoomComfortList = ({
 }) => {
     return (
         <>
-            <h2 className="room-comfort__title">Преимущества этого варианта</h2>
+            <h2 className="room-comfort__title">Удобства</h2>
             <ul className="room-info__comfort-list">
                 {hasWifi && (
                     <li className="room-info__comfort-item">

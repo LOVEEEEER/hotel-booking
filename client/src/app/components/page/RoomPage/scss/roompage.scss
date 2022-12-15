@@ -1,4 +1,5 @@
 @import "../../../../styles/constants.scss";
+@import "../../../../styles/mixins/response-mixin.scss";
 
 .room {
   &__page {
@@ -37,7 +38,11 @@
   }
   &-cover__swiper-image {
     width: 100%;
+    height: 100%;
     height: 530px;
+    // @include tablets {
+    //   height: 100%;
+    // }
   }
   &-cover__rate {
     text-align: center;
@@ -68,6 +73,9 @@
     margin-bottom: 50px;
     text-align: center;
     font-size: 40px;
+    @include tablets {
+      font-size: 30px;
+    }
   }
   &-comfort {
     padding-bottom: 80px;
@@ -78,15 +86,25 @@
   &-comfort__list {
     display: flex;
     justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+    }
   } 
   &-comfort__item {
     max-width: 40%;
     padding-right: 40px;
     &:not(:last-child) {
       border-right: 1px solid #e0e0e0;
+      @include tablets {
+        margin-bottom: 25px;
+        border: 0;
+      }
     }
     &:not(:first-child) {
       padding-left: 20px;
+      @include tablets {
+        border: 0;
+      }
     }
   }
   &-comfort__description {

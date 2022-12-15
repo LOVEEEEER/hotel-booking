@@ -14,6 +14,9 @@ const RoomStatisticsBar = () => {
             }
         });
         const percentRateItemOfRates = sumOfRates / (rates.length / 100);
+        if (!percentRateItemOfRates) {
+            return 0;
+        }
         return percentRateItemOfRates;
     };
     if (rates) {

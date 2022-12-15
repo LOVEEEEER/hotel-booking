@@ -38,6 +38,10 @@ const RoomPage = () => {
                         <RoomReasonsChoosingList />
                     </section>
                     <section className="room-comfort">
+                        {" "}
+                        <h2 className="room-section-title">
+                            Преимущества этого варианта
+                        </h2>
                         <ul className="room-comfort__list">
                             <li className="room-comfort__item">
                                 <RoomComfortList {...room} />
