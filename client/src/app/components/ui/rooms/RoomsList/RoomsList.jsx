@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import RoomCard from "../RoomCard";
 
-const RoomsList = ({ items }) => {
+const RoomsList = ({ items, ...rest }) => {
     return (
         <>
             <ul className="rooms__list">
                 {items.map((item) => (
                     <li key={item._id}>
-                        <RoomCard {...item} />
+                        <RoomCard room={item} {...rest} />
                     </li>
                 ))}
             </ul>

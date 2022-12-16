@@ -5,10 +5,15 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const SelectField = ({ value, label, options, onChange, name }) => {
+const SelectField = ({ value, label, options, onChange, name, ...rest }) => {
     return (
         <>
-            <FormControl sx={{ maxWidth: 200 }} variant="outlined" fullWidth>
+            <FormControl
+                sx={{ maxWidth: 200 }}
+                variant="outlined"
+                fullWidth
+                {...rest}
+            >
                 <InputLabel>{label}</InputLabel>
                 <Select
                     label={label}
@@ -19,10 +24,10 @@ const SelectField = ({ value, label, options, onChange, name }) => {
                     <MenuItem disabled>{label}</MenuItem>
                     {options.map((option) => (
                         <MenuItem
-                            key={option.value + "_" + option.name}
+                            key={option.value + "_" + option.label}
                             value={option.value}
                         >
-                            {option.name}
+                            {option.label}
                         </MenuItem>
                     ))}
                 </Select>
@@ -36,7 +41,7 @@ SelectField.propTypes = {
     label: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
         PropTypes.exact({
-            name: PropTypes.string,
+            label: PropTypes.string,
             value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         })
     ),

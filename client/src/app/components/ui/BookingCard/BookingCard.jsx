@@ -4,7 +4,7 @@ import QRCode from "react-qr-code";
 import { getFormatDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
-import CancelWindow from "../CancelWindow";
+import CancelWindow from "../dialogs/CancelWindow/CancelWindow";
 import { useDialog } from "../../../hooks/useDialog";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserBooking } from "../../../store/slices/booking";

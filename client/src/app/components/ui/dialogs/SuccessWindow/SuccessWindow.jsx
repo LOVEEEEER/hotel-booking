@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Dialog from "../../../../common/Dialog";
-import successIcon from "../../../../../assets/svg/success.svg";
+import Dialog from "../../../common/Dialog";
+import successIcon from "../../../../assets/svg/success.svg";
 import { useSelector } from "react-redux";
-import { getRoomById } from "../../../../../store/slices/rooms";
-import { getFormatDate } from "../../../../../utils/dateService";
-import Button from "../../../../common/Button";
+import { getFormatDate } from "../../../../utils/dateService";
+import Button from "../../../common/Button";
 import { useNavigate } from "react-router-dom";
-import Divider from "../../../../common/Divider";
+import Divider from "../../../common/Divider";
+import { getRoomById } from "../../../../store/slices/rooms";
 
 const SuccessWindow = ({ currentBooking, ...rest }) => {
     const navigate = useNavigate();

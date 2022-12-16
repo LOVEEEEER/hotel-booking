@@ -33,19 +33,6 @@ const FilterPanel = ({ onFilterQuery }) => {
             onFilterQuery(data);
         }
     }, [data, roomsLoading, bookingLoading]);
-    const handleCheckboxChange = ({ target }) => {
-        const values = data[target.name];
-        const newValue = values.includes(target.value)
-            ? values.filter((item) => item !== target.value)
-            : [...values, target.value];
-        const fakeEvent = {
-            target: {
-                name: target.name,
-                value: newValue
-            }
-        };
-        handleChange(fakeEvent);
-    };
     return (
         <div className="filter-panel__block">
             <ul className="filter-panel__list">
@@ -68,29 +55,21 @@ const FilterPanel = ({ onFilterQuery }) => {
                 </li>
                 <li className="filter-panel__item">
                     <h3 className="filter-panel__filter-title">Удобства</h3>
-                    {comfortList.map((comfort) => (
-                        <CheckboxField
-                            key={comfort.id}
-                            name="comfort"
-                            value={comfort.value}
-                            label={comfort.label}
-                            onChange={handleCheckboxChange}
-                            checked={data.comfort.includes(comfort.value)}
-                        />
-                    ))}
+                    <CheckboxField
+                        name="comfort"
+                        onChange={handleChange}
+                        value={data.comfort}
+                        options={comfortList}
+                    />
                 </li>
                 <li className="filter-panel__item">
                     <h3 className="filter-panel__filter-title">Завтраки</h3>
-                    {breakfastList.map((breakfast) => (
-                        <CheckboxField
-                            key={breakfast.id}
-                            name="breakfast"
-                            value={breakfast.value}
-                            label={breakfast.label}
-                            onChange={handleCheckboxChange}
-                            checked={data.breakfast.includes(breakfast.value)}
-                        />
-                    ))}
+                    <CheckboxField
+                        name="breakfast"
+                        value={data.breakfast}
+                        onChange={handleChange}
+                        options={breakfastList}
+                    />
                 </li>
                 <Button sx={{ width: "100%" }}>Сбросить фильтры</Button>
             </ul>

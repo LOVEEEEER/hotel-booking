@@ -30,9 +30,6 @@ export const useForm = (initialState, config) => {
     const validateBySubmit = () => {
         const errors = validator(data, config);
         setErrors(errors);
-        // if (Object.keys(errors).length === 0) {
-        //     setData(initialState);
-        // }
         return Object.keys(errors).length === 0;
     };
     return {

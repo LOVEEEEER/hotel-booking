@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { getBookingById } from "../../../../../store/slices/booking";
 import { useDialog } from "../../../../../hooks/useDialog";
 import { getCurrentUser } from "../../../../../store/slices/users";
-import SuccessWindow from "../SuccessWindow/SuccessWindow";
-import SuccessWindowLoading from "../SuccessWindow/SuccessWindowLoading";
+import SuccessWindow from "../../../dialogs/SuccessWindow/SuccessWindow";
+import SuccessWindowLoading from "../../../dialogs/SuccessWindow/SuccessWindowLoading";
 import BookingForm from "../../../forms/BookingForm";
 
 const Booking = ({ ...rest }) => {

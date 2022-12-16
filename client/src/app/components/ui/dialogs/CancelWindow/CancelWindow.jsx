@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "../../common/Button";
-import Dialog from "../../common/Dialog";
+import Button from "../../../common/Button";
+import Dialog from "../../../common/Dialog";
 
 const CancelWindow = ({ onClose, onCancel, ...rest }) => {
     return (

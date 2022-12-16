@@ -1,6 +1,6 @@
 import React from "react";
 import { Skeleton } from "@mui/material";
-import Dialog from "../../../../common/Dialog";
+import Dialog from "../../../common/Dialog";
 
 const SuccessWindowLoading = ({ ...rest }) => {
     return (
