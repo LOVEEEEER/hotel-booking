@@ -31,6 +31,10 @@ const RoomBreakFastList = ({ breakfast }) => {
                 return type;
         }
     };
+    const getIsClear = () => {
+        if (breakfast.length === 0) return "Завтраки не входят в проживание";
+        return null;
+    };
     return (
         <div className="room-comfort__breakfast-block">
             <h2 className="room-comfort__title">Питание</h2>
@@ -48,6 +52,7 @@ const RoomBreakFastList = ({ breakfast }) => {
                     </li>
                 ))}
             </ul>
+            {getIsClear()}
         </div>
     );
 };

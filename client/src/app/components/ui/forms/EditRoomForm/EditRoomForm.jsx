@@ -7,8 +7,11 @@ import { validatorConfig } from "./validatorConfig";
 import CheckboxField from "../../../common/form/CheckboxField";
 import { breakfastList } from "../../../../constants/AppFilterConfig";
 import Button from "../../../common/Button";
+import { useDispatch } from "react-redux";
+import { updateRoom } from "../../../../store/slices/rooms";
 
 const EditRoomForm = ({
+    _id,
     title,
     type,
     hasSmokeZone,
@@ -20,6 +23,7 @@ const EditRoomForm = ({
     hasConditioner,
     breakfast
 }) => {
+    const dispatch = useDispatch();
     const { data, handleChange } = useForm(
         {
             title,
@@ -35,8 +39,12 @@ const EditRoomForm = ({
         },
         validatorConfig
     );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateRoom({ ...data, _id }));
+    };
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <TextField
                 name="title"
                 label="Номер"
@@ -46,6 +54,7 @@ const EditRoomForm = ({
             />
             <br />
             <SelectField
+                label="Тип"
                 name="type"
                 value={data.type}
                 onChange={handleChange}
@@ -128,6 +137,7 @@ const EditRoomForm = ({
 };
 
 EditRoomForm.propTypes = {
+    _id: PropTypes.string,
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     hasSmokeZone: PropTypes.bool,

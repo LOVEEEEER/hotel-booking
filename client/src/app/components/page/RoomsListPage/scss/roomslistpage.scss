@@ -58,9 +58,3 @@ $content-margin: 15px;
     width: 100%;
   }
 }
-
-.MuiFormControl-root.MuiFormControl-fullWidth {
-  @include tablets {
-    width: 100vw;
-  }
-}

@@ -4,11 +4,8 @@ import Rating from "@mui/material/Rating";
 import Button from "../../../common/Button";
 import ImageSlider from "../../../common/ImageSlider";
 import { useNavigate } from "react-router-dom";
-import { useDialog } from "../../../../hooks/useDialog";
-import EditRoomWindow from "../../dialogs/EditRoomWindow/EditRoomWindow";
 
-const RoomCard = ({ room, isAdmin }) => {
-    const { open, handleClickOpen, handleClose } = useDialog();
+const RoomCard = ({ room, isAdmin, onEditRoom }) => {
     const navigate = useNavigate();
     const handleToggleHotelPage = () => {
         navigate(`/rooms/${room._id}`);
@@ -46,7 +43,7 @@ const RoomCard = ({ room, isAdmin }) => {
                         variant="outlined"
                         onClick={
                             isAdmin
-                                ? () => handleClickOpen()
+                                ? () => onEditRoom(room)
                                 : () => handleToggleHotelPage()
                         }
                     >
@@ -54,16 +51,14 @@ const RoomCard = ({ room, isAdmin }) => {
                     </Button>
                 </div>
             </div>
-            <div className="room__dialog">
-                <EditRoomWindow room={room} open={open} onClose={handleClose} />
-            </div>
         </>
     );
 };
 
 RoomCard.propTypes = {
     room: PropTypes.object.isRequired,
-    isAdmin: PropTypes.bool
+    isAdmin: PropTypes.bool,
+    onEditRoom: PropTypes.func
 };
 
 export default RoomCard;

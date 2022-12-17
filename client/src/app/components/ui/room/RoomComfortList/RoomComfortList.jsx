@@ -17,6 +17,20 @@ const RoomComfortList = ({
     hasParking,
     hasConditioner
 }) => {
+    const getIsClearList = () => {
+        const isClear =
+            !hasSmokeZone &&
+            !hasSwimmingPool &&
+            !hasBank &&
+            !hasWifi &&
+            !hasGym &&
+            !hasParking &&
+            !hasConditioner;
+        if (isClear) {
+            return "Список удобств пуст";
+        }
+        return null;
+    };
     return (
         <div className="room-info__comfort-block">
             <h2 className="room-comfort__title">Удобства</h2>
@@ -96,6 +110,7 @@ const RoomComfortList = ({
                     </li>
                 )}
             </ul>
+            {getIsClearList()}
         </div>
     );
 };

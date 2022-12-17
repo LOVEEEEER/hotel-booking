@@ -99,9 +99,6 @@
     &:not(:first-child) {
       padding-left: 20px;
     }
-    &:not(:last-child) {
-      border-right: 1px solid #EEEEEE;
-    }
     @include tablets {
       &:first-child {
         padding-left: 20px;

@@ -6,6 +6,14 @@ const roomsService = {
     fetchAll: async () => {
         const { data } = await httpService.get(roomsEndPoint);
         return data;
+    },
+    update: async (roomId, payload) => {
+        console.log(roomId, payload);
+        const { data } = await httpService.patch(
+            roomsEndPoint + roomId,
+            payload
+        );
+        return data;
     }
 };
 

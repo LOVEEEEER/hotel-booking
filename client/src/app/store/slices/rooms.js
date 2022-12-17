@@ -18,14 +18,23 @@ const roomsSlice = createSlice({
             state.entities = action.payload;
             state.isLoading = false;
         },
-        loadFailed(state, action) {
+        requestFailed(state, action) {
             state.error = action.payload;
+        },
+        updated(state, action) {
+            const elementIndex = state.entities.findIndex(
+                (room) => room._id === action.payload._id
+            );
+            state.entities[elementIndex] = {
+                ...state.entities[elementIndex],
+                ...action.payload
+            };
         }
     }
 });
 
 const { reducer: roomsReducer, actions } = roomsSlice;
-const { requested, received, loadFailed } = actions;
+const { requested, received, requestFailed, updated } = actions;
 
 export const loadRooms = () => async (dispatch, getState) => {
     dispatch(requested());
@@ -33,7 +42,16 @@ export const loadRooms = () => async (dispatch, getState) => {
         const { content } = await roomsService.fetchAll();
         dispatch(received(content));
     } catch (error) {
-        dispatch(loadFailed(error.message));
+        dispatch(requestFailed(error.message));
+    }
+};
+
+export const updateRoom = (data) => async (dispatch) => {
+    try {
+        await roomsService.update(data._id, data);
+        dispatch(updated(data));
+    } catch (error) {
+        dispatch(requestFailed(error.message));
     }
 };
 
