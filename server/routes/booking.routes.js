@@ -1,5 +1,6 @@
 const express = require("express");
 const auth = require("../middleware/auth.middleware");
+const User = require("../models/User");
 const Booking = require("../models/Booking");
 const isAvaibleToBooking = require("../utils/isAvaibleToBooking");
 const router = express.Router({
@@ -45,7 +46,11 @@ router.delete("/:bookingId", auth, async (req, res) => {
   try {
     const { bookingId } = req.params;
     const removedBooking = await Booking.findById(bookingId);
-    if (removedBooking.userId.toString() === req.user._id) {
+    const currentUser = await User.findById(req.user._id);
+    const isAvaibletoRemove =
+      removedBooking.userId.toString() === req.user._id || currentUser.isAdmin;
+
+    if (isAvaibletoRemove) {
       await removedBooking.remove();
       return res.send(null);
     } else {

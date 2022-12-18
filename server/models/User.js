@@ -24,6 +24,9 @@ const schema = new Schema(
       type: String,
       enum: ["male", "female", "other"],
     },
+    isAdmin: {
+      type: Boolean,
+    },
   },
   {
     timestamps: {

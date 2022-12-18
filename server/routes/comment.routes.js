@@ -1,5 +1,6 @@
 const express = require("express");
 const auth = require("../middleware/auth.middleware");
+const User = require("../models/User");
 const Comment = require("../models/Comment");
 const router = express.Router({
   mergeParams: true,
@@ -37,7 +38,11 @@ router.delete("/:commentId", auth, async (req, res) => {
     const { commentId } = req.params;
     const removedComment = await Comment.findById(commentId);
 
-    if (removedComment.userId.toString() === req.user._id) {
+    const currentUser = await User.findById(req.user._id);
+    const isAvaibleToRemove =
+      removedComment.userId.toString() === req.user._id || currentUser.isAdmin;
+
+    if (isAvaibleToRemove) {
       await removedComment.remove();
       return res.send(null);
     } else {
