@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import QRCode from "react-qr-code";
+// import QRCode from "react-qr-code";
 import { getFormatDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
@@ -21,12 +21,12 @@ const BookingCard = ({ item }) => {
         console.log(room, bookingAuthor);
         return (
             <div className="booking__card">
-                <div className="booking__qr">
+                {/* <div className="booking__qr">
                     <QRCode
                         value={"Номер бронирования " + item._id}
                         size={100}
                     />
-                </div>
+                </div> */}
                 <div className="booking__text-block">
                     <ul className="booking__text-list">
                         <li className="booking__text-item">
