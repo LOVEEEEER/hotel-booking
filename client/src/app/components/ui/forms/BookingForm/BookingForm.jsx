@@ -41,14 +41,15 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
             const currentBookingEntry = new Date(data.entry).getTime();
             const currentBookingDeparture = new Date(data.departure).getTime();
             const isCorrectFormat =
-                currentBookingEntry > currentBookingDeparture;
+                currentBookingEntry < currentBookingDeparture ||
+                currentBookingEntry === currentBookingDeparture;
 
             if (new Date(data.entry).getTime() < Date.now()) {
                 setBookingError("Нельзя забронировать номер в прошлом");
                 return;
             }
-            if (isCorrectFormat) {
-                setBookingError("Отъезд не может быть позже выезда");
+            if (!isCorrectFormat) {
+                setBookingError("Отъезд не может быть позже или равен выезду");
                 return;
             }
             const bookingRoom = {

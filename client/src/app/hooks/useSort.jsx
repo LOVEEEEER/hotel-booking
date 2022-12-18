@@ -9,6 +9,7 @@ export const useSort = (elements, initialPath, initialRoute) => {
     });
 
     const handleSortBy = ({ target: { value } }) => {
+        console.log(value);
         setSortBy((prevState) => ({ ...prevState, route: value }));
     };
 

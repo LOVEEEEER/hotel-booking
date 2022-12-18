@@ -19,7 +19,7 @@ const AdminPage = () => {
         },
         {
             name: "Номера",
-            component: <RoomsList items={rooms.slice(0, 4)} isAdmin={true} />
+            component: <RoomsList items={rooms} isAdmin={true} />
         }
     ];
     if (rooms) {

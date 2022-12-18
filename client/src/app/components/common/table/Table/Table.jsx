@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import TableBody from "../TableBody";
 import TableHeader from "../TableHeader";
@@ -18,6 +18,12 @@ export const Table = ({ children, data, ...rest }) => {
         handleChangePageSize
     } = usePaginate(data, 5);
 
+    useEffect(() => {
+        if (dataCrop.length === 0) {
+            handlePageChange(0);
+        }
+    }, [dataCrop]);
+
     return (
         <TableContainer component={Paper}>
             <TableMUI sx={{ minWidth: 650 }}>
@@ -32,7 +38,7 @@ export const Table = ({ children, data, ...rest }) => {
             <TableRow>
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
-                    count={10}
+                    count={data.length}
                     rowsPerPage={pageSize}
                     page={currentPage}
                     SelectProps={{

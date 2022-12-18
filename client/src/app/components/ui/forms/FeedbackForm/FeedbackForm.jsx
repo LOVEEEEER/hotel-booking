@@ -25,35 +25,32 @@ const FeedbackForm = () => {
     };
     return (
         <form className="feedback__form" onSubmit={handleSubmit}>
-            <div>
-                <TextField
-                    name="email"
-                    value={data.email}
-                    onChange={handleChange}
-                    label="Ваш E-mail"
-                    placeholder="example@mail.com"
-                    errorMessage={errors.email}
-                />
-            </div>
-            <div>
-                <TextField
-                    name="name"
-                    value={data.name}
-                    onChange={handleChange}
-                    label="Ваше имя"
-                    placeholder="Иван Иванов"
-                    errorMessage={errors.name}
-                />
-            </div>
-            <div>
-                <TextField
-                    name="description"
-                    value={data.description}
-                    label="Сообщение"
-                    onChange={handleChange}
-                    errorMessage={errors.description}
-                />
-            </div>
+            <TextField
+                name="email"
+                value={data.email}
+                onChange={handleChange}
+                label="Ваш E-mail"
+                placeholder="example@mail.com"
+                errorMessage={errors.email}
+            />
+            <br />
+            <TextField
+                name="name"
+                value={data.name}
+                onChange={handleChange}
+                label="Ваше имя"
+                placeholder="Иван Иванов"
+                errorMessage={errors.name}
+            />
+            <br />
+            <TextField
+                name="description"
+                value={data.description}
+                label="Сообщение"
+                onChange={handleChange}
+                errorMessage={errors.description}
+            />
+            <br />
             <Button variant="outlined">Отправить</Button>
         </form>
     );
