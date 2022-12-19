@@ -6,7 +6,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px;
+    flex-direction: column;
+    margin-right: 7px;
+    padding: 40px;
     border-radius: 3px;
     box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2)
     ;
@@ -40,7 +42,7 @@
   }
   &__text-item {
     &:not(:last-child) {
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
     @include phones {
       display: flex;

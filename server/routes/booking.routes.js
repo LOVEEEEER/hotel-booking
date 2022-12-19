@@ -7,7 +7,7 @@ const router = express.Router({
   mergeParams: true,
 });
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const list = await Booking.find();
     res.status(200).send(list);

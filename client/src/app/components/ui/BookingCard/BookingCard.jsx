@@ -1,18 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import QRCode from "react-qr-code";
 import { getFormatDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
-import CancelWindow from "../dialogs/CancelWindow/CancelWindow";
 import { useDialog } from "../../../hooks/useDialog";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUserBooking } from "../../../store/slices/booking";
+import { useSelector } from "react-redux";
 import { getUserById } from "../../../store/slices/users";
 import { getRoomById } from "../../../store/slices/rooms";
+import CheckWindow from "../dialogs/CheckWindow";
 
 const BookingCard = ({ item }) => {
-    const dispatch = useDispatch();
     const bookingAuthor = useSelector(getUserById(item.userId));
     const room = useSelector(getRoomById(item.roomId));
     const { open, handleClickOpen, handleClose } = useDialog();
@@ -21,12 +18,6 @@ const BookingCard = ({ item }) => {
         console.log(room, bookingAuthor);
         return (
             <div className="booking__card">
-                <div className="booking__qr">
-                    <QRCode
-                        value={"Номер бронирования " + item._id}
-                        size={100}
-                    />
-                </div>
                 <div className="booking__text-block">
                     <ul className="booking__text-list">
                         <li className="booking__text-item">
@@ -64,19 +55,19 @@ const BookingCard = ({ item }) => {
                             Страница отеля
                         </Button>
                         <Button
-                            variant="cancel"
-                            sx={{ padding: "5px", fontSize: "11px" }}
+                            sx={{
+                                marginBottom: "8px",
+                                padding: "5px",
+                                fontSize: "11px"
+                            }}
+                            variant="outlined"
                             onClick={handleClickOpen}
                         >
-                            Отменить бронь
+                            Показать чек
                         </Button>
                     </div>
                 </div>
-                <CancelWindow
-                    onCancel={() => dispatch(deleteUserBooking(item._id))}
-                    open={open}
-                    onClose={handleClose}
-                />
+                <CheckWindow open={open} onClose={handleClose} booking={item} />
             </div>
         );
     }

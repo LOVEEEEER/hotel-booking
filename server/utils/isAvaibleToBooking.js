@@ -14,9 +14,6 @@ const isAvaibleToBooking = async (currentBooking) => {
         currentBookingEntry <= bookingDeparture) ||
       (currentBookingDeparture >= bookingEntry &&
         currentBookingDeparture <= bookingDeparture);
-    if (isValid) {
-      return true;
-    }
   });
   if (!isBookingOnThisDate) {
     return true;

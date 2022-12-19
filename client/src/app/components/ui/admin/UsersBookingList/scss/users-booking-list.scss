@@ -2,7 +2,8 @@
   &__booking-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    column-gap: 10%;
+    flex-wrap: wrap;
   }
   &__booking-item {
     margin-bottom: 20px;
