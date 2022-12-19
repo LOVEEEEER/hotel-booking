@@ -9,5 +9,6 @@ router.use("/user", require("./user.routes"));
 router.use("/comment", require("./comment.routes"));
 router.use("/booking", require("./booking.routes"));
 router.use("/favorite", require("./favorite.routes"));
+router.use("/ticket", require("./ticket.routes"));
 
 module.exports = router;
