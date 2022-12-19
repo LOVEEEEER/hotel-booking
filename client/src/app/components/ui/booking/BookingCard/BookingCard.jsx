@@ -1,19 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getFormatDate } from "../../../utils/dateService";
-import Button from "../../common/Button";
+import { getFormatDate } from "../../../../utils/dateService";
+import Button from "../../../common/Button";
 import { useNavigate } from "react-router-dom";
-import { useDialog } from "../../../hooks/useDialog";
-import { useSelector } from "react-redux";
-import { getUserById } from "../../../store/slices/users";
-import { getRoomById } from "../../../store/slices/rooms";
-import CheckWindow from "../dialogs/CheckWindow";
+import { useDialog } from "../../../../hooks/useDialog";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserById } from "../../../../store/slices/users";
+import { getRoomById } from "../../../../store/slices/rooms";
+import CheckWindow from "../../dialogs/CheckWindow";
+import { deleteUserBooking } from "../../../../store/slices/booking";
 
-const BookingCard = ({ item }) => {
+const BookingCard = ({ item, isAdmin }) => {
+    const dispatch = useDispatch();
     const bookingAuthor = useSelector(getUserById(item.userId));
     const room = useSelector(getRoomById(item.roomId));
     const { open, handleClickOpen, handleClose } = useDialog();
     const navigate = useNavigate();
+
+    const deleteBooking = () => {
+        dispatch(deleteUserBooking(item._id));
+    };
+
     if (room && bookingAuthor) {
         return (
             <div className="booking__card">
@@ -64,6 +71,19 @@ const BookingCard = ({ item }) => {
                         >
                             Показать чек
                         </Button>
+                        {isAdmin && (
+                            <Button
+                                variant="cancel"
+                                sx={{
+                                    marginBottom: "8px",
+                                    padding: "5px",
+                                    fontSize: "11px"
+                                }}
+                                onClick={deleteBooking}
+                            >
+                                Снять бронь
+                            </Button>
+                        )}
                     </div>
                 </div>
                 <CheckWindow open={open} onClose={handleClose} booking={item} />
@@ -73,7 +93,8 @@ const BookingCard = ({ item }) => {
 };
 
 BookingCard.propTypes = {
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
+    isAdmin: PropTypes.bool.isRequired
 };
 
 export default BookingCard;

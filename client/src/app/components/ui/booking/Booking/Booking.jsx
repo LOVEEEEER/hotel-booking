@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getBookingById } from "../../../../../store/slices/booking";
-import { useDialog } from "../../../../../hooks/useDialog";
-import { getCurrentUser } from "../../../../../store/slices/users";
-import SuccessWindow from "../../../dialogs/SuccessWindow/SuccessWindow";
-import SuccessWindowLoading from "../../../dialogs/SuccessWindow/SuccessWindowLoading";
-import BookingForm from "../../../forms/BookingForm";
+import { getBookingById } from "../../../../store/slices/booking";
+import { useDialog } from "../../../../hooks/useDialog";
+import { getCurrentUser } from "../../../../store/slices/users";
+import SuccessWindow from "../../dialogs/SuccessWindow/SuccessWindow";
+import SuccessWindowLoading from "../../dialogs/SuccessWindow/SuccessWindowLoading";
+import BookingForm from "../../forms/BookingForm";
 
 const Booking = ({ ...rest }) => {
     const currentUser = useSelector(getCurrentUser());

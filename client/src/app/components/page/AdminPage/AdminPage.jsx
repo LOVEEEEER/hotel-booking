@@ -1,10 +1,10 @@
 import React from "react";
 import Tabs from "../../common/Tabs";
 import UsersTable from "../../ui/UsersTable/UsersTable";
-import UsersBookingList from "../../ui/admin/UsersBookingList";
 import RoomsList from "../../ui/rooms/RoomsList";
 import { useSelector } from "react-redux";
 import { getRooms } from "../../../store/slices/rooms";
+import BookingList from "../../ui/booking/BookingList";
 
 const AdminPage = () => {
     const rooms = useSelector(getRooms());
@@ -15,7 +15,7 @@ const AdminPage = () => {
         },
         {
             name: "Бронирования",
-            component: <UsersBookingList />
+            component: <BookingList isAdmin={true} />
         },
         {
             name: "Номера",

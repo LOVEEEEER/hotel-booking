@@ -11,7 +11,7 @@
 @import "../components/page/SignInPage/scss/signinpage.scss";
 @import "../components/page/SignUpPage/scss/signuppage.scss";
 @import "../components/page/RoomPage/scss/roompage.scss";
-@import "../components/ui/room/booking/Booking/scss/booking.scss";
+@import "../components/ui/booking/Booking/scss/booking.scss";
 @import "../components/common/Counter/scss/counter.scss";
 @import "../components/ui/room/RoomComfortList/scss/room-comfort-list.scss";
 @import "../components/ui/room/RoomBreakfastList/scss/room-breakfast-list.scss";
@@ -26,10 +26,9 @@
 @import '../components/page/AdminPage/scss/admin-page.scss';
 @import "../components/ui/dialogs/SuccessWindow/scss/success-window.scss";
 @import "../components/ui/HOC//FormCardStyles/scss/form-card.scss";
-@import "../components/ui/BookingCard/scss/booking-card.scss";
+@import "../components/ui/booking/BookingCard/scss/booking-card.scss";
 @import "../components/page/BookingPage/scss/booking-page.scss";
 @import "../components/ui/PhoneMenu/scss/phone-menu.scss";
-@import "../components/ui/admin/UsersBookingList/scss/users-booking-list.scss";
 @import "../components/ui/forms/FeedbackForm/scss/feedback-form.scss";
 @import "../components/common/Footer/scss/footer.scss";
 @import "../components/common/Divider/scss/divider.scss";
@@ -40,3 +39,4 @@
 @import "../components/ui/forms/BookingForm/scss/booking-form.scss";
 @import "../components/ui/forms/EditRoomForm/scss/edit-room-form.scss";
 @import "../components/ui/dialogs/CheckWindow/scss/check-window.scss";
+@import "../components/ui/booking/BookingList/scss/booking-list.scss";

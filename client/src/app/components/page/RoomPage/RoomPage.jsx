@@ -3,7 +3,7 @@ import ImageSlider from "../../common/ImageSlider";
 import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
-import Booking from "../../ui/room/booking/Booking";
+import Booking from "../../ui/booking/Booking";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import RoomReviews from "../../ui/room/RoomReviews";
 import { useSelector } from "react-redux";

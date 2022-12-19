@@ -6,15 +6,6 @@
     min-height: calc(88vh - 200px);
     padding-bottom: 100px;
   }
-  &__list {
-    display: flex;
-    // justify-content: space-between;
-    column-gap: 10%;
-    flex-wrap: wrap;
-    @include phones {
-      flex-direction: column;
-    }
-  }
   &__error-message {
     @include phones {
       font-size: 14px;
@@ -23,8 +14,5 @@
     justify-content: center;
     align-items: center;
     height: 70vh;
-  }
-  &__item {
-    margin-bottom: 20px;
   }
 }
