@@ -30,7 +30,6 @@ class TokenService {
     try {
       return jwt.verify(refreshToken, config.get("refreshSecret"));
     } catch (error) {
-      console.log(error.message);
       return null;
     }
   }

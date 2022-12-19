@@ -8,7 +8,6 @@ const roomsService = {
         return data;
     },
     update: async (roomId, payload) => {
-        console.log(roomId, payload);
         const { data } = await httpService.patch(
             roomsEndPoint + roomId,
             payload

@@ -30,7 +30,6 @@ router.patch("/:roomId", auth, async (req, res) => {
       res.send(updatedRoom);
     }
   } catch (error) {
-    console.log(error.message);
     res.status(500).json({
       message: "На сервере произошла ошибка. Попробуйте позже",
     });

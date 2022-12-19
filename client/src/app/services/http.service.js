@@ -14,8 +14,6 @@ http.interceptors.request.use(
         const refreshToken = localStorageService.getRefreshToken();
         const isExpired = refreshToken && expiresDate < Date.now();
 
-        console.log(isExpired);
-
         if (configFile.isFireBase) {
             const containSlash = /\/$/gi.test(config.url);
             config.url =
@@ -37,7 +35,6 @@ http.interceptors.request.use(
         } else {
             if (isExpired) {
                 const data = await authService.refresh();
-                console.log(data);
                 localStorageService.setTokens(data);
             }
             const accessToken = localStorageService.getAccessToken();
@@ -78,7 +75,6 @@ http.interceptors.response.use(
             error.response.status < 500;
 
         if (!expectedErrors) {
-            console.log(error);
             toast.error("Something was wrong. Try it later");
         }
         return Promise.reject(error);
