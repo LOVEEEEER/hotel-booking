@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import { getFormatDate } from "../../../utils/dateService";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
+import CancelWindow from "../dialogs/CancelWindow/CancelWindow";
 import { useDialog } from "../../../hooks/useDialog";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUserBooking } from "../../../store/slices/booking";
 import { getUserById } from "../../../store/slices/users";
 import { getRoomById } from "../../../store/slices/rooms";
-import CheckWindow from "../dialogs/CheckWindow";
 
 const BookingCard = ({ item }) => {
+    const dispatch = useDispatch();
     const bookingAuthor = useSelector(getUserById(item.userId));
     const room = useSelector(getRoomById(item.roomId));
     const { open, handleClickOpen, handleClose } = useDialog();
@@ -55,19 +57,19 @@ const BookingCard = ({ item }) => {
                             Страница отеля
                         </Button>
                         <Button
-                            sx={{
-                                marginBottom: "8px",
-                                padding: "5px",
-                                fontSize: "11px"
-                            }}
-                            variant="outlined"
+                            variant="cancel"
+                            sx={{ padding: "5px", fontSize: "11px" }}
                             onClick={handleClickOpen}
                         >
-                            Показать чек
+                            Отменить бронь
                         </Button>
                     </div>
                 </div>
-                <CheckWindow open={open} onClose={handleClose} booking={item} />
+                <CancelWindow
+                    onCancel={() => dispatch(deleteUserBooking(item._id))}
+                    open={open}
+                    onClose={handleClose}
+                />
             </div>
         );
     }

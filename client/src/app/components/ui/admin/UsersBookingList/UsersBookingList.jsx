@@ -10,7 +10,7 @@ const UsersBookingList = () => {
             <>
                 {bookingList.length > 0 ? (
                     <ul className="admin__booking-list">
-                        {bookingList.map((item) => (
+                        {bookingList.slice(0, 6).map((item) => (
                             <li className="admin__booking-item" key={item._id}>
                                 <BookingCard item={item} />
                             </li>
