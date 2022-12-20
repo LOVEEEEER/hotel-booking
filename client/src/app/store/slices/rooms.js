@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import roomsService from "../../services/rooms.service";
 
 const initialState = {
-    entities: null,
+    entities: [],
     isLoading: true,
     error: null
 };

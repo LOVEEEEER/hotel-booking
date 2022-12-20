@@ -5,6 +5,7 @@ import RoomsList from "../../ui/rooms/RoomsList";
 import { useSelector } from "react-redux";
 import { getRooms } from "../../../store/slices/rooms";
 import BookingList from "../../ui/booking/BookingList";
+import TicketList from "../../ui/TicketList";
 
 const AdminPage = () => {
     const rooms = useSelector(getRooms());
@@ -20,6 +21,10 @@ const AdminPage = () => {
         {
             name: "Номера",
             component: <RoomsList items={rooms} isAdmin={true} />
+        },
+        {
+            name: "Тикеты",
+            component: <TicketList items={rooms} isAdmin={true} />
         }
     ];
     if (rooms) {

@@ -29,7 +29,7 @@
 @import "../components/ui/booking/BookingCard/scss/booking-card.scss";
 @import "../components/page/BookingPage/scss/booking-page.scss";
 @import "../components/ui/PhoneMenu/scss/phone-menu.scss";
-@import "../components/ui/forms/FeedbackForm/scss/feedback-form.scss";
+@import "../components/ui/forms/CreateTicketForm/scss/feedback-form.scss";
 @import "../components/common/Footer/scss/footer.scss";
 @import "../components/common/Divider/scss/divider.scss";
 @import "../components/page/FavoritesPage/scss/favorites-page.scss";
@@ -40,3 +40,5 @@
 @import "../components/ui/forms/EditRoomForm/scss/edit-room-form.scss";
 @import "../components/ui/dialogs/CheckWindow/scss/check-window.scss";
 @import "../components/ui/booking/BookingList/scss/booking-list.scss";
+@import "../components/ui/TicketList/scss/ticket-list.scss";
+@import "../components/ui/dialogs/CreateTicketDialog/scss/create-ticket-dialog.scss";
