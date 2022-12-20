@@ -1,0 +1,22 @@
+.admin {
+  &__ticket-dialog {
+    padding: 33px;
+  }
+  &__ticket-id {
+    color: rgb(134, 118, 226);
+  }
+  &__ticket-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  &__dialog-info {
+    font-size: 20px;
+  }
+  &__dialog-list {
+    margin-bottom: 12px;
+  }
+  &__dialog-message {
+    width: 300px;
+    word-wrap: break-word;
+  }
+}

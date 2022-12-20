@@ -69,7 +69,6 @@ http.interceptors.response.use(
         return res;
     },
     function (error) {
-        toast(error.message);
         const expectedErrors =
             error.response &&
             error.response.status >= 400 &&

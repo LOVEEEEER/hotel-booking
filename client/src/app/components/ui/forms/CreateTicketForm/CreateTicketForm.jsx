@@ -6,13 +6,15 @@ import TextField from "../../../common/form/TextField";
 import { validatorConfig } from "./validatorConfig";
 import { toast } from "react-toastify";
 import ticketService from "../../../../services/ticket.service";
+import SelectField from "../../../common/form/SelectField";
 
 const CreateTicketForm = ({ forDialog }) => {
     const { data, handleChange, errors, validateBySubmit } = useForm(
         {
             email: "",
             name: "",
-            message: ""
+            message: "",
+            cause: ""
         },
         validatorConfig
     );
@@ -68,6 +70,21 @@ const CreateTicketForm = ({ forDialog }) => {
                 sx={textFieldStyles}
             />
             <br />
+            <SelectField
+                label="Причина обращения"
+                name="cause"
+                onChange={handleChange}
+                options={[
+                    { label: "Баги", value: "errors" },
+                    { label: "Вопрос", value: "offer" },
+                    { label: "Другое", value: "other" }
+                ]}
+                sx={
+                    forDialog
+                        ? { width: "100%", marginBottom: "20px" }
+                        : { width: 200 }
+                }
+            />
             <Button variant="outlined" sx={buttonStyles}>
                 Отправить
             </Button>
