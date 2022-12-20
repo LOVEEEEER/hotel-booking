@@ -41,4 +41,20 @@
       cursor: pointer;
     }
   }
+  &__feedback {
+    display: flex;
+    align-items: center;
+    &-title {
+      margin-right: 8px;
+    }
+  }
+  &__second-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__logo-block {
+    align-self: flex-end;
+    margin-right: -32px;
+  }
 }

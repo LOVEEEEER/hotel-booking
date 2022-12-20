@@ -34,4 +34,18 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/:ticketId", async (req, res) => {
+  try {
+    const { ticketId } = req.params;
+    const updatedTicket = await Ticket.findByIdAndUpdate(ticketId, req.body, {
+      new: true,
+    });
+    res.send(updatedTicket);
+  } catch (error) {
+    res.status(500).json({
+      message: "На сервере произошла ошибка. Попробуйте позже",
+    });
+  }
+});
+
 module.exports = router;

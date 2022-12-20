@@ -5,7 +5,7 @@ import mainHotelImage from "../../../assets/images/main-hotel.jpg";
 import rocketIcon from "../../../assets/svg/rocket.svg";
 import handShakeIcon from "../../../assets/svg/handshake.svg";
 import bookingIcon from "../../../assets/svg/booking.svg";
-import FeedbackForm from "../../ui/forms/FeedbackForm/FeedbackForm";
+import CreateTicketForm from "../../ui/forms/CreateTicketForm";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -109,7 +109,7 @@ const MainPage = () => {
                     </div>
                     <h2 className="section__title">Оставьте вопрос</h2>
                     <div className="feedback__form-block">
-                        <FeedbackForm />
+                        <CreateTicketForm />
                     </div>
                 </div>
             </section>

@@ -14,6 +14,10 @@ const schema = new Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["pending", "confirmed", "closed"],
+    },
   },
   {
     timestamps: {

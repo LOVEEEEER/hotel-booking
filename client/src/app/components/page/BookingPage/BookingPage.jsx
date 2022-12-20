@@ -19,4 +19,4 @@ const BookingPage = () => {
     }
 };
 
-export default React.memo(BookingPage);
+export default BookingPage;

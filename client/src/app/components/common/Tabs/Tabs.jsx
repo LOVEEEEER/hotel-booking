@@ -5,7 +5,8 @@ import TabsMUI from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 const TabsStyled = styled(TabsMUI)(() => ({
-    padding: 0
+    padding: 0,
+    color: "rgb(58, 57, 57)"
 }));
 
 const Tabs = ({ options, children, ...rest }) => {

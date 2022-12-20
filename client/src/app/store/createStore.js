@@ -4,13 +4,15 @@ import usersReducer from "./slices/users";
 import commentsReducer from "./slices/comments";
 import bookingReducer from "./slices/booking";
 import favoritesReducer from "./slices/favorites";
+import ticketsReducer from "./slices/tickets";
 
 const rootReducer = combineReducers({
     rooms: roomsReducer,
     users: usersReducer,
     comments: commentsReducer,
     booking: bookingReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    tickets: ticketsReducer
 });
 
 function createStore() {

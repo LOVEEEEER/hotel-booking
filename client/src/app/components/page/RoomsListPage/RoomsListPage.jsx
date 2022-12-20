@@ -5,7 +5,11 @@ import Search from "../../common/Search";
 import SelectField from "../../common/form/SelectField";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 import { useDispatch, useSelector } from "react-redux";
-import { getRooms, loadRooms } from "../../../store/slices/rooms";
+import {
+    getRooms,
+    loadRooms,
+    getRoomsLoading
+} from "../../../store/slices/rooms";
 import { usePaginate } from "../../../hooks/usePaginate";
 import useSearch from "../../../hooks/useSearch";
 import { useSort } from "../../../hooks/useSort";
@@ -17,6 +21,7 @@ import { pageSizesList, sortByList } from "../../../constants/AppFilterConfig";
 const RoomsListPage = () => {
     const dispatch = useDispatch();
     const rooms = useSelector(getRooms());
+    const roomsLoading = useSelector(getRoomsLoading());
     const bookingList = useSelector(getBookingList());
     const { handleFilter, filteredItems } = useFilters(
         rooms || [],
@@ -74,7 +79,7 @@ const RoomsListPage = () => {
                         />
                     </div>
                 </div>
-                {itemsCrop.length ? (
+                {!roomsLoading && itemsCrop.length > 0 ? (
                     <RoomsList items={itemsCrop} />
                 ) : (
                     <RoomsListLoading pageSize={pageSize} />
