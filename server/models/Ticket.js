@@ -18,6 +18,10 @@ const schema = new Schema(
       type: String,
       enum: ["pending", "confirmed", "closed"],
     },
+    cause: {
+      type: String,
+      enum: ["errors", "offer", "other"],
+    },
   },
   {
     timestamps: {
