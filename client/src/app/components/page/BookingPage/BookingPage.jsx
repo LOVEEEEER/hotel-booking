@@ -12,7 +12,6 @@ const BookingPage = () => {
             <main className="booking__page">
                 <div className="booking">
                     <BookingList currentUserId={currentUser._id} />
-                    <div className="booking__push"></div>
                 </div>
             </main>
         );

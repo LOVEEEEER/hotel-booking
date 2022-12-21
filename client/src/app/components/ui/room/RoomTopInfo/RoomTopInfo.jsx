@@ -3,18 +3,27 @@ import PropTypes from "prop-types";
 import FavoriteButton from "../../../common/FavoriteButton";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { addInFavorites } from "../../../../store/slices/favorites";
+import {
+    addInFavorites,
+    getIsFavorite,
+    removeFavorite
+} from "../../../../store/slices/favorites";
 import Rating from "../../../common/Rating";
 import { getIsLoggedIn } from "../../../../store/slices/users";
 import { useParams } from "react-router-dom";
 
-const RoomTopInfo = ({ title, type, rate }) => {
+const RoomTopInfo = ({ title, type, rate, _id }) => {
     const { roomId } = useParams();
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(getIsLoggedIn());
+    const isFavorite = useSelector(getIsFavorite(_id));
     const handleSelectFavorite = () => {
         if (isLoggedIn) {
-            dispatch(addInFavorites({ roomId }));
+            if (!isFavorite) {
+                dispatch(addInFavorites({ roomId }));
+            } else {
+                dispatch(removeFavorite(_id));
+            }
         } else {
             toast("Для этого действия войдите в аккаунт");
         }
@@ -23,7 +32,10 @@ const RoomTopInfo = ({ title, type, rate }) => {
         <div className="room-cover__head-content">
             <div className="room-cover__main-content">
                 <div className="room-cover__title-wrapper">
-                    <FavoriteButton onClick={handleSelectFavorite} />
+                    <FavoriteButton
+                        onClick={handleSelectFavorite}
+                        isFavorite={isFavorite}
+                    />
                     <h1 className="room-cover__title">Отель: {title}</h1>
                 </div>
                 <p className="room-cover__type">
@@ -49,7 +61,8 @@ const RoomTopInfo = ({ title, type, rate }) => {
 RoomTopInfo.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    rate: PropTypes.number.isRequired
+    rate: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired
 };
 
 export default RoomTopInfo;

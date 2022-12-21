@@ -70,7 +70,11 @@ const routes = [
     },
     {
         path: "favorites",
-        element: <Favorites />
+        element: (
+            <ProtectedRoute>
+                <Favorites />
+            </ProtectedRoute>
+        )
     },
     {
         path: "*",

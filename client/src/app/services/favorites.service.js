@@ -10,6 +10,10 @@ const favoritesService = {
     create: async (payload) => {
         const { content } = await httpService.post(favoritesEndPoint, payload);
         return content;
+    },
+    remove: async (roomId) => {
+        const { data } = await httpService.delete(favoritesEndPoint + roomId);
+        return data;
     }
 };
 

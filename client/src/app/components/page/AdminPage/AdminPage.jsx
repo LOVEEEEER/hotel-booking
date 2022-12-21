@@ -1,11 +1,11 @@
 import React from "react";
 import Tabs from "../../common/Tabs";
-import UsersTable from "../../ui/UsersTable/UsersTable";
 import RoomsList from "../../ui/rooms/RoomsList";
 import { useSelector } from "react-redux";
 import { getRooms } from "../../../store/slices/rooms";
 import BookingList from "../../ui/booking/BookingList";
 import TicketList from "../../ui/admin/TicketList/TicketList";
+import UsersTable from "../../ui/admin/UsersTable";
 
 const AdminPage = () => {
     const rooms = useSelector(getRooms());
