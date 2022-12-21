@@ -1,9 +1,12 @@
 import React from "react";
+import { ruLocale } from "../../../../configs/ruDatePickerConfig";
 import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker as DatePickerMUI } from "@mui/x-date-pickers/DatePicker";
+
+ruLocale();
 
 const DatePicker = ({
     value,
@@ -14,19 +17,20 @@ const DatePicker = ({
     ...rest
 }) => {
     const handleChange = (dateValue) => {
+        console.log(dateValue);
         const fakeEvent = {
             target: {
                 name: name,
                 value:
-                    dateValue?.$d.toString() === "Invalid Date" || !dateValue
+                    dateValue?._d.toString() === "Invalid Date" || !dateValue
                         ? ""
-                        : dateValue.$d
+                        : dateValue._d
             }
         };
         onChange(fakeEvent);
     };
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
             <DatePickerMUI
                 label={label}
                 value={value}
