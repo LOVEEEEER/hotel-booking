@@ -6,13 +6,4 @@
     min-height: calc(88vh - 200px);
     padding-bottom: 100px;
   }
-  &__error-message {
-    @include phones {
-      font-size: 14px;
-    }
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-  }
 }

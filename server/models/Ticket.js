@@ -16,7 +16,7 @@ const schema = new Schema(
     },
     status: {
       type: String,
-      enum: ["pending", "confirmed", "closed"],
+      enum: ["pending", "confirmed"],
     },
     cause: {
       type: String,
