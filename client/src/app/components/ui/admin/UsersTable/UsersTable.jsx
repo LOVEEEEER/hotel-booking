@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../common/Button";
-import Table from "../../common/table/Table";
-import { getFormatDate } from "../../../utils/dateService";
+import Button from "../../../common/Button";
+import Table from "../../../common/table/Table";
+import { getFormatDate } from "../../../../utils/dateService";
 import { useDispatch, useSelector } from "react-redux";
 import {
     getCurrentUser,
     deleteUser,
     getUsersList
-} from "../../../store/slices/users";
-import { useSort } from "../../../hooks/useSort";
-import { getUserBookingCount } from "../../../store/slices/booking";
+} from "../../../../store/slices/users";
+import { useSort } from "../../../../hooks/useSort";
+import { getUserBookingCount } from "../../../../store/slices/booking";
 
 const UsersTable = () => {
     const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import EditRoomWindow from "../../dialogs/EditRoomWindow/EditRoomWindow";
 import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
 
-const RoomsList = ({ items, ...rest }) => {
+const RoomsList = ({ items, clearListMessage, ...rest }) => {
     const { itemsCrop, handlePageChange, pageSize, currentPage } = usePaginate(
         items,
         6
@@ -20,15 +20,19 @@ const RoomsList = ({ items, ...rest }) => {
     return (
         <>
             <ul className="rooms__list">
-                {itemsCrop.map((item) => (
-                    <li key={item._id}>
-                        <RoomCard
-                            onEditRoom={handleEditRoom}
-                            room={item}
-                            {...rest}
-                        />
-                    </li>
-                ))}
+                {itemsCrop.length > 0 ? (
+                    itemsCrop.map((item) => (
+                        <li key={item._id}>
+                            <RoomCard
+                                onEditRoom={handleEditRoom}
+                                room={item}
+                                {...rest}
+                            />
+                        </li>
+                    ))
+                ) : (
+                    <p className="booking__error-message">{clearListMessage}</p>
+                )}
             </ul>
             {itemsCrop.length > 0 && (
                 <Pagination
@@ -43,8 +47,13 @@ const RoomsList = ({ items, ...rest }) => {
     );
 };
 
+RoomsList.defaultProps = {
+    clearListMessage: "Список номеров пуст"
+};
+
 RoomsList.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    clearListMessage: PropTypes.string.isRequired
 };
 
 export default RoomsList;

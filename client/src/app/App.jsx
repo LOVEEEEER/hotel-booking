@@ -7,6 +7,7 @@ import { getIsLoggedIn, loadUsers } from "./store/slices/users";
 import { useDispatch, useSelector } from "react-redux";
 import routes from "./routes";
 import { loadBooking } from "./store/slices/booking";
+import { loadFavorites } from "./store/slices/favorites";
 
 function App() {
     const dispatch = useDispatch();
@@ -15,6 +16,9 @@ function App() {
         dispatch(loadRooms());
         dispatch(loadUsers());
         dispatch(loadBooking());
+        if (isLoggedIn) {
+            dispatch(loadFavorites());
+        }
     }, [isLoggedIn]);
 
     const elements = useRoutes(routes);

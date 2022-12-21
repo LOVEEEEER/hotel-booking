@@ -4,11 +4,17 @@ import Rating from "@mui/material/Rating";
 import Button from "../../../common/Button";
 import ImageSlider from "../../../common/ImageSlider";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeFavorite } from "../../../../store/slices/favorites";
 
-const RoomCard = ({ room, isAdmin, onEditRoom }) => {
+const RoomCard = ({ room, isAdmin, onEditRoom, forFavorites }) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleToggleHotelPage = () => {
         navigate(`/rooms/${room._id}`);
+    };
+    const handleRemoveFavorite = () => {
+        dispatch(removeFavorite(room._id));
     };
     return (
         <>
@@ -44,10 +50,16 @@ const RoomCard = ({ room, isAdmin, onEditRoom }) => {
                         onClick={
                             isAdmin
                                 ? () => onEditRoom(room)
+                                : forFavorites
+                                ? () => handleRemoveFavorite()
                                 : () => handleToggleHotelPage()
                         }
                     >
-                        {isAdmin ? "Редактировать" : "Подробнее об отеле"}
+                        {isAdmin
+                            ? "Редактировать"
+                            : forFavorites
+                            ? "Удалить из избранного"
+                            : "Подробнее об отеле"}
                     </Button>
                 </div>
             </div>
@@ -58,7 +70,8 @@ const RoomCard = ({ room, isAdmin, onEditRoom }) => {
 RoomCard.propTypes = {
     room: PropTypes.object.isRequired,
     isAdmin: PropTypes.bool,
-    onEditRoom: PropTypes.func
+    onEditRoom: PropTypes.func,
+    forFavorites: PropTypes.bool.isRequired
 };
 
 export default RoomCard;
