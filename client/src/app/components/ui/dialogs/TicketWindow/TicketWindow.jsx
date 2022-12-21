@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Dialog from "../../../common/Dialog";
 import Button from "../../../common/Button";
 
-const TicketWindow = ({ ticket, ...rest }) => {
+const TicketWindow = ({ ticket, onRemoveTicket, ...rest }) => {
     const getCauseName = (name) => {
         switch (name) {
             case "errors":
@@ -16,6 +16,7 @@ const TicketWindow = ({ ticket, ...rest }) => {
                 return name;
         }
     };
+
     return (
         <Dialog {...rest}>
             <div className="admin__ticket-dialog">
@@ -40,14 +41,20 @@ const TicketWindow = ({ ticket, ...rest }) => {
                         </p>
                     </li>
                 </ul>
-                <Button variant="cancel">Закрыть тикет</Button>
+                <Button
+                    variant="cancel"
+                    onClick={() => onRemoveTicket(ticket._id)}
+                >
+                    Закрыть тикет
+                </Button>
             </div>
         </Dialog>
     );
 };
 
 TicketWindow.propTypes = {
-    ticket: PropTypes.object
+    ticket: PropTypes.object.isRequired,
+    onRemoveTicket: PropTypes.func.isRequired
 };
 
 export default TicketWindow;

@@ -26,12 +26,17 @@ const ticketsSlice = createSlice({
                 (ticket) => ticket._id === action.payload._id
             );
             state.entities[elementIndex] = action.payload;
+        },
+        removed(state, action) {
+            state.entities = state.entities.filter(
+                (ticket) => ticket._id !== action.payload
+            );
         }
     }
 });
 
 const { reducer: ticketsReducer, actions } = ticketsSlice;
-const { requested, received, requestFailed, confirmed } = actions;
+const { requested, received, requestFailed, confirmed, removed } = actions;
 
 export const loadTickets = () => async (dispatch) => {
     dispatch(requested());
@@ -47,6 +52,15 @@ export const confirmTicket = (data) => async (dispatch) => {
     try {
         await ticketService.confirm(data._id, data);
         dispatch(confirmed(data));
+    } catch (error) {
+        dispatch(requestFailed(error.message));
+    }
+};
+
+export const removeTicket = (ticketId) => async (dispatch) => {
+    try {
+        await ticketService.remove(ticketId);
+        dispatch(removed(ticketId));
     } catch (error) {
         dispatch(requestFailed(error.message));
     }

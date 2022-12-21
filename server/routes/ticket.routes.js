@@ -48,4 +48,16 @@ router.put("/:ticketId", async (req, res) => {
   }
 });
 
+router.delete("/:ticketId", async (req, res) => {
+  try {
+    const { ticketId } = req.params;
+    await Ticket.findByIdAndDelete(ticketId);
+    return res.send(null);
+  } catch (error) {
+    res.status(500).json({
+      message: "На сервере произошла ошибка. Попробуйте позже",
+    });
+  }
+});
+
 module.exports = router;

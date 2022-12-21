@@ -18,19 +18,27 @@ const BookingList = ({ isAdmin, currentUserId }) => {
     );
     return (
         <>
-            <ul className="booking__list">
-                {itemsCrop.map((booking) => (
-                    <li key={booking._id} className="booking__item">
-                        <BookingCard isAdmin={isAdmin} item={booking} />
-                    </li>
-                ))}
-            </ul>
-            <Pagination
-                currentPage={currentPage}
-                itemsCount={userBooking?.length || bookingList.length}
-                onChange={handlePageChange}
-                pageSize={pageSize}
-            />
+            {itemsCrop.length > 0 ? (
+                <>
+                    <ul className="booking__list">
+                        {itemsCrop.map((booking) => (
+                            <li key={booking._id} className="booking__item">
+                                <BookingCard isAdmin={isAdmin} item={booking} />
+                            </li>
+                        ))}
+                    </ul>
+                    <Pagination
+                        currentPage={currentPage}
+                        itemsCount={userBooking?.length || bookingList.length}
+                        onChange={handlePageChange}
+                        pageSize={pageSize}
+                    />
+                </>
+            ) : (
+                <p className="booking__error-message">
+                    Список бронирований пуст
+                </p>
+            )}
         </>
     );
 };
