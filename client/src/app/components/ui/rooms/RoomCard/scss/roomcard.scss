@@ -1,37 +1,57 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
 @import "../../../../../styles/constants.scss";
 
-.room {
+.room {  
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 30px;
-
-  @include tablets{
-    flex-direction: column;
-    align-items: center;
-    padding: 23px;
-  }
-
   border-radius: 3px;
   box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
   transition: 0.2s box-shadow linear;
   &:hover {
     box-shadow: 4px 4px 8px 5px rgba(34, 60, 80, 0.2);
   }
-  &__main-content_wrapper {
-    display: flex;
-    @include tablets{
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+    padding: 23px;
+  }
+    &__image {
+    width: 380px;    
+    height: 250px;
+    object-fit: cover;
+    @include tablets {
+      width: 100%;
     }
   }
+  &__head-info {
+    display: flex;
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+  &__swiper-slider {
+    margin-right: 30px;
+    max-width: 380px;
+    @include tablets{
+      max-width: 80vw;
+      margin: 0;
+    }
+  } 
   &__main-content_text-wrapper {
-    padding-top: $content-margin;
+    align-self: initial
+  }
+  &__name {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #666666;
+    @include tablets{
+      text-align: center;
+    }
   }
   &__description {
-    width: 400px;
+    max-width: 375px;
+    font-size: 16px;
+    color: #666666;
     @include tablets{
       display: none;
     }
@@ -47,19 +67,7 @@
       margin: 0;
     }
   }
-  &__name {
-    margin-bottom: 15px;
-    color: #666666;
-    @include tablets{
-      text-align: center;
-    }
-  }
-  &__description {
-    max-width: 375px;
-    font-size: 16px;
-    color: #666666;
-  }
-  &__price {
+    &__price {
     margin-top: 30px;
     margin-bottom: 30px;
     color: #666666;
@@ -74,20 +82,4 @@
       color: $options-color;
     }
   }
-  &__image {
-    width: 20vw;    
-    height: 250px;
-    object-fit: cover;
-    @include tablets {
-      width: 100%;
-    }
-  }
-  &__swiper-slider {
-    margin-right: 30px;
-    max-width: 20vw;
-    @include tablets{
-      max-width: 80vw;
-      margin: 0;
-    }
-  } 
 }
