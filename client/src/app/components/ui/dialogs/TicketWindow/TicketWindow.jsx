@@ -21,7 +21,6 @@ const TicketWindow = ({ ticket, onRemoveTicket, ...rest }) => {
         <Dialog {...rest}>
             <div className="admin__ticket-dialog">
                 <h3 className="admin__ticket-title">
-                    Тикет{" "}
                     <span className="admin__ticket-id">№{ticket._id}</span>
                 </h3>
                 <ul className="admin__dialog-list">

@@ -83,9 +83,10 @@ const CreateTicketForm = ({ forDialog }) => {
                 sx={
                     forDialog
                         ? { width: "100%", marginBottom: "20px" }
-                        : { width: 200 }
+                        : { width: "200px" }
                 }
             />
+            <br />
             <Button variant="outlined" sx={buttonStyles}>
                 Отправить
             </Button>

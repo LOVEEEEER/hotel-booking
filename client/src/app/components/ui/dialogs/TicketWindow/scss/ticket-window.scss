@@ -1,3 +1,5 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
 .admin {
   &__ticket-dialog {
     padding: 33px;
@@ -8,9 +10,15 @@
   &__ticket-title {
     margin-bottom: 15px;
     font-size: 24px;
+    @include phones {
+      font-size: 16px;
+    }
   }
   &__dialog-info {
     font-size: 20px;
+    @include phones {
+      font-size: 16px;
+    }
   }
   &__dialog-list {
     margin-bottom: 12px;

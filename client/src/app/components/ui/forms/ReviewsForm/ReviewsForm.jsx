@@ -58,15 +58,17 @@ const ReviewsForm = ({ answerOn }) => {
                 errorMessage={errors.review}
             />
             <br />
-            <Rating
-                name="rate"
-                value={data.rate}
-                onChange={handleChange}
-                sx={{ marginBottom: "20px" }}
-                size="large"
-            />
-            <br />
-            <Button>Опубликовать</Button>
+            <div className="room-reviews__publish">
+                <Rating
+                    name="rate"
+                    value={data.rate}
+                    onChange={handleChange}
+                    sx={{ marginBottom: "20px" }}
+                    size="large"
+                />
+                {/* <br /> */}
+                <Button>Опубликовать</Button>
+            </div>
         </form>
     );
 };
