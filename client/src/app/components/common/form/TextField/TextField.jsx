@@ -4,20 +4,9 @@ import TextFieldMui from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
-import FormControl from "@mui/material/FormControl";
 import InputAdornment from "@mui/material/InputAdornment";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
 
-const TextField = ({
-    name,
-    label,
-    onChange,
-    value,
-    type,
-    errorMessage,
-    ...rest
-}) => {
+const TextField = ({ name, value, type, errorMessage, ...rest }) => {
     const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
@@ -25,40 +14,16 @@ const TextField = ({
     return (
         <>
             {type === "password" ? (
-                <FormControl
-                    sx={{ width: "25ch" }}
-                    variant="outlined"
-                    error={Boolean(errorMessage)}
+                <TextFieldMui
+                    name={name}
+                    value={value}
                     helperText={errorMessage}
-                >
-                    <InputLabel
-                        htmlFor="outlined-adornment-password"
-                        error={Boolean(errorMessage)}
-                        helperText={errorMessage}
-                    >
-                        {label}
-                    </InputLabel>
-                    <OutlinedInput
-                        name={name}
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        value={value}
-                        onChange={onChange}
-                        error={Boolean(errorMessage)}
-                        helperText={errorMessage}
-                        {...rest}
-                        endAdornment={
-                            <InputAdornment
-                                position="end"
-                                error={Boolean(errorMessage)}
-                                helperText={errorMessage}
-                            >
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleShowPassword}
-                                    onMouseDown={handleShowPassword}
-                                    edge="end"
-                                >
+                    error={Boolean(errorMessage)}
+                    type={showPassword ? "text" : "password"}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton onClick={handleShowPassword}>
                                     {showPassword ? (
                                         <VisibilityOff />
                                     ) : (
@@ -66,16 +31,14 @@ const TextField = ({
                                     )}
                                 </IconButton>
                             </InputAdornment>
-                        }
-                        label="Password"
-                    />
-                </FormControl>
+                        )
+                    }}
+                    {...rest}
+                />
             ) : (
                 <TextFieldMui
-                    onChange={onChange}
                     name={name}
                     id={name}
-                    label={label}
                     variant="outlined"
                     value={value}
                     className="muiinput"
@@ -95,8 +58,6 @@ TextField.defaultProps = {
 
 TextField.propTypes = {
     name: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     type: PropTypes.string,
     errorMessage: PropTypes.string
