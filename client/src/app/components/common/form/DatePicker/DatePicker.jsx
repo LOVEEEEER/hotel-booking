@@ -17,7 +17,6 @@ const DatePicker = ({
     ...rest
 }) => {
     const handleChange = (dateValue) => {
-        console.log(dateValue);
         const fakeEvent = {
             target: {
                 name: name,
@@ -59,4 +58,4 @@ DatePicker.propTypes = {
     errorMessage: PropTypes.string
 };
 
-export default DatePicker;
+export default React.memo(DatePicker);

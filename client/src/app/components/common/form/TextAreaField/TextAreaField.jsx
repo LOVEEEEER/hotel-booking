@@ -18,4 +18,4 @@ TextAreaField.propTypes = {
     errorMessage: PropTypes.string
 };
 
-export default TextAreaField;
+export default React.memo(TextAreaField);

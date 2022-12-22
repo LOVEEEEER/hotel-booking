@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
 import { usePaginate } from "../../../../hooks/usePaginate";
+import { TableFooter } from "@mui/material";
 
 export const Table = ({ children, data, ...rest }) => {
     const {
@@ -31,28 +32,33 @@ export const Table = ({ children, data, ...rest }) => {
                     <>
                         <TableHeader {...rest} />
                         <TableBody data={dataCrop} {...rest} />
+                        <TableFooter>
+                            <TableRow>
+                                <TablePagination
+                                    rowsPerPageOptions={[5, 10, 25]}
+                                    count={data.length}
+                                    rowsPerPage={pageSize}
+                                    page={currentPage}
+                                    SelectProps={{
+                                        inputProps: {
+                                            "aria-label": "rows per page"
+                                        },
+                                        native: true
+                                    }}
+                                    onPageChange={(e, page) =>
+                                        handlePageChange(page)
+                                    }
+                                    onRowsPerPageChange={(e) =>
+                                        handleChangePageSize(
+                                            Number(e.target.value)
+                                        )
+                                    }
+                                />
+                            </TableRow>
+                        </TableFooter>
                     </>
                 )}
             </TableMUI>
-
-            <TableRow>
-                <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
-                    count={data.length}
-                    rowsPerPage={pageSize}
-                    page={currentPage}
-                    SelectProps={{
-                        inputProps: {
-                            "aria-label": "rows per page"
-                        },
-                        native: true
-                    }}
-                    onPageChange={(e, page) => handlePageChange(page)}
-                    onRowsPerPageChange={(e) =>
-                        handleChangePageSize(Number(e.target.value))
-                    }
-                />
-            </TableRow>
         </TableContainer>
     );
 };

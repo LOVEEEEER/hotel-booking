@@ -52,7 +52,7 @@ RoomsList.defaultProps = {
 };
 
 RoomsList.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.array,
     clearListMessage: PropTypes.string.isRequired
 };
 
