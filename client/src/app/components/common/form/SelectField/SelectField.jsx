@@ -9,7 +9,7 @@ const SelectField = ({ value, label, options, onChange, name, ...rest }) => {
     return (
         <>
             <FormControl
-                sx={{ maxWidth: 200 }}
+                // sx={{ maxWidth: 200 }}
                 variant="outlined"
                 fullWidth
                 {...rest}

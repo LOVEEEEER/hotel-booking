@@ -23,8 +23,8 @@ const TicketItem = ({ ticket }) => {
                 <span className="admin__ticket-created">
                     {getFormatDate(ticket.created_at)}
                 </span>
-                <p className="admin__ticket-message">{ticket.name}</p>
-                <p className="admin__ticket-message">{ticket.email}</p>
+                <p className="admin__ticket-text">{ticket.name}</p>
+                <p className="admin__ticket-text">{ticket.email}</p>
                 <Button
                     variant={
                         ticket.status === "pending" ? "contained" : "outlined"
@@ -35,6 +35,7 @@ const TicketItem = ({ ticket }) => {
                             ? () => handleTicketConfirm()
                             : () => handleClickOpen()
                     }
+                    sx={{ width: "190px" }}
                 >
                     {ticket.status === "pending"
                         ? "Принять тикет"

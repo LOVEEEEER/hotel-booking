@@ -8,5 +8,19 @@
       width: 100%;
       flex-direction: column;
     }
+    flex-grow: 1;
+    flex-basis: 200px;
+  }
+}
+
+.css-qfemdq-MuiFormControl-root {
+  @include tablets {
+    width: 100% !important;
+  }
+}
+
+.css-11uq3rk-MuiButtonBase-root-MuiButton-root {
+  @include tablets {
+    width: 100% !important;
   }
 }

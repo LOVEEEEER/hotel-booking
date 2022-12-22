@@ -6,14 +6,17 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+    @include tablets {
+      width: 100vw;
+    }
   }
   &__review {
     max-width: 500px;
     padding: 23px;
     background-color: rgb(233, 230, 247);
     border-radius: 10px;
-    @include phones {
-      width: 300px;
+    @include tablets {
+      width: 100vw;
     }
   }
   &__user-info {
@@ -32,7 +35,7 @@
     align-items: center;
   }
   &__description {
-    width: 300px;
+    max-width: 300px;
     word-wrap: break-word;
     line-height: 20px;
   }

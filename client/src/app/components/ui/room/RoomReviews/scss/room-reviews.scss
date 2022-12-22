@@ -24,4 +24,9 @@
       color: #585858;
     }
   }
+  &-reviews__statistics {
+    @include tablets {
+      display: none;
+    }
+  }
 }
