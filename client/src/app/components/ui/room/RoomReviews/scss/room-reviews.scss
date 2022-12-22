@@ -1,8 +1,13 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
 .room {
   &-reviews__feedback {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+    }
   }
   &-reviews__form {
     margin-bottom: 25px;
