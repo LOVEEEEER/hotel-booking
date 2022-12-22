@@ -65,25 +65,29 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     const isValid = Object.keys(errors).length === 0;
     return (
         <form className="room-booking__form" onSubmit={handleSubmit}>
-            <div>
-                <DatePicker
-                    sx={{ width: "180px", marginRight: "20px" }}
-                    label="Заезд"
-                    name="entry"
-                    value={data.entry}
-                    errorMessage={errors.entry}
-                    onChange={handleChange}
-                />
-                <DatePicker
-                    sx={{ width: "180px" }}
-                    label="Заезд"
-                    name="departure"
-                    value={data.departure}
-                    errorMessage={errors.departure}
-                    onChange={handleChange}
-                />
+            <div className="room-booking__form-fields">
+                <div className="room-booking__form-input">
+                    <DatePicker
+                        sx={{ width: "100%" }}
+                        label="Заезд"
+                        name="entry"
+                        value={data.entry}
+                        errorMessage={errors.entry}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="room-booking__form-input">
+                    <DatePicker
+                        sx={{ width: "100%" }}
+                        label="Заезд"
+                        name="departure"
+                        value={data.departure}
+                        errorMessage={errors.departure}
+                        onChange={handleChange}
+                    />
+                </div>
             </div>
-            <div>
+            <div style={{ marginBottom: "20px" }}>
                 <Counter
                     minValue={1}
                     maxValue={5}
