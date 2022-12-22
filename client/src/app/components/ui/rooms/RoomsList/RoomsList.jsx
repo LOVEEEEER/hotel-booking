@@ -22,7 +22,7 @@ const RoomsList = ({ items, clearListMessage, ...rest }) => {
             <ul className="rooms__list">
                 {itemsCrop.length > 0 ? (
                     itemsCrop.map((item) => (
-                        <li key={item._id}>
+                        <li key={item._id} className="rooms__item">
                             <RoomCard
                                 onEditRoom={handleEditRoom}
                                 room={item}

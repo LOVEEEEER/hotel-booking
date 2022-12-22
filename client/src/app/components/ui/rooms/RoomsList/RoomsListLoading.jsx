@@ -9,9 +9,9 @@ const RoomsListLoading = ({ pageSize }) => {
         <>
             <div className="container rooms-list">
                 {array.map((item) => (
-                    <div className="room-card-loading" key={item}>
-                        <div className="room-card-loading__first-section">
-                            <div className="room-card-loading__img">
+                    <div className="rooms-card-loading" key={item}>
+                        <div className="rooms-card-loading__first-section">
+                            <div className="rooms-card-loading__img">
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
@@ -19,7 +19,7 @@ const RoomsListLoading = ({ pageSize }) => {
                                     width={392}
                                 />
                             </div>
-                            <div className="room-card-loading__first-section_text">
+                            <div className="rooms-card-loading__first-section_text">
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
@@ -34,7 +34,7 @@ const RoomsListLoading = ({ pageSize }) => {
                                 />
                             </div>
                         </div>
-                        <div className="room-card-loading__second-section">
+                        <div className="rooms-card-loading__second-section">
                             <Skeleton
                                 variant="text"
                                 animation="wave"

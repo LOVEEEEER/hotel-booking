@@ -1,26 +1,32 @@
-.room-card-loading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 270px;
-}
-
-.room-card-loading__first-section {
-  display: flex;
-  align-items: center;
-}
-
-.room-card-loading__img {
-  margin-right: 30px;
-}
-
-.room-card-loading__second-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(94, 86, 109);
-}
-
-.room-card-loading__first-section_text {
-  margin-right: 55px;
+.rooms {
+  &__list {
+    margin-bottom: 30px;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  &-card-loading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 270px;
+  }
+  &-card-loading__first-section {
+    display: flex;
+    align-items: center;
+  } 
+  &-card-loading__img {
+    margin-right: 30px;
+  }
+  &-card-loading__second-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(94, 86, 109);
+  }
+  &-card-loading__first-section_text {
+    margin-right: 55px;
+  }
 }
