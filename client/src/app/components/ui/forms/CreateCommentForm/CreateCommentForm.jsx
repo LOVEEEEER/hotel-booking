@@ -10,10 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../../../store/slices/comments";
 import { getUserById } from "../../../../store/slices/users";
 
-const ReviewsForm = ({ answerOn }) => {
+const CreateCommentForm = ({ answerOn }) => {
     const dispatch = useDispatch();
     const { data, handleChange, errors, validateBySubmit } = useForm(
-        { review: "", rate: "5" },
+        { comment: "", rate: "0" },
         validatorConfig
     );
     const { roomId } = useParams();
@@ -26,7 +26,7 @@ const ReviewsForm = ({ answerOn }) => {
         dispatch(
             createComment({
                 ...data,
-                text: data.review,
+                text: data.comment,
                 pageId: roomId,
                 answerOn: answeredUser
             })
@@ -37,7 +37,7 @@ const ReviewsForm = ({ answerOn }) => {
         if (answerOn) {
             const fakeEvent = {
                 target: {
-                    name: "review",
+                    name: "comment",
                     value: `${answeredUser?.name}, `
                 }
             };
@@ -48,17 +48,17 @@ const ReviewsForm = ({ answerOn }) => {
     return (
         <form onSubmit={handleSubmit}>
             <TextAreaField
-                value={data.review}
-                name="review"
+                value={data.comment}
+                name="comment"
                 label="Отзыв"
                 placeholder="Ваши мысли..."
                 onChange={handleChange}
                 rows={4}
                 sx={{ width: "600px", marginBottom: "15px" }}
-                errorMessage={errors.review}
+                errorMessage={errors.comment}
             />
             <br />
-            <div className="room-reviews__publish">
+            <div className="room-comments__publish">
                 <Rating
                     name="rate"
                     value={data.rate}
@@ -73,8 +73,8 @@ const ReviewsForm = ({ answerOn }) => {
     );
 };
 
-ReviewsForm.propTypes = {
+CreateCommentForm.propTypes = {
     answerOn: PropTypes.string
 };
 
-export default ReviewsForm;
+export default CreateCommentForm;

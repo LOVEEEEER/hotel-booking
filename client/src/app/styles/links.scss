@@ -19,7 +19,7 @@
 @import "../components/ui/room/RoomStatisticsBar/scss/room-statistics-bar.scss";
 @import "../components/ui/room/RoomRulesCard/scss/room-rules-card.scss";
 @import "../components/ui/rooms/FilterPanel/scss/filter-panel.scss";
-@import "../components/ui/room/RoomReview/scss/room-review.scss";
+@import "../components/ui/room/RoomComment/scss/room-comment.scss";
 @import "../components/ui/profile/NavProfile/scss/nav-profile.scss";
 @import "../components/page/UserProfilePage/scss/user-profile.scss";
 @import "../components/ui/profile/ProfileList/scss/profile-list.scss";
@@ -34,8 +34,8 @@
 @import "../components/common/Divider/scss/divider.scss";
 @import "../components/page/FavoritesPage/scss/favorites-page.scss";
 @import "../components/ui/room/RoomTopInfo/scss/room-top-info.scss";
-@import "../components/ui/room/RoomReviewsList/scss/room-reviews-list.scss";
-@import "../components/ui/room/RoomReviews/scss/room-reviews.scss";
+@import "../components/ui/room/RoomCommentsList/scss/room-comments-list.scss";
+@import "../components/ui/room/RoomComments/scss/room-comments.scss";
 @import "../components/ui/forms/BookingForm/scss/booking-form.scss";
 @import "../components/ui/forms/EditRoomForm/scss/edit-room-form.scss";
 @import "../components/ui/dialogs/CheckWindow/scss/check-window.scss";
@@ -43,4 +43,4 @@
 @import "../components/ui/admin/TicketList/scss/ticket-list.scss";
 @import "../components/ui/dialogs/CreateTicketDialog/scss/create-ticket-dialog.scss";
 @import "../components/ui/dialogs/TicketWindow/scss/ticket-window.scss";
-@import "../components/ui/forms/ReviewsForm/scss/reviews-form.scss";
+@import "../components/ui/forms/CreateCommentForm/scss/create-comment-form.scss";

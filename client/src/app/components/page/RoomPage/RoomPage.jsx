@@ -5,12 +5,12 @@ import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/booking/Booking";
 import RoomRulesCard from "../../ui/room/RoomRulesCard";
-import RoomReviews from "../../ui/room/RoomReviews";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/slices/rooms";
 import { getIsLoggedIn } from "../../../store/slices/users";
 import { useParams } from "react-router-dom";
 import RoomTopInfo from "../../ui/room/RoomTopInfo";
+import RoomComments from "../../ui/room/RoomComments";
 
 const RoomPage = () => {
     const { roomId } = useParams();
@@ -64,11 +64,11 @@ const RoomPage = () => {
                             </div>
                         </section>
                     )}
-                    <section className="room-reviews">
+                    <section className="room-comments">
                         <h2 className="room-section-title">
                             Отзывы посетителей данного отеля
                         </h2>
-                        <RoomReviews />
+                        <RoomComments />
                     </section>
                 </main>
             </>

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getIsLoggedIn } from "../../../../store/slices/users";
-import ReviewsForm from "../../forms/ReviewsForm";
-import RoomReviewsList from "../RoomReviewsList";
+import CreateCommentForm from "../../forms/CreateCommentForm";
+import RoomCommentsList from "../RoomCommentsList";
 import RoomStatisticsBar from "../RoomStatisticsBar";
 
-const RoomReviews = () => {
+const RoomComments = () => {
     const [answerOn, setAnswerOn] = useState();
     const isLoggedIn = useSelector(getIsLoggedIn());
 
@@ -15,32 +15,32 @@ const RoomReviews = () => {
     };
 
     return (
-        <div className="room-reviews__feedback">
+        <div className="room-comments__feedback">
             <div>
                 {isLoggedIn ? (
-                    <div className="room-reviews__form">
-                        <ReviewsForm answerOn={answerOn} />
+                    <div className="room-comments__form">
+                        <CreateCommentForm answerOn={answerOn} />
                     </div>
                 ) : (
-                    <p className="room-reviews__auth-error">
+                    <p className="room-comments__auth-error">
                         Для того чтобы оставлять отзывы необходимо{" "}
                         <Link
                             to="/login/signin"
-                            className="room-reviews__auth-error_link"
+                            className="room-comments__auth-error_link"
                         >
                             войти в аккаунт
                         </Link>
                     </p>
                 )}
-                <div className="room-reviews__comments">
-                    <RoomReviewsList
+                <div className="room-comments__comments">
+                    <RoomCommentsList
                         answerOn={answerOn}
                         onAnswer={handleAnswerOn}
                     />
                 </div>
             </div>
-            <div className="room-reviews__statistics">
-                <h2 className="room-reviews__statistics-title">
+            <div className="room-comments__statistics">
+                <h2 className="room-comments__statistics-title">
                     Статистика по отзывам
                 </h2>
                 <RoomStatisticsBar />
@@ -49,4 +49,4 @@ const RoomReviews = () => {
     );
 };
 
-export default RoomReviews;
+export default RoomComments;

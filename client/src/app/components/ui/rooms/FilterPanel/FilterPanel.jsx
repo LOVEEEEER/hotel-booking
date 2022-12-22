@@ -10,6 +10,7 @@ import { getBookingLoading } from "../../../../store/slices/booking";
 import CheckboxField from "../../../common/form/CheckboxField";
 import {
     breakfastList,
+    categoriesList,
     comfortList
 } from "../../../../constants/AppFilterConfig";
 import sessionStorageService from "../../../../services/sessionStorage.service";
@@ -24,7 +25,8 @@ const FilterPanel = ({ onFilterQuery }) => {
                   entry: getPresenceBookingDate(1),
                   departure: getPresenceBookingDate(2),
                   comfort: [],
-                  breakfast: []
+                  breakfast: [],
+                  categories: []
               }
             : storageData
     );
@@ -69,6 +71,15 @@ const FilterPanel = ({ onFilterQuery }) => {
                         value={data.breakfast}
                         onChange={handleChange}
                         options={breakfastList}
+                    />
+                </li>
+                <li className="filter-panel__item">
+                    <h3 className="filter-panel__filter-title">Категория</h3>
+                    <CheckboxField
+                        name="categories"
+                        value={data.categories}
+                        onChange={handleChange}
+                        options={categoriesList}
                     />
                 </li>
                 <Button sx={{ width: "100%" }}>Сбросить фильтры</Button>

@@ -1,5 +1,5 @@
 export const validatorConfig = {
-    review: {
+    comment: {
         isRequired: {
             message: "Нельзя отправить пустой отзыв"
         },

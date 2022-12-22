@@ -13,14 +13,14 @@ import removeIcon from "../../../../assets/svg/remove.svg";
 import { removeComment } from "../../../../store/slices/comments";
 import { useNavigate } from "react-router-dom";
 
-const RoomReview = ({ review, onAnswer }) => {
+const RoomComment = ({ comment, onAnswer }) => {
     const [fullContent, setFullContent] = useState();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(getIsLoggedIn());
     const currentUser = useSelector(getCurrentUser());
-    const authorComment = useSelector(getUserById(review.userId));
-    const answeredUser = useSelector(getUserById(review.answerOn));
+    const authorComment = useSelector(getUserById(comment.userId));
+    const answeredUser = useSelector(getUserById(comment.answerOn));
 
     const commentRemove = (commentId) => {
         dispatch(removeComment(commentId));
@@ -30,7 +30,7 @@ const RoomReview = ({ review, onAnswer }) => {
         setFullContent((prevState) => !prevState);
     };
 
-    const getReviewText = (text) => {
+    const getcommentText = (text) => {
         return text.length >= 80
             ? fullContent
                 ? text
@@ -44,13 +44,13 @@ const RoomReview = ({ review, onAnswer }) => {
 
     if (authorComment) {
         return (
-            <div className="room-reviews__review">
-                <div className="room-reviews__user-info">
-                    <div className="room-reviews__user-info_first">
+            <div className="room-comments__comment">
+                <div className="room-comments__user-info">
+                    <div className="room-comments__user-info_first">
                         <Avatar image={authorComment.image} />
-                        <div className="room-reviews__user-info_text">
+                        <div className="room-comments__user-info_text">
                             <span
-                                className="room-reviews__user-name"
+                                className="room-comments__user-name"
                                 onClick={() =>
                                     navigate(`/users/${authorComment._id}`)
                                 }
@@ -60,7 +60,7 @@ const RoomReview = ({ review, onAnswer }) => {
                             {isLoggedIn &&
                                 currentUser?._id !== authorComment._id && (
                                     <span
-                                        className="room-reviews__answer-text"
+                                        className="room-comments__answer-text"
                                         onClick={() =>
                                             onAnswer(authorComment._id)
                                         }
@@ -69,37 +69,37 @@ const RoomReview = ({ review, onAnswer }) => {
                                     </span>
                                 )}
                             {answeredUser && (
-                                <p className="room-reviews__user-answer">
+                                <p className="room-comments__user-answer">
                                     Ответ пользователю: {answeredUser.name}
                                 </p>
                             )}
-                            <Rating value={review.rate} readOnly />
+                            <Rating value={comment.rate} readOnly />
                         </div>
                     </div>
-                    <div className="room-reviews__user-info_second">
-                        <span className="room-reviews__user-created">
-                            {displayDate(review.created_at)}
+                    <div className="room-comments__user-info_second">
+                        <span className="room-comments__user-created">
+                            {displayDate(comment.created_at)}
                         </span>
 
                         {currentUser?._id === authorComment._id && (
                             <img
                                 src={removeIcon}
                                 alt="remove"
-                                className="room-reviews__icon"
-                                onClick={() => commentRemove(review._id)}
+                                className="room-comments__icon"
+                                onClick={() => commentRemove(comment._id)}
                             />
                         )}
                     </div>
                 </div>
-                <div className="room-reviews__content">
-                    <p className="room-reviews__description">
-                        {getReviewText(review.text)}{" "}
-                        {review.text.length > 80 && (
+                <div className="room-comments__content">
+                    <p className="room-comments__description">
+                        {getcommentText(comment.text)}{" "}
+                        {comment.text.length > 80 && (
                             <span
-                                className="room-reviews__control-text"
+                                className="room-comments__control-text"
                                 onClick={handleFullContent}
                             >
-                                {getContentControlText(review.text)}
+                                {getContentControlText(comment.text)}
                             </span>
                         )}
                     </p>
@@ -109,10 +109,10 @@ const RoomReview = ({ review, onAnswer }) => {
     }
 };
 
-RoomReview.propTypes = {
-    review: PropTypes.object.isRequired,
+RoomComment.propTypes = {
+    comment: PropTypes.object.isRequired,
     answerOn: PropTypes.string,
     onAnswer: PropTypes.func
 };
 
-export default RoomReview;
+export default RoomComment;

@@ -1,6 +1,6 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
 
-.room-reviews {
+.room-comments {
   &__item {
     width: 500px;
     &:not(:last-child) {
@@ -10,7 +10,7 @@
       width: 100vw;
     }
   }
-  &__review {
+  &__comment {
     max-width: 500px;
     padding: 23px;
     background-color: rgb(233, 230, 247);

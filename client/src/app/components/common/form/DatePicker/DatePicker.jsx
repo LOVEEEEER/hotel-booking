@@ -58,4 +58,4 @@ DatePicker.propTypes = {
     errorMessage: PropTypes.string
 };
 
-export default React.memo(DatePicker);
+export default DatePicker;

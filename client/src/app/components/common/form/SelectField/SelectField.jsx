@@ -49,4 +49,4 @@ SelectField.propTypes = {
     name: PropTypes.string.isRequired
 };
 
-export default React.memo(SelectField);
+export default SelectField;
