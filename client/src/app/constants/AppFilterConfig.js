@@ -58,3 +58,30 @@ export const sortByList = [
     },
     { value: "desc", label: "По убыванию" }
 ];
+
+export const categoriesList = [
+    {
+        value: "president",
+        label: "Президентский"
+    },
+    {
+        value: "balcony",
+        label: "С балконом"
+    },
+    {
+        value: "studio",
+        label: "Студия"
+    },
+    {
+        value: "lovers",
+        label: "Номер для поцелуев"
+    },
+    {
+        value: "business",
+        label: "Бизнес"
+    },
+    {
+        value: "luxury",
+        label: "Люкс"
+    }
+];

@@ -22,13 +22,13 @@ const RoomStatisticsBar = () => {
     if (rates) {
         return (
             <>
-                <ul className="room-reviews__reviews-bar_list">
+                <ul className="room-comments__comments-bar_list">
                     {ratesCount.map((item) => (
                         <li
                             key={item}
-                            className="room-reviews__reviews-bar_item"
+                            className="room-comments__comments-bar_item"
                         >
-                            <span className="room-reviews__rate">{item}</span>
+                            <span className="room-comments__rate">{item}</span>
                             <div className="linear-progress">
                                 <LinearProgress
                                     value={getPercentOfRate(item)}

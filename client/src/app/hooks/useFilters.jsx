@@ -30,6 +30,14 @@ export const useFilters = (initialState, bookingList) => {
             });
             filteredRooms = roomsByNotBooked;
 
+            console.log(filteredRooms, data);
+            if (data.categories.length > 0) {
+                filteredRooms = filteredRooms.filter((item) =>
+                    data.categories.includes(item.type)
+                );
+            }
+            console.log(filteredRooms);
+
             if (isIncludeElement(data.comfort, "hasSmokeZone")) {
                 filteredRooms = filteredRooms.filter(
                     (item) => item.hasSmokeZone

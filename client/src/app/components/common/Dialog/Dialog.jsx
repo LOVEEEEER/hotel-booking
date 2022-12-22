@@ -5,12 +5,7 @@ import DialogMUI from "@mui/material/Dialog";
 const Dialog = ({ open, onClose, children }) => {
     return (
         <div>
-            <DialogMUI
-                open={open}
-                onClose={onClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
+            <DialogMUI open={open} onClose={onClose}>
                 {children}
             </DialogMUI>
         </div>

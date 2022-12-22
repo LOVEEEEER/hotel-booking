@@ -1,15 +1,15 @@
 @import '../../../../../styles/constants.scss';
 
-.room-reviews {
-  &__reviews-bar_item {
+.room-comments {
+  &__comments-bar_item {
     &:not(:last-child) {
       margin-bottom: 15px;
     }
   }
-  &__reviews-bar_list {
+  &__comments-bar_list {
     width: 450px;
   }
-  &__reviews-bar_item {
+  &__comments-bar_item {
     display: flex;
     align-items: center;
 

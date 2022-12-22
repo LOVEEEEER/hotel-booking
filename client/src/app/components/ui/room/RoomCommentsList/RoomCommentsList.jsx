@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getComments, loadComments } from "../../../../store/slices/comments";
 import { useDispatch, useSelector } from "react-redux";
-import RoomReview from "../RoomReview/RoomReview";
 import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
 import { useSort } from "../../../../hooks/useSort";
+import RoomComment from "../RoomComment/RoomComment";
 
-const RoomReviewsList = ({ ...rest }) => {
+const RoomCommentsList = ({ ...rest }) => {
     const dispatch = useDispatch();
     const { roomId } = useParams();
     const comments = useSelector(getComments());
@@ -25,12 +25,12 @@ const RoomReviewsList = ({ ...rest }) => {
 
     if (comments) {
         return (
-            <div className="room-reviews__block">
+            <div className="room-comments__block">
                 {comments.length > 0 ? (
-                    <ul className="room-reviews__list">
+                    <ul className="room-comments__list">
                         {itemsCrop.map((item) => (
-                            <li className="room-reviews__item" key={item._id}>
-                                <RoomReview review={item} {...rest} />
+                            <li className="room-comments__item" key={item._id}>
+                                <RoomComment comment={item} {...rest} />
                             </li>
                         ))}
                     </ul>
@@ -50,4 +50,4 @@ const RoomReviewsList = ({ ...rest }) => {
     }
 };
 
-export default RoomReviewsList;
+export default RoomCommentsList;

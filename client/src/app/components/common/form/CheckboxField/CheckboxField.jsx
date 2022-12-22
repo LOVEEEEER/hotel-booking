@@ -102,4 +102,4 @@ CheckboxField.propTypes = {
     )
 };
 
-export default React.memo(CheckboxField);
+export default CheckboxField;

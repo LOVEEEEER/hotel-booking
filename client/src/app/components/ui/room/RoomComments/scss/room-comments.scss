@@ -1,7 +1,7 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
 
 .room {
-  &-reviews__feedback {
+  &-comments__feedback {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -9,22 +9,22 @@
       flex-direction: column;
     }
   }
-  &-reviews__form {
+  &-comments__form {
     margin-bottom: 25px;
   }
-  &-reviews__statistics-title {
+  &-comments__statistics-title {
     margin-bottom: 20px;
   }
-  &-reviews__comments {
+  &-comments__comments {
     margin-bottom: 40px;
   }
-  &-reviews__auth-error {
+  &-comments__auth-error {
     margin-bottom: 30px;
     &_link {
       color: #585858;
     }
   }
-  &-reviews__statistics {
+  &-comments__statistics {
     @include tablets {
       display: none;
     }

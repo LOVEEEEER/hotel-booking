@@ -35,7 +35,6 @@ const schema = new Schema({
   },
   type: {
     type: String,
-    enum: ["Стандарт", "Комфорт"],
   },
 });
 

@@ -11,7 +11,7 @@ const Rating = ({ value, label, ...rest }) => {
     return (
         <>
             <Typography component="legend">{label}</Typography>
-            <RatingStyled value={Number(value)} precision={0.5} {...rest} />
+            <RatingStyled value={Number(value)} {...rest} />
         </>
     );
 };

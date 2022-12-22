@@ -63,4 +63,4 @@ TextField.propTypes = {
     errorMessage: PropTypes.string
 };
 
-export default React.memo(TextField);
+export default TextField;
