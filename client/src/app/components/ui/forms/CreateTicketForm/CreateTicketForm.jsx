@@ -63,7 +63,7 @@ const CreateTicketForm = ({ forDialog }) => {
             <br />
             <TextField
                 name="message"
-                value={data.description}
+                value={data.message}
                 label="Сообщение"
                 onChange={handleChange}
                 errorMessage={errors.description}
@@ -74,6 +74,7 @@ const CreateTicketForm = ({ forDialog }) => {
                 label="Причина обращения"
                 name="cause"
                 onChange={handleChange}
+                value={data.cause}
                 options={[
                     { label: "Баги", value: "errors" },
                     { label: "Вопрос", value: "offer" },

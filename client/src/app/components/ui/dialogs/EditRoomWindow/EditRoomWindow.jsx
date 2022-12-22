@@ -16,7 +16,7 @@ const EditRoomWindow = ({ room, ...rest }) => {
 };
 
 EditRoomWindow.propTypes = {
-    room: PropTypes.object.isRequired
+    room: PropTypes.object
 };
 
 export default EditRoomWindow;

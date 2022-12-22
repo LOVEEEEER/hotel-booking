@@ -58,13 +58,7 @@ const RoomBreakFastList = ({ breakfast }) => {
 };
 
 RoomBreakFastList.propTypes = {
-    breakfast: PropTypes.arrayOf(
-        PropTypes.exact({
-            image: PropTypes.string,
-            name: PropTypes.string,
-            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        })
-    )
+    breakfast: PropTypes.array.isRequired
 };
 
 export default RoomBreakFastList;
