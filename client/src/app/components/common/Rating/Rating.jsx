@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import { Rating as RatingMUI, styled } from "@mui/material";
 
-const RatingStyled = styled(RatingMUI)(({ theme }) => ({
+const RatingStyled = styled(RatingMUI)(() => ({
     color: "rgb(247, 164, 255)"
 }));
 
@@ -11,14 +11,14 @@ const Rating = ({ value, label, ...rest }) => {
     return (
         <>
             <Typography component="legend">{label}</Typography>
-            <RatingStyled value={value} precision={0.5} {...rest} />
+            <RatingStyled value={Number(value)} precision={0.5} {...rest} />
         </>
     );
 };
 
 Rating.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    label: PropTypes.string
+    label: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Rating;

@@ -71,7 +71,7 @@ RoomCard.propTypes = {
     room: PropTypes.object.isRequired,
     isAdmin: PropTypes.bool,
     onEditRoom: PropTypes.func,
-    forFavorites: PropTypes.bool.isRequired
+    forFavorites: PropTypes.bool
 };
 
 export default RoomCard;

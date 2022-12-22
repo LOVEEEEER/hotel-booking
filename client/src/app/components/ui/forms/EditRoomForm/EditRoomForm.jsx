@@ -134,8 +134,7 @@ const EditRoomForm = ({
 
 EditRoomForm.propTypes = {
     _id: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string,
     hasSmokeZone: PropTypes.bool,
     hasSwimmingPool: PropTypes.bool,
     hasBank: PropTypes.bool,
