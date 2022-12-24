@@ -6,7 +6,7 @@ import EditRoomWindow from "../../dialogs/EditRoomWindow/EditRoomWindow";
 import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
 
-const RoomsList = ({ items, clearListMessage, ...rest }) => {
+const RoomsList = ({ items, clearListMessage, hasPagination, ...rest }) => {
     const { itemsCrop, handlePageChange, pageSize, currentPage } = usePaginate(
         items,
         6
@@ -20,8 +20,24 @@ const RoomsList = ({ items, clearListMessage, ...rest }) => {
     return (
         <>
             <ul className="rooms__list">
-                {itemsCrop.length > 0 ? (
-                    itemsCrop.map((item) => (
+                {hasPagination ? (
+                    itemsCrop.length > 0 ? (
+                        itemsCrop.map((item) => (
+                            <li key={item._id} className="rooms__item">
+                                <RoomCard
+                                    onEditRoom={handleEditRoom}
+                                    room={item}
+                                    {...rest}
+                                />
+                            </li>
+                        ))
+                    ) : (
+                        <p className="booking__error-message">
+                            {clearListMessage}
+                        </p>
+                    )
+                ) : (
+                    items.map((item) => (
                         <li key={item._id} className="rooms__item">
                             <RoomCard
                                 onEditRoom={handleEditRoom}
@@ -30,11 +46,9 @@ const RoomsList = ({ items, clearListMessage, ...rest }) => {
                             />
                         </li>
                     ))
-                ) : (
-                    <p className="booking__error-message">{clearListMessage}</p>
                 )}
             </ul>
-            {itemsCrop.length > 0 && (
+            {hasPagination && itemsCrop.length > 0 && (
                 <Pagination
                     currentPage={currentPage}
                     itemsCount={items.length}
@@ -53,7 +67,8 @@ RoomsList.defaultProps = {
 
 RoomsList.propTypes = {
     items: PropTypes.array,
-    clearListMessage: PropTypes.string.isRequired
+    clearListMessage: PropTypes.string.isRequired,
+    hasPagination: PropTypes.bool
 };
 
 export default RoomsList;

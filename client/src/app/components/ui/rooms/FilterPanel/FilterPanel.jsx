@@ -12,29 +12,33 @@ import {
     breakfastList,
     categoriesList,
     comfortList
-} from "../../../../constants/AppFilterConfig";
+} from "../../../../constants/appFilterConfig";
 import sessionStorageService from "../../../../services/sessionStorage.service";
+import { USER_FILTER_KEY } from "../../../../constants/sessionStorageServiceConfig";
 
 const FilterPanel = ({ onFilterQuery }) => {
+    const initialState = {
+        entry: getPresenceBookingDate(1),
+        departure: getPresenceBookingDate(2),
+        comfort: [],
+        breakfast: [],
+        categories: []
+    };
     const roomsLoading = useSelector(getRoomsLoading());
     const bookingLoading = useSelector(getBookingLoading());
-    const storageData = sessionStorageService.fromSessionStorage("filtersData");
-    const { data, handleChange } = useForm(
-        !storageData
-            ? {
-                  entry: getPresenceBookingDate(1),
-                  departure: getPresenceBookingDate(2),
-                  comfort: [],
-                  breakfast: [],
-                  categories: []
-              }
-            : storageData
+    const storageData =
+        sessionStorageService.fromSessionStorage(USER_FILTER_KEY);
+    const { data, handleChange, setData } = useForm(
+        !storageData ? initialState : storageData
     );
     useEffect(() => {
         if (!roomsLoading && !bookingLoading) {
             onFilterQuery(data);
         }
     }, [data, roomsLoading, bookingLoading]);
+    const handleResetFilters = () => {
+        setData(initialState);
+    };
     return (
         <div className="filter-panel__block">
             <ul className="filter-panel__list">
@@ -82,8 +86,10 @@ const FilterPanel = ({ onFilterQuery }) => {
                         options={categoriesList}
                     />
                 </li>
-                <Button sx={{ width: "100%" }}>Сбросить фильтры</Button>
             </ul>
+            <Button sx={{ width: "100%" }} onClick={handleResetFilters}>
+                Сбросить фильтры
+            </Button>
         </div>
     );
 };

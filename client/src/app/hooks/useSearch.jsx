@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import debounce from "lodash.debounce";
 
 const useSearch = (items) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchQueryItems, setSearchQueryItems] = useState(items);
-    const handleSearchQuery = ({ target: { value } }) => {
-        setSearchQuery(value);
-    };
+
+    const handleSearchQuery = debounce(setSearchQuery, 200);
+
     useEffect(() => {
         const itemsFiltered = items
             ? items.filter((item) =>

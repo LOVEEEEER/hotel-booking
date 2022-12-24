@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import routes from "./routes";
 import { loadBooking } from "./store/slices/booking";
 import { loadFavorites } from "./store/slices/favorites";
+import { loadComments } from "./store/slices/comments";
 
 function App() {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
         dispatch(loadRooms());
         dispatch(loadUsers());
         dispatch(loadBooking());
+        dispatch(loadComments());
         if (isLoggedIn) {
             dispatch(loadFavorites());
         }

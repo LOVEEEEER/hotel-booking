@@ -11,9 +11,13 @@ import {
 import Rating from "../../../common/Rating";
 import { getIsLoggedIn } from "../../../../store/slices/users";
 import { useParams } from "react-router-dom";
+import { getRoomRates } from "../../../../store/slices/comments";
+import { getAverageRoomRate } from "../../../../utils/getAverageRoomRate";
+import { getRoomTypeName } from "../../../../utils/getRoomTypeName";
 
 const RoomTopInfo = ({ title, type, rate, _id }) => {
     const { roomId } = useParams();
+    const rates = useSelector(getRoomRates(roomId));
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(getIsLoggedIn());
     const isFavorite = useSelector(getIsFavorite(_id));
@@ -40,12 +44,12 @@ const RoomTopInfo = ({ title, type, rate, _id }) => {
                 </div>
                 <p className="room-cover__type">
                     <span className="room-cover__type-text">Тип: </span>
-                    {type}
+                    {getRoomTypeName(type)}
                 </p>
             </div>
             <div className="room-cover__rate-block">
                 <Rating
-                    value={rate}
+                    value={getAverageRoomRate(rates)}
                     label="Общий рейтинг"
                     readOnly
                     sx={{

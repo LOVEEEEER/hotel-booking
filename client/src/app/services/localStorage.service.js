@@ -1,7 +1,9 @@
-const TOKEN_KEY = "jwt-token";
-const REFRESH_KEY = "jwt-refresh-token";
-const EXPIRES_KEY = "jwt-expires";
-const USERID_KEY = "user-local-id";
+import {
+    EXPIRES_KEY,
+    REFRESH_KEY,
+    TOKEN_KEY,
+    USERID_KEY
+} from "../constants/localStorageServiceConfig";
 
 export function setTokens({
     refreshToken,

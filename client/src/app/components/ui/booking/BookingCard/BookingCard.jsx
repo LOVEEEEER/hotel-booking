@@ -71,19 +71,17 @@ const BookingCard = ({ item, isAdmin }) => {
                         >
                             Показать чек
                         </Button>
-                        {isAdmin && (
-                            <Button
-                                variant="cancel"
-                                sx={{
-                                    marginBottom: "8px",
-                                    padding: "5px",
-                                    fontSize: "11px"
-                                }}
-                                onClick={deleteBooking}
-                            >
-                                Снять бронь
-                            </Button>
-                        )}
+                        <Button
+                            variant="cancel"
+                            sx={{
+                                marginBottom: "8px",
+                                padding: "5px",
+                                fontSize: "11px"
+                            }}
+                            onClick={deleteBooking}
+                        >
+                            Снять бронь
+                        </Button>
                     </div>
                 </div>
                 <CheckWindow open={open} onClose={handleClose} booking={item} />

@@ -1,11 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { getRoomRates } from "../../../../store/slices/comments";
 import LinearProgress from "../../../common/LinearProgress";
 
 const RoomStatisticsBar = () => {
     const ratesCount = [5, 4, 3, 2, 1];
-    const rates = useSelector(getRoomRates());
+    const { roomId } = useParams();
+    const rates = useSelector(getRoomRates(roomId));
     const getPercentOfRate = (rateItem) => {
         let sumOfRates = 0;
         rates.forEach((rate) => {

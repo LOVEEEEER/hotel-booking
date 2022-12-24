@@ -43,14 +43,20 @@ const { reducer: commentsReducer, actions } = commentsSlice;
 const { requested, received, loadFailed, created, requestFailed, removed } =
     actions;
 
-export const loadComments = (pageId) => async (dispatch, getState) => {
+export const loadComments = () => async (dispatch) => {
     dispatch(requested());
     try {
-        const { content } = await commentsService.get(pageId);
+        const { content } = await commentsService.fetchAll();
         dispatch(received(content));
     } catch (error) {
         dispatch(loadFailed(error.message));
     }
+};
+
+export const getRoomComments = (roomId) => (state) => {
+    return state.comments.entities
+        ? state.comments.entities.filter((comment) => comment.pageId === roomId)
+        : null;
 };
 
 export const createComment = (comment) => async (dispatch) => {
@@ -71,10 +77,18 @@ export const removeComment = (id) => async (dispatch) => {
     }
 };
 
-export const getRoomRates = () => (state) => {
-    return state.comments.entities
-        ? state.comments.entities.map((comment) => comment.rate)
-        : null;
+export const getRoomRates = (roomId) => (state) => {
+    if (state.comments.entities) {
+        const roomComments = state.comments.entities.filter(
+            (comment) => comment.pageId === roomId
+        );
+        return roomComments.map((comment) => comment.rate);
+    }
+    return null;
+};
+
+export const getCommentsLoading = () => (state) => {
+    return state.comments.isLoading;
 };
 
 export const getComments = () => (state) => state.comments.entities;

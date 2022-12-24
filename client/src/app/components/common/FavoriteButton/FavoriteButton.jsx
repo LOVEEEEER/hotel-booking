@@ -10,7 +10,8 @@ const FavoriteButtonStyled = styled(Fab)(() => ({
     color: "#FFFFFF",
     "&:hover": {
         backgroundColor: "rgb(110, 87, 238)"
-    }
+    },
+    zIndex: "1"
 }));
 
 const FavoriteButton = ({ isFavorite, ...rest }) => {

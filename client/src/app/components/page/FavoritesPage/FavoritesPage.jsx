@@ -4,17 +4,16 @@ import {
     getFavoritesLoading,
     getFavoritesRooms
 } from "../../../store/slices/favorites";
-import { getRoomsLoading } from "../../../store/slices/rooms";
 import RoomsList from "../../ui/rooms/RoomsList/RoomsList";
 
 const FavoritesPage = () => {
     const favoritesLoading = useSelector(getFavoritesLoading());
     const favoriteRooms = useSelector(getFavoritesRooms());
-    const roomsLoading = useSelector(getRoomsLoading());
-    if (!favoritesLoading && !roomsLoading) {
+    if (!favoritesLoading) {
         return (
             <main className="favorites__page">
                 <RoomsList
+                    hasPagination={true}
                     forFavorites={true}
                     items={favoriteRooms}
                     clearListMessage="Список избранных номеров пуст"

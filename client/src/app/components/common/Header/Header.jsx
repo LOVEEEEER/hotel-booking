@@ -17,7 +17,7 @@ const Header = () => {
         { path: "/vacancies", text: "Услуги", _id: 3 },
         { path: "/news", text: "Политика", _id: 4 }
     ];
-    const handleOpenMenu = () => {
+    const toggleMenu = () => {
         setOpen((prevState) => !prevState);
     };
 
@@ -48,7 +48,7 @@ const Header = () => {
                         id="menu__toggle"
                         className="header__menu-toggle"
                         type="checkbox"
-                        onClick={handleOpenMenu}
+                        onClick={toggleMenu}
                     />
                     <label
                         className="header__menu-button"
@@ -92,7 +92,7 @@ const Header = () => {
                     )}
                 </ul>
             </div>
-            <PhoneMenu open={open} navLinks={links} />
+            <PhoneMenu open={open} navLinks={links} onToggleMenu={toggleMenu} />
         </header>
     );
 };

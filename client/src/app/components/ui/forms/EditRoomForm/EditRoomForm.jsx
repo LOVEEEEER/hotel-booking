@@ -4,7 +4,10 @@ import { useForm } from "../../../../hooks/useForm";
 import SelectField from "../../../common/form/SelectField";
 import { validatorConfig } from "./validatorConfig";
 import CheckboxField from "../../../common/form/CheckboxField";
-import { breakfastList } from "../../../../constants/AppFilterConfig";
+import {
+    breakfastList,
+    categoriesList
+} from "../../../../constants/appFilterConfig";
 import Button from "../../../common/Button";
 import { useDispatch } from "react-redux";
 import { updateRoom } from "../../../../store/slices/rooms";
@@ -47,16 +50,7 @@ const EditRoomForm = ({
                 name="type"
                 value={data.type}
                 onChange={handleChange}
-                options={[
-                    {
-                        value: "Стандарт",
-                        label: "Стандарт"
-                    },
-                    {
-                        value: "Комфорт",
-                        label: "Комфорт"
-                    }
-                ]}
+                options={categoriesList}
                 sx={{ width: "100%", marginBottom: "20px" }}
             />
             <div className="admin__first-filters">

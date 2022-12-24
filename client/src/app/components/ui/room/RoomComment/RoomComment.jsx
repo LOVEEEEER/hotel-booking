@@ -30,7 +30,7 @@ const RoomComment = ({ comment, onAnswer }) => {
         setFullContent((prevState) => !prevState);
     };
 
-    const getcommentText = (text) => {
+    const getCommentText = (text) => {
         return text.length >= 80
             ? fullContent
                 ? text
@@ -81,19 +81,20 @@ const RoomComment = ({ comment, onAnswer }) => {
                             {displayDate(comment.created_at)}
                         </span>
 
-                        {currentUser?._id === authorComment._id && (
-                            <img
-                                src={removeIcon}
-                                alt="remove"
-                                className="room-comments__icon"
-                                onClick={() => commentRemove(comment._id)}
-                            />
-                        )}
+                        {currentUser?._id === authorComment._id ||
+                            (currentUser.isAdmin && (
+                                <img
+                                    src={removeIcon}
+                                    alt="remove"
+                                    className="room-comments__icon"
+                                    onClick={() => commentRemove(comment._id)}
+                                />
+                            ))}
                     </div>
                 </div>
                 <div className="room-comments__content">
                     <p className="room-comments__description">
-                        {getcommentText(comment.text)}{" "}
+                        {getCommentText(comment.text)}{" "}
                         {comment.text.length > 80 && (
                             <span
                                 className="room-comments__control-text"

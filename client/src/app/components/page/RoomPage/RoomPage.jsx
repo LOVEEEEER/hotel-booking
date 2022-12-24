@@ -11,13 +11,15 @@ import { getIsLoggedIn } from "../../../store/slices/users";
 import { useParams } from "react-router-dom";
 import RoomTopInfo from "../../ui/room/RoomTopInfo";
 import RoomComments from "../../ui/room/RoomComments";
+import { getRoomComments } from "../../../store/slices/comments";
 
 const RoomPage = () => {
     const { roomId } = useParams();
     const room = useSelector(getRoomById(roomId));
+    const comments = useSelector(getRoomComments(roomId));
     const isLoggedIn = useSelector(getIsLoggedIn());
 
-    if (room) {
+    if (room && comments) {
         return (
             <>
                 <main className="room__page">
@@ -68,7 +70,7 @@ const RoomPage = () => {
                         <h2 className="room-section-title">
                             Отзывы посетителей данного отеля
                         </h2>
-                        <RoomComments />
+                        <RoomComments comments={comments} />
                     </section>
                 </main>
             </>

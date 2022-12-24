@@ -26,12 +26,6 @@ html {
   max-width: 1300px;
 }
 
-.swiper-image {
-  width: 100%;
-  /* height: 500px; */
-  transition: box-shadow 0.5s linear;
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 7px;

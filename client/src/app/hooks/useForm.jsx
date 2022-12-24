@@ -33,6 +33,7 @@ export const useForm = (initialState, config) => {
         return Object.keys(errors).length === 0;
     };
     return {
+        setData,
         handleChange,
         validate,
         data,

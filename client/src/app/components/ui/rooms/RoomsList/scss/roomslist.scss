@@ -1,6 +1,7 @@
 .rooms {
   &__list {
     margin-bottom: 30px;
+    width: 100%;
   }
   &__item {
     &:not(:last-child) {

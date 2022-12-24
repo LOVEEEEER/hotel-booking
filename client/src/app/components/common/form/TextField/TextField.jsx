@@ -58,7 +58,7 @@ TextField.defaultProps = {
 
 TextField.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     type: PropTypes.string,
     errorMessage: PropTypes.string
 };

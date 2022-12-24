@@ -3,13 +3,8 @@ import httpService from "./http.service";
 const commentsEndPoint = "comment/";
 
 const commentsService = {
-    get: async (pageId) => {
-        const { data } = await httpService.get(commentsEndPoint, {
-            params: {
-                orderBy: "pageId",
-                equalTo: `${pageId}`
-            }
-        });
+    fetchAll: async () => {
+        const { data } = await httpService.get(commentsEndPoint);
         return data;
     },
     create: async (payload) => {

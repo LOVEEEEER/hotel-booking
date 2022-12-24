@@ -54,9 +54,9 @@ export const pageSizesList = [
 export const sortByList = [
     {
         value: "asc",
-        label: "По возрастанию"
+        label: "Сначала дешевле"
     },
-    { value: "desc", label: "По убыванию" }
+    { value: "desc", label: "Сначала дороже" }
 ];
 
 export const categoriesList = [
@@ -74,7 +74,7 @@ export const categoriesList = [
     },
     {
         value: "lovers",
-        label: "Номер для поцелуев"
+        label: "Для пар"
     },
     {
         value: "business",
@@ -85,3 +85,11 @@ export const categoriesList = [
         label: "Люкс"
     }
 ];
+
+export default {
+    comfortList,
+    breakfastList,
+    pageSizesList,
+    sortByList,
+    categoriesList
+};

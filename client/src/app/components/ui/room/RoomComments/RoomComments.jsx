@@ -6,7 +6,7 @@ import CreateCommentForm from "../../forms/CreateCommentForm";
 import RoomCommentsList from "../RoomCommentsList";
 import RoomStatisticsBar from "../RoomStatisticsBar";
 
-const RoomComments = () => {
+const RoomComments = ({ ...rest }) => {
     const [answerOn, setAnswerOn] = useState();
     const isLoggedIn = useSelector(getIsLoggedIn());
 
@@ -36,6 +36,7 @@ const RoomComments = () => {
                     <RoomCommentsList
                         answerOn={answerOn}
                         onAnswer={handleAnswerOn}
+                        {...rest}
                     />
                 </div>
             </div>

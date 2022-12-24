@@ -17,7 +17,7 @@ const Search = ({ onChange, value, ...rest }) => {
 
 Search.propTypes = {
     onChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string
 };
 
 export default React.memo(Search);

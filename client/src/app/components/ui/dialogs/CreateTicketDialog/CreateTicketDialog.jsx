@@ -1,14 +1,15 @@
 import React from "react";
 import Dialog from "../../../common/Dialog";
 import CreateTicketForm from "../../forms/CreateTicketForm";
+import FormCardStyles from "../../HOC/FormCardStyles";
 
 const CreateTicketDialog = ({ ...rest }) => {
     return (
         <Dialog {...rest}>
-            <div className="create-ticket-dialog">
+            <FormCardStyles>
                 <h3 className="room-booking__dialog-title">Создание тикета</h3>
                 <CreateTicketForm forDialog={true} />
-            </div>
+            </FormCardStyles>
         </Dialog>
     );
 };

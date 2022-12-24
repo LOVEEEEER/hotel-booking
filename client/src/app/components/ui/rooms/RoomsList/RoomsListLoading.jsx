@@ -15,8 +15,8 @@ const RoomsListLoading = ({ pageSize }) => {
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
-                                    height={392}
-                                    width={392}
+                                    height={391}
+                                    width={391}
                                 />
                             </div>
                             <div className="rooms-card-loading__first-section_text">
@@ -24,13 +24,13 @@ const RoomsListLoading = ({ pageSize }) => {
                                     variant="text"
                                     animation="wave"
                                     height={50}
-                                    width={392}
+                                    width={391}
                                 />
                                 <Skeleton
                                     variant="text"
                                     animation="wave"
                                     height={140}
-                                    width={392}
+                                    width={391}
                                 />
                             </div>
                         </div>
