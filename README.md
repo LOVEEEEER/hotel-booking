@@ -2,12 +2,12 @@
 
 ## Технологии
 
-- [React]
-- [React-Redux]
-- [Redux Toolkit]
-- [Node.js]
-- [Express]
-- [MangoDB]
+- React
+- React-Redux
+- Redux Toolkit
+- Node.js
+- Express
+- MangoDB
 
 ## Разработка
 
