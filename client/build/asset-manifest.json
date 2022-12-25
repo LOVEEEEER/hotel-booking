@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2860c979.css",
+    "main.js": "/static/js/main.cdcd0627.js",
+    "static/media/mainbackground.jpg": "/static/media/mainbackground.8d2c5e5e0b0117a57ad0.jpg",
+    "static/media/main-hotel.jpg": "/static/media/main-hotel.50f42c2bff4a7e4687f8.jpg",
+    "static/media/error.svg": "/static/media/error.5a253250355232ccfa3e7d6e125208c2.svg",
+    "static/media/logo.svg": "/static/media/logo.57a6f70da0e76ff1dbc557558ac640e7.svg",
+    "static/media/vegetarian.svg": "/static/media/vegetarian.fd1335cc645eb620c969a69a34c83b3f.svg",
+    "static/media/rocket.svg": "/static/media/rocket.0fffa5d744a13b3b8f5becf4e42d2dc2.svg",
+    "static/media/swimming-pool.svg": "/static/media/swimming-pool.1967b22b124e940246bbe5c6f0ba7bf4.svg",
+    "static/media/conditioner.svg": "/static/media/conditioner.06a6212641bb71645ece8b9dee79552f.svg",
+    "static/media/gym.svg": "/static/media/gym.a1763dfdd3e73840ceca1407f1c9502b.svg",
+    "static/media/like.svg": "/static/media/like.5ab62a4de9bc6c002ee2d2dd24bd78b1.svg",
+    "static/media/telegram.svg": "/static/media/telegram.1cca1a21c9e9412d88edc8a552e74efa.svg",
+    "static/media/github.svg": "/static/media/github.7c2b277031fc9aeb24c033ff9332c319.svg",
+    "static/media/smoke.svg": "/static/media/smoke.90677e21580a56006d20feb21be731a9.svg",
+    "static/media/remove.svg": "/static/media/remove.2a19b1318e591a788498b36600571b71.svg",
+    "index.html": "/index.html",
+    "static/media/wifi.svg": "/static/media/wifi.4f81de91a243162d5699617c35efab42.svg",
+    "static/media/parking.svg": "/static/media/parking.877330f24c09691cc34113daad430a92.svg",
+    "static/media/success.svg": "/static/media/success.7e701d77120ddeabce68cd4e666b7672.svg",
+    "static/media/booking.svg": "/static/media/booking.f5b5285c5bd2eb815a2c03c52550b69c.svg",
+    "static/media/lock.svg": "/static/media/lock.23003d2f0dacf6d156583d1a8cee541a.svg",
+    "static/media/online.svg": "/static/media/online.1deef5b10d1d20b69539dbaa169da425.svg",
+    "static/media/wallet.svg": "/static/media/wallet.a2a7f655b04f1f96c301437471fdd638.svg",
+    "static/media/user.svg": "/static/media/user.9075f24d0e64b91ce64fbed957d8cbb8.svg",
+    "static/media/sweden.svg": "/static/media/sweden.cf4da293b8b5618da62409c3af353dc9.svg",
+    "static/media/italy.svg": "/static/media/italy.52701962295e753dfb6a19353e19a04b.svg",
+    "static/media/bank.svg": "/static/media/bank.99066800d27cd9821b58ebd0fd44f361.svg",
+    "static/media/arrow-down.svg": "/static/media/arrow-down.db86cc7a43cd86da49d4cd0fa0ad172d.svg",
+    "main.2860c979.css.map": "/static/css/main.2860c979.css.map",
+    "main.cdcd0627.js.map": "/static/js/main.cdcd0627.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2860c979.css",
+    "static/js/main.cdcd0627.js"
+  ]
+}
