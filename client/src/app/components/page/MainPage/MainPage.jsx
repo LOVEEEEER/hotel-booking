@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./scss/mainpage.scss";
 import mainHotelImage from "../../../assets/images/main-hotel.jpg";
 import rocketIcon from "../../../assets/svg/rocket.svg";
-import handShakeIcon from "../../../assets/svg/handshake.svg";
 import bookingIcon from "../../../assets/svg/booking.svg";
 import CreateTicketForm from "../../ui/forms/CreateTicketForm";
+import likeIcon from "../../../assets/svg/like.svg";
+import "./scss/main-page.scss";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -18,15 +18,13 @@ const MainPage = () => {
                 <div className="hero__container">
                     <div className="hero__main-info">
                         <h1 className="hero__title">
-                            Бронирование отелей Лучшие{" "}
+                            Бронирование номеров
+                            <br /> Лучшие{" "}
                             <span className="hero__title-addition">услуги</span>
                         </h1>
                         <p className="hero__description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Sapiente, magni omnis velit reiciendis
-                            provident reprehenderit animi beatae doloribus!
-                            Doloremque labore culpa placeat tempore quo tenetur
-                            facere voluptatibus eaque obcaecati nostrum?
+                            Как посетитель нашего отеля, вы можете подобрать
+                            себе подходящий номер прямо на нашем сервисе!
                         </p>
                         <button
                             className="hero__ad-button"
@@ -83,17 +81,15 @@ const MainPage = () => {
                         <li className="info__item">
                             <div className="info__image-card">
                                 <img
-                                    src={handShakeIcon}
+                                    src={likeIcon}
                                     alt="work"
                                     className="info__image"
                                 />
                             </div>
-                            <h3 className="info__item-title">
-                                Сотрудничество с отелями
-                            </h3>
+                            <h3 className="info__item-title">Большой выбор</h3>
                             <p className="info__item-description">
-                                Мы имеем большую базу отелей, с привлекательными
-                                ценами
+                                Мы имеем большую базу номеров, с
+                                привлекательными ценами
                             </p>
                         </li>
                     </ul>

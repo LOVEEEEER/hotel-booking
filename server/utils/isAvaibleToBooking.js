@@ -13,7 +13,13 @@ const isAvaibleToBooking = async (currentBooking) => {
       (currentBookingEntry >= bookingEntry &&
         currentBookingEntry <= bookingDeparture) ||
       (currentBookingDeparture >= bookingEntry &&
-        currentBookingDeparture <= bookingDeparture);
+        currentBookingDeparture <= bookingDeparture) ||
+      (currentBookingEntry < bookingEntry &&
+        currentBookingDeparture > bookingDeparture);
+    if (isValid) {
+      return true;
+    }
+    return false;
   });
   if (!isBookingOnThisDate) {
     return true;

@@ -64,14 +64,16 @@ const UsersTable = () => {
             }
         };
 
-        return (
-            <Table
-                selectedSort={sortBy}
-                columns={columns}
-                data={sortedItems}
-                onSort={handleSortBy}
-            />
-        );
+        if (sortedItems) {
+            return (
+                <Table
+                    selectedSort={sortBy}
+                    columns={columns}
+                    data={sortedItems}
+                    onSort={handleSortBy}
+                />
+            );
+        }
     }
 };
 

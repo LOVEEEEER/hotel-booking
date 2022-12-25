@@ -7,6 +7,7 @@ import { getRoomById } from "../../../../store/slices/rooms";
 import { getFormatDate } from "../../../../utils/dateService";
 import Divider from "../../../common/Divider";
 import Logo from "../../../common/Logo";
+import "./scss/check-window.scss";
 
 const CheckWindow = ({ booking, ...rest }) => {
     const bookedRoom = useSelector(getRoomById(booking.roomId));

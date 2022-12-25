@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { getBookingById } from "../../../../store/slices/booking";
 import { useDialog } from "../../../../hooks/useDialog";
 import { getCurrentUser } from "../../../../store/slices/users";
-import SuccessWindow from "../../dialogs/SuccessWindow/SuccessWindow";
-import SuccessWindowLoading from "../../dialogs/SuccessWindow/SuccessWindowLoading";
+import SuccessWindow from "../../windows/SuccessWindow/SuccessWindow";
 import BookingForm from "../../forms/BookingForm";
+import "./scss/booking.scss";
 
 const Booking = ({ ...rest }) => {
     const currentUser = useSelector(getCurrentUser());
@@ -14,20 +14,13 @@ const Booking = ({ ...rest }) => {
     return (
         <>
             <BookingForm onOpenDialog={handleClickOpen} {...rest} />
-            {openDialog ? (
-                !currentBooking ? (
-                    <SuccessWindowLoading
-                        open={openDialog}
-                        onClose={handleClose}
-                    />
-                ) : (
-                    <SuccessWindow
-                        currentBooking={currentBooking}
-                        open={openDialog}
-                        onClose={handleClose}
-                    />
-                )
-            ) : null}
+            {openDialog && (
+                <SuccessWindow
+                    currentBooking={currentBooking}
+                    open={openDialog}
+                    onClose={handleClose}
+                />
+            )}
         </>
     );
 };

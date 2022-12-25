@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getRoomRates } from "../../../../store/slices/comments";
 import LinearProgress from "../../../common/LinearProgress";
+import "./scss/room-statistics-bar.scss";
 
 const RoomStatisticsBar = () => {
     const ratesCount = [5, 4, 3, 2, 1];

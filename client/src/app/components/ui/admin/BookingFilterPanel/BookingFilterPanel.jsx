@@ -6,37 +6,46 @@ import {
     getPresenceBookingDate
 } from "../../../../utils/dateService";
 import DatePicker from "../../../common/form/DatePicker";
-import sessionStorageService from "../../../../services/sessionStorage.service";
-import { ADMIN_FILTER_KEY } from "../../../../constants/sessionStorageServiceConfig";
+import debounce from "lodash.debounce";
+import "./scss/booking-filter-panel.scss";
 
 const BookingFilterPanel = ({ rooms, onFilterQuery }) => {
-    const storageData =
-        sessionStorageService.fromSessionStorage(ADMIN_FILTER_KEY);
-    const { data, handleChange } = useForm(
-        !storageData
-            ? {
-                  entry: getPresenceBookingDate(0),
-                  departure: getPresenceBookingDate(1)
-              }
-            : storageData
-    );
+    const { data, handleChange } = useForm({
+        entry: getPresenceBookingDate(1),
+        departure: getPresenceBookingDate(2)
+    });
     useEffect(() => {
         onFilterQuery(data, rooms);
     }, [data, rooms]);
+    const handleDateChange = debounce(handleChange, 180);
     return (
         <div className="admin__dates">
             <div className="admin__date-fields">
                 <DatePicker
                     name="entry"
-                    value={data.entry}
                     label="Заезд"
-                    onChange={handleChange}
+                    value={data.entry}
+                    onChange={({ target }) =>
+                        handleDateChange({
+                            target: {
+                                value: target.value,
+                                name: "entry"
+                            }
+                        })
+                    }
                 />
                 <DatePicker
                     name="departure"
-                    value={data.departure}
                     label="Выезд"
-                    onChange={handleChange}
+                    value={data.departure}
+                    onChange={({ target }) =>
+                        handleDateChange({
+                            target: {
+                                value: target.value,
+                                name: "departure"
+                            }
+                        })
+                    }
                 />
             </div>
             {data.entry && data.departure && (

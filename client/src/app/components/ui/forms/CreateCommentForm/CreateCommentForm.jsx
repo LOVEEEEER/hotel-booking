@@ -9,6 +9,7 @@ import { validatorConfig } from "./validatorConfig";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../../../store/slices/comments";
 import { getUserById } from "../../../../store/slices/users";
+import "./scss/create-comment-form.scss";
 
 const CreateCommentForm = ({ answerOn }) => {
     const dispatch = useDispatch();

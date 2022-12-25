@@ -10,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, logOut } from "../../../../store/slices/users";
 import { Menu, MenuItem } from "@mui/material";
+import "./scss/profile-list.scss";
 
 const ProfileList = ({ open, anchorEl, ...rest }) => {
     const dispatch = useDispatch();

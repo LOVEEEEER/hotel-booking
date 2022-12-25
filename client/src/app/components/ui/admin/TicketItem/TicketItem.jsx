@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TicketWindow from "../../dialogs/TicketWindow";
+import TicketWindow from "../../windows/TicketWindow";
 import { getFormatDate } from "../../../../utils/dateService";
 import Button from "../../../common/Button";
 import { confirmTicket, removeTicket } from "../../../../store/slices/tickets";

@@ -19,14 +19,19 @@ export const useFilters = (
             const entry = new Date(data.entry).getTime();
             const departure = new Date(data.departure).getTime();
             const bookingsByDate = bookingList.filter((booking) => {
-                const bookingEntry = new Date(booking.entry).getTime();
-                const bookingDeparture = new Date(booking.departure).getTime();
-                const validEntry = bookingEntry >= entry;
-                const validDeparture = bookingDeparture <= departure;
-                const isValidList = validEntry && validDeparture;
-                if (isValidList) return true;
+                const entryBooking = new Date(booking.entry).getTime();
+                const departureBooking = new Date(booking.departure).getTime();
+                const isNotAvaible =
+                    (entry >= entryBooking && entry <= departureBooking) ||
+                    (departure >= entryBooking &&
+                        departure <= departureBooking) ||
+                    (entry < entryBooking && departure > departureBooking);
+                if (isNotAvaible) {
+                    return true;
+                }
                 return false;
             });
+
             const bookingRoomsByIds = bookingsByDate.map((book) => book.roomId);
             const roomsByNotBooked = initialState.filter((room) => {
                 if (bookingRoomsByIds.includes(room._id)) return false;
@@ -93,10 +98,9 @@ export const useFilters = (
                 }
             }
 
-            setFilteredItems(filteredRooms);
-
             sessionStorageService.toSessionStorage(localKey, data);
         }
+        setFilteredItems(filteredRooms);
     };
 
     return { handleFilter, filteredItems };

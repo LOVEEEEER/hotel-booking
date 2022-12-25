@@ -4,7 +4,6 @@ import RoomReasonsChoosingList from "../../ui/room/RoomReasonsChoosing";
 import RoomComfortList from "../../ui/room/RoomComfortList";
 import RoomBreakFastList from "../../ui/room/RoomBreakfastList";
 import Booking from "../../ui/booking/Booking";
-import RoomRulesCard from "../../ui/room/RoomRulesCard";
 import { useSelector } from "react-redux";
 import { getRoomById } from "../../../store/slices/rooms";
 import { getIsLoggedIn } from "../../../store/slices/users";
@@ -12,6 +11,8 @@ import { useParams } from "react-router-dom";
 import RoomTopInfo from "../../ui/room/RoomTopInfo";
 import RoomComments from "../../ui/room/RoomComments";
 import { getRoomComments } from "../../../store/slices/comments";
+import "./scss/room-page.scss";
+import RoomPlacementCard from "../../ui/room/RoomPlacementCard";
 
 const RoomPage = () => {
     const { roomId } = useParams();
@@ -52,7 +53,7 @@ const RoomPage = () => {
                                 <RoomBreakFastList breakfast={room.breakfast} />
                             </div>
                             <div className="room-comfort__item">
-                                <RoomRulesCard />
+                                <RoomPlacementCard />
                             </div>
                         </div>
                     </section>

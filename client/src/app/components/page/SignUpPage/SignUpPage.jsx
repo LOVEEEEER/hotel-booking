@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SignUpForm from "../../ui/forms/SignUpForm";
 import userIcon from "../../../assets/svg/user.svg";
 import FormCardStyles from "../../ui/HOC/FormCardStyles";
+import "./scss/sign-up-page.scss";
 
 const SignUpPage = () => {
     return (
@@ -20,7 +21,9 @@ const SignUpPage = () => {
                     <SignUpForm />
                     <div className="form-offer">
                         Уже есть аккаунт на Cosmos?{" "}
-                        <Link to="/login/signin">Войти</Link>
+                        <Link to="/login/signin" className="form-offer-link">
+                            Войти
+                        </Link>
                     </div>
                 </FormCardStyles>
             </div>

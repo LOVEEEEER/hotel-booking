@@ -11,6 +11,7 @@ import { usePaginate } from "../../../../hooks/usePaginate";
 import { TableFooter } from "@mui/material";
 
 export const Table = ({ children, data, ...rest }) => {
+    console.log(data);
     const {
         itemsCrop: dataCrop,
         handlePageChange,

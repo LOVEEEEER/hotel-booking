@@ -13,8 +13,10 @@ import {
     categoriesList,
     comfortList
 } from "../../../../constants/appFilterConfig";
+import debounce from "lodash.debounce";
 import sessionStorageService from "../../../../services/sessionStorage.service";
 import { USER_FILTER_KEY } from "../../../../constants/sessionStorageServiceConfig";
+import "./scss/filter-panel.scss";
 
 const FilterPanel = ({ onFilterQuery }) => {
     const initialState = {
@@ -32,13 +34,15 @@ const FilterPanel = ({ onFilterQuery }) => {
         !storageData ? initialState : storageData
     );
     useEffect(() => {
-        if (!roomsLoading && !bookingLoading) {
+        const isAvaibleToFilter = !roomsLoading && !bookingLoading;
+        if (isAvaibleToFilter) {
             onFilterQuery(data);
         }
     }, [data, roomsLoading, bookingLoading]);
     const handleResetFilters = () => {
         setData(initialState);
     };
+    const handleDateChange = debounce(handleChange, 180);
     return (
         <div className="filter-panel__block">
             <ul className="filter-panel__list">
@@ -47,14 +51,28 @@ const FilterPanel = ({ onFilterQuery }) => {
                     <DatePicker
                         name="entry"
                         value={data.entry}
-                        onChange={handleChange}
+                        onChange={({ target }) =>
+                            handleDateChange({
+                                target: {
+                                    value: target.value,
+                                    name: "entry"
+                                }
+                            })
+                        }
                         sx={{ marginBottom: "15px" }}
                         label="Заезд"
                     />
                     <DatePicker
                         name="departure"
                         value={data.departure}
-                        onChange={handleChange}
+                        onChange={({ target }) =>
+                            handleDateChange({
+                                target: {
+                                    value: target.value,
+                                    name: "departure"
+                                }
+                            })
+                        }
                         sx={{ marginBottom: "15px" }}
                         label="Выезд"
                     />

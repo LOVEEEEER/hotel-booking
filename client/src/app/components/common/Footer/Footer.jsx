@@ -6,8 +6,9 @@ import gitHubIcon from "../../../assets/svg/social-networks/github.svg";
 import telegramIcon from "../../../assets/svg/social-networks/telegram.svg";
 import Button from "../Button";
 import { useLocation } from "react-router-dom";
-import CreateTicketDialog from "../../ui/dialogs/CreateTicketDialog";
+import CreateTicketDialog from "../../ui/windows/CreateTicketDialog";
 import { useDialog } from "../../../hooks/useDialog";
+import "./scss/footer.scss";
 
 const Footer = () => {
     const location = useLocation();

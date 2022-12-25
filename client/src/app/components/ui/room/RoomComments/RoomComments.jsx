@@ -5,6 +5,7 @@ import { getIsLoggedIn } from "../../../../store/slices/users";
 import CreateCommentForm from "../../forms/CreateCommentForm";
 import RoomCommentsList from "../RoomCommentsList";
 import RoomStatisticsBar from "../RoomStatisticsBar";
+import "./scss/room-comments.scss";
 
 const RoomComments = ({ ...rest }) => {
     const [answerOn, setAnswerOn] = useState();

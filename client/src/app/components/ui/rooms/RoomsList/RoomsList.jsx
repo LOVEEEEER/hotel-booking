@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import RoomCard from "../RoomCard";
 import { useDialog } from "../../../../hooks/useDialog";
-import EditRoomWindow from "../../dialogs/EditRoomWindow/EditRoomWindow";
+import EditRoomWindow from "../../windows/EditRoomWindow/EditRoomWindow";
 import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
+import "./scss/rooms-list.scss";
 
-const RoomsList = ({ items, clearListMessage, hasPagination, ...rest }) => {
+const RoomsList = ({
+    items,
+    clearListMessage,
+    hasPagination,
+    searchedItemsCount,
+    ...rest
+}) => {
     const { itemsCrop, handlePageChange, pageSize, currentPage } = usePaginate(
         items,
         6
@@ -17,37 +24,34 @@ const RoomsList = ({ items, clearListMessage, hasPagination, ...rest }) => {
         setEditRoom(data);
         handleClickOpen();
     };
+    console.log(items);
     return (
         <>
             <ul className="rooms__list">
-                {hasPagination ? (
-                    itemsCrop.length > 0 ? (
-                        itemsCrop.map((item) => (
-                            <li key={item._id} className="rooms__item">
-                                <RoomCard
-                                    onEditRoom={handleEditRoom}
-                                    room={item}
-                                    {...rest}
-                                />
-                            </li>
-                        ))
-                    ) : (
-                        <p className="booking__error-message">
-                            {clearListMessage}
-                        </p>
-                    )
-                ) : (
-                    items.map((item) => (
-                        <li key={item._id} className="rooms__item">
-                            <RoomCard
-                                onEditRoom={handleEditRoom}
-                                room={item}
-                                {...rest}
-                            />
-                        </li>
-                    ))
-                )}
+                {hasPagination
+                    ? itemsCrop.map((item) => (
+                          <li key={item._id} className="rooms__item">
+                              <RoomCard
+                                  onEditRoom={handleEditRoom}
+                                  room={item}
+                                  {...rest}
+                              />
+                          </li>
+                      ))
+                    : items.map((item) => (
+                          <li key={item._id} className="rooms__item">
+                              <RoomCard
+                                  onEditRoom={handleEditRoom}
+                                  room={item}
+                                  {...rest}
+                              />
+                          </li>
+                      ))}
             </ul>
+            {items.length === 0 ||
+                (searchedItemsCount === 0 && (
+                    <p className="booking__error-message">{clearListMessage}</p>
+                ))}
             {hasPagination && itemsCrop.length > 0 && (
                 <Pagination
                     currentPage={currentPage}
@@ -68,7 +72,8 @@ RoomsList.defaultProps = {
 RoomsList.propTypes = {
     items: PropTypes.array,
     clearListMessage: PropTypes.string.isRequired,
-    hasPagination: PropTypes.bool
+    hasPagination: PropTypes.bool,
+    searchedItemsCount: PropTypes.number
 };
 
 export default RoomsList;

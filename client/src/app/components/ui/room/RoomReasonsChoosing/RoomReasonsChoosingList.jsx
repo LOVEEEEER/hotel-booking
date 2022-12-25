@@ -2,6 +2,7 @@ import React from "react";
 import walletIcon from "../../../../assets/svg/reasons/wallet.svg";
 import lockIcon from "../../../../assets/svg/reasons/lock.svg";
 import onlineIcon from "../../../../assets/svg/reasons/online.svg";
+import "./scss/room-reasons-choosing.scss";
 
 const RoomReasonsChoosingList = () => {
     const reasons = [

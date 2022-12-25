@@ -5,7 +5,7 @@ import RoomPage from "./components/page/RoomPage";
 import RoomsListPage from "./components/page/RoomsListPage";
 import SignInPage from "./components/page/SignInPage";
 import SignUpPage from "./components/page/SignUpPage";
-import UserProfilePage from "./components/page/UserProfilePage";
+import UserPage from "./components/page/UserPage";
 import Admin from "./layouts/Admin";
 import Error from "./layouts/Error";
 import Favorites from "./layouts/Favorites";
@@ -13,7 +13,8 @@ import Login from "./layouts/Login";
 import Main from "./layouts/Main";
 import Rooms from "./layouts/Rooms";
 import UserBooking from "./layouts/UserBooking";
-import UserProfile from "./layouts/UserProfile";
+import User from "./layouts/User";
+import GuestRoute from "./components/common/GuestRoute";
 
 const routes = [
     {
@@ -30,7 +31,11 @@ const routes = [
     },
     {
         path: "login",
-        element: <Login />,
+        element: (
+            <GuestRoute>
+                <Login />
+            </GuestRoute>
+        ),
         children: [
             { path: "", element: <SignUpPage /> },
             { path: "signup", element: <SignUpPage /> },
@@ -39,14 +44,14 @@ const routes = [
     },
     {
         path: "users",
-        element: <UserProfile />,
+        element: <User />,
         children: [
             { path: "", element: <Navigate to="/rooms" /> },
             {
                 path: ":userId",
                 element: (
                     <ProtectedRoute>
-                        <UserProfilePage />
+                        <UserPage />
                     </ProtectedRoute>
                 )
             }
@@ -55,7 +60,7 @@ const routes = [
     {
         path: "admin",
         element: (
-            <ProtectedRoute isAdmin={true}>
+            <ProtectedRoute isAdmin={true} to="/rooms">
                 <Admin />
             </ProtectedRoute>
         )

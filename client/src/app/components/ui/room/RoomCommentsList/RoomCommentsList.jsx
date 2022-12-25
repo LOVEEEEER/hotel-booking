@@ -4,6 +4,7 @@ import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
 import { useSort } from "../../../../hooks/useSort";
 import RoomComment from "../RoomComment/RoomComment";
+import "./scss/room-comments-list.scss";
 
 const RoomCommentsList = ({ comments, ...rest }) => {
     const pageSize = 3;

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Dialog from "../../../common/Dialog";
 import Button from "../../../common/Button";
+import "./scss/ticket-window.scss";
 
 const TicketWindow = ({ ticket, onRemoveTicket, ...rest }) => {
     const getCauseName = (name) => {

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import vegetarianIcon from "../../../../assets/svg/breakfast/vegetarian.svg";
 import italyIcon from "../../../../assets/svg/breakfast/italy.svg";
 import swedenIcon from "../../../../assets/svg/breakfast/sweden.svg";
+import "./scss/room-breakfast-list.scss";
 
 const RoomBreakFastList = ({ breakfast }) => {
     const getBreakfastIcon = (type) => {

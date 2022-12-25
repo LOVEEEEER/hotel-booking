@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Button from "../Button";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import "./scss/counter.scss";
 
 const Counter = ({
     label,

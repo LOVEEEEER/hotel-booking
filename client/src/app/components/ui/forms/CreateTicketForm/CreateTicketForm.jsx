@@ -7,6 +7,7 @@ import { validatorConfig } from "./validatorConfig";
 import { toast } from "react-toastify";
 import ticketService from "../../../../services/ticket.service";
 import SelectField from "../../../common/form/SelectField";
+import "./scss/create-ticket-form.scss";
 
 const CreateTicketForm = ({ forDialog }) => {
     const { data, handleChange, errors, validateBySubmit } = useForm(

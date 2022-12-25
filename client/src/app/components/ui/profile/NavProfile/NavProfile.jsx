@@ -3,6 +3,7 @@ import ProfileList from "../ProfileList";
 import { useSelector } from "react-redux";
 import { getCurrentUser } from "../../../../store/slices/users";
 import arrowDown from "../../../../assets/svg/arrow-down.svg";
+import "./scss/nav-profile.scss";
 
 const NavProfile = () => {
     const [anchor, setAnchor] = useState(null);

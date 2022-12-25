@@ -7,6 +7,7 @@ import bankIcon from "../../../../assets/svg/comfort/bank.svg";
 import gymIcon from "../../../../assets/svg/comfort/gym.svg";
 import conditionerIcon from "../../../../assets/svg/comfort/conditioner.svg";
 import smokeIcon from "../../../../assets/svg/comfort/smoke.svg";
+import "./scss/room-comfort-list.scss";
 
 const RoomComfortList = ({
     hasSmokeZone,

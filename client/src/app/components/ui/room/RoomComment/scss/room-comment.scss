@@ -24,15 +24,18 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 7px;
-  }
-  &__user-info_first {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__user-info_second {
-    display: flex;
-    align-items: center;
+    &_text {
+      margin-left: 8px;
+    }
+    &_first {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_second {
+      display: flex;
+      align-items: center;
+    }
   }
   &__description {
     max-width: 300px;

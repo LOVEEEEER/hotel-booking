@@ -12,6 +12,7 @@ import { displayDate } from "../../../../utils/dateService";
 import removeIcon from "../../../../assets/svg/remove.svg";
 import { removeComment } from "../../../../store/slices/comments";
 import { useNavigate } from "react-router-dom";
+import "./scss/room-comment.scss";
 
 const RoomComment = ({ comment, onAnswer }) => {
     const [fullContent, setFullContent] = useState();
@@ -82,7 +83,7 @@ const RoomComment = ({ comment, onAnswer }) => {
                         </span>
 
                         {currentUser?._id === authorComment._id ||
-                            (currentUser.isAdmin && (
+                            (currentUser?.isAdmin && (
                                 <img
                                     src={removeIcon}
                                     alt="remove"

@@ -5,7 +5,7 @@ import Container from "../components/common/Container";
 import Footer from "../components/common/Footer";
 import Header from "../components/common/Header";
 
-const UserProfile = () => {
+const User = () => {
     return (
         <>
             <Header />
@@ -18,4 +18,4 @@ const UserProfile = () => {
     );
 };
 
-export default UserProfile;
+export default User;

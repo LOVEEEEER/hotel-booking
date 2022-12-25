@@ -42,6 +42,7 @@ const CheckboxField = ({
                 <div>
                     <FormControl error={error} {...rest}>
                         <FormControlLabel
+                            sx={{ color: "#666" }}
                             control={
                                 <Checkbox
                                     value={value}

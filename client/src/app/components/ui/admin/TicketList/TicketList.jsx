@@ -7,6 +7,7 @@ import {
     loadTickets
 } from "../../../../store/slices/tickets";
 import TicketItem from "../TicketItem";
+import "./scss/ticket-list.scss";
 
 const TicketList = () => {
     const dispatch = useDispatch();

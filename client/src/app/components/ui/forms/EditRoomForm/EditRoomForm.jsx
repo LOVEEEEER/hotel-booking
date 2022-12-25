@@ -11,6 +11,7 @@ import {
 import Button from "../../../common/Button";
 import { useDispatch } from "react-redux";
 import { updateRoom } from "../../../../store/slices/rooms";
+import "./scss/edit-room-form.scss";
 
 const EditRoomForm = ({
     _id,

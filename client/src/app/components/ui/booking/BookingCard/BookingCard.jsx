@@ -7,8 +7,9 @@ import { useDialog } from "../../../../hooks/useDialog";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserById } from "../../../../store/slices/users";
 import { getRoomById } from "../../../../store/slices/rooms";
-import CheckWindow from "../../dialogs/CheckWindow";
+import CheckWindow from "../../windows/CheckWindow";
 import { deleteUserBooking } from "../../../../store/slices/booking";
+import "./scss/booking-card.scss";
 
 const BookingCard = ({ item, isAdmin }) => {
     const dispatch = useDispatch();

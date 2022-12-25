@@ -8,6 +8,7 @@ import Button from "../../../common/Button";
 import { useNavigate } from "react-router-dom";
 import Divider from "../../../common/Divider";
 import { getRoomById } from "../../../../store/slices/rooms";
+import "./scss/success-window.scss";
 
 const SuccessWindow = ({ currentBooking, ...rest }) => {
     const navigate = useNavigate();

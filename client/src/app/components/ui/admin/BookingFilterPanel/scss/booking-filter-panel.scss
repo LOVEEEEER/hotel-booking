@@ -1,9 +1,10 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
+@import "../../../../../styles/constants.scss";
 
 .admin {
   &__booking-date {
     margin-top: 20px;
-    color: rgb(126, 160, 255);
+    color: $main-color;
     @include tablets {
       font-size: 18px;
       text-align: center;

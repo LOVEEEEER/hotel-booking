@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { getBookingLoading } from "../../../store/slices/booking";
 import { getCurrentUser } from "../../../store/slices/users";
 import BookingList from "../../ui/booking/BookingList";
+import "./scss/booking-page.scss";
 
 const BookingPage = () => {
     const currentUser = useSelector(getCurrentUser());

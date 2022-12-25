@@ -65,16 +65,18 @@ export const loadBooking = () => async (dispatch) => {
     }
 };
 
-export const reserveRoom = (bookingRoom) => async (dispatch) => {
-    dispatch(bookingRequested());
-    try {
-        const { content } = await bookingService.add(bookingRoom);
-        dispatch(created(content));
-    } catch (error) {
-        const { message } = error.response.data.error;
-        dispatch(requestFailed(message));
-    }
-};
+export const reserveRoom =
+    (bookingRoom, openSuccessWindow) => async (dispatch) => {
+        dispatch(bookingRequested());
+        try {
+            const { content } = await bookingService.add(bookingRoom);
+            openSuccessWindow();
+            dispatch(created(content));
+        } catch (error) {
+            const { message } = error.response.data.error;
+            dispatch(requestFailed(message));
+        }
+    };
 
 export const deleteUserBooking = (id) => async (dispatch) => {
     try {
@@ -87,18 +89,15 @@ export const deleteUserBooking = (id) => async (dispatch) => {
 };
 
 export const getUserBooking = (userId) => (state) => {
-    return state.booking.entities.filter(
-        (booking) => booking.userId.toString() === userId
-    );
+    return state.booking.entities.filter((booking) => {
+        return (
+            booking.userId.toString() === userId &&
+            new Date(booking.entry).getTime() > new Date().getTime()
+        );
+    });
 };
 
 export const getBookingLoading = () => (state) => state.booking.isLoading;
-
-export const getRoomBookingList = (roomId) => (state) => {
-    return state.booking.entities.filter(
-        (booking) => booking.roomId === roomId
-    );
-};
 
 export const getUserBookingCount = (userId) => (dispatch, getState) => {
     return getState().booking.entities.filter(
@@ -107,7 +106,9 @@ export const getUserBookingCount = (userId) => (dispatch, getState) => {
 };
 
 export const getBookingList = () => (state) => {
-    return state.booking.entities;
+    return state.booking.entities.filter(
+        (booking) => new Date(booking.entry).getTime() > new Date().getTime()
+    );
 };
 
 export const getBookingError = () => (state) => {

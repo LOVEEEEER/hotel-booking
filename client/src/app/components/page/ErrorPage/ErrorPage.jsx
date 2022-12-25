@@ -2,6 +2,7 @@ import React from "react";
 import errorImage from "../../../assets/svg/error.svg";
 import Button from "../../common/Button";
 import { useNavigate } from "react-router-dom";
+import "./scss/error-page.scss";
 
 const ErrorPage = () => {
     const navigate = useNavigate();

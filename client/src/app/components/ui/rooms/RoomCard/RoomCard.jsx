@@ -8,6 +8,7 @@ import { getRoomTypeName } from "../../../../utils/getRoomTypeName";
 import Rating from "../../../common/Rating";
 import { getAverageRoomRate } from "../../../../utils/getAverageRoomRate";
 import { getRoomRates } from "../../../../store/slices/comments";
+import "./scss/room-card.scss";
 
 const RoomCard = ({ room, isAdmin, onEditRoom, forFavorites }) => {
     const dispatch = useDispatch();

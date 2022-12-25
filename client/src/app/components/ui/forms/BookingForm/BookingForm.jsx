@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../common/Button";
 import { getBookingError, reserveRoom } from "../../../../store/slices/booking";
 import { validatorConfig } from "./validatorConfig";
+import "./scss/booking-form.scss";
 
 const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
     const dispatch = useDispatch();
@@ -58,8 +59,7 @@ const BookingForm = ({ _id, price: dayPrice, onOpenDialog }) => {
                 ...data
             };
 
-            dispatch(reserveRoom(bookingRoom));
-            onOpenDialog();
+            dispatch(reserveRoom(bookingRoom, onOpenDialog));
         }
     };
     const isValid = Object.keys(errors).length === 0;

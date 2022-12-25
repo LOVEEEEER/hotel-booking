@@ -4,24 +4,20 @@ import Pagination from "../../common/Pagination";
 import Search from "../../common/Search";
 import RoomsListLoading from "../../ui/rooms/RoomsList/RoomsListLoading";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    getRooms,
-    loadRooms,
-    getRoomsLoading
-} from "../../../store/slices/rooms";
+import { getRooms, loadRooms } from "../../../store/slices/rooms";
 import { usePaginate } from "../../../hooks/usePaginate";
 import useSearch from "../../../hooks/useSearch";
 import { useSort } from "../../../hooks/useSort";
 import FilterPanel from "../../ui/rooms/FilterPanel";
 import { useFilters } from "../../../hooks/useFilters";
 import { getBookingList } from "../../../store/slices/booking";
-import { USER_FILTER_KEY } from "../../../constants/sessionStorageServiceConfig";
 import RoomsSort from "../../ui/rooms/RoomsSort";
+import "./scss/rooms-list-page.scss";
+import { USER_FILTER_KEY } from "../../../constants/sessionStorageServiceConfig";
 
 const RoomsListPage = () => {
     const dispatch = useDispatch();
     const rooms = useSelector(getRooms());
-    const roomsLoading = useSelector(getRoomsLoading());
     const bookingList = useSelector(getBookingList());
     const { handleFilter, filteredItems } = useFilters(
         rooms || [],
@@ -41,7 +37,7 @@ const RoomsListPage = () => {
         handlePageChange,
         handleChangePageSize,
         pageSize
-    } = usePaginate(sortedItems || [], 6);
+    } = usePaginate(sortedItems, 6);
     useEffect(() => {
         dispatch(loadRooms());
     }, []);
@@ -67,27 +63,18 @@ const RoomsListPage = () => {
                         onSortBy={handleSortBy}
                     />
                 </div>
-                {roomsLoading ? (
-                    <RoomsListLoading pageSize={pageSize} />
-                ) : itemsCrop.length > 0 ? (
-                    <RoomsList items={itemsCrop} />
+                {itemsCrop.length > 0 ? (
+                    <RoomsList
+                        items={itemsCrop}
+                        searchedItemsCount={searchQueryItems.length}
+                    />
                 ) : (
-                    <>
-                        {(!searchQueryItems.length ||
-                            !filteredItems.length) && (
-                            <p
-                                style={{ width: "100%" }}
-                                className="booking__error-message"
-                            >
-                                Не найдено номеров по вашим запросам
-                            </p>
-                        )}
-                    </>
+                    <RoomsListLoading pageSize={pageSize} />
                 )}
                 {itemsCrop.length > 0 && (
                     <Pagination
                         currentPage={currentPage}
-                        itemsCount={filteredItems.length}
+                        itemsCount={searchQueryItems.length}
                         pageSize={pageSize}
                         onChange={handlePageChange}
                     />

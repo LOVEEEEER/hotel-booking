@@ -1,4 +1,5 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
+@import "../../../../../styles/constants.scss";
 
 .form {
   &-card {
@@ -22,5 +23,8 @@
   &-offer {
     margin-top: 20px;
     font-size: 13px;
+    &-link {
+      color: $grey-text-color;
+    }
   }
 }

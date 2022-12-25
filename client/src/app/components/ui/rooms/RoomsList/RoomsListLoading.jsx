@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Skeleton } from "@mui/material";
+import Skeleton from "../../../common/Skeleton";
 import _ from "lodash";
 
 const RoomsListLoading = ({ pageSize }) => {

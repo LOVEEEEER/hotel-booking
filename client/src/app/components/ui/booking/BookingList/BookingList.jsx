@@ -8,6 +8,7 @@ import {
 import BookingCard from "../BookingCard/BookingCard";
 import { usePaginate } from "../../../../hooks/usePaginate";
 import Pagination from "../../../common/Pagination";
+import "./scss/booking-list.scss";
 
 const BookingList = ({ isAdmin, currentUserId }) => {
     const userBooking = useSelector(getUserBooking(currentUserId));

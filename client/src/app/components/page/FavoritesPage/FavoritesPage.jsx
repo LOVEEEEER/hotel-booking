@@ -5,6 +5,7 @@ import {
     getFavoritesRooms
 } from "../../../store/slices/favorites";
 import RoomsList from "../../ui/rooms/RoomsList/RoomsList";
+import "./scss/favorites-page.scss";
 
 const FavoritesPage = () => {
     const favoritesLoading = useSelector(getFavoritesLoading());

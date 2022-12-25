@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import { getRoomRates } from "../../../../store/slices/comments";
 import { getAverageRoomRate } from "../../../../utils/getAverageRoomRate";
 import { getRoomTypeName } from "../../../../utils/getRoomTypeName";
+import "./scss/room-top-info.scss";
 
 const RoomTopInfo = ({ title, type, rate, _id }) => {
     const { roomId } = useParams();

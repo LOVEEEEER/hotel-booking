@@ -6,6 +6,7 @@ import NavProfile, { NavProfileLoading } from "../../ui/profile/NavProfile";
 import { useSelector } from "react-redux";
 import { getIsLoading, getIsLoggedIn } from "../../../store/slices/users";
 import PhoneMenu from "../../ui/PhoneMenu";
+import "./scss/header.scss";
 
 const Header = () => {
     const [open, setOpen] = useState(false);

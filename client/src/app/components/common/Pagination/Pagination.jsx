@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Pagination as PaginationMui, styled } from "@mui/material";
+import "./scss/pagination.scss";
 
 const PaginationStyled = styled(PaginationMui)(() => ({
     color: "rgb(99, 140, 253)"

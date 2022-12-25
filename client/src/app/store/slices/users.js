@@ -100,6 +100,7 @@ export const signIn =
             });
             dispatch(authRequestSuccess({ userId: data.userId }));
             localStorageService.setTokens(data);
+            console.log(redirect);
             navigate(redirect);
         } catch (error) {
             const { message, code } = error.response.data.error;

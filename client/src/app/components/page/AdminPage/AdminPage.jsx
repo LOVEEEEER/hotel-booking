@@ -7,6 +7,7 @@ import RoomsStatus from "../../ui/admin/RoomsStatus/RoomsStatus";
 import { useSelector } from "react-redux";
 import { getRooms, getRoomsLoading } from "../../../store/slices/rooms";
 import { getBookingLoading } from "../../../store/slices/booking";
+import "./scss/admin-page.scss";
 
 const AdminPage = () => {
     const rooms = useSelector(getRooms());

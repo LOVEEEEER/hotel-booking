@@ -8,12 +8,7 @@ import {
     getIsLoggedIn
 } from "../../../store/slices/users";
 
-const ProtectedRoute = ({
-    children,
-    isAdmin,
-    to = "/login/signin",
-    ...rest
-}) => {
+const ProtectedRoute = ({ children, isAdmin, to = "/login/signin" }) => {
     const isLoading = useSelector(getIsLoading());
     const isLoggedIn = useSelector(getIsLoggedIn());
     const location = useLocation();

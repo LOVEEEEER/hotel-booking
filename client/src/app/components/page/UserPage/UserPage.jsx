@@ -13,8 +13,9 @@ import { useDialog } from "../../../hooks/useDialog";
 import Dialog from "../../common/Dialog";
 import EditForm from "../../ui/forms/EditForm";
 import FormCardStyles from "../../ui/HOC/FormCardStyles";
+import "./scss/user-page.scss";
 
-const UserProfilePage = () => {
+const UserPage = () => {
     const { open, handleClickOpen, handleClose } = useDialog();
     const { userId } = useParams();
     const currentUser = useSelector(getCurrentUser());
@@ -89,4 +90,4 @@ const UserProfilePage = () => {
     }
 };
 
-export default UserProfilePage;
+export default UserPage;

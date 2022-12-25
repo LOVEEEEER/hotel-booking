@@ -47,8 +47,7 @@ export const breakfastList = [
 export const pageSizesList = [
     { value: 6, label: "6" },
     { value: 12, label: "12" },
-    { value: 18, label: "18" },
-    { value: 24, label: "24" }
+    { value: 18, label: "18" }
 ];
 
 export const sortByList = [
