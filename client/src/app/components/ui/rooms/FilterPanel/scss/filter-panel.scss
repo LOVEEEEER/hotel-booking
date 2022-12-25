@@ -1,0 +1,30 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+@import "../../../../../styles/constants.scss";
+
+.filter-panel {
+  &__block {
+    padding: 20px;
+    width: 250px;
+  }
+  &__list {
+    @include phones {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  &__item {
+    margin-bottom: 17px;
+  }
+  &__filter-title {
+    margin-bottom: 3px;
+    color: $main-color;
+    &:first-child {
+      margin-bottom: 19px;
+    }
+  }
+}
+
+.css-ahj2mt-MuiTypography-root {
+  color: $grey-text-color;
+}

@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Бронирование номеров
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Добавьте краткое описание проекта, опишите какую задачу он решает. 1-3 предложения будет достаточно. Добавьте бейджи для важных статусов проекта: статус разработки (в разработке, на поддержке и т.д.), статус билда, процент покрытия тестами и тд.
 
-## Available Scripts
+## Содержание
 
-In the project directory, you can run:
+- [Технологии](#технологии)
+- [Начало работы](#начало-работы)
+- [Тестирование](#тестирование)
+- [Deploy и CI/CD](#deploy-и-ci/cd)
+- [Contributing](#contributing)
+- [To do](#to-do)
+- [Команда проекта](#команда-проекта)
 
-### `npm start`
+## Технологии
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [GatsbyJS](https://www.gatsbyjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- ...
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Использование
 
-### `npm test`
+Расскажите как установить и использовать ваш проект, покажите пример кода:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Установите npm-пакет с помощью команды:
 
-### `npm run build`
+```sh
+$ npm i your-awesome-plugin-name
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+И добавьте в свой проект:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```typescript
+import { hi } from "your-awesome-plugin-name";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+hi(); // Выведет в консоль "Привет!"
+```
 
-### `npm run eject`
+## Разработка
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Требования
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Для установки и запуска проекта, необходим [NodeJS](https://nodejs.org/) v8+.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Установка зависимостей
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Для установки зависимостей, выполните команду:
 
-## Learn More
+```sh
+$ npm i
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Запуск Development сервера
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Чтобы запустить сервер для разработки, выполните команду:
 
-### Code Splitting
+```sh
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Создание билда
 
-### Analyzing the Bundle Size
+Чтобы выполнить production сборку, выполните команду:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+npm run build
+```
 
-### Making a Progressive Web App
+## Тестирование
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Какие инструменты тестирования использованы в проекте и как их запускать. Например:
 
-### Advanced Configuration
+Наш проект покрыт юнит-тестами Jest. Для их запуска выполните команду:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+npm run test
+```
 
-### Deployment
+## Deploy и CI/CD
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Расскажите, как развернуть приложение. Как запустить пайплайны и т.д.
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Как помочь в разработке проекта? Как отправить предложение или баг-репорт. Как отправить доработку (оформить pull request, какие стайлгайды используются). Можно вынести в отдельный файл — [Contributing.md](./CONTRIBUTING.md).
+
+## FAQ
+
+Если потребители вашего кода часто задают одни и те же вопросы, добавьте ответы на них в этом разделе.
+
+### Зачем вы разработали этот проект?
+
+Чтобы был.
+
+## To do
+
+- [x] Добавить крутое README
+- [ ] Всё переписать
+- [ ] ...
+
+## Команда проекта
+
+Оставьте пользователям контакты и инструкции, как связаться с командой разработки.
+
+- [Богдан Звягинцев](tg://resolve?domain=bzvyagintsev) — Front-End Engineer
+
+## Источники
+
+Если вы чем-то вдохновлялись, расскажите об этом: где брали идеи, какие туториалы смотрели, ссылки на исходники кода.

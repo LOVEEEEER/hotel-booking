@@ -1,0 +1,19 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
+.css-armxnc-MuiFormControl-root-MuiTextField-root {
+  @include tablets {
+    width: 100vw !important;
+  }
+}
+
+.room-comments {
+  &__publish {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include tablets {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

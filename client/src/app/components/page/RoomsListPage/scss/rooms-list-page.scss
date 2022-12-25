@@ -1,0 +1,63 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
+$content-margin: 15px;
+
+.rooms {
+  padding-bottom: 100px;
+  &__page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include tablets{
+      display: block;
+    }
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    align-items: unset;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  &__filters {
+    display: flex;
+    justify-content: space-between; 
+    flex-shrink: 0;
+    @include tablets{
+      display: block;
+    }
+  }
+  &__select-block {
+    display: flex;
+    justify-content: center;
+    min-width: 380px;
+    @include tablets{
+      margin-top: 20px;
+      width: 100%;
+      min-width: 100px;
+    }
+  }
+}
+.filter-panel {
+  @include tablets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
+}
+
+.MuiInputBase-inputTypeSearch {
+  width: 600px !important;
+  @include tablets {
+    width: 100% !important;
+  }
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  @include tablets {
+    width: 100%;
+  }
+}

@@ -1,0 +1,10 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
+.room-comfort {
+  &__rules-description {
+    margin-top: 50px;
+    @include tablets {
+      margin-top: 20px;
+    }
+  }
+}

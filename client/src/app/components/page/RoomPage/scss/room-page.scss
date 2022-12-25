@@ -1,0 +1,142 @@
+@import "../../../../styles/constants.scss";
+@import "../../../../styles/mixins/response-mixin.scss";
+
+.room {
+  &__page {
+    padding-bottom: 60px;
+  }
+  &-cover {
+    padding-bottom: 70px;
+  }
+  &-cover__head-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 13px;
+    margin-bottom: 25px;
+    object-fit: cover;
+  }
+  &-cover__title-wrapper {
+    margin-bottom: 4px;
+  }
+  &-cover__title {
+    margin-left: 11px;
+    font-size: 35px;
+    font-weight: 600;
+  }
+  &-cover__type {
+    color: $options-color;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  &-cover__type-text {
+    color: #000000;
+  }
+  &-cover__rate-name {
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  &-cover__swiper-slider {
+    width: 100%;
+    max-height: 550px;
+  }
+  &-cover__swiper-image {
+    width: 100%;
+    height: 550px;
+    @include tablets {
+      height: 400px;
+    }
+    @include phones {
+      height: 250px;
+    }
+    object-fit: cover;
+  }
+  &-cover__rate {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 40px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #32ba43;
+    border-radius: 6px;
+  }
+  &-cover__rate-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &-cover__rate-text {
+    color: #090;
+  }
+  &-cover__title-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &-reasons {
+    padding-bottom: $sections-margin;
+  }
+  &-section-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+    @include tablets {
+      font-size: 30px;
+    }
+  }
+  &-comfort {
+    padding-bottom: $sections-margin;
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &-comfort__title {
+    margin-bottom: 30px;
+  }
+  &-comfort__block {
+    display: flex;
+    justify-content: space-between;
+    @include tablets {
+      flex-direction: column;
+      align-items: center;
+    }
+  } 
+  &-comfort__item {
+    width: 360px;
+    padding-right: 40px;
+    &:not(:first-child) {
+      padding-left: 20px;
+    }
+    @include tablets {
+      &:first-child {
+        padding-left: 20px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 35px;
+        border: 0;
+      }
+    }
+  }
+  &-comfort__description {
+    width: 300px;
+    font-size: 16px;
+  }
+  &-booking  {
+    padding-bottom: 70px;
+  }
+  &-booking__title {
+    margin-bottom: 30px;
+  }
+  &-booking__booking-block {
+    padding: 50px;
+    box-shadow: 2px 2px 8px 3px rgba(34, 60, 80, 0.2);
+    border-radius: 6px;
+  }
+}
+.love-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-label {
+    width: 150px;
+    @include tablets {
+      width: 90px;
+    }
+  }
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  &-value {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &-minus {
+    width: 14px;
+    fill: #ffffff;
+  }
+}
