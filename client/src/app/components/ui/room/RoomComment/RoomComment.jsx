@@ -82,14 +82,15 @@ const RoomComment = ({ comment, onAnswer }) => {
                             {displayDate(comment.created_at)}
                         </span>
 
-                        {currentUser._id === authorComment._id && (
-                            <img
-                                src={removeIcon}
-                                alt="remove"
-                                className="room-comments__icon"
-                                onClick={() => commentRemove(comment._id)}
-                            />
-                        )}
+                        {currentUser &&
+                            currentUser._id === authorComment._id && (
+                                <img
+                                    src={removeIcon}
+                                    alt="remove"
+                                    className="room-comments__icon"
+                                    onClick={() => commentRemove(comment._id)}
+                                />
+                            )}
                     </div>
                 </div>
                 <div className="room-comments__content">

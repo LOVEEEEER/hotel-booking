@@ -36,6 +36,11 @@ const TicketWindow = ({ ticket, onRemoveTicket, ...rest }) => {
                         </span>
                     </li>
                     <li className="admin__dialog-item">
+                        <span className="admin__dialog-info">
+                            E-mail: {ticket.email}
+                        </span>
+                    </li>
+                    <li className="admin__dialog-item">
                         <p className="admin__dialog-message admin__dialog-info">
                             Сообщение: {ticket.message}
                         </p>
