@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Divider from "../../../common/Divider";
 import { getRoomById } from "../../../../store/slices/rooms";
 import "./scss/success-window.scss";
+import { getRoomTypeName } from "../../../../utils/getRoomTypeName";
 
 const SuccessWindow = ({ currentBooking, ...rest }) => {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ const SuccessWindow = ({ currentBooking, ...rest }) => {
                     </li>
                     <li className="room-booking__dialog-item">
                         <span className="room-booking__dialog-info">
-                            Тип номера: {bookedRoom.type}
+                            Тип номера: {getRoomTypeName(bookedRoom.type)}
                         </span>
                     </li>
                     <li className="room-booking__dialog-item">
