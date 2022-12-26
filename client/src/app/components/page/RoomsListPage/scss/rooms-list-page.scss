@@ -50,7 +50,7 @@ $content-margin: 15px;
   box-shadow: 4px 4px 8px -3px rgba(34, 60, 80, 0.2);
 }
 
-.css-1g24dm6-MuiInputBase-input-MuiOutlinedInput-input, .css-1g24dm6-MuiInputBase-input-MuiOutlinedInput-input {
+.MuiInputBase-inputTypeSearch {
   width: 600px !important;
   @include tablets {
     width: 100% !important;
