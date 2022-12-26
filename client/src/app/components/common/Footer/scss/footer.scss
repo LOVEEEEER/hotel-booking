@@ -56,5 +56,8 @@
   &__logo-block {
     align-self: flex-end;
     margin-right: -32px;
+    @include tablets {
+      margin-right: -10px;
+    }
   }
 }
