@@ -8,7 +8,11 @@ const GuestRoute = ({ children, to }) => {
     const location = useLocation();
     const isLoggedIn = useSelector(getIsLoggedIn());
     if (isLoggedIn) {
-        return <Navigate to={location.state.from.pathname || to} />;
+        return (
+            <Navigate
+                to={location.state ? location.state.from.pathname : null || to}
+            />
+        );
     }
     return children;
 };

@@ -48,10 +48,9 @@ const RoomsList = ({
                           </li>
                       ))}
             </ul>
-            {items.length === 0 ||
-                (searchedItemsCount === 0 && (
-                    <p className="booking__error-message">{clearListMessage}</p>
-                ))}
+            {items.length === 0 && (
+                <p className="booking__error-message">{clearListMessage}</p>
+            )}
             {hasPagination && itemsCrop.length > 0 && (
                 <Pagination
                     currentPage={currentPage}

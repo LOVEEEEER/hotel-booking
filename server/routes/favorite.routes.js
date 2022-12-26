@@ -21,7 +21,6 @@ router.delete("/:roomId", auth, async (req, res) => {
   try {
     const { roomId } = req.params;
     const removedFavoriteItem = await Favorite.findOne({ roomId });
-    console.log(removedFavoriteItem);
 
     const isAvaibleToRemove =
       removedFavoriteItem.userId.toString() === req.user._id;

@@ -28,7 +28,6 @@ const SignInForm = () => {
         e.preventDefault();
         const isValid = validateBySubmit();
         if (!isValid) return;
-        console.log(location);
         const redirect = location.state
             ? location.state.from.pathname
             : "/rooms";

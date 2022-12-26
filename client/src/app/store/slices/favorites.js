@@ -70,7 +70,6 @@ export const addInFavorites = (data) => async (dispatch) => {
 export const getFavoritesRooms = () => (state) => {
     const favoriteRooms = [];
     if (state.rooms.entities && state.favorites.entities) {
-        console.log(state.favorites.entities);
         state.rooms.entities.forEach((room) => {
             state.favorites.entities.forEach((favorite) => {
                 if (room._id === favorite.roomId) {
