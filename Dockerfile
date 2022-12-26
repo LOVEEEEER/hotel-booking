@@ -1,4 +1,4 @@
-FROM node:18 as client
+FROM node:14 as client
 
 WORKDIR /app/client
 
@@ -10,7 +10,7 @@ COPY client /app/client
 
 RUN npm run build
 
-FROM node:18
+FROM node:14
 
 WORKDIR /app
 
