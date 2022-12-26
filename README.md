@@ -14,6 +14,9 @@ http://45.130.43.212
 - Node.js
 - Express
 - MangoDB
+- Axios
+- React Router DOM v6
+- Material UI
 - SCSS
 
 ## Разработка
