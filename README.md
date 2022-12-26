@@ -8,6 +8,7 @@
 - Node.js
 - Express
 - MangoDB
+- SCSS
 
 ## Разработка
 
