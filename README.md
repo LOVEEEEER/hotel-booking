@@ -21,6 +21,8 @@ http://45.130.43.212
 - React Router v6
 - Material UI
 - SCSS
+- lodash.debounce
+- lodash
 
 ## Разработка
 
