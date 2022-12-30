@@ -5,7 +5,8 @@ export const validator = (data, config) => {
     function validate(validateMethod, data, config) {
         switch (validateMethod) {
             case "isRequired":
-                if (Boolean(data) === false) return config.message;
+                if (data.toString().trim() === "") return config.message;
+                console.log(data);
                 break;
             case "isEmail":
                 if (!/^\S+@\S+\.\S+$/g.test(data)) return config.message;
@@ -18,6 +19,9 @@ export const validator = (data, config) => {
                 break;
             case "min":
                 if (data.length < config.params) return config.message;
+                break;
+            case "max":
+                if (data.length > config.params) return config.message;
                 break;
             case "isEnd":
                 if (!/[A-Z]+/g.test(data)) return config.message;
