@@ -2,6 +2,10 @@ export const validatorConfig = {
     name: {
         isRequired: {
             message: "Поле имя не может быть пустым"
+        },
+        max: {
+            message: "Поле имя не может быть больше 20 символов",
+            params: 20
         }
     },
     email: {
