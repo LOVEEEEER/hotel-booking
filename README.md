@@ -6,7 +6,7 @@
 
 Деплой был произведен на VPS сервер с использованем Docker.
 
-http://62.217.181.95/
+https://booking-hotels-g34w-7jagifksq-loveeeeer.vercel.app/
 
 ## Технологии
 
