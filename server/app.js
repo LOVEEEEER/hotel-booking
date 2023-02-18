@@ -10,6 +10,9 @@ const routes = require("./routes");
 const app = express();
 
 app.use(express.json());
+app.use(
+  require("prerender-node").set("prerenderToken", "ecEogE2WLlkxYaJdKafM")
+);
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
