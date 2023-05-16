@@ -17,6 +17,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:roomId", async (req, res) => {
+  try {
+    const { roomId } = req.params;
+
+    const room = await Room.findById(roomId);
+    res.status(200).send(room);
+  } catch (error) {
+    res.status(400).send(room);
+  }
+});
+
 router.patch("/:roomId", auth, async (req, res) => {
   try {
     const { roomId } = req.params;

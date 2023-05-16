@@ -1,0 +1,92 @@
+@import "../../../../../scss/constants.scss";
+@import "../../../../../scss/response-mixins.scss";
+
+.room {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+    box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
+    transition: 0.2s box-shadow linear;
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+        padding: 23px;
+    }
+    &__image {
+        margin-right: 30px;
+        width: 380px;
+        height: 250px;
+        object-fit: cover;
+        @include tablets {
+            width: 100%;
+        }
+    }
+    &__head-info {
+        display: flex;
+        @include tablets {
+            flex-direction: column;
+        }
+    }
+    &__main-content_text-wrapper {
+        align-self: initial;
+    }
+    &__name {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: $grey-text-color;
+        @include tablets {
+            text-align: center;
+        }
+    }
+    &__description {
+        margin-top: 11px;
+        max-width: 375px;
+        font-size: 16px;
+        color: $grey-text-color;
+        @include tablets {
+            display: none;
+        }
+    }
+    &__more-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 15px;
+        margin-right: 20px;
+        @include tablets {
+            align-items: center;
+            margin: 0;
+        }
+    }
+    &__type {
+        margin-top: 5px;
+        color: $options-color;
+        font-weight: 600;
+        @include tablets {
+            margin-top: 14px;
+        }
+    }
+    &__price {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: $grey-text-color;
+        @include tablets {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        span {
+            font-size: 30px;
+            font-weight: 600;
+            color: $options-color;
+        }
+    }
+}
+
+.css-bktwps,
+.css-1cmkaw3-MuiRating-root {
+    @include tablets {
+        display: flex !important;
+        justify-content: center;
+    }
+}

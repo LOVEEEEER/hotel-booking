@@ -23,8 +23,10 @@ router.post("/", auth, async (req, res) => {
       ...req.body,
       userId: req.user._id,
     });
+    console.log(newComment);
     res.status(201).send(newComment);
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({
       message: "На сервере произошла ошибка. Попробуйте позже",
     });
