@@ -1,0 +1,63 @@
+@import "../../../../scss/response-mixins.scss";
+
+.footer {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 200px;
+        @include phones {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    &__description {
+        margin-bottom: 10px;
+        font-size: 15px;
+        @include tablets {
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+    }
+    &__social-list {
+        display: flex;
+        align-items: center;
+        @include tablets {
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+    }
+    &__social-item {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+    &__social {
+        width: 40px;
+        @include tablets {
+            width: 30px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__feedback {
+        display: flex;
+        align-items: center;
+        &-title {
+            margin-right: 8px;
+        }
+    }
+    &__second-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__logo-block {
+        align-self: flex-end;
+        margin-right: -32px;
+        @include tablets {
+            margin-right: -10px;
+        }
+    }
+}

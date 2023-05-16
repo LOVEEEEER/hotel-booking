@@ -1,0 +1,31 @@
+@import "../../../../../scss/constants.scss";
+
+.room-comments {
+    &__comments-bar_item {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+    &__comments-bar_list {
+        width: 450px;
+    }
+    &__comments-bar_item {
+        display: flex;
+        align-items: center;
+
+        justify-content: space-between;
+    }
+    &__rate {
+        display: block;
+        padding: 13px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: $options-color;
+        border-radius: 10px;
+    }
+}
+
+.linear-progress {
+    width: 400px;
+}

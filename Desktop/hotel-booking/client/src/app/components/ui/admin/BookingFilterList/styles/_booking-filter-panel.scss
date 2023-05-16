@@ -1,0 +1,20 @@
+@import "../../../../../scss/response-mixins.scss";
+@import "../../../../../scss/constants.scss";
+
+.admin {
+    &__booking-date {
+        margin-top: 20px;
+        color: $main-color;
+        @include tablets {
+            font-size: 18px;
+            text-align: center;
+        }
+        @include phones {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
+    &__date-fields {
+        display: flex;
+    }
+}

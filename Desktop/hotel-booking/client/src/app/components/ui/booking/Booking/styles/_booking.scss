@@ -1,0 +1,16 @@
+@import "../../../../../scss/response-mixins.scss";
+
+.room-booking {
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__price {
+        margin-bottom: 15px;
+        font-size: 18px;
+        @include tablets {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import "../../../../../scss/response-mixins.scss";
+
+.room {
+  &-comments__feedback {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+
+  &-comments__form {
+    margin-bottom: 25px;
+  }
+
+  &-comments__statistics-title {
+    margin-bottom: 20px;
+  }
+
+  &-comments__comments {
+    margin-bottom: 40px;
+  }
+
+  &-comments__auth-error {
+    margin-bottom: 30px;
+
+    &_link {
+      color: #585858;
+    }
+  }
+
+  &-comments__statistics {
+    @include tablets {
+      display: none;
+    }
+  }
+}

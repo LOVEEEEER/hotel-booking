@@ -1,0 +1,44 @@
+@import "../../../../scss/response-mixins.scss";
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(88vh - 200px);
+    @include tablets {
+        flex-direction: column;
+    }
+    @include tablets {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    &__buttons-group {
+        @include tablets {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+    &__user-image {
+        margin-right: 75px;
+        width: 350px;
+        @include tablets {
+            margin-right: 0;
+            margin-bottom: 20px;
+            width: 250px;
+        }
+    }
+    &__user-name {
+        margin-bottom: 14px;
+        font-size: 30px;
+        @include tablets {
+            text-align: center;
+        }
+    }
+    &__description {
+        font-size: 20px;
+        @include tablets {
+            text-align: center;
+        }
+    }
+}

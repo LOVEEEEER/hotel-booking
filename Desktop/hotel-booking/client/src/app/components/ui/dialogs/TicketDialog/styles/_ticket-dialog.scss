@@ -1,0 +1,30 @@
+@import "../../../../../scss/response-mixins.scss";
+
+.admin {
+    &__ticket-dialog {
+        padding: 33px;
+    }
+    &__ticket-id {
+        color: rgb(134, 118, 226);
+    }
+    &__ticket-title {
+        margin-bottom: 15px;
+        font-size: 24px;
+        @include phones {
+            font-size: 16px;
+        }
+    }
+    &__dialog-info {
+        font-size: 20px;
+        @include phones {
+            font-size: 16px;
+        }
+    }
+    &__dialog-list {
+        margin-bottom: 12px;
+    }
+    &__dialog-message {
+        width: 300px;
+        word-wrap: break-word;
+    }
+}
