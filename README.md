@@ -2,12 +2,12 @@
 
 Аккаунт администратора: adminofworld@mail.com; Test1234
 
-## Деплой приложения
+<!-- ## Деплой приложения
 
 Деплой был произведен на VPS сервер с использованем Docker.
 
 https://booking-hotels-g34w-7jagifksq-loveeeeer.vercel.app/
-
+ -->
 ## Технологии
 
 - React
