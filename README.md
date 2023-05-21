@@ -10,6 +10,7 @@ https://booking-hotels-g34w-7jagifksq-loveeeeer.vercel.app/
  -->
 ## Технологии
 
+- TypeScript
 - React
 - React-Redux
 - Redux Toolkit
