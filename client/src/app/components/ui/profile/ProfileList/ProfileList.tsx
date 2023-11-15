@@ -8,7 +8,6 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HotelIcon from "@mui/icons-material/Hotel";
-import { User } from "../../../../types/types";
 import { getCurrentUser } from "../../../../store/users/usersSelectors";
 import { logOut } from "../../../../store/users/usersActions";
 
